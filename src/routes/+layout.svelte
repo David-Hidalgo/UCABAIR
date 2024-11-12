@@ -8,7 +8,7 @@
 	<div class="CajaEncabezadoAdmin">
 		<div class="Caja2">
 			<div class="logo">
-				<img src={foto} alt="minerucab Logo" />
+				<img src={foto} alt="UCABAir Logo" />
 			</div>
 			<div class="Admin"></div>
 		</div>

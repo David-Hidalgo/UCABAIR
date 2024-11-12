@@ -7,51 +7,67 @@
 	let opcionSeleccionada = 'Empleados';
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 	interface Empleado {
-		cedula: string;
-		nombres: string;
-		apellidos: string;
-		telefono: string[];
-		correo: string[];
-		area_trabajo: string;
-		sueldo: string;
-		especialidad: string;
-		rol: string;
+		cedula_per: string;
+		primer_nombre_per: string;
+		segundo_nombre_per: string;
+		primer_apellido_per: string;
+		segundo_apellido_per: string;
+		direccion_per: string;
+		fecha_inicio_servicio_per: Date;
+		experiencia_profesional_per: string;
+		titulacion_per: string;
+		sueldo_per: number;
+		telefono_per: string[];
+		correo_per: string[];
+		labor_per:string;
 	}
 
 	// Ahora declara 'datos' con el tipo explícito 'Dato[]'
 	let empleados: Empleado[] = [
 		{
-			cedula: 'V-12345678',
-			nombres: 'Juan',
-			apellidos: 'Pérez',
-			telefono: ['+58-212-1234567', '+58-412-7654321'],
-			correo: ['juan.perez@example.com', 'jperez@workemail.com'],
-			area_trabajo: 'Ingeniería',
-			sueldo: '2500$',
-			especialidad: 'Desarrollo de Software',
-			rol: 'empleado'
+			cedula_per: 'V-12345678',
+			primer_nombre_per: 'Juan',
+			segundo_nombre_per: 'Gabriel',
+			primer_apellido_per: 'Pérez',
+			segundo_apellido_per: 'Rodriguez',
+			direccion_per: 'Calle Falsa 123',
+			fecha_inicio_servicio_per: new Date('2021-01-01'),
+			experiencia_profesional_per: '5 años',
+			titulacion_per: 'Ingeniero en Informática',
+			sueldo_per: 15000,
+			telefono_per: ['+58-212-1234567', '+58-414-9876543'],
+			correo_per: ['hola123@gmail.com', 'xyzcorreo@gmail.com'],
+			labor_per:'Maquinista'
 		},
 		{
-			cedula: 'E-87654321',
-			nombres: 'María',
-			apellidos: 'González',
-			telefono: ['+58-212-7654321', '+58-416-1234567'],
-			correo: ['maria.gonzalez@example.com', 'mgonzalez@workemail.com'],
-			area_trabajo: 'Recursos Humanos',
-			sueldo: '2000$',
-			especialidad: 'Gestión del Talento',
-			rol: 'empleado'
+			cedula_per: 'E-87654321',
+			primer_nombre_per: 'María',
+			segundo_nombre_per: 'Alejandra',
+			primer_apellido_per: 'González',
+			segundo_apellido_per: 'Urbina',
+			direccion_per: 'Av. Siempreviva 742',
+			fecha_inicio_servicio_per: new Date('2020-12-01'),
+			experiencia_profesional_per: '3 años',
+			titulacion_per: 'Licenciada en Administración',
+			sueldo_per: 20000,
+			telefono_per: ['+58-212-7654321', '+58-416-1234567'],
+			correo_per: ['maria.gonzalez@example.com', 'mgonzalez@workemail.com'],
+			labor_per:'Gerente'
 		},
 		{
-			cedula: 'V-12344321',
-			nombres: 'Carlos',
-			apellidos: 'Martínez',
-			telefono: ['+58-212-9876543', '+58-414-6543210'],
-			correo: ['carlos.martinez@example.com', 'cmartinez@workemail.com'],
-			area_trabajo: 'Marketing',
-			sueldo: '2200$',
-			especialidad: 'Estrategia Digital',
-			rol: 'admin'
+			cedula_per: 'V-12344321',
+			primer_nombre_per: 'Carlos',
+			segundo_nombre_per: 'Martínez',
+			primer_apellido_per: 'Gómez',
+			segundo_apellido_per: 'Leal',
+			direccion_per: 'Carrera 8, Calle 10',
+			fecha_inicio_servicio_per: new Date('2021-02-15'),
+			experiencia_profesional_per: '2 años',
+			titulacion_per: 'Licenciado en Comunicación Social',
+			sueldo_per: 18000,
+			telefono_per: ['+58-212-9876543', '+58-414-6543210'],
+			correo_per: ['carlos.martinez@example.com', 'cmartinez@workemail.com'],
+			labor_per:'Operador'
 		}
 		// Tus datos aquí
 	];
@@ -75,26 +91,32 @@
 			<th>Cedula</th>
 			<th>Nombres</th>
 			<th>Apellidos</th>
-			<th>Teléfono</th>
-			<th>Correo</th>
-			<th>Area de Trabajo</th>
+			<th>Telefono</th>
+			<th>Direccion</th>
+			<th>Fecha Inicio Servicio</th>
+			<th>Experiencia Profesional</th>
+			<th>Titulacion</th>
 			<th>Sueldo</th>
-			<th>Especialidad</th>
-			<th>Rol</th>
+			<th>Telefono</th>
+			<th>Correo</th>
+			<th>Labor</th>
 		</tr>
 	</thead>
 	<tbody>
 		{#each empleados as dato, i}
 			<tr>
-				<td>{dato.cedula}</td>
-				<td>{dato.nombres}</td>
-				<td>{dato.apellidos}</td>
-				<td>{dato.telefono}</td>
-				<td>{dato.correo}</td>
-				<td>{dato.area_trabajo}</td>
-				<td>{dato.sueldo}</td>
-				<td>{dato.especialidad}</td>
-				<td>{dato.rol}</td>
+				<td>{dato.cedula_per}</td>
+				<td>{dato.primer_nombre_per} {' '} {dato.segundo_nombre_per}</td>
+				<td>{dato.primer_apellido_per} {' '} {dato.segundo_apellido_per}</td>
+				<td>{dato.telefono_per}</td>
+				<td>{dato.direccion_per}</td>
+				<td>{dato.fecha_inicio_servicio_per}</td>
+				<td>{dato.experiencia_profesional_per}</td>
+				<td>{dato.titulacion_per}</td>
+				<td>{dato.sueldo_per}</td>
+				<td>{dato.telefono_per}</td>
+				<td>{dato.correo_per}</td>
+				<td>{dato.labor_per}</td>
 				<td>
 					<div class="botonesUD">
 						<a href="/admin/HomeAdmin/editar/empleado">
@@ -115,9 +137,6 @@
 </table>
 <a href="/admin/HomeAdmin/registrar/empleado">
 	<button>Registrar Empleado</button>
-</a>
-<a href="/admin/HomeAdmin/reponerInventario/solicitarPersonal">
-	<button>Solicitar Personal</button>
 </a>
 
 <style>

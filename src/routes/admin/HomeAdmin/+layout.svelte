@@ -10,8 +10,8 @@
 	let categories = [
 		{ id: 'admin/HomeAdmin/clientes', name: 'Clientes' },
 		{ id: 'admin/HomeAdmin/empleado', name: 'Empleados' },
-		{ id: 'admin/HomeAdmin/proyectos', name: 'Ensamblajes' },
-		{ id: 'admin/HomeAdmin/mineral', name: 'Inventario' },
+		{ id: 'admin/HomeAdmin/ensamblajes', name: 'Ensamblajes' },
+		{ id: 'admin/HomeAdmin/inventario', name: 'Inventario' },
 		{ id: 'admin/HomeAdmin/aliados', name: 'Proveedores' },
 		{ id: 'admin/HomeAdmin/proyectos', name: 'Pruebas' },
 		{ id: 'admin/HomeAdmin/roles', name: 'Roles' }

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import navigate from 'svelte-spa-router';
-	import { createEventDispatcher } from 'svelte';
-	import RegistrarMineral from '$lib/components/registrarMineral.svelte';
+	//import navigate from 'svelte-spa-router';
+	//import { createEventDispatcher } from 'svelte';
+	//import RegistrarMineral from '$lib/components/registrarAeronave.svelte'; HAY QUE CREARLO
 
-	const dispatch = createEventDispatcher();
+	//const dispatch = createEventDispatcher();
 
 	let searchTerm = '';
 	function search() {
@@ -12,36 +12,56 @@
 	}
 	let opcionSeleccionada = 'Mineral';
 	// Define una interfaz para el tipo de datos que contiene 'datos'
-	interface Mineral {
-		id_mineral: number;
-		mi_nombre: string;
-		mi_tipo: string; // Valor predeterminado
-		mi_utilizacion: string;
-		mi_dureza: string;
-		mi_maleabilidad: string;
-		mi_peso: string;
+	interface Aeronave {
+		id_avi: number;
+		nombre_avi: string;
+		tipo_avi: string;
+		color_avi: string;
+		ubicacion_avi: string;
 	}
 
-	export let minerales: Mineral[] = [];
+	export let aeronaves: Aeronave[] = [
+		{
+			id_avi: 1,
+			nombre_avi: 'Aeronave 1',
+			tipo_avi: 'AU-787',
+			color_avi: 'Blanco',
+			ubicacion_avi: 'Sede Valencia'
+		},
+		{
+			id_avi: 2,
+			nombre_avi: 'Aeronave 2',
+			tipo_avi: 'AU-80',
+			color_avi: 'Azul',
+			ubicacion_avi: 'Sede Caracas'
+		},
+		{
+			id_avi: 3,
+			nombre_avi: 'Aeronave 3',
+			tipo_avi: 'AU-747',
+			color_avi: 'Rojo',
+			ubicacion_avi: 'Sede Maracay'
+		}
+	];
 
-	async function generarReporte(minerales: Mineral[]) {
+	async function generarReporte(aeronaves: Aeronave[]) {
 		//logica para
 	}
 
 	async function mostrarDatos() {
-		const response = await fetch('http://localhost:4000/minerales');
-		const data: Mineral[] = await response.json();
-		minerales = data;
+		const response = await fetch('http://localhost:4000/aeronave');
+		const data: Aeronave[] = await response.json();
+		aeronaves = data;
 	}
 
 	mostrarDatos();
 	//
 	// Función para editar un registro
-	async function editarRegistro(minerales: Mineral) {
+	async function editarRegistro(aeronaves: Aeronave) {
 		try {
-			const res = await fetch(`http://localhost:4000/mineral/${minerales.id_mineral}`, {
+			const res = await fetch(`http://localhost:4000/mineral/${aeronaves.id_avi}`, {//configurar la ruta
 				method: 'PUT',
-				body: JSON.stringify(minerales),
+				body: JSON.stringify(aeronaves),
 				headers: { 'Content-Type': 'application/json' }
 			});
 
@@ -58,37 +78,35 @@
 	}
 
 	// Función para eliminar un registro
-	async function eliminarRegistro(minerales: Mineral) {
+	async function eliminarRegistro(aeronaves: Aeronave) {
 		await fetch(`http://localhost:4000/mineral/${minerales.id_mineral}`, {
 			method: 'DELETE'
 		});
 	}
 </script>
 
-<h2>Minerales</h2>
+<h2>Aeronaves</h2>
 <table>
 	<thead>
 		<tr>
-			<th>Mineral</th>
-			<th>Tipo de mineral</th>
-			<th>Utilizacion</th>
-			<th>Dureza</th>
-			<th>Maleabilidad</th>
-			<th>Peso</th>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Tipo</th>
+			<th>Color</th>
+			<th>Ubicación</th>
 		</tr>
 	</thead>
 	<tbody>
-		{#each minerales as dato}
+		{#each aeronaves as dato}
 			<tr>
-				<td>{dato.mi_nombre}</td>
-				<td>{dato.mi_tipo}</td>
-				<td>{dato.mi_utilizacion}</td>
-				<td>{dato.mi_dureza}</td>
-				<td>{dato.mi_maleabilidad}</td>
-				<td>{dato.mi_peso}</td>
+				<td>{dato.id_avi}</td>
+				<td>{dato.nombre_avi}</td>
+				<td>{dato.tipo_avi}</td>
+				<td>{dato.color_avi}</td>
+				<td>{dato.ubicacion_avi}</td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/mineral">
+						<a href="/admin/HomeAdmin/editar/mineral"> // Hara falta un editar aeronave?
 							<button on:click={() => editarRegistro(dato)}>
 								<span>✏️</span>
 								<!-- Icono de lápiz -->

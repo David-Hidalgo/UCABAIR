@@ -1,39 +1,59 @@
 <script lang="ts">
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 	interface Cliente {
-		cedula: string;
-		nombres: string;
-		apellidos: string;
-		telefono: string[];
-		correo: string[];
-		direccion: string;
+		cedula_nat: string;
+		primer_nombre_nat: string;
+		segundo_nombre_nat: string;
+		primer_apelido_nat: string;
+		segundo_apelido_nat: string;
+		telefono_com: string[];
+		correo_com: string[];
+		direccion_com: string;
+		monto_acreditado_com: number;
+		fecha_inicio_operaciones_com: Date;
+		tipo_com: string;
 	}
 
 	// Ahora declara 'datos' con el tipo explícito 'Dato[]'
 	let datos: Cliente[] = [
 		{
-			cedula: '27660324',
-			nombres: 'Juan',
-			apellidos: 'Pérez',
-			telefono: ['123456789', '987654321'],
-			correo: ['juan.perez@example.com'],
-			direccion: 'Calle Falsa 123'
+			cedula_nat: '27660324',
+			primer_nombre_nat: 'Juan',
+			segundo_nombre_nat: 'Gabriel',
+			primer_apelido_nat: 'Pérez',
+			segundo_apelido_nat: 'Rodriguez',
+			telefono_com: ['123456789', '987654321'],
+			correo_com: ['juan.perez@example.com'],
+			direccion_com: 'Calle Falsa 123',
+			monto_acreditado_com: 100000,
+			fecha_inicio_operaciones_com: new Date('2021-01-01'),
+			tipo_com: 'Natural'
 		},
 		{
-			cedula: '22931928',
-			nombres: 'María',
-			apellidos: 'González',
-			telefono: ['234567890'],
-			correo: ['maria.gonzalez@example.com'],
-			direccion: 'Avenida Siempre Viva 456'
+			cedula_nat: '22931928',
+			primer_nombre_nat: 'María',
+			segundo_nombre_nat: 'Alejandra',
+			primer_apelido_nat: 'González',
+			segundo_apelido_nat: 'Urbina',
+			telefono_com: ['234567890'],
+			correo_com: ['maria.gonzalez@example.com'],
+			direccion_com: 'Avenida Siempre Viva 456',
+			monto_acreditado_com: 200000,
+			fecha_inicio_operaciones_com: new Date('2021-02-01'),
+			tipo_com: 'Natural'
 		},
 		{
-			cedula: '39029839',
-			nombres: 'Carlos',
-			apellidos: 'Rodríguez',
-			telefono: ['345678901', '765432109'],
-			correo: ['carlos.rodriguez@example.com'],
-			direccion: 'Boulevard de los Sueños Rotos 789'
+			cedula_nat: '39029839',
+			primer_nombre_nat: 'Carlos',
+			segundo_nombre_nat: 'Jose',
+			primer_apelido_nat: 'Rodríguez',
+			segundo_apelido_nat: 'Leal',
+			telefono_com: ['345678901', '765432109'],
+			correo_com: ['carlos.rodriguez@example.com'],
+			direccion_com: 'Boulevard de los Sueños Rotos 789',
+			monto_acreditado_com: 300000,
+			fecha_inicio_operaciones_com: new Date('2021-03-01'),
+			tipo_com: 'Natural'
 		}
 		// Puedes agregar más registros aquí
 		// Tus datos aquí
@@ -66,12 +86,14 @@
 	<tbody>
 		{#each datos as dato, i}
 			<tr>
-				<td>{dato.cedula}</td>
-				<td>{dato.nombres}</td>
-				<td>{dato.apellidos}</td>
-				<td>{dato.telefono}</td>
-				<td>{dato.correo}</td>
-				<td>{dato.direccion}</td>
+				<td>{dato.cedula_nat}</td>
+				<td>{dato.primer_nombre_nat} {' '} {dato.segundo_nombre_nat}</td>
+				<td>{dato.primer_apelido_nat} {' '} {dato.segundo_apelido_nat}</td>
+				<td>{dato.telefono_com}</td>
+				<td>{dato.correo_com}</td>
+				<td>{dato.direccion_com}</td>
+				<td>{dato.monto_acreditado_com}</td>
+				<td>{dato.fecha_inicio_operaciones_com}</td>
 				<td>
 					<div class="botonesUD">
 						<a href="/admin/HomeAdmin/editar/cliente">
