@@ -716,68 +716,69 @@ INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_e
 INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
 (10, 'transferencia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 99887766, '2024-01-08', 44556677, NULL);
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1000, 'Juan Pérez');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1000, 'Juan Pérez', 'JuanP123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1001, 'María García');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1001, 'María García', 'MariaG123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1002, 'Pedro Martínez');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1002, 'Pedro Martínez', 'PedroM123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1003, 'Ana Rodríguez');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1003, 'Ana Rodríguez', 'AnaR123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1004, 'Luis Fernández');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1004, 'Luis Fernández', 'LuisF123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1005, 'Sofía López');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1005, 'Sofía López', 'SofiaL123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1006, 'Carlos Gómez');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1006, 'Carlos Gómez', 'CarlosG123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1007, 'Laura Hernández');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1007, 'Laura Hernández', 'LauraH123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1008, 'Miguel Ramírez');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1008, 'Miguel Ramírez', 'MiguelR123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1009, 'Isabel Torres');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1009, 'Isabel Torres', 'IsabelT123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1010, 'Jorge Mendoza');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1010, 'Jorge Mendoza', 'JorgeM123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1011, 'Lucía Romero');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1011, 'Lucía Romero', 'LuciaR123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1012, 'Andrés Castro');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1012, 'Andrés Castro', 'AndresC123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1013, 'Paula Suárez');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1013, 'Paula Suárez', 'PaulaS123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1014, 'Diego Silva');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1014, 'Diego Silva', 'DiegoS123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1015, 'Elena Vargas');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1015, 'Elena Vargas', 'ElenaV123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1016, 'Ricardo Flores');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1016, 'Ricardo Flores', 'RicardoF123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1017, 'Valeria León');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1017, 'Valeria León', 'ValeriaL123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1018, 'Santiago Rojas');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1018, 'Santiago Rojas', 'SantiagoR123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu)
-VALUES (1019, 'Carolina Méndez');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1019, 'Carolina Méndez', 'CarolinaM123');
 
-INSERT INTO usuario(codigo_usu,nombre_usu) 
-VALUES (1020, 'Diego Castillos');
+INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
+VALUES (1020, 'Diego Castillos', 'DiegoC123');
+
 
 INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
 VALUES (1, 'Av. Principal 123', 1000000, '2023-01-01', 'proveedor', 'Venezolana', 101, 1001, 'juridico', 'J-12345678-1', 'Empresa ABC', 'ABC C.A.', 'www.empresaabc.com');

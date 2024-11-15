@@ -465,7 +465,8 @@ CREATE TABLE turno (
 );
 CREATE TABLE usuario (
     codigo_usu INTEGER NOT NULL,
-    nombre_usu VARCHAR(255) NOT NULL
+    nombre_usu VARCHAR(255) NOT NULL,
+    contraseña_usu VARCHAR(255) NOT NULL
 );
 CREATE TABLE venta (
     codigo_venta_ven   INTEGER NOT NULL,
