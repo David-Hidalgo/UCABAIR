@@ -10,7 +10,7 @@
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	let opcionSeleccionada = 'Mineral';
+	
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 	interface Aeronave {
 		id_avi: number;

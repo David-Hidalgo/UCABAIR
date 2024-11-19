@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Combobox from "$lib/components/combobox.svelte";
 	//import navigate from 'svelte-spa-router';
 	//import { createEventDispatcher } from 'svelte';
 	//import RegistrarPieza from '$lib/components/registrarPieza.svelte';
@@ -16,7 +17,8 @@
 		id_pieza: number;
 		nombre_pie:string;
 		tipo_pieza: string;
-		
+		precio_pieza: number;
+		cantidad: number;
 	}
 
 	export let piezas: Pieza[] = [];
@@ -56,33 +58,32 @@
 
 	// Función para eliminar un registro
 	async function eliminarRegistro(piezas: Pieza) {
-		await fetch(`http://localhost:4000/Pieza/${piezas.id_mineral}`, {
+		await fetch(`http://localhost:4000/Pieza/${piezas.id_pieza}`, {
 			method: 'DELETE'
 		});
 	}
 </script>
 
-<h2>piezas</h2>
+<h2>Inventario Piezas</h2>
+<div class="ComboboxSedes">
+	<Combobox/>
+</div>
 <table>
 	<thead>
 		<tr>
 			<th>Pieza</th>
 			<th>Tipo de Pieza</th>
-			<th>Utilizacion</th>
-			<th>Dureza</th>
-			<th>Maleabilidad</th>
-			<th>Peso</th>
+			<th>Precio por unidad</th>
+			<th>Cantidad</th>
 		</tr>
 	</thead>
 	<tbody>
 		{#each piezas as dato}
 			<tr>
-				<td>{dato.mi_nombre}</td>
-				<td>{dato.mi_tipo}</td>
-				<td>{dato.mi_utilizacion}</td>
-				<td>{dato.mi_dureza}</td>
-				<td>{dato.mi_maleabilidad}</td>
-				<td>{dato.mi_peso}</td>
+				<td>{dato.nombre_pie}</td>
+				<td>{dato.tipo_pieza}</td>
+				<td>{dato.precio_pieza}</td>
+				<td>{dato.cantidad}</td>
 				<td>
 					<div class="botonesUD">
 						<a href="/admin/HomeAdmin/editar/Pieza">

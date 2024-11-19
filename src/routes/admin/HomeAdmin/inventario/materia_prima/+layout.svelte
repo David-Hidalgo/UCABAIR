@@ -1,5 +1,6 @@
 <script lang="ts">
-	import navigate from 'svelte-spa-router';
+	import Combobox from '$lib/components/combobox.svelte';
+	//import navigate from 'svelte-spa-router';
 	import { createEventDispatcher } from 'svelte';
 	import RegistrarMineral from '$lib/components/registrarMineral.svelte';
 
@@ -10,21 +11,42 @@
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	let opcionSeleccionada = 'Mineral';
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 	interface Materia_Prima {
-		id_mp: number;
-		nombre_mp: string;
-		tipo_mp: string;
-		unidad_medida_mp: string;
-		cantidad_mp: number;
+		codigo_tmp: number;
+		nombre_tmp: string;
+		descripcion_tmp: string;
+		precio_tmp: number;
+		unidad_medida_tmp: string;
+		cantidad_tmp: number;
 	}
 
-	export let materia_prima: Materia_Prima[] = [];
-
-	async function generarReporte(materia_prima: Materia_Prima[]) {
-		//logica para
-	}
+	export let materia_prima: Materia_Prima[] = [
+		{
+			codigo_tmp: 1,
+			nombre_tmp: 'Materia Prima 1',
+			descripcion_tmp: 'Descripción de la materia prima 1',
+			precio_tmp: 100,
+			unidad_medida_tmp: 'kg',
+			cantidad_tmp: 100
+		},
+		{
+			codigo_tmp: 2,
+			nombre_tmp: 'Materia Prima 2',
+			descripcion_tmp: 'Descripción de la materia prima 2',
+			precio_tmp: 200,
+			unidad_medida_tmp: 'kg',
+			cantidad_tmp: 200
+		},
+		{
+			codigo_tmp: 3,
+			nombre_tmp: 'Materia Prima 3',
+			descripcion_tmp: 'Descripción de la materia prima 3',
+			precio_tmp: 300,
+			unidad_medida_tmp: 'kg',
+			cantidad_tmp: 300
+		}
+	];
 
 	async function mostrarDatos() {
 		const response = await fetch('http://localhost:4000/materia_prima');
@@ -63,23 +85,28 @@
 	}
 </script>
 
-<h2>Materia Prima</h2>
+<h2>Inventario Materia Prima</h2>
+<div class="ComboboxSedes">
+	<Combobox />
+</div>
 <table>
 	<thead>
 		<tr>
-			<th>Nombre</th>
-			<th>Tipo</th>
-			<th>Unidad de medida</th>
+			<th>Material</th>
 			<th>Cantidad</th>
+			<th>Precio por unidad</th>
+			<th>Unidad de medida</th>
+			<th>Empresa que despachó</th>
 		</tr>
 	</thead>
 	<tbody>
 		{#each materia_prima as dato}
 			<tr>
-				<td>{dato.nombre_mp}</td>
-				<td>{dato.tipo_mp}</td>
-				<td>{dato.unidad_medida_mp}</td>
-				<td>{dato.cantidad_mp}</td>
+				<td>{dato.nombre_tmp}</td>
+				<td>{dato.cantidad_tmp}</td>
+				<td>{dato.precio_tmp}</td>
+				<td>{dato.unidad_medida_tmp}</td>
+				<td>{dato.cantidad_tmp}</td>
 				<td>
 					<div class="botonesUD">
 						<a href="/admin/HomeAdmin/editar/Materia_Prima">
@@ -99,7 +126,7 @@
 	</tbody>
 </table>
 <a href="/admin/HomeAdmin/registrar/Materia_Prima">
-	<button>Registrar Materia_Prima</button>
+	<button>Registrar Materia Prima</button>
 </a>
 <a href="/admin/HomeAdmin/reponerInventario">
 	<button>Reponer Inventario</button>

@@ -23,7 +23,6 @@
 		width: 100%;
 		border-collapse: collapse;
 	}
-	th,
 	td {
 		border: 1px solid #adadad;
 		padding: 8px;
