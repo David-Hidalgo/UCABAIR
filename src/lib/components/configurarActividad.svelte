@@ -38,6 +38,7 @@
 </script>
 
 <form on:submit|preventDefault={registrarDato}>
+	<h2>Configurar Actividad</h2>
 	<div class="actividad">
 		<label for="nombre_actividad">ID Actividad Organizacion</label>
 		<input id="nombre_actividad" bind:value={actividad.id_actividad_organizacion} />

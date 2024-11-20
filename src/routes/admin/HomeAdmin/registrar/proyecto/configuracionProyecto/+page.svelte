@@ -2,14 +2,12 @@
 	import ConfigurarProyecto from '$lib/components/configurarProyecto.svelte';
 </script>
 
-<body>
-	<div class="ConfigurarProyecto">
-		<ConfigurarProyecto />
-		<a href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa">
-			<button>Configurar Etapas</button>
-		</a>
-	</div>
-</body>
+<div class="ConfigurarEtapa">
+	<ConfigurarProyecto />
+	<a href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa">
+		<button>Configurar Etapa</button>
+	</a>
+</div>
 
 <style>
 	button {

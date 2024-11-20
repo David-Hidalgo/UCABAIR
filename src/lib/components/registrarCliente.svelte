@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	export let cedula;
+	export const cedula: string = '';
 	// Interfaz para representar un empleado
 	interface Cliente {
 		cedula: string;
