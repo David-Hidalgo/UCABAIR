@@ -132,10 +132,7 @@
 	<button>Registrar Pieza</button>
 </a>
 <a href="/admin/HomeAdmin/reponerInventario">
-	<button>Iniciar Ensamblaje Pieza</button>
-</a>
-<a href="/admin/HomeAdmin/reponerInventario">
-	<button>Solicitar Pieza a Sede</button>
+	<button>Reponer Inventario</button>
 </a>
 
 <style>

@@ -79,7 +79,7 @@
 
 	// Función para eliminar un registro
 	async function eliminarRegistro(aeronaves: Aeronave) {
-		await fetch(`http://localhost:4000/mineral/${minerales.id_mineral}`, {
+		await fetch(`http://localhost:4000/mineral/${aeronaves.id_avi}`, {
 			method: 'DELETE'
 		});
 	}
@@ -123,10 +123,10 @@
 	</tbody>
 </table>
 <a href="/admin/HomeAdmin/registrar/mineral">
-	<button>Registrar Mineral</button>
+	<button>Registrar Aeronave</button>
 </a>
 <a href="/admin/HomeAdmin/reponerInventario">
-	<button>Reponer Inventario</button>
+	<button>Iniciar Ensamblaje Aeronave</button>
 </a>
 
 <style>

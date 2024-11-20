@@ -24,26 +24,26 @@
 	export let materia_prima: Materia_Prima[] = [
 		{
 			codigo_tmp: 1,
-			nombre_tmp: 'Materia Prima 1',
-			descripcion_tmp: 'Descripción de la materia prima 1',
+			nombre_tmp: 'Tornillo',
+			descripcion_tmp: '',
 			precio_tmp: 100,
-			unidad_medida_tmp: 'kg',
+			unidad_medida_tmp: 'Cajas 150 unidades',
 			cantidad_tmp: 100
 		},
 		{
 			codigo_tmp: 2,
-			nombre_tmp: 'Materia Prima 2',
-			descripcion_tmp: 'Descripción de la materia prima 2',
+			nombre_tmp: 'Pintura Negra',
+			descripcion_tmp: 'Pintura Negra para aeronaves',
 			precio_tmp: 200,
-			unidad_medida_tmp: 'kg',
+			unidad_medida_tmp: 'Lts',
 			cantidad_tmp: 200
 		},
 		{
 			codigo_tmp: 3,
-			nombre_tmp: 'Materia Prima 3',
-			descripcion_tmp: 'Descripción de la materia prima 3',
+			nombre_tmp: 'Aluminio',
+			descripcion_tmp: 'Aluminio para aeronaves',
 			precio_tmp: 300,
-			unidad_medida_tmp: 'kg',
+			unidad_medida_tmp: 'Kg',
 			cantidad_tmp: 300
 		}
 	];
@@ -92,6 +92,7 @@
 <table>
 	<thead>
 		<tr>
+			<th>ID</th>
 			<th>Material</th>
 			<th>Cantidad</th>
 			<th>Precio por unidad</th>
@@ -102,6 +103,11 @@
 	<tbody>
 		{#each materia_prima as dato}
 			<tr>
+				<td>
+				<a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.codigo_tmp}`}>
+					{dato.codigo_tmp}
+				</a>
+				</td>
 				<td>{dato.nombre_tmp}</td>
 				<td>{dato.cantidad_tmp}</td>
 				<td>{dato.precio_tmp}</td>
@@ -129,7 +135,7 @@
 	<button>Registrar Materia Prima</button>
 </a>
 <a href="/admin/HomeAdmin/reponerInventario">
-	<button>Reponer Inventario</button>
+	<button>Reponer Inventario Materia Prima</button>
 </a>
 
 <style>

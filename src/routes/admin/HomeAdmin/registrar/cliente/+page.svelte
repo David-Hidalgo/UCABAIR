@@ -4,6 +4,6 @@
 
 <body>
 	<div class="RegistrarCliente">
-		<Registro />
+		<Registro/>
 	</div>
 </body>
