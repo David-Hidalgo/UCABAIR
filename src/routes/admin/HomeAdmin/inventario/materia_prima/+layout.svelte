@@ -2,7 +2,7 @@
 	import Combobox from '$lib/components/combobox.svelte';
 	//import navigate from 'svelte-spa-router';
 	import { createEventDispatcher } from 'svelte';
-	import RegistrarMineral from '$lib/components/registrarMineral.svelte';
+	import RegistrarMaterial from '$lib/components/registrarMateriaPrima.svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -131,7 +131,7 @@
 		{/each}
 	</tbody>
 </table>
-<a href="/admin/HomeAdmin/registrar/Materia_Prima">
+<a href="/admin/HomeAdmin/registrar/materia_prima">
 	<button>Registrar Materia Prima</button>
 </a>
 <a href="/admin/HomeAdmin/reponerInventario">
