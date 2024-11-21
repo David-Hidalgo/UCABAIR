@@ -47,28 +47,43 @@
 	<h2>Registrar Empleado</h2>
 
 	<label for="cedula">Cédula</label>
-	<input id="cedula" bind:value={empleado.cedula} />
+	<input id="cedula" bind:value={empleado.cedula_per} />
 
-	<label for="nombre">Nombre</label>
-	<input id="nombre" bind:value={empleado.nombre} />
+	<label for="primerNombre">Primer Nombre</label>
+	<input id="primerNombre" bind:value={empleado.primer_nombre_per} />
 
-	<label for="apellido">Apellido</label>
-	<input id="apellido" bind:value={empleado.apellido} />
+	<label for="segundoNombre">Segundo Nombre</label>
+	<input id="segundoNombre" bind:value={empleado.segundo_nombre_per} />
 
-	<label for="telefonos">Nombres</label>
-	<input id="telefonos" bind:value={empleado.telefono} />
+	<label for="primerApellido">Primer Apellido</label>
+	<input id="primerApellido" bind:value={empleado.primer_apellido_per} />
 
-	<label for="correo">Correos</label>
-	<input id="correo" bind:value={empleado.correo} />
+	<label for="segundoApellido">Segundo Apellido</label>
+	<input id="segundoApellido" bind:value={empleado.segundo_apellido_per} />
 
-	<label for="areatrabajo">Area de Trabajo</label>
-	<input id="areatrabajo" bind:value={empleado.area_trabajo} />
+	<label for="direccion">Dirección</label>
+	<input id="direccion" bind:value={empleado.direccion_per} />
+
+	<label for="fechaInicio">Fecha de Inicio de Servicio</label>
+	<input id="fechaInicio" type="date" bind:value={empleado.fecha_inicio_servicio_per} />
+
+	<label for="experiencia">Experiencia Profesional</label>
+	<input id="experiencia" bind:value={empleado.experiencia_profesional_per} />
+
+	<label for="titulacion">Titulación</label>
+	<input id="titulacion" bind:value={empleado.titulacion_per} />
 
 	<label for="sueldo">Sueldo</label>
-	<input id="sueldo" bind:value={empleado.sueldo} />
+	<input id="sueldo" bind:value={empleado.sueldo_per} />
 
-	<label for="especialidad">Especialidad</label>
-	<input id="especialidad" bind:value={empleado.especialidad} />
+	<label for="telefono">Teléfono</label>
+	<input id="telefono" bind:value={empleado.telefono_per} />
+
+	<label for="correo">Correo</label>
+	<input id="correo" bind:value={empleado.correo_per} />
+
+	<label for="labor">Labor</label>
+	<input id="labor" bind:value={empleado.labor_per} />
 
 	<button type="submit">Registrar Empleado</button>
 </form>

@@ -1,30 +1,38 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-	export let rif;
+	//import { goto } from '$app/navigation';
 	// Interfaz para representar un proveedor
-	interface Aliado {
-		razon_social: string;
-		rif: string;
-		direccion_fiscal: string;
-		telefono: string[];
-		correo: string[];
-		capacidad_instalada: string;
+	interface Proveedor {
+		codigo_com: number;
+		rif_jur: string;
+		denominacion_comercial_jur: string;
+		razon_social_jur: string;
+		pagina_web_jur: string;
+		telefono_com: string[];
+		correo_com: string[];
+		direccion_com: string;
+		monto_acreditado_com: number;
+		fecha_inicio_operaciones_com: Date;
 	}
 
-	let aliados: Aliado = {
-		razon_social: '',
-		rif: 'J-2892781991',
-		direccion_fiscal: '',
-		telefono: [],
-		correo: [],
-		capacidad_instalada: ''
+
+	let proveedor: Proveedor = {
+		codigo_com: 0,
+		telefono_com: [],
+		correo_com: [],
+		direccion_com: '',
+		monto_acreditado_com: 0,
+		fecha_inicio_operaciones_com: new Date(),
+		rif_jur: "",
+		denominacion_comercial_jur: "",
+		razon_social_jur: "",
+		pagina_web_jur: ""
 	};
 
 	// Función para manejar el envío del formulario
 	function registrarProveedor() {
 		// Aquí iría la lógica para procesar los datos del formulario
-		console.log('Registrando proveedor:', aliados);
-		goto('/admin/HomeAdmin/aliados');
+		console.log('Registrando proveedor:', proveedor);
+		//goto('/admin/HomeAdmin/aliados');
 		alert('Se agregó exitosamente el aliado');
 	}
 </script>
@@ -32,26 +40,37 @@
 <form on:submit|preventDefault={registrarProveedor}>
 	<h2>Registrar Aliado</h2>
 
-	<label for="razonSocial">Razón Social</label>
-	<input id="razonSocial" bind:value={aliados.razon_social} />
+	<label for="codigo">Código</label>
+	<input type="number" id="codigo" bind:value={proveedor.codigo_com} required>
 
 	<label for="rif">RIF</label>
-	<input id="rif" bind:value={aliados.rif} />
+	<input type="text" id="rif" bind:value={proveedor.rif_jur} required>
 
-	<label for="direccionFiscal">Dirección Fiscal</label>
-	<input id="direccionFiscal" bind:value={aliados.direccion_fiscal} />
+	<label for="denominacion_comercial">Denominación Comercial</label>
+	<input type="text" id="denominacion_comercial" bind:value={proveedor.denominacion_comercial_jur} required>
 
-	<label for="telefono">Telefono</label>
-	<input id="telefono" bind:value={aliados.telefono} />
+	<label for="razon_social">Razón Social</label>
+	<input type="text" id="razon_social" bind:value={proveedor.razon_social_jur} required>
+
+	<label for="pagina_web">Página Web</label>
+	<input type="text" id="pagina_web" bind:value={proveedor.pagina_web_jur} required>
+
+	<label for="telefono">Teléfono</label>
+	<input type="text" id="telefono" bind:value={proveedor.telefono_com} required>
 
 	<label for="correo">Correo</label>
-	<input id="correo" bind:value={aliados.correo} />
+	<input type="text" id="correo" bind:value={proveedor.correo_com} required>
 
-	<label for="capacidadInstalada">Capacidad Instalada</label>
-	<input id="capacidadinstalada" bind:value={aliados.capacidad_instalada} />
+	<label for="direccion">Dirección</label>
+	<input type="text" id="direccion" bind:value={proveedor.direccion_com} required>
 
-	<!-- Agrega más campos según la interfaz Proveedor -->
-	<!-- Ejemplo: teléfono, correo, capacidad instalada -->
+	<label for="monto_acreditado">Monto Acreditado</label>
+	<input type="number" id="monto_acreditado" bind:value={proveedor.monto_acreditado_com} required>
+
+	<label for="fecha_inicio_operaciones">Fecha de Inicio de Operaciones</label>
+	<input type="date" id="fecha_inicio_operaciones" bind:value={proveedor.fecha_inicio_operaciones_com} required>
+
+
 	<button type="submit">Registrar Aliados</button>
 </form>
 

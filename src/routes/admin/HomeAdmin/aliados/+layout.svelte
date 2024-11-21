@@ -95,8 +95,8 @@
 		{/each}
 	</tbody>
 </table>
-<a href="/admin/HomeAdmin/registrar/aliado">
-	<button>Registrar Aliado</button>
+<a href="/admin/HomeAdmin/registrar/proveedor">
+	<button>Registrar Proveedor</button>
 </a>
 
 <style>

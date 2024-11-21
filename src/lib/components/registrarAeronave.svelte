@@ -18,7 +18,8 @@
 	};
 
 	// Función para manejar el envío del formulario
-	async function registrarMineral() {
+	async function registrarAeronave() {
+		console.log('Se agregará:',aeronave);
 		const res = await fetch(`http://localhost:4000/mineral`, {
 			method: 'POST',
 			body: JSON.stringify(aeronave),
@@ -31,7 +32,7 @@
 	}
 </script>
 
-<form on:submit|preventDefault={registrarMineral}>
+<form on:submit|preventDefault={registrarAeronave}>
 	<h2>Registrar Aeronave</h2>
 
 	<label for="codigo_ma">Codigo Aeronave</label>

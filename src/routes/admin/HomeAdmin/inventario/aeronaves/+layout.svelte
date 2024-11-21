@@ -122,7 +122,7 @@
 		{/each}
 	</tbody>
 </table>
-<a href="/admin/HomeAdmin/registrar/mineral">
+<a href="/admin/HomeAdmin/registrar/aeronave">
 	<button>Registrar Aeronave</button>
 </a>
 <a href="/admin/HomeAdmin/reponerInventario">
