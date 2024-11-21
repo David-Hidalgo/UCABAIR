@@ -5,13 +5,13 @@
 		console.log(`Buscando: ${searchTerm}`);
 	}
 	let opcionSeleccionada = 'Proveedor';
-	interface Aliado {
+	 interface Aliado {
 		razon_social: string;
 		rif: string;
 		direccion_fiscal: string;
 		telefono: string[];
 		correo: string[];
-		capacidad_instalada: string;
+		monto_acreditado: string;
 	}
 
 	let aliados: Aliado[] = [
@@ -21,7 +21,7 @@
 			direccion_fiscal: 'Zona Industrial Matanzas, Puerto Ordaz, Bolívar',
 			telefono: ['+58-286-9945678', '+58-286-9945679'],
 			correo: ['contacto@imorinoco.com', 'ventas@imorinoco.com'],
-			capacidad_instalada: '5000 toneladas/mes'
+			monto_acreditado: '5000 toneladas/mes'
 		},
 		{
 			razon_social: 'Alimentos Carabobo S.A.',
@@ -29,7 +29,7 @@
 			direccion_fiscal: 'Av. Henry Ford, Valencia, Carabobo',
 			telefono: ['+58-241-8334567', '+58-241-8334568'],
 			correo: ['info@alica.com', 'soporte@alica.com'],
-			capacidad_instalada: '20000 cajas/mes'
+			monto_acreditado: '20000 cajas/mes'
 		},
 		{
 			razon_social: 'Textiles Maracay C.A.',
@@ -37,7 +37,7 @@
 			direccion_fiscal: 'Calle Los Cedros, Maracay, Aragua',
 			telefono: ['+58-243-5556789', '+58-243-5556790'],
 			correo: ['atencioncliente@textilmaracay.com', 'ventas@textilmaracay.com'],
-			capacidad_instalada: '15000 metros de tela/mes'
+			monto_acreditado: '15000 metros de tela/mes'
 		}
 		// Tus datos aquí
 	];

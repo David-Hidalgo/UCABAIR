@@ -3,25 +3,35 @@
 	export let message;
 	// Interfaz para representar un empleado
 	interface Empleado {
-		cedula: string;
-		nombre: string[];
-		apellido: string[];
-		telefono: string[];
-		correo: string[];
-		area_trabajo: string;
-		sueldo: string;
-		especialidad: string;
+		cedula_per: string;
+		primer_nombre_per: string;
+		segundo_nombre_per: string;
+		primer_apellido_per: string;
+		segundo_apellido_per: string;
+		direccion_per: string;
+		fecha_inicio_servicio_per: Date;
+		experiencia_profesional_per: string;
+		titulacion_per: string;
+		sueldo_per: number;
+		telefono_per: string[];
+		correo_per: string[];
+		labor_per:string;
 	}
 
 	let empleado: Empleado = {
-		cedula: 'V-2817811',
-		nombre: [],
-		apellido: [],
-		telefono: [],
-		correo: [],
-		area_trabajo: '',
-		sueldo: '',
-		especialidad: ''
+		cedula_per: '',
+		primer_nombre_per: '',
+		segundo_nombre_per: '',
+		primer_apellido_per: '',
+		segundo_apellido_per: '',
+		direccion_per: '',
+		fecha_inicio_servicio_per: new Date(),
+		experiencia_profesional_per: '',
+		titulacion_per: '',
+		sueldo_per: 0,
+		telefono_per: [],
+		correo_per: [],
+		labor_per:''
 	};
 
 	// Función para manejar el envío del formulario

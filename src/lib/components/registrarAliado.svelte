@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	//import { goto } from '$app/navigation';
 	export let rif;
 	// Interfaz para representar un proveedor
 	interface Aliado {
@@ -8,7 +8,7 @@
 		direccion_fiscal: string;
 		telefono: string[];
 		correo: string[];
-		capacidad_instalada: string;
+		monto_acreditado: string;
 	}
 
 	let aliados: Aliado = {
@@ -17,14 +17,14 @@
 		direccion_fiscal: '',
 		telefono: [],
 		correo: [],
-		capacidad_instalada: ''
+		monto_acreditado: ''
 	};
 
 	// Función para manejar el envío del formulario
 	function registrarProveedor() {
 		// Aquí iría la lógica para procesar los datos del formulario
 		console.log('Registrando proveedor:', aliados);
-		goto('/admin/HomeAdmin/aliados');
+		//goto('/admin/HomeAdmin/aliados');
 		alert('Se agregó exitosamente el aliado');
 	}
 </script>
@@ -47,8 +47,8 @@
 	<label for="correo">Correo</label>
 	<input id="correo" bind:value={aliados.correo} />
 
-	<label for="capacidadInstalada">Capacidad Instalada</label>
-	<input id="capacidadinstalada" bind:value={aliados.capacidad_instalada} />
+	<label for="montoAcreditado">Monto Acreditado</label>
+	<input id="capacidadinstalada" bind:value={aliados.monto_acreditado} />
 
 	<!-- Agrega más campos según la interfaz Proveedor -->
 	<!-- Ejemplo: teléfono, correo, capacidad instalada -->

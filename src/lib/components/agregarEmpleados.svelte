@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	//import { goto } from '$app/navigation';
 	// Interfaz para representar un dato
 	const fecha = new Date();
 
@@ -20,9 +20,7 @@
 		//goto("admin/HomeAdmin");
 		// Aquí iría la lógica para procesar los datos del formulario
 		console.log('Registrando dato:', empleados);
-		goto(
-			'/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa/configurarActividad/asignarEmpleado'
-		);
+		//goto('/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa/configurarActividad/asignarEmpleado');
 		alert('Se agregó exitosamente el empleado');
 	}
 </script>
