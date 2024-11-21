@@ -76,8 +76,9 @@
 	<select id="tipo" bind:value={cliente.tipo_com}>
 		<option value="natural">Natural</option>
 		<option value="juridico">Jurídico</option>
+	</select>
 
-	<button type="submit">Registrar Cliente</button>
+	<button type="submit">Registrar Cliente</button>	
 </form>
 
 <style>
