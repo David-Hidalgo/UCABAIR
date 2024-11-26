@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	export let message;
 	// Interfaz para representar un empleado
 	interface Empleado {
 		cedula: string;
@@ -14,7 +13,7 @@
 	}
 
 	let empleado: Empleado = {
-		cedula: 'V-2817811',
+		cedula: '',
 		nombre: [],
 		apellido: [],
 		telefono: [],

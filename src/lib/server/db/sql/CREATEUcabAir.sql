@@ -482,3 +482,11 @@ CREATE TABLE zona (
     descripcion_zon VARCHAR(255) NOT NULL,
     fk_sede         INTEGER NOT NULL
 );
+
+CREATE TABLE sesion(
+
+    id  INTEGER PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    expires_at timestamp with time zone NOT NULL
+
+);

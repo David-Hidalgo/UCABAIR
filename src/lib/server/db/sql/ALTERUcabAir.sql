@@ -263,7 +263,7 @@ ALTER TABLE transporte_configuracion_pieza
 ALTER TABLE turno ADD CONSTRAINT turno_pk PRIMARY KEY ( codigo_tur );
 
 ALTER TABLE usuario ADD CONSTRAINT usuario_pk PRIMARY KEY ( codigo_usu );
-
+ALTER TABLE sesion ADD CONSTRAINT usuario_fk FOREIGN KEY(user_id) REFERENCES usuario(codigo_usu);
 ALTER TABLE venta ADD CONSTRAINT venta_pk PRIMARY KEY ( codigo_venta_ven );
 
 ALTER TABLE zona ADD CONSTRAINT zona_pk PRIMARY KEY ( codigo_zon,
