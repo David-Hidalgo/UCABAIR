@@ -1,62 +1,69 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	export let id_editar: number;
+	import Combobox from './combobox.svelte';
 	// Interfaz para representar un dato
+
+
 	interface Proyecto {
-		id_proyecto_organizacion: string;
-		pr_or_duracion: String;
-		pr_or_costo_estimado: String;
-		pr_or_descripcion: String;
-		id_mineral: String;
-		rif_empresa: String;
+		codigo_ens: number;
+		aeronave_ens: { value: number; label: string }[];
+		fecha_inicio: string;
+		fecha_fin_ens: string;
+		fk_plan_ensamblaje: number;
+		fk_pieza: number;
+		fk_lote_materia_prima: number;
+		fk_pieza2: number;
+		fk_estatus: number;
+		fk_equipo_personal: number;
+		fk_equipo_personal2: number;
 	}
 
 	let proyecto: Proyecto = {
-		id_proyecto_organizacion: '',
-		pr_or_duracion: '',
-		pr_or_costo_estimado: '',
-		pr_or_descripcion: '',
-		id_mineral: '',
-		rif_empresa: ''
+		codigo_ens: 0,
+		aeronave_ens: [{ value: 1, label: 'Airbus A320' },{ value: 2, label: 'Boeing 737' },{ value: 3, label: 'Cessna 172' },{ value: 4, label: 'Embraer E190' },{ value: 5, label: 'Bombardier CRJ900' },{ value: 6, label: 'Airbus A380' },{ value: 7, label: 'Boeing 747' },{ value: 8, label: 'Cessna 182' },{ value: 9, label: 'Embraer E195' },{ value: 10, label: 'Bombardier CRJ1000' }],
+		fecha_inicio: '',
+		fecha_fin_ens: '',
+		fk_plan_ensamblaje: 0,
+		fk_pieza: 0,
+		fk_lote_materia_prima: 0,
+		fk_pieza2: 0,
+		fk_estatus: 0,
+		fk_equipo_personal: 0,
+		fk_equipo_personal2: 0
 	};
 
 	// Función para manejar el envío del formulario
 	async function registrarDato() {
-		const res = await fetch(`http://localhost:4000/proyecto`, {
+		console.log(proyecto);
+		/*const res = await fetch(`http://localhost:4000/proyecto`, {
 			method: 'POST',
 			body: JSON.stringify(proyecto),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-		console.log(data);
+		console.log(data);*/
 		alert('Se agregó exitosamente el proyecto');
-	}
+		goto('/admin/HomeAdmin/registrar/proyecto/configuracionProyecto');
+		}
+
 </script>
 
 <form on:submit|preventDefault={registrarDato}>
 	<h2>Registrar Proyecto</h2>
 
-	<label for="NumeroOrganizacionProyecto">Numero Organizacion de Proyecto</label>
-	<input id="NumeroOrganizacionProyecto" bind:value={proyecto.id_proyecto_organizacion} />
+	<label for="codigo_ens">Código de Ensamblaje (generado por sistema)</label>
+	<input type="number" id="codigo_ens" bind:value={proyecto.codigo_ens} required />
 
-	<label for="DuracionProyecto">Duracion del Proyecto</label>
-	<input id="DuracionProyecto" bind:value={proyecto.pr_or_duracion} />
-
-	<label for="CostoEstiminado">Costo Estiminado</label>
-	<input id="CostoEstiminado" bind:value={proyecto.pr_or_costo_estimado} />
-
-	<label for="DescripcionProyecto">Descripcion del Proyecto</label>
-	<input id="DescripcionProyecto" bind:value={proyecto.pr_or_descripcion} />
-
-	<label for="Mineral">Mineral a extraer</label>
-	<input id="Mineral" bind:value={proyecto.id_mineral} />
-
-	<label for="Empresa">Empresa que pide el proyecto</label>
-	<input id="Empresa" bind:value={proyecto.rif_empresa} />
-
-	<button type="submit">Registrar Proyecto</button>
+	<label for="aeronave_ens">Seleccione el modelo que desea ensamblar:</label>
+	<select id="aeronave_ens" bind:value={proyecto.fk_plan_ensamblaje}>
+		{#each proyecto.aeronave_ens as aeronave}
+			<option value={aeronave.value}>{aeronave.label}</option>
+		{/each}
+	</select>
+	<button type="submit">Mostrar Presupuesto Ensamblaje</button>
 </form>
+
 
 <style>
 	/* Estilos generales para el formulario */

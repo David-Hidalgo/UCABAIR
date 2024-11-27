@@ -4,7 +4,6 @@
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	let opcionSeleccionada = 'Empleados';
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 	interface Empleado {
 		cedula_per: string;

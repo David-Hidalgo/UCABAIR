@@ -1,18 +1,17 @@
-<script>
-    let sedes = ["Todas Las Sedes",
-        "Sede Maracaibo",
-        "Sede Valencia",
-        "Sede Catia La Mar",
-        "Sede Bolívar",
-        "Sede Caracas",
-        "Sede Barquisimeto",
-        "Sede Mérida"
-    ];
-</script>
-
-<select>
-    <option value="">Seleccione una sede</option>
-    {#each sedes as sede}
-        <option value="{sede}">{sede}</option>
+<script lang="ts">
+    export let options: { value: number; label: string }[] = [];
+  </script>
+  
+  <select>
+    {#each options as option}
+      <option value={option.value}>{option.label}</option>
     {/each}
-</select>
+  </select>
+  
+  <style>
+      select {
+        width: 30%;
+        box-sizing: border-box;
+        
+}
+  </style>

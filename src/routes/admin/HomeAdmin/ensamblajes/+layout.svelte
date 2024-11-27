@@ -128,8 +128,8 @@
 		{/each}
 	</tbody>
 </table>
-<a href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto">
-	<button>Registrar Proyecto</button>
+<a href="/admin/HomeAdmin/registrar/proyecto">
+	<button>Iniciar Nuevo Ensamblaje</button>
 </a>
 
 <style>
