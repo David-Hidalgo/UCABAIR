@@ -1,7 +1,6 @@
 <script lang="ts">
-	import navigate from 'svelte-spa-router';
+	//import navigate from 'svelte-spa-router';
 	import { createEventDispatcher } from 'svelte';
-	import RegistrarMineral from '$lib/components/registrarMineral.svelte';
 
 	const dispatch = createEventDispatcher();
 
@@ -11,18 +10,34 @@
 		console.log(`Buscando: ${searchTerm}`);
 	}
 	interface Rol {
-		id: string;
+		id: number;
 		rol: string;
 		descripcion: string;
 	}
 
-	let rol: Rol = {
-		id: '1',
-		rol: 'admin',
-		descripcion: 'Administrador del sistema'
-	};
+	let roles: Rol[] = [
+		{
+			id: 1,
+			rol: 'Administrador',
+			descripcion: 'Rol de administrador'
+		},
+		{
+			id: 2,
+			rol: 'Gerente de Ventas',
+			descripcion: 'Encargado de ventas'
+		},
+		{
+			id: 3,
+			rol: 'Empleado',
+			descripcion: 'Empleado de la empresa'
+		},
+		{
+			id: 4,
+			rol: 'Supervisor',
+			descripcion: 'Supervisa el trabajo de los empleados'
+		}
+	];
 
-	export let roles: Rol[] = [];
 
 	async function generarReporte(minerales: Rol[]) {
 		//logica para
@@ -40,7 +55,7 @@
 	//
 	// Función para editar un registro
 	async function editarRegistro(roles: Rol) {
-		try {
+		/*try {
 			const res = await fetch(`http://localhost:4000/mineral/${roles.id}`, {
 				method: 'PUT',
 				body: JSON.stringify(roles),
@@ -56,18 +71,18 @@
 		} catch (error) {
 			console.error('Error en la solicitud:', error);
 			// Maneja el error (por ejemplo, muestra un mensaje de error al usuario)
-		}
+		}*/
 	}
 
 	// Función para eliminar un registro
 	async function eliminarRegistro(roles: Rol) {
-		await fetch(`http://localhost:4000/mineral/${roles.id}`, {
+		/*await fetch(`http://localhost:4000/mineral/${roles.id}`, {
 			method: 'DELETE'
-		});
+		});*/
 	}
 </script>
 
-<h2>Minerales</h2>
+<h2>Roles</h2>
 <table>
 	<thead>
 		<tr>
