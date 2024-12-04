@@ -1,7 +1,8 @@
 <script lang="ts">
+	import Combobox from "$lib/components/combobox.svelte";
 	//import navigate from 'svelte-spa-router';
 	//import { createEventDispatcher } from 'svelte';
-	//import RegistrarMineral from '$lib/components/registrarAeronave.svelte'; HAY QUE CREARLO
+	//import RegistrarPieza from '$lib/components/registrarPieza.svelte';
 
 	//const dispatch = createEventDispatcher();
 
@@ -10,14 +11,10 @@
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	
+	let opcionSeleccionada = 'Pieza';
 	// Define una interfaz para el tipo de datos que contiene 'datos'
-	interface Prueba{
-		nombre_prueba: string;
-		nombre_pieza: string;
-		status_prueba: string;
-		encargados_prueba: string;
-		codigo_pru: string;
+	interface Prueba {
+		codigo_pru: number;
 		fecha_inicio_pru: string;
 		fecha_fin_pru: string;
 		fk_tipo_prueba: number;
@@ -28,142 +25,136 @@
 		fk_estatus: number;
 		fk_lote_materia_prima: number;
 		fk_pieza: number;
-		fk_avion: number;
 		fk_pieza2: number;
+		fk_avion: number;
 	}
 
 	let pruebas: Prueba[] = [
 		{
-			nombre_prueba: 'Prueba de Resistencia',
-			nombre_pieza: 'Piezas',
-			status_prueba: 'En proceso',
-			encargados_prueba: 'Ver Encargados',
-			codigo_pru: '1',
-			fecha_inicio_pru: '2021-10-01',
-			fecha_fin_pru: '2021-10-02',
-			fk_tipo_prueba: 1,
-			fk_equipo_personal: 1,
-			fk_equipo_personal2: 2,
-			fk_zona: 1,
-			fk_zona2: 2,
-			fk_estatus: 1,
-			fk_lote_materia_prima: 1,
-			fk_pieza: 1,
-			fk_avion: 1,
-			fk_pieza2: 2
+			codigo_pru: 1,
+			fecha_inicio_pru: '2021-10-10',
+			fecha_fin_pru: '2021-12-10',
+			fk_tipo_prueba: Math.floor(Math.random() * 10001),
+			fk_equipo_personal: Math.floor(Math.random() * 10001),
+			fk_equipo_personal2: Math.floor(Math.random() * 10001),
+			fk_zona: Math.floor(Math.random() * 10001),
+			fk_zona2: Math.floor(Math.random() * 10001),
+			fk_estatus: Math.floor(Math.random() * 10001),
+			fk_lote_materia_prima: Math.floor(Math.random() * 10001),
+			fk_pieza: Math.floor(Math.random() * 10001),
+			fk_pieza2: Math.floor(Math.random() * 10001),
+			fk_avion: Math.floor(Math.random() * 10001)
 		},
 		{
-			nombre_prueba: 'Prueba de Color',
-			nombre_pieza: 'Materia Prima',
-			status_prueba: 'En proceso',
-			encargados_prueba: 'Ver Encargados',
-			codigo_pru: '2',
-			fecha_inicio_pru: '2021-10-03',
-			fecha_fin_pru: '2021-10-04',
-			fk_tipo_prueba: 2,
-			fk_equipo_personal: 3,
-			fk_equipo_personal2: 4,
-			fk_zona: 3,
-			fk_zona2: 4,
-			fk_estatus: 2,
-			fk_lote_materia_prima: 2,
-			fk_pieza: 2,
-			fk_avion: 2,
-			fk_pieza2: 3
+			codigo_pru: 2,
+			fecha_inicio_pru: '2024-10-12',
+			fecha_fin_pru: '2025-12-01',
+			fk_tipo_prueba: Math.floor(Math.random() * 10001),
+			fk_equipo_personal: Math.floor(Math.random() * 10001),
+			fk_equipo_personal2: Math.floor(Math.random() * 10001),
+			fk_zona: Math.floor(Math.random() * 10001),
+			fk_zona2: Math.floor(Math.random() * 10001),
+			fk_estatus: Math.floor(Math.random() * 10001),
+			fk_lote_materia_prima: Math.floor(Math.random() * 10001),
+			fk_pieza: Math.floor(Math.random() * 10001),
+			fk_pieza2: Math.floor(Math.random() * 10001),
+			fk_avion: Math.floor(Math.random() * 10001)
 		},
 		{
-			nombre_prueba: 'Prueba de Vuelo',
-			nombre_pieza: 'Aeronaves',
-			status_prueba: 'En proceso',
-			encargados_prueba: 'Ver Encargados',
-			codigo_pru: '3',
-			fecha_inicio_pru: '2021-10-05',
-			fecha_fin_pru: '2021-10-06',
-			fk_tipo_prueba: 3,
-			fk_equipo_personal: 5,
-			fk_equipo_personal2: 6,
-			fk_zona: 5,
-			fk_zona2: 6,
-			fk_estatus: 3,
-			fk_lote_materia_prima: 3,
-			fk_pieza: 3,
-			fk_avion: 3,
-			fk_pieza2: 4
-	}];
+			codigo_pru: 3,
+			fecha_inicio_pru: '2022-10-10',
+			fecha_fin_pru: '2024-31-10',
+			fk_tipo_prueba: Math.floor(Math.random() * 10001),
+			fk_equipo_personal: Math.floor(Math.random() * 10001),
+			fk_equipo_personal2: Math.floor(Math.random() * 10001),
+			fk_zona: Math.floor(Math.random() * 10001),
+			fk_zona2: Math.floor(Math.random() * 10001),
+			fk_estatus: Math.floor(Math.random() * 10001),
+			fk_lote_materia_prima: Math.floor(Math.random() * 10001),
+			fk_pieza: Math.floor(Math.random() * 10001),
+			fk_pieza2: Math.floor(Math.random() * 10001),
+			fk_avion: Math.floor(Math.random() * 10001)
+		}
+	];
 
 	async function generarReporte(pruebas: Prueba[]) {
 		//logica para
 	}
 
-	async function mostrarDatos() {/*
-		const response = await fetch('http://localhost:4000/aeronave');
-		const data: Aeronave[] = await response.json();
-		aeronaves = data;*/
+	/*ESTA COMENTADO POR QUE NO SE HA IMPLEMENTADO Y ARROJA ERROR CON LA BD
+	async function mostrarDatos() {
+		const response = await fetch('http://localhost:4000/piezas');
+		const data: Pieza[] = await response.json();
+		piezas = data;
 	}
 
 	mostrarDatos();
 	//
 	// Función para editar un registro
-	async function editarRegistro(pruebas: Prueba) {
-		/*try {
-			const res = await fetch(`http://localhost:4000/mineral/${aeronaves.id_avi}`, {//configurar la ruta
+	async function editarRegistro(piezas: Pieza) {
+		try {
+			const res = await fetch(`http://localhost:4000/Pieza/${piezas.id_mineral}`, {
 				method: 'PUT',
-				body: JSON.stringify(aeronaves),
+				body: JSON.stringify(piezas),
 				headers: { 'Content-Type': 'application/json' }
 			});
 
 			if (res.ok) {
 				// Si la solicitud fue exitosa, redirige al usuario
 			} else {
-				console.error('Error al actualizar el mineral:', res.status);
+				console.error('Error al actualizar el Pieza:', res.status);
 				// Maneja el error (por ejemplo, muestra un mensaje de error al usuario)
 			}
 		} catch (error) {
 			console.error('Error en la solicitud:', error);
 			// Maneja el error (por ejemplo, muestra un mensaje de error al usuario)
-		}*/
+		}
 	}
 
 	// Función para eliminar un registro
-	async function eliminarRegistro(pruebas: Prueba) {
-		/*await fetch(`http://localhost:4000/mineral/${aeronaves.id_avi}`, {
+	async function eliminarRegistro(piezas: Pieza) {
+		await fetch(`http://localhost:4000/Pieza/${piezas.id_pieza}`, {
 			method: 'DELETE'
-		});*/
-	}
+		});
+	}*/
 </script>
 
-<h2>Pruebas Aeronaves</h2>
+<h2>Pruebas Piezas</h2>
 <table>
 	<thead>
 		<tr>
-			<th>Nombre</th>
-			<th>A Probar</th>
-			<th>Fecha Inicio y Final</th>
-			<th>Encargados</th>
+			<th>Nombre Prueba</th>
+			<th>Aeronave A Probar</th>
 			<th>Estatus</th>
+			<th>Fecha Inicio y Final (estimado)</th>
+			<th>Fecha Inicio y Final (real)</th>
+			<th>Encargados</th>
 		</tr>
 	</thead>
 	<tbody>
 		{#each pruebas as dato}
 			<tr>
-				<td>{dato.nombre_prueba}</td>
-				<td>{dato.nombre_pieza}</td>
-				<td>Inicio:{dato.fecha_inicio_pru} Final:{dato.fecha_fin_pru}</td>
-				<td><a href='/admin/HomeAdmin/pruebas/encargados/${dato.fk_equipo_personal}'>
-				{dato.encargados_prueba}</a></td>
-				<td>{dato.status_prueba}</td>
+				 <td><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.codigo_pru}`}>
+						FK_tipo_prueba:{dato.fk_tipo_prueba}
+					</a>			</td>
+				<td>FK_pieza:{dato.fk_pieza}</td>
+				<td>FK_estatus:{dato.fk_estatus}</td>
+				<td>Inicio:{dato.fecha_fin_pru} Fin:{dato.fecha_fin_pru}</td>
+				<td>Inicio:{dato.fecha_fin_pru} Fin:{dato.fecha_fin_pru}</td>
+				<td><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.codigo_pru}`}>
+					Ver encargados
+								</a></td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/mineral">
+						<!--ESTA COMENTADA PORQUE NO SE HA CREADO LA RUTA PARA EDITAR Y ELIMINAR
+						<a href="/admin/HomeAdmin/editar/Pieza">
 							<button on:click={() => editarRegistro(dato)}>
 								<span>✏️</span>
-								<!-- Icono de lápiz -->
 							</button>
 						</a>
 						<button on:click={() => eliminarRegistro(dato)}>
 							<span>🗑️</span>
-							<!-- Icono de papelera -->
-						</button>
+						</button>-->
 					</div>
 				</td>
 			</tr>

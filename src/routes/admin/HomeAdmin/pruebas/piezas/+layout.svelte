@@ -13,39 +13,71 @@
 	}
 	let opcionSeleccionada = 'Pieza';
 	// Define una interfaz para el tipo de datos que contiene 'datos'
-	interface Pieza {
-		id_pieza: number;
-		nombre_pie:string;
-		tipo_pieza: string;
-		precio_pieza: number;
-		cantidad: number;
+	interface Prueba {
+		codigo_pru: number;
+		fecha_inicio_pru: string;
+		fecha_fin_pru: string;
+		fk_tipo_prueba: number;
+		fk_equipo_personal: number;
+		fk_equipo_personal2: number;
+		fk_zona: number;
+		fk_zona2: number;
+		fk_estatus: number;
+		fk_lote_materia_prima: number;
+		fk_pieza: number;
+		fk_pieza2: number;
+		fk_avion: number;
 	}
 
-	export let piezas: Pieza[] = [
+	let pruebas: Prueba[] = [
 		{
-			id_pieza: 1,
-			nombre_pie: 'Ala',
-			tipo_pieza: 'Tipo T',
-			precio_pieza: 100,
-			cantidad: 100
+			codigo_pru: 1,
+			fecha_inicio_pru: '2021-10-10',
+			fecha_fin_pru: '2021-12-10',
+			fk_tipo_prueba: Math.floor(Math.random() * 10001),
+			fk_equipo_personal: Math.floor(Math.random() * 10001),
+			fk_equipo_personal2: Math.floor(Math.random() * 10001),
+			fk_zona: Math.floor(Math.random() * 10001),
+			fk_zona2: Math.floor(Math.random() * 10001),
+			fk_estatus: Math.floor(Math.random() * 10001),
+			fk_lote_materia_prima: Math.floor(Math.random() * 10001),
+			fk_pieza: Math.floor(Math.random() * 10001),
+			fk_pieza2: Math.floor(Math.random() * 10001),
+			fk_avion: Math.floor(Math.random() * 10001)
 		},
 		{
-			id_pieza: 2,
-			nombre_pie: 'Tren de Aterrizaje',
-			tipo_pieza: 'Grande',
-			precio_pieza: 200,
-			cantidad: 200
+			codigo_pru: 2,
+			fecha_inicio_pru: '2024-10-12',
+			fecha_fin_pru: '2025-12-01',
+			fk_tipo_prueba: Math.floor(Math.random() * 10001),
+			fk_equipo_personal: Math.floor(Math.random() * 10001),
+			fk_equipo_personal2: Math.floor(Math.random() * 10001),
+			fk_zona: Math.floor(Math.random() * 10001),
+			fk_zona2: Math.floor(Math.random() * 10001),
+			fk_estatus: Math.floor(Math.random() * 10001),
+			fk_lote_materia_prima: Math.floor(Math.random() * 10001),
+			fk_pieza: Math.floor(Math.random() * 10001),
+			fk_pieza2: Math.floor(Math.random() * 10001),
+			fk_avion: Math.floor(Math.random() * 10001)
 		},
 		{
-			id_pieza: 3,
-			nombre_pie: 'Alerón',
-			tipo_pieza: 'Curvo',
-			precio_pieza: 300,
-			cantidad: 300
+			codigo_pru: 3,
+			fecha_inicio_pru: '2022-10-10',
+			fecha_fin_pru: '2024-31-10',
+			fk_tipo_prueba: Math.floor(Math.random() * 10001),
+			fk_equipo_personal: Math.floor(Math.random() * 10001),
+			fk_equipo_personal2: Math.floor(Math.random() * 10001),
+			fk_zona: Math.floor(Math.random() * 10001),
+			fk_zona2: Math.floor(Math.random() * 10001),
+			fk_estatus: Math.floor(Math.random() * 10001),
+			fk_lote_materia_prima: Math.floor(Math.random() * 10001),
+			fk_pieza: Math.floor(Math.random() * 10001),
+			fk_pieza2: Math.floor(Math.random() * 10001),
+			fk_avion: Math.floor(Math.random() * 10001)
 		}
 	];
 
-	async function generarReporte(piezas: Pieza[]) {
+	async function generarReporte(pruebas: Prueba[]) {
 		//logica para
 	}
 
@@ -91,23 +123,27 @@
 <table>
 	<thead>
 		<tr>
-			<th>ID</th>
-			<th>Pieza</th>
-			<th>Tipo de Pieza</th>
-			<th>Precio por unidad</th>
-			<th>Cantidad</th>
+			<th>Nombre Prueba</th>
+			<th>ID Pieza A Probar</th>
+			<th>Estatus</th>
+			<th>Fecha Inicio y Final (estimado)</th>
+			<th>Fecha Inicio y Final (real)</th>
+			<th>Encargados</th>
 		</tr>
 	</thead>
 	<tbody>
-		{#each piezas as dato}
+		{#each pruebas as dato}
 			<tr>
-				<td><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.id_pieza}`}>
-						{dato.id_pieza}
+				 <td><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.codigo_pru}`}>
+						FK_tipo_prueba:{dato.fk_tipo_prueba}
 					</a>			</td>
-				<td>{dato.nombre_pie}</td>
-				<td>{dato.tipo_pieza}</td>
-				<td>{dato.precio_pieza}</td>
-				<td>{dato.cantidad}</td>
+				<td>FK_pieza:{dato.fk_pieza}</td>
+				<td>FK_estatus:{dato.fk_estatus}</td>
+				<td>Inicio:{dato.fecha_fin_pru} Fin:{dato.fecha_fin_pru}</td>
+				<td>Inicio:{dato.fecha_fin_pru} Fin:{dato.fecha_fin_pru}</td>
+				<td><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.codigo_pru}`}>
+					Ver encargados
+								</a></td>
 				<td>
 					<div class="botonesUD">
 						<!--ESTA COMENTADA PORQUE NO SE HA CREADO LA RUTA PARA EDITAR Y ELIMINAR
@@ -125,15 +161,6 @@
 		{/each}
 	</tbody>
 </table>
-<a href="/admin/HomeAdmin/registrar/Pieza">
-	<button>Registrar Pieza</button>
-</a>
-<a href="/admin/HomeAdmin/reponerInventario">
-	<button>Iniciar Ensamblaje Pieza</button>
-</a>
-<a href="/admin/HomeAdmin/reponerInventario">
-	<button>Solicitar Pieza a Sede</button>
-</a>
 
 <style>
 	.botonesUD {

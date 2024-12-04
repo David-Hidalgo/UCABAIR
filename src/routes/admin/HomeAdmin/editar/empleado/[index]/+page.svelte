@@ -1,11 +1,8 @@
 <script>
 	import { page } from '$app/stores';
-	import Editar from '$lib/components/configurarProyecto.svelte';
-	let id_editar = Number($page.params.index);
+	import Editar from '$lib/components/registrarEmpleado.svelte';
+	let cedula_per = Number($page.params.index);
+	console.log(cedula_per);
 </script>
 
-<body>
-	<div class="ConfigurarProyecto">
-		<Editar bind:id_editar />
-	</div>
-</body>
+<Editar cedula_per={cedula_per} />

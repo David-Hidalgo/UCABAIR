@@ -1,12 +1,14 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
+
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 	interface Cliente {
-		cedula_nat: string;
+		cedula_nat: number;
 		primer_nombre_nat: string;
 		segundo_nombre_nat: string;
 		primer_apelido_nat: string;
 		segundo_apelido_nat: string;
-		telefono_com: string[];
+		telefono_com: number[];
 		correo_com: string[];
 		direccion_com: string;
 		monto_acreditado_com: number;
@@ -17,12 +19,12 @@
 	// Ahora declara 'datos' con el tipo explícito 'Dato[]'
 	let datos: Cliente[] = [
 		{
-			cedula_nat: '27660324',
+			cedula_nat: 27660324,
 			primer_nombre_nat: 'Juan',
 			segundo_nombre_nat: 'Gabriel',
 			primer_apelido_nat: 'Pérez',
 			segundo_apelido_nat: 'Rodriguez',
-			telefono_com: ['123456789', '987654321'],
+			telefono_com: [123456789, 987654321],
 			correo_com: ['juan.perez@example.com'],
 			direccion_com: 'Calle Falsa 123',
 			monto_acreditado_com: 100000,
@@ -30,12 +32,12 @@
 			tipo_com: 'Natural'
 		},
 		{
-			cedula_nat: '22931928',
+			cedula_nat: 12345678,
 			primer_nombre_nat: 'María',
 			segundo_nombre_nat: 'Alejandra',
 			primer_apelido_nat: 'González',
 			segundo_apelido_nat: 'Urbina',
-			telefono_com: ['234567890'],
+			telefono_com: [987654321, 123456789],
 			correo_com: ['maria.gonzalez@example.com'],
 			direccion_com: 'Avenida Siempre Viva 456',
 			monto_acreditado_com: 200000,
@@ -43,12 +45,12 @@
 			tipo_com: 'Natural'
 		},
 		{
-			cedula_nat: '39029839',
+			cedula_nat: 34567890,
 			primer_nombre_nat: 'Carlos',
 			segundo_nombre_nat: 'Jose',
 			primer_apelido_nat: 'Rodríguez',
 			segundo_apelido_nat: 'Leal',
-			telefono_com: ['345678901', '765432109'],
+			telefono_com: [829719138, 123456789],
 			correo_com: ['carlos.rodriguez@example.com'],
 			direccion_com: 'Boulevard de los Sueños Rotos 789',
 			monto_acreditado_com: 300000,
@@ -62,6 +64,7 @@
 	function editarRegistro(index: number) {
 		// Lógica para editar el registro en 'datos'
 		console.log(`Editando registro en índice ${index}`);
+		goto(`/admin/HomeAdmin/editar/cliente/${index}`);
 	}
 
 	// Función para eliminar un registro
@@ -96,13 +99,11 @@
 				<td>{dato.fecha_inicio_operaciones_com}</td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/cliente">
-							<button on:click={() => editarRegistro(i)}>
-								<span>✏️</span>
-								<!-- Icono de lápiz -->
-							</button>
-						</a>
-						<button on:click={() => eliminarRegistro(i)}>
+						<button on:click={() => editarRegistro(dato.cedula_nat)}>
+							<span>✏️</span>
+							<!-- Icono de lápiz -->
+						</button>
+						<button on:click={() => eliminarRegistro(dato.cedula_nat)}>
 							<span>🗑️</span>
 							<!-- Icono de papelera -->
 						</button>

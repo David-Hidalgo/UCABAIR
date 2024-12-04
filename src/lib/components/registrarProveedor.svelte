@@ -1,6 +1,7 @@
 <script lang="ts">
 	//import { goto } from '$app/navigation';
 	// Interfaz para representar un proveedor
+	export let codigo_com;
 	interface Proveedor {
 		codigo_com: number;
 		rif_jur: string;
@@ -16,7 +17,7 @@
 
 
 	let proveedor: Proveedor = {
-		codigo_com: 0,
+		codigo_com: codigo_com,
 		telefono_com: [],
 		correo_com: [],
 		direccion_com: '',
