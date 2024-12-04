@@ -263,7 +263,7 @@ ALTER TABLE transporte_configuracion_pieza
 ALTER TABLE turno ADD CONSTRAINT turno_pk PRIMARY KEY ( codigo_tur );
 
 ALTER TABLE usuario ADD CONSTRAINT usuario_pk PRIMARY KEY ( codigo_usu );
-ALTER TABLE sesion ADD CONSTRAINT usuario_fk FOREIGN KEY(user_id) REFERENCES usuario(codigo_usu);
+
 ALTER TABLE venta ADD CONSTRAINT venta_pk PRIMARY KEY ( codigo_venta_ven );
 
 ALTER TABLE zona ADD CONSTRAINT zona_pk PRIMARY KEY ( codigo_zon,
@@ -812,7 +812,7 @@ ALTER TABLE ensamblaje
 
 
 
-ALTER TABLE lugar ADD CONSTRAINT tipo_lug_check check(tipo_lug in ('parroquia','municipio', 'estado','pais'));
+ALTER TABLE lugar ADD CONSTRAINT tipo_lug_check check(tipo_lug in ('parroquia','municipio', 'estado'));
 
 ALTER TABLE comercial ADD CONSTRAINT tipo_com_check check(tipo_com in ('cliente','proveedor'));
 
@@ -837,3 +837,5 @@ ALTER TABLE personal ADD UNIQUE (fk_usuario);
 ALTER TABLE personal ADD UNIQUE (cedula_per);
 
 ALTER TABLE telefono ADD UNIQUE (numero_telefono_tel);
+
+ALTER TABLE sesion ADD CONSTRAINT usuario_fk FOREIGN KEY(user_id) REFERENCES usuario(codigo_usu);

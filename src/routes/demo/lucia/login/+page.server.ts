@@ -1,11 +1,13 @@
 import { hash, verify } from '@node-rs/argon2';
 import { encodeBase32LowerCase } from '@oslojs/encoding';
 import { fail, redirect } from '@sveltejs/kit';
+import postgres from 'postgres';
 //por cambiar
 import { eq } from 'drizzle-orm';
 import * as auth from '$lib/server/auth';
-import { db } from '$lib/server/db';
+import { db, dbPostgre } from '$lib/server/db';
 import * as table from '$lib/server/db/schema';
+import util from 'util';
 import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
@@ -18,7 +20,7 @@ export const load: PageServerLoad = async (event) => {
 export const actions: Actions = {
 	login: async (event) => {
 		const formData = await event.request.formData();
-		const username = formData.get('username');
+		const username  = formData.get('username');
 		const password = formData.get('password');
 
 		if (!validateUsername(username)) {
@@ -28,29 +30,43 @@ export const actions: Actions = {
 			return fail(400, { message: 'Invalid password' });
 		}
 
-		const results = await db.select().from(table.user).where(eq(table.user.username, username));
+		const results = 
+		// await db.select().from(table.user).where(eq(table.user.username, username));
+		await dbPostgre`
+			select * from usuario
+			where nombre_usu = ${username};
+		`;
 
-		const existingUser = results.at(0);
-		if (!existingUser) {
-			return fail(400, { message: 'Incorrect username or password' });
+		console.log('results: \n', results);
+		let validPassword = false;
+		for (let index = 0; index < results.length; index++) {
+			const existingUser= results[index];
+			if (!existingUser) {
+				console.log('No existe el usuario');
+				return fail(400, { message: 'Username does not exist' });
+			}
+	
+			validPassword = await verify(existingUser.contraseña_usu, password, {
+				memoryCost: 19456,
+				timeCost: 2,
+				outputLen: 32,
+				parallelism: 1
+			});
+			
+			if (validPassword) {
+				const sessionToken = auth.generateSessionToken();
+				
+				const session = await auth.createSession(sessionToken, existingUser.codigo_usu);
+				auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
+		
+				return redirect(302, '/admin/HomeAdmin');
+			} else  {
+				console.log('Contraseña incorrecta');
+				return fail(400, { message: 'Incorrect username or password' });
+			}
+
 		}
-
-		//quitar el hash
-		const validPassword = await verify(existingUser.passwordHash, password, {
-			memoryCost: 19456,
-			timeCost: 2,
-			outputLen: 32,
-			parallelism: 1
-		});
-		if (!validPassword) {
-			return fail(400, { message: 'Incorrect username or password' });
-		}
-
-		const sessionToken = auth.generateSessionToken();
-		const session = await auth.createSession(sessionToken, existingUser.id);
-		auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
-
-		return redirect(302, '/demo/lucia');
+		
 	},
 	register: async (event) => {
 		const formData = await event.request.formData();
@@ -63,7 +79,8 @@ export const actions: Actions = {
 		if (!validatePassword(password)) {
 			return fail(400, { message: 'Invalid password' });
 		}
-
+		
+		console.log(" validé todo");
 		const userId = generateUserId();
 		const passwordHash = await hash(password, {
 			// recommended minimum parameters
@@ -72,14 +89,27 @@ export const actions: Actions = {
 			outputLen: 32,
 			parallelism: 1
 		});
-
+		
+		console.log(" generé userId y passwordHash");
 		try {
-			await db.insert(table.user).values({ id: userId, username, passwordHash });
+			// await db.insert(table.user).values({ id: userId, username, passwordHash });
+			//console.log(' entré al try los valores son: ', username, passwordHash);
+			await dbPostgre`CALL insertar_usuario(${username}, ${passwordHash})`;
+			//console.log('Hice el call');
 
 			const sessionToken = auth.generateSessionToken();
-			const session = await auth.createSession(sessionToken, userId);
+			//console.log('Generé token');
+			const [a] = await dbPostgre`
+			select codigo_usu from usuario
+			where nombre_usu = ${username};`;
+			// const b = a[0].codigo_usu;
+			// console.log('lo que me regresó fué: \n ', a, '\n');
+
+			/*  */
+			const session = await auth.createSession(sessionToken, a.codigo_usu);
 			auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
 		} catch (e) {
+			console.error("el error es \n",e);
 			return fail(500, { message: 'An error has occurred' });
 		}
 		return redirect(302, '/demo/lucia');
@@ -94,6 +124,7 @@ function generateUserId() {
 }
 
 function validateUsername(username: unknown): username is string {
+	
 	return (
 		typeof username === 'string' &&
 		username.length >= 3 &&

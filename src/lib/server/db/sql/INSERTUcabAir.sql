@@ -1,618 +1,1942 @@
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES (0, 'Venezuela','pais',NULL);
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (1, 'Amazonas', 'estado', 0),
-  (2, 'Anzoátegui', 'estado', 0),
-  (3, 'Apure', 'estado', 0),
-  (4, 'Aragua', 'estado', 0),
-  (5, 'Barinas', 'estado', 0),
-  (6, 'Bolívar', 'estado', 0),
-  (7, 'Carabobo', 'estado', 0),
-  (8, 'Delta Amacuro', 'estado', 0),
-  (9, 'Distrito Capital', 'estado', 0),
-  (10, 'Falcón', 'estado', 0),
-  (11, 'Guarico', 'estado', 0),
-  (12, 'Lara', 'estado', 0),
-  (13, 'Mérida', 'estado', 0),
-  (14, 'Miranda', 'estado', 0),
-  (15, 'Monagas', 'estado', 0),
-  (16, 'Nueva Esparta', 'estado', 0),
-  (17, 'Portuguesa', 'estado', 0),
-  (18, 'Sucre', 'estado', 0),
-  (19, 'Táchira', 'estado', 0),
-  (20, 'Trujillo', 'estado', 0),
-  (21, 'Yaracuy', 'estado', 0),
-  (22, 'Zulia', 'estado', 0),
-  (23, 'Cojedes', 'estado', 0),
-  (24, 'La Guaira', 'estado', 0);
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (25, 'Alto Orinoco', 'municipio', 1),
-  (26, 'Atabapo', 'municipio', 1),
-  (27, 'Atures', 'municipio', 1),
-  (28, 'Autana', 'municipio', 1),
-  (29, 'Manapiare', 'municipio', 1),
-  (30, 'Maroa', 'municipio', 1),
-  (31, 'Río Negro', 'municipio', 1);
+INSERT INTO LUGAR(nombre_lug,tipo_lug) VALUES
+('Amazonas', 'estado'),
+('Anzoátegui', 'estado'),
+('Apure', 'estado'),
+('Aragua', 'estado'),
+('Barinas', 'estado'),
+('Bolívar', 'estado'),
+('Carabobo', 'estado'),
+('Cojedes', 'estado'),
+('Delta Amacuro', 'estado'),
+('Falcón', 'estado'),
+('Guárico', 'estado'),
+('Lara', 'estado'),
+('Mérida', 'estado'),
+('Miranda', 'estado'),
+('Monagas', 'estado'),
+('Nueva Esparta', 'estado'),
+('Portuguesa', 'estado'),
+('Sucre', 'estado'),
+('Táchira', 'estado'),
+('Trujillo', 'estado'),
+('Vargas', 'estado'),
+('Yaracuy', 'estado'),
+('Zulia', 'estado'),
+('Distrito Capital', 'estado'),
+('Dependencias Federales', 'estado');
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (32, 'La Esmeralda', 'parroquia', 25),
-  (33, 'Marawaka', 'parroquia', 25),
-  (34, 'Mavaca', 'parroquia', 25),
-  (35, 'Sierra parima', 'parroquia', 25),
-  (36, 'Huachamacare', 'parroquia', 25);
+INSERT INTO LUGAR ( fk_lugar,nombre_lug,tipo_lug) VALUES
+(1, 'Alto Orinoco','municipio'),
+(1, 'Atabapo','municipio'),
+(1, 'Atures','municipio'),
+(1, 'Autana','municipio'),
+(1, 'Manapiare','municipio'),
+(1, 'Maroa','municipio'),
+(1, 'Río Negro','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (37, 'Anaco', 'municipio', 2),
-  (38, 'Aragua de Barcelona', 'municipio', 2),
-  (39, 'Benito Juárez', 'municipio', 2),
-  (40, 'Carvajal', 'municipio', 2),
-  (41, 'Diego Bautista Urbaneja', 'municipio', 2),
-  (42, 'Freites', 'municipio', 2),
-  (43, 'Guanipa', 'municipio', 2),
-  (44, 'Independencia', 'municipio', 2),
-  (45, 'Libertador', 'municipio', 2),
-  (46, 'Manuel Ezequiel Bruzual', 'municipio', 2),
-  (47, 'McGregor', 'municipio', 2),
-  (48, 'Miranda', 'municipio', 2),
-  (49, 'Monagas', 'municipio', 2),
-  (50, 'Soledad', 'municipio', 2),
-  (51, 'Sucre', 'municipio', 2),
-  (52, 'Urbaneja', 'municipio', 2);
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (53, 'Achaguas', 'municipio', 3),
-  (54, 'Biruaca', 'municipio', 3),
-  (55, 'Guasdualito', 'municipio', 3),
-  (56, 'Manteca', 'municipio', 3),
-  (57, 'Muñiz', 'municipio', 3),
-  (58, 'Palmas', 'municipio', 3),
-  (59, 'Pedro Zaraza', 'municipio', 3),
-  (60, 'Romero Soublette', 'municipio', 3),
-  (61, 'San Fernando', 'municipio', 3),
-  (62, 'Santa Bárbara', 'municipio', 3);
+(2, 'Anaco','municipio'),
+(2, 'Aragua','municipio'),
+(2, 'Manuel Ezequiel Bruzual','municipio'),
+(2, 'Diego Bautista Urbaneja','municipio'),
+(2, 'Fernando Peñalver','municipio'),
+(2, 'Francisco Del Carmen Carvajal','municipio'),
+(2, 'General Sir Arthur McGregor','municipio'),
+(2, 'Guanta','municipio'),
+(2, 'Independencia','municipio'),
+(2, 'José Gregorio Monagas','municipio'),
+(2, 'Juan Antonio Sotillo','municipio'),
+(2, 'Juan Manuel Cajigal','municipio'),
+(2, 'Libertad','municipio'),
+(2, 'Francisco de Miranda','municipio'),
+(2, 'Pedro María Freites','municipio'),
+(2, 'Píritu','municipio'),
+(2, 'San José de Guanipa','municipio'),
+(2, 'San Juan de Capistrano','municipio'),
+(2, 'Santa Ana','municipio'),
+(2, 'Simón Bolívar','municipio'),
+(2, 'Simón Rodríguez','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (63, 'Bolívar', 'municipio', 4),
-  (64, 'Camatagua', 'municipio', 4),
-  (65, 'Francisco Linares Alcántara', 'municipio', 4),
-  (66, 'Girardot', 'municipio', 4),
-  (67, 'José Ángel Lamas', 'municipio', 4),
-  (68, 'José Félix Ribas', 'municipio', 4),
-  (69, 'José Rafael Revenga', 'municipio', 4),
-  (70, 'Libertador', 'municipio', 4),
-  (71, 'Mario Briceño Iragorry', 'municipio', 4),
-  (72, 'Ocumare de la Costa de Oro', 'municipio', 4),
-  (73, 'San Casimiro', 'municipio', 4),
-  (74, 'San Sebastián', 'municipio', 4),
-  (75, 'Santiago Mariño', 'municipio', 4),
-  (76, 'Santos Michelena', 'municipio', 4),
-  (77, 'Sucre', 'municipio', 4),
-  (78, 'Tovar', 'municipio', 4),
-  (79, 'Urdaneta', 'municipio', 4),
-  (80, 'Zamora', 'municipio', 4);
+(3, 'Achaguas','municipio'),
+(3, 'Biruaca','municipio'),
+(3, 'Muñóz','municipio'),
+(3, 'Páez','municipio'),
+(3, 'Pedro Camejo','municipio'),
+(3, 'Rómulo Gallegos','municipio'),
+(3, 'San Fernando','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (81, 'Alberto Arvelo Torrealba', 'municipio', 5),
-  (82, 'Andrés Eloy Blanco', 'municipio', 5),
-  (83, 'Antonio José de Sucre', 'municipio', 5),
-  (84, 'Arismendi', 'municipio', 5),
-  (85, 'Barinas', 'municipio', 5),
-  (86, 'Bolívar', 'municipio', 5),
-  (87, 'Cruz paredes', 'municipio', 5),
-  (88, 'Ezequiel Zamora', 'municipio', 5),
-  (89, 'Obispos', 'municipio', 5),
-  (90, 'Pedraza', 'municipio', 5),
-  (91, 'Rojas', 'municipio', 5),
-  (92, 'Sosa', 'municipio', 5);
+(4, 'Atanasio Girardot','municipio'),
+(4, 'Bolívar','municipio'),
+(4, 'Camatagua','municipio'),
+(4, 'Francisco Linares Alcántara','municipio'),
+(4, 'José Ángel Lamas','municipio'),
+(4, 'José Félix Ribas','municipio'),
+(4, 'José Rafael Revenga','municipio'),
+(4, 'Libertador','municipio'),
+(4, 'Ocumare de la Costa de Oro','municipio'),
+(4, 'San Casimiro','municipio'),
+(4, 'Mario Briceño Iragorry','municipio'),
+(4, 'San Sebastián','municipio'),
+(4, 'Santiago Mariño','municipio'),
+(4, 'Santos Michelena','municipio'),
+(4, 'Sucre','municipio'),
+(4, 'Tovar','municipio'),
+(4, 'Urdaneta','municipio'),
+(4, 'Zamora','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (93, 'Angostura', 'municipio', 6),
-  (94, 'Angostura del Orinoco', 'municipio', 6),
-  (95, 'Caroní', 'municipio', 6),
-  (96, 'Cedeño', 'municipio', 6),
-  (97, 'El Callao', 'municipio', 6),
-  (98, 'Gran Sabana', 'municipio', 6),
-  (99, 'Padre Pedro Chien', 'municipio', 6),
-  (100, 'Piar', 'municipio', 6),
-  (101, 'Roscio', 'municipio', 6),
-  (102, 'Sifontes', 'municipio', 6),
-  (103, 'Sucre', 'municipio', 6);
+(5, 'Alberto Arvelo Torrealba','municipio'),
+(5, 'Andrés Eloy Blanco','municipio'),
+(5, 'Antonio José de Sucre','municipio'),
+(5, 'Arismendi','municipio'),
+(5, 'Barinas','municipio'),
+(5, 'Bolívar','municipio'),
+(5, 'Cruz Paredes','municipio'),
+(5, 'Ezequiel Zamora','municipio'),
+(5, 'Obispos','municipio'),
+(5, 'Pedraza','municipio'),
+(5, 'Rojas','municipio'),
+(5, 'Sosa','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (104, 'Bejuma', 'municipio', 7),
-  (105, 'Carlos Arvelo', 'municipio', 7),
-  (106, 'Diego Ibarra', 'municipio', 7),
-  (107, 'Guacara', 'municipio', 7),
-  (108, 'Juan José Mora', 'municipio', 7),
-  (109, 'Libertador', 'municipio', 7),
-  (110, 'Los Guayos', 'municipio', 7),
-  (111, 'Miranda', 'municipio', 7),
-  (112, 'Montalbán', 'municipio', 7),
-  (113, 'Naguanagua', 'municipio', 7),
-  (114, 'Puerto Cabello', 'municipio', 7),
-  (115, 'San Diego', 'municipio', 7),
-  (116, 'San Joaquín', 'municipio', 7),
-  (117, 'Valencia', 'municipio', 7);
+(6, 'Caroní','municipio'),
+(6, 'Cedeño','municipio'),
+(6, 'El Callao','municipio'),
+(6, 'Gran Sabana','municipio'),
+(6, 'Heres','municipio'),
+(6, 'Piar','municipio'),
+(6, 'Angostura (Raúl Leoni)','municipio'),
+(6, 'Roscio','municipio'),
+(6, 'Sifontes','municipio'),
+(6, 'Sucre','municipio'),
+(6, 'Padre Pedro Chien','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (118, 'Antonio Díaz', 'municipio', 8),
-  (119, 'Casacoima', 'municipio', 8),
-  (120, 'Pedernales', 'municipio', 8),
-  (121, 'Tucupita', 'municipio', 8);
+(7, 'Bejuma','municipio'),
+(7, 'Carlos Arvelo','municipio'),
+(7, 'Diego Ibarra','municipio'),
+(7, 'Guacara','municipio'),
+(7, 'Juan José Mora','municipio'),
+(7, 'Libertador','municipio'),
+(7, 'Los Guayos','municipio'),
+(7, 'Miranda','municipio'),
+(7, 'Montalbán','municipio'),
+(7, 'Naguanagua','municipio'),
+(7, 'Puerto Cabello','municipio'),
+(7, 'San Diego','municipio'),
+(7, 'San Joaquín','municipio'),
+(7, 'Valencia','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (122, 'Libertador de Caracas', 'municipio', 9);
+(8, 'Anzoátegui','municipio'),
+(8, 'Tinaquillo','municipio'),
+(8, 'Girardot','municipio'),
+(8, 'Lima Blanco','municipio'),
+(8, 'Pao de San Juan Bautista','municipio'),
+(8, 'Ricaurte','municipio'),
+(8, 'Rómulo Gallegos','municipio'),
+(8, 'San Carlos','municipio'),
+(8, 'Tinaco','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (123, 'Acosta', 'municipio', 10),
-  (124, 'Bolívar', 'municipio', 10),
-  (125, 'Buchivacoa', 'municipio', 10),
-  (126, 'Carirubana', 'municipio', 10),
-  (127, 'Colina', 'municipio', 10),
-  (128, 'Dabajuro', 'municipio', 10),
-  (129, 'Democracia', 'municipio', 10),
-  (130, 'Falcón', 'municipio', 10),
-  (131, 'Federación', 'municipio', 10),
-  (132, 'Iturriza', 'municipio', 10),
-  (133, 'Jacura', 'municipio', 10),
-  (134, 'José Laurencio Silva', 'municipio', 10),
-  (135, 'Los Taques', 'municipio', 10),
-  (136, 'Manaure', 'municipio', 10),
-  (137, 'Mauroa', 'municipio', 10),
-  (138, 'Miranda', 'municipio', 10),
-  (139, 'Palmasola', 'municipio', 10),
-  (140, 'Petit', 'municipio', 10),
-  (141, 'Píritu', 'municipio', 10),
-  (142, 'San Francisco', 'municipio', 10),
-  (143, 'Sucre', 'municipio', 10),
-  (144, 'Tocópero', 'municipio', 10),
-  (145, 'Unión', 'municipio', 10),
-  (146, 'Urumaco', 'municipio', 10),
-  (147, 'Zamora', 'municipio', 10);
+(9, 'Antonio Díaz','municipio'),
+(9, 'Casacoima','municipio'),
+(9, 'Pedernales','municipio'),
+(9, 'Tucupita','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (148, 'Camaguán', 'municipio', 11),
-  (149, 'Chaguaramas', 'municipio', 11),
-  (150, 'El Socorro', 'municipio', 11),
-  (151, 'Francisco de Miranda', 'municipio', 11),
-  (152, 'José Félix Ribas', 'municipio', 11),
-  (153, 'José Tadeo Monagas', 'municipio', 11),
-  (154, 'Juan Germán Roscio', 'municipio', 11),
-  (155, 'Juan José Rondón', 'municipio', 11),
-  (156, 'Julián Mellado', 'municipio', 11),
-  (157, 'Leonardo Infante', 'municipio', 11),
-  (158, 'Ortiz', 'municipio', 11),
-  (159, 'Pedro Zaraza', 'municipio', 11),
-  (160, 'San Jerónimo de Guayabal', 'municipio', 11),
-  (161, 'San José de Guaribe', 'municipio', 11),
-  (162, 'Santa María de Ipire', 'municipio', 11);
+(10, 'Acosta','municipio'),
+(10, 'Bolívar','municipio'),
+(10, 'Buchivacoa','municipio'),
+(10, 'Cacique Manaure','municipio'),
+(10, 'Carirubana','municipio'),
+(10, 'Colina','municipio'),
+(10, 'Dabajuro','municipio'),
+(10, 'Democracia','municipio'),
+(10, 'Falcón','municipio'),
+(10, 'Federación','municipio'),
+(10, 'Jacura','municipio'),
+(10, 'José Laurencio Silva','municipio'),
+(10, 'Los Taques','municipio'),
+(10, 'Mauroa','municipio'),
+(10, 'Miranda','municipio'),
+(10, 'Monseñor Iturriza','municipio'),
+(10, 'Palmasola','municipio'),
+(10, 'Petit','municipio'),
+(10, 'Píritu','municipio'),
+(10, 'San Francisco','municipio'),
+(10, 'Sucre','municipio'),
+(10, 'Tocópero','municipio'),
+(10, 'Unión','municipio'),
+(10, 'Urumaco','municipio'),
+(10, 'Zamora','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (163, 'Andrés Eloy Blanco', 'municipio', 12),
-  (164, 'Crespo', 'municipio', 12),
-  (165, 'Iribarren', 'municipio', 12),
-  (166, 'Jiménez', 'municipio', 12),
-  (167, 'Morán', 'municipio', 12),
-  (168, 'Palavecino', 'municipio', 12),
-  (169, 'Simón Planas', 'municipio', 12),
-  (170, 'Torres', 'municipio', 12),
-  (171, 'Urdaneta', 'municipio', 12);
+(11, 'Camaguán','municipio'),
+(11, 'Chaguaramas','municipio'),
+(11, 'El Socorro','municipio'),
+(11, 'José Félix Ribas','municipio'),
+(11, 'José Tadeo Monagas','municipio'),
+(11, 'Juan Germán Roscio','municipio'),
+(11, 'Julián Mellado','municipio'),
+(11, 'Las Mercedes','municipio'),
+(11, 'Leonardo Infante','municipio'),
+(11, 'Pedro Zaraza','municipio'),
+(11, 'Ortíz','municipio'),
+(11, 'San Gerónimo de Guayabal','municipio'),
+(11, 'San José de Guaribe','municipio'),
+(11, 'Santa María de Ipire','municipio'),
+(11, 'Sebastián Francisco de Miranda','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (172, 'Alberto Adriani', 'municipio', 13),
-  (173, 'Andrés Bello', 'municipio', 13),
-  (174, 'Antonio Pinto Salinas', 'municipio', 13),
-  (175, 'Aricagua', 'municipio', 13),
-  (176, 'Arzobispo Chacon', 'municipio', 13),
-  (177, 'Campo Elías', 'municipio', 13),
-  (178, 'Caracciolo parra Olmedo', 'municipio', 13),
-  (179, 'Cardenal Quintero', 'municipio', 13),
-  (180, 'Guaraque', 'municipio', 13),
-  (181, 'Julio Cesar Salas', 'municipio', 13),  -- Typo corrected: Salas to Salas
-  (182, 'Justo Briceño', 'municipio', 13),
-  (183, 'Libertador', 'municipio', 13),
-  (184, 'Miranda', 'municipio', 13),
-  (185, 'Obispo Ramos de Lora', 'municipio', 13),
-  (186, 'Padre Noguera', 'municipio', 13),
-  (187, 'Pueblo Llano', 'municipio', 13),
-  (188, 'Rangel', 'municipio', 13),
-  (189, 'Rivas Davila', 'municipio', 13),  -- Typo corrected: Davila to Dávila
-  (190, 'Santos Marquina', 'municipio', 13),
-  (191, 'Sucre', 'municipio', 13),
-  (192, 'Tovar', 'municipio', 13),
-  (193, 'Tulio Febres Cordero', 'municipio', 13),
-  (194, 'Zea', 'municipio', 13);
+(12, 'Andrés Eloy Blanco','municipio'),
+(12, 'Crespo','municipio'),
+(12, 'Iribarren','municipio'),
+(12, 'Jiménez','municipio'),
+(12, 'Morán','municipio'),
+(12, 'Palavecino','municipio'),
+(12, 'Simón Planas','municipio'),
+(12, 'Torres','municipio'),
+(12, 'Urdaneta','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-    (195, 'Acevedo', 'municipio', 14),
-    (196, 'Andrés Bello', 'municipio', 14),
-    (197, 'Baruta', 'municipio', 14),
-    (198, 'Brión', 'municipio', 14),
-    (199, 'Buroz', 'municipio', 14),
-    (200, 'Carrizal', 'municipio', 14),
-    (201, 'Chacao', 'municipio', 14),
-    (202, 'Cristóbal Rojas', 'municipio', 14),
-    (203, 'El Hatillo', 'municipio', 14),
-    (204, 'Guaicaipuro', 'municipio', 14),
-    (205, 'Independencia', 'municipio', 14),
-    (206, 'Lander', 'municipio', 14),
-    (207, 'Los Salias', 'municipio', 14),
-    (208, 'Páez', 'municipio', 14),
-    (209, 'Paz Castillo', 'municipio', 14),
-    (210, 'Pedro Gual', 'municipio', 14),
-    (211, 'Plaza', 'municipio', 14),
-    (212, 'Simón Bolívar', 'municipio', 14),
-    (213, 'Sucre', 'municipio', 14),
-    (214, 'Urdaneta', 'municipio', 14),
-    (215, 'Zamora', 'municipio', 14);
+(13, 'Alberto Adriani','municipio'),
+(13, 'Andrés Bello','municipio'),
+(13, 'Antonio Pinto Salinas','municipio'),
+(13, 'Aricagua','municipio'),
+(13, 'Arzobispo Chacón','municipio'),
+(13, 'Campo Elías','municipio'),
+(13, 'Caracciolo Parra Olmedo','municipio'),
+(13, 'Cardenal Quintero','municipio'),
+(13, 'Guaraque','municipio'),
+(13, 'Julio César Salas','municipio'),
+(13, 'Justo Briceño','municipio'),
+(13, 'Libertador','municipio'),
+(13, 'Miranda','municipio'),
+(13, 'Obispo Ramos de Lora','municipio'),
+(13, 'Padre Noguera','municipio'),
+(13, 'Pueblo Llano','municipio'),
+(13, 'Rangel','municipio'),
+(13, 'Rivas Dávila','municipio'),
+(13, 'Santos Marquina','municipio'),
+(13, 'Sucre','municipio'),
+(13, 'Tovar','municipio'),
+(13, 'Tulio Febres Cordero','municipio'),
+(13, 'Zea','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-    (216, 'Acosta', 'municipio', 15),
-    (217, 'Aguasay', 'municipio', 15),
-    (218, 'Bolívar', 'municipio', 15),
-    (219, 'Caripe', 'municipio', 15),
-    (220, 'Cedeño', 'municipio', 15),
-    (221, 'Ezequiel Zamora', 'municipio', 15),
-    (222, 'Libertador', 'municipio', 15),
-    (223, 'Maturín', 'municipio', 15),
-    (224, 'Piar', 'municipio', 15),
-    (225, 'Punceres', 'municipio', 15),
-    (226, 'Santa Bárbara', 'municipio', 15),
-    (227, 'Sotillo', 'municipio', 15),
-    (228, 'Uracoa', 'municipio', 15);
+(14, 'Acevedo','municipio'),
+(14, 'Andrés Bello','municipio'),
+(14, 'Baruta','municipio'),
+(14, 'Brión','municipio'),
+(14, 'Buroz','municipio'),
+(14, 'Carrizal','municipio'),
+(14, 'Chacao','municipio'),
+(14, 'Cristóbal Rojas','municipio'),
+(14, 'El Hatillo','municipio'),
+(14, 'Guaicaipuro','municipio'),
+(14, 'Independencia','municipio'),
+(14, 'Lander','municipio'),
+(14, 'Los Salias','municipio'),
+(14, 'Páez','municipio'),
+(14, 'Paz Castillo','municipio'),
+(14, 'Pedro Gual','municipio'),
+(14, 'Plaza','municipio'),
+(14, 'Simón Bolívar','municipio'),
+(14, 'Sucre','municipio'),
+(14, 'Urdaneta','municipio'),
+(14, 'Zamora','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (229, 'Antolín del Campo', 'municipio', 16),
-  (230, 'Antonio Díaz', 'municipio', 16),
-  (231, 'Arismendi', 'municipio', 16),
-  (232, 'García', 'municipio', 16),
-  (233, 'Gómez', 'municipio', 16),
-  (234, 'Maneiro', 'municipio', 16),
-  (235, 'Marcano', 'municipio', 16),
-  (236, 'Mariño', 'municipio', 16),
-  (237, 'Península de Macanao', 'municipio', 16),
-  (238, 'Tubores', 'municipio', 16),
-  (239, 'Villalba', 'municipio', 16);
+(15, 'Acosta','municipio'),
+(15, 'Aguasay','municipio'),
+(15, 'Bolívar','municipio'),
+(15, 'Caripe','municipio'),
+(15, 'Cedeño','municipio'),
+(15, 'Ezequiel Zamora','municipio'),
+(15, 'Libertador','municipio'),
+(15, 'Maturín','municipio'),
+(15, 'Piar','municipio'),
+(15, 'Punceres','municipio'),
+(15, 'Santa Bárbara','municipio'),
+(15, 'Sotillo','municipio'),
+(15, 'Uracoa','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (240, 'Agua Blanca', 'municipio', 17),
-  (241, 'Araure', 'municipio', 17),
-  (242, 'estadoeller', 'municipio', 17),
-  (243, 'Guanare', 'municipio', 17),
-  (244, 'Guanarito', 'municipio', 17),
-  (245, 'Monseñor José Vicente de Unda', 'municipio', 17),
-  (246, 'Ospino', 'municipio', 17),
-  (247, 'Páez', 'municipio', 17),
-  (248, 'Papelón', 'municipio', 17),
-  (249, 'San Genaro de Boconoíto', 'municipio', 17),
-  (250, 'San Rafael de Onoto', 'municipio', 17),
-  (251, 'Santa Rosalía', 'municipio', 17),
-  (252, 'Sucre', 'municipio', 17),
-  (253, 'Turén', 'municipio', 17);
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (254, 'Andrés Eloy Blanco', 'municipio', 18),
-  (255, 'Andrés Mata', 'municipio', 18),
-  (256, 'Arismendi', 'municipio', 18),
-  (257, 'Benítez', 'municipio', 18),
-  (258, 'Bermúdez', 'municipio', 18),
-  (259, 'Bolívar', 'municipio', 18),
-  (260, 'Cajigal', 'municipio', 18),
-  (261, 'Cruz Salmerón Acosta', 'municipio', 18),
-  (262, 'Libertador', 'municipio', 18),
-  (263, 'Mariño', 'municipio', 18),
-  (264, 'Mejía', 'municipio', 18),
-  (265, 'Montes', 'municipio', 18),
-  (266, 'Ribero', 'municipio', 18),
-  (267, 'Sucre', 'municipio', 18),
-  (268, 'Valdez', 'municipio', 18);
+(16, 'Antolín del Campo','municipio'),
+(16, 'Arismendi','municipio'),
+(16, 'García','municipio'),
+(16, 'Gómez','municipio'),
+(16, 'Maneiro','municipio'),
+(16, 'Marcano','municipio'),
+(16, 'Mariño','municipio'),
+(16, 'Península de Macanao','municipio'),
+(16, 'Tubores','municipio'),
+(16, 'Villalba','municipio'),
+(16, 'Díaz','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (269, 'Andrés Bello', 'municipio', 19),
-  (270, 'Antonio Rómulo Costa', 'municipio', 19),
-  (271, 'Ayacucho', 'municipio', 19),
-  (272, 'Bolívar', 'municipio', 19),
-  (273, 'Cárdenas', 'municipio', 19),
-  (274, 'Córdoba', 'municipio', 19),
-  (275, 'Fernández Feo', 'municipio', 19),
-  (276, 'Francisco de Miranda', 'municipio', 19),
-  (277, 'García de Hevia', 'municipio', 19),
-  (278, 'Guásimos', 'municipio', 19),
-  (279, 'Independencia', 'municipio', 19),
-  (280, 'Jáuregui', 'municipio', 19),
-  (281, 'José María Vargas', 'municipio', 19),
-  (282, 'Junín', 'municipio', 19),
-  (283, 'Libertad', 'municipio', 19),
-  (284, 'Libertador', 'municipio', 19),
-  (285, 'Lobatera', 'municipio', 19),
-  (286, 'Michelena', 'municipio', 19),
-  (287, 'Panamericano', 'municipio', 19),
-  (288, 'Pedro María Ureña', 'municipio', 19),
-  (289, 'Rafael Urdaneta', 'municipio', 19),
-  (290, 'Samuel Darío Maldonado', 'municipio', 19),
-  (291, 'San Cristóbal', 'municipio', 19),
-  (292, 'San Judas Tadeo', 'municipio', 19),
-  (293, 'Seboruco', 'municipio', 19),
-  (294, 'Simón Rodríguez', 'municipio', 19),
-  (295, 'Sucre', 'municipio', 19),
-  (296, 'Torbes', 'municipio', 19),
-  (297, 'Uribante', 'municipio', 19);
+(17, 'Agua Blanca','municipio'),
+(17, 'Araure','municipio'),
+(17, 'Esteller','municipio'),
+(17, 'Guanare','municipio'),
+(17, 'Guanarito','municipio'),
+(17, 'Monseñor José Vicente de Unda','municipio'),
+(17, 'Ospino','municipio'),
+(17, 'Páez','municipio'),
+(17, 'Papelón','municipio'),
+(17, 'San Genaro de Boconoíto','municipio'),
+(17, 'San Rafael de Onoto','municipio'),
+(17, 'Santa Rosalía','municipio'),
+(17, 'Sucre','municipio'),
+(17, 'Turén','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (298, 'Andrés Bello', 'municipio', 20),
-  (299, 'Boconó', 'municipio', 20),
-  (300, 'Bolívar', 'municipio', 20),
-  (301, 'Candelaria', 'municipio', 20),
-  (302, 'Carache', 'municipio', 20),
-  (303, 'Escuque', 'municipio', 20),
-  (304, 'José Felipe Márquez Cañizales', 'municipio', 20),
-  (305, 'Juan Vicente Campos Elías', 'municipio', 20),
-  (306, 'La Ceiba', 'municipio', 20),
-  (307, 'Miranda', 'municipio', 20),
-  (308, 'Monte Carmelo', 'municipio', 20),
-  (309, 'Motatán', 'municipio', 20),
-  (310, 'Pampán', 'municipio', 20),
-  (311, 'Pampanito', 'municipio', 20),
-  (312, 'Rafael Rangel', 'municipio', 20),
-  (313, 'San Rafael de Carvajal', 'municipio', 20),
-  (314, 'Sucre', 'municipio', 20),
-  (315, 'Trujillo', 'municipio', 20),
-  (316, 'Urdaneta', 'municipio', 20),
-  (317, 'Valera', 'municipio', 20);
+(18, 'Andrés Eloy Blanco','municipio'),
+(18, 'Andrés Mata','municipio'),
+(18, 'Arismendi','municipio'),
+(18, 'Benítez','municipio'),
+(18, 'Bermúdez','municipio'),
+(18, 'Bolívar','municipio'),
+(18, 'Cajigal','municipio'),
+(18, 'Cruz Salmerón Acosta','municipio'),
+(18, 'Libertador','municipio'),
+(18, 'Mariño','municipio'),
+(18, 'Mejía','municipio'),
+(18, 'Montes','municipio'),
+(18, 'Ribero','municipio'),
+(18, 'Sucre','municipio'),
+(18, 'Valdéz','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (318, 'Arístides Bastidas', 'municipio', 21),
-  (319, 'Bolívar', 'municipio', 21),
-  (320, 'Bruzual', 'municipio', 21),
-  (321, 'Cocorote', 'municipio', 21),
-  (322, 'Independencia', 'municipio', 21),
-  (323, 'José Antonio Páez', 'municipio', 21),
-  (324, 'La Trinidad', 'municipio', 21),
-  (325, 'Manuel Monge', 'municipio', 21),
-  (326, 'Nirgua', 'municipio', 21),
-  (327, 'Peña', 'municipio', 21),
-  (328, 'San Felipe', 'municipio', 21),
-  (329, 'Sucre', 'municipio', 21),
-  (330, 'Urachiche', 'municipio', 21),
-  (331, 'Veroes', 'municipio', 21);
+(19, 'Andrés Bello','municipio'),
+(19, 'Antonio Rómulo Costa','municipio'),
+(19, 'Ayacucho','municipio'),
+(19, 'Bolívar','municipio'),
+(19, 'Cárdenas','municipio'),
+(19, 'Córdoba','municipio'),
+(19, 'Fernández Feo','municipio'),
+(19, 'Francisco de Miranda','municipio'),
+(19, 'García de Hevia','municipio'),
+(19, 'Guásimos','municipio'),
+(19, 'Independencia','municipio'),
+(19, 'Jáuregui','municipio'),
+(19, 'José María Vargas','municipio'),
+(19, 'Junín','municipio'),
+(19, 'Libertad','municipio'),
+(19, 'Libertador','municipio'),
+(19, 'Lobatera','municipio'),
+(19, 'Michelena','municipio'),
+(19, 'Panamericano','municipio'),
+(19, 'Pedro María Ureña','municipio'),
+(19, 'Rafael Urdaneta','municipio'),
+(19, 'Samuel Darío Maldonado','municipio'),
+(19, 'San Cristóbal','municipio'),
+(19, 'Seboruco','municipio'),
+(19, 'Simón Rodríguez','municipio'),
+(19, 'Sucre','municipio'),
+(19, 'Torbes','municipio'),
+(19, 'Uribante','municipio'),
+(19, 'San Judas Tadeo','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (332, 'Almirante Padilla', 'municipio', 22),
-  (333, 'Baralt', 'municipio', 22),
-  (334, 'Cabimas', 'municipio', 22),
-  (335, 'Catatumbo', 'municipio', 22),
-  (336, 'Colón', 'municipio', 22),
-  (337, 'Francisco Javier Pulgar', 'municipio', 22),
-  (338, 'Guajira', 'municipio', 22),
-  (339, 'Jesús Enrique Lossada', 'municipio', 22),
-  (340, 'Jesús María Semprúm', 'municipio', 22),
-  (341, 'La Cañada de Urdaneta', 'municipio', 22),
-  (342, 'Lagunillas', 'municipio', 22),
-  (343, 'Machiques de Perijá', 'municipio', 22),
-  (344, 'Mara', 'municipio', 22),
-  (345, 'Maracaibo', 'municipio', 22),
-  (346, 'Miranda', 'municipio', 22),
-  (347, 'Rosario de Perijá', 'municipio', 22),
-  (348, 'San Francisco', 'municipio', 22),
-  (349, 'Santa Rita', 'municipio', 22),
-  (350, 'Simón Bolívar', 'municipio', 22),
-  (351, 'Sucre', 'municipio', 22),
-  (352, 'Valmore Rodríguez', 'municipio', 22);
+(20, 'Andrés Bello','municipio'),
+(20, 'Boconó','municipio'),
+(20, 'Bolívar','municipio'),
+(20, 'Candelaria','municipio'),
+(20, 'Carache','municipio'),
+(20, 'Escuque','municipio'),
+(20, 'José Felipe Márquez Cañizalez','municipio'),
+(20, 'Juan Vicente Campos Elías','municipio'),
+(20, 'La Ceiba','municipio'),
+(20, 'Miranda','municipio'),
+(20, 'Monte Carmelo','municipio'),
+(20, 'Motatán','municipio'),
+(20, 'Pampán','municipio'),
+(20, 'Pampanito','municipio'),
+(20, 'Rafael Rangel','municipio'),
+(20, 'San Rafael de Carvajal','municipio'),
+(20, 'Sucre','municipio'),
+(20, 'Trujillo','municipio'),
+(20, 'Urdaneta','municipio'),
+(20, 'Valera','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (353, 'Anzoategui', 'municipio', 23),
-  (354, 'Ezequiel Zamora', 'municipio', 23),
-  (355, 'Girardot', 'municipio', 23),
-  (356, 'Lima Blanco', 'municipio', 23),
-  (357, 'Pao de San Juan Bautista', 'municipio', 23),
-  (358, 'Ricaurte', 'municipio', 23),
-  (359, 'Rómulo Gallegos', 'municipio', 23),
-  (360, 'Tinaco', 'municipio', 23),
-  (361, 'Tinaquillo', 'municipio', 23);
+(21, 'Vargas','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-(362, 'Vargas', 'municipio', 24);
+(22, 'Arístides Bastidas','municipio'),
+(22, 'Bolívar','municipio'),
+(22, 'Bruzual','municipio'),
+(22, 'Cocorote','municipio'),
+(22, 'Independencia','municipio'),
+(22, 'José Antonio Páez','municipio'),
+(22, 'La Trinidad','municipio'),
+(22, 'Manuel Monge','municipio'),
+(22, 'Nirgua','municipio'),
+(22, 'Peña','municipio'),
+(22, 'San Felipe','municipio'),
+(22, 'Sucre','municipio'),
+(22, 'Urachiche','municipio'),
+(22, 'José Joaquín Veroes','municipio'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-(363, 'Unare', 'parroquia', 95),
-(364, 'Universidad', 'parroquia', 95),
-(365, 'Cachamay', 'parroquia', 95),
-(366, 'Dalla Costa', 'parroquia', 95),
-(367, 'Simón Bolívar', 'parroquia', 95),
-(368, 'Vista al Sol', 'parroquia', 95),
-(369, 'Chirica', 'parroquia', 95),
-(370, 'Once de Abril', 'parroquia', 95),
-(371, 'Yocoima', 'parroquia', 95),
-(372, 'Pozo Verde', 'parroquia', 95),
-(373, '5 de Julio', 'parroquia', 95);
+(23, 'Almirante Padilla','municipio'),
+(23, 'Baralt','municipio'),
+(23, 'Cabimas','municipio'),
+(23, 'Catatumbo','municipio'),
+(23, 'Colón','municipio'),
+(23, 'Francisco Javier Pulgar','municipio'),
+(23, 'Páez','municipio'),
+(23, 'Jesús Enrique Losada','municipio'),
+(23, 'Jesús María Semprún','municipio'),
+(23, 'La Cañada de Urdaneta','municipio'),
+(23, 'Lagunillas','municipio'),
+(23, 'Machiques de Perijá','municipio'),
+(23, 'Mara','municipio'),
+(23, 'Maracaibo','municipio'),
+(23, 'Miranda','municipio'),
+(23, 'Rosario de Perijá','municipio'),
+(23, 'San Francisco','municipio'),
+(23, 'Santa Rita','municipio'),
+(23, 'Simón Bolívar','municipio'),
+(23, 'Sucre','municipio'),
+(23, 'Valmore Rodríguez','municipio'),
+(24, 'Libertador','municipio');
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES (374, 'El Callao', 'parroquia', 97);
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (375, 'Fernando Girón Tovar', 'parroquia', 27),
-  (376, 'Luis Alberto Gómez', 'parroquia', 27),
-  (377, 'Platanillal', 'parroquia', 27),
-  (378, 'Limón de parhueña', 'parroquia', 27);
+INSERT INTO LUGAR ( fk_lugar,nombre_lug,tipo_lug) VALUES
+(26,'Alto Orinoco','parroquia'),
+(26, 'Huachamacare Acanaña','parroquia'),
+(26, 'Marawaka Toky Shamanaña','parroquia'),
+(26, 'Mavaka Mavaka','parroquia'),
+(26, 'Sierra Parima Parimabé','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (379, 'Bergantín', 'parroquia', 45),
-  (380, 'Caigua', 'parroquia', 45),
-  (381, 'El Carmen', 'parroquia', 45),
-  (382, 'El Pilar', 'parroquia', 45),
-  (383, 'Naricual', 'parroquia', 45),
-  (384, 'San Cristóbal', 'parroquia', 45);
+(27, 'Ucata Laja Lisa','parroquia'),
+(27, 'Yapacana Macuruco','parroquia'),
+(27, 'Caname Guarinuma','parroquia'),
+(27, 'San Fernando de Atabapo','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (385, 'San Fernando', 'parroquia', 61),  -- Se cambia 'parroquia' a 'parroquia'
-  (386, 'El Recreo', 'parroquia', 61),
-  (387, 'Peñalver', 'parroquia', 61),
-  (388, 'San Rafael de Atamaica', 'parroquia', 61);
+(28, 'Fernando Girón Tovar','parroquia'),
+(28, 'Luis Alberto Gómez','parroquia'),
+(28, 'Pahueña Limón de Parhueña','parroquia'),
+(28, 'Platanillal Platanillal','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (389, 'Cagua', 'parroquia', 77),
-  (390, 'Bella Vista', 'parroquia', 77);
+(29, 'Samariapo','parroquia'),
+(29, 'Sipapo','parroquia'),
+(29, 'Munduapo','parroquia'),
+(29, 'Guayapo','parroquia'),
+(29, 'Isla Ratón','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (391, 'Arismendi', 'parroquia', 84),
-  (392, 'Guadarrama', 'parroquia', 84),
-  (393, 'La Unión', 'parroquia', 84),
-  (394, 'San Antonio', 'parroquia', 84);
+(30, 'Alto Ventuari','parroquia'),
+(30, 'Medio Ventuari','parroquia'),
+(30, 'Bajo Ventuari','parroquia'),
+(30, 'San Juan de Manapiare','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (395, 'San Diego', 'parroquia', 115),
-  (396, 'Jefe Jose Silva', 'parroquia', 360);
+(31, 'Maroa','parroquia'),
+(31, 'Victorino','parroquia'),
+(31, 'Comunidad','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (397, 'Monseñor Argimiro García', 'parroquia', 121),
-  (398, 'José Vidal Marcano', 'parroquia', 121),
-  (399, 'Juan Millán', 'parroquia', 121),
-  (400, 'Leonardo Ruiz Pineda', 'parroquia', 121),
-  (401, 'Mariscal Antonio José de Sucre', 'parroquia', 121),
-  (402, 'San José', 'parroquia', 121),
-  (403, 'San Rafael', 'parroquia', 121),
-  (404, 'Virgen del Valle', 'parroquia', 121);
+(32, 'Casiquiare','parroquia'),
+(32, 'Cocuy','parroquia'),
+(32, 'San Carlos de Río Negro','parroquia'),
+(32, 'Solano','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (405, '23 de Enero', 'parroquia', 122),
-  (406, 'Altagracia', 'parroquia', 122),
-  (407, 'Antímano', 'parroquia', 122),
-  (408, 'Caricuao', 'parroquia', 122),
-  (409, 'Catedral', 'parroquia', 122),
-  (410, 'Coche', 'parroquia', 122),
-  (411, 'El Junquito', 'parroquia', 122),
-  (412, 'El paraíso', 'parroquia', 122),
-  (413, 'El Recreo', 'parroquia', 122),
-  (414, 'El Valle', 'parroquia', 122),
-  (415, 'Candelaria', 'parroquia', 122),
-  (416, 'La Pastora', 'parroquia', 122),
-  (417, 'La Vega', 'parroquia', 122),
-  (418, 'Macarao', 'parroquia', 122),
-  (419, 'San Agustín', 'parroquia', 122),
-  (420, 'San Bernardino', 'parroquia', 122),
-  (421, 'San José', 'parroquia', 122),
-  (422, 'San Juan', 'parroquia', 122),
-  (423, 'San Pedro', 'parroquia', 122),
-  (424, 'Santa Rosalía', 'parroquia', 122),
-  (425, 'Santa Teresa', 'parroquia', 122),
-  (426, 'Sucre', 'parroquia', 122);
+(33, 'Anaco','parroquia'),
+(33, 'San Joaquín','parroquia'),
+(33, 'Buena Vista','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (427, 'Guzmán Guillermo', 'parroquia', 138),
-  (428, 'Mitare', 'parroquia', 138),
-  (429, 'Río Seco', 'parroquia', 138),
-  (430, 'Sabaneta', 'parroquia', 138),
-  (431, 'San Antonio', 'parroquia', 138),
-  (432, 'San Gabriel', 'parroquia', 138),
-  (433, 'Santa Ana', 'parroquia', 138),
-  (434, 'San Juan', 'parroquia', 154),
-  (435, 'Cantagallo', 'parroquia', 154),
-  (436, 'parapara', 'parroquia', 154),
-  (437, 'La Concepción', 'parroquia', 165),
-  (438, 'Catedral', 'parroquia', 165),
-  (439, 'Santa Rosa', 'parroquia', 165),
-  (440, 'Ana Soto', 'parroquia', 165),
-  (441, 'Unión', 'parroquia', 165),
-  (442, 'Tamaca', 'parroquia', 165),
-  (443, 'El Cuji', 'parroquia', 165),
-  (444, 'Aguedo F. Alvarado', 'parroquia', 165),
-  (445, 'Juares', 'parroquia', 165),
-  (446, 'Buena Vista', 'parroquia', 165);
+(34, 'Cachipo','parroquia'),
+(34, 'Aragua de Barcelona','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (447, 'Matriz', 'parroquia', 177),
-  (448, 'Montalbán', 'parroquia', 177),
-  (449, 'Fernández Peña', 'parroquia', 177),
-  (450, 'Acequias', 'parroquia', 177),
-  (451, 'Jají', 'parroquia', 177),
-  (452, 'La Mesa', 'parroquia', 177),
-  (453, 'San José del Sur', 'parroquia', 177),
-  (454, 'El Cartanal', 'parroquia', 205),
-  (455, 'Santa Teresa del Tuy', 'parroquia', 205),
-  (456, 'Alto de Los Godos', 'parroquia', 223),
-  (457, 'Boquerón', 'parroquia', 223),
-  (458, 'El Corozo', 'parroquia', 223),
-  (459, 'El Furrial', 'parroquia', 223),
-  (460, 'Jusepín', 'parroquia', 223),
-  (461, 'Las Cocuizas', 'parroquia', 223),
-  (462, 'La Pica', 'parroquia', 223),
-  (463, 'Santa Cruz', 'parroquia', 223),
-  (464, 'San Simón', 'parroquia', 223),
-  (465, 'San Vicente', 'parroquia', 223);
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (466, 'Adrián', 'parroquia', 235),
-  (467, 'Juan Griego', 'parroquia', 235),
-  (468, 'Marcano', 'parroquia', 235);
+(35, 'Clarines','parroquia'),
+(35, 'Guanape','parroquia'),
+(35, 'Sabana de Uchire','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (469, 'Guanare', 'parroquia', 243),
-  (470, 'Córdoba', 'parroquia', 243),
-  (471, 'San José de la Montaña', 'parroquia', 243),
-  (472, 'San Juan de Guanaguanare', 'parroquia', 243),
-  (473, 'La Virgen de Coromoto', 'parroquia', 243);
+(36, 'Lechería','parroquia'),
+(36, 'El Morro','parroquia'),
 
-INSERT INTO LUGAR (codigo_lug, nombre_lug, tipo_lug, fk_lugar)
-VALUES
-  (474, 'Valentín Valiente', 'parroquia', 267),
-  (475, 'Altagracia', 'parroquia', 267),
-  (476, 'Santa Inés', 'parroquia', 267),
-  (477, 'San Juan', 'parroquia', 267),
-  (478, 'Ayacucho', 'parroquia', 267),
-  (479, 'Gran Mariscal', 'parroquia', 267),
-  (480, 'Raúl Leoni', 'parroquia', 267);
+(37, 'Puerto Píritu','parroquia'),
+(37, 'San Miguel','parroquia'),
+(37, 'Sucre','parroquia'),
+
+(38, 'Valle de Guanape','parroquia'),
+(38, 'Santa Bárbara','parroquia'),
+
+
+(39, 'El Chaparro','parroquia'),
+(39, 'Tomás Alfaro','parroquia'),
+(39, 'Calatrava','parroquia'),
+
+(40, 'Guanta','parroquia'),
+(40, 'Chorrerón','parroquia'),
+
+(41, 'Mamo','parroquia'),
+(41, 'Soledad','parroquia'),
+
+(42, 'Mapire','parroquia'),
+(42, 'Piar','parroquia'),
+(42, 'Santa Clara','parroquia'),
+(42, 'San Diego de Cabrutica','parroquia'),
+(42, 'Uverito','parroquia'),
+(42, 'Zuata','parroquia'),
+
+(43,'Puerto La Cruz','parroquia'),
+(43,'Pozuelos','parroquia'),
+
+(44, 'Onoto','parroquia'),
+(44, 'San Pablo','parroquia'),
+
+(45, 'San Mateo','parroquia'),
+(45, 'El Carito','parroquia'),
+(45, 'Santa Inés','parroquia'),
+(45, 'La Romereña','parroquia'),
+
+(46, 'Atapirire','parroquia'),
+(46, 'Boca del Pao','parroquia'),
+(46, 'El Pao','parroquia'),
+(46, 'Pariaguán','parroquia'),
+
+(47, 'Cantaura','parroquia'),
+(47, 'Libertador','parroquia'),
+(47, 'Santa Rosa','parroquia'),
+(47, 'Urica','parroquia'),
+
+(48, 'Píritu','parroquia'),
+(48, 'San Francisco','parroquia'),
+
+(49, 'San José de Guanipa','parroquia'),
+
+(50, 'Boca de Uchire','parroquia'),
+(50, 'Boca de Chávez','parroquia'),
+
+(51, 'Pueblo Nuevo','parroquia'),
+(51, 'Santa Ana','parroquia'),
+
+(52, 'Bergantín','parroquia'),
+(52, 'Caigua','parroquia'),
+(52, 'El Carmen','parroquia'),
+(52, 'El Pilar','parroquia'),
+(52, 'Naricual','parroquia'),
+(52, 'San Crsitóbal','parroquia'),
+
+(53, 'Edmundo Barrios','parroquia'),
+(53, 'Miguel Otero Silva','parroquia'),
+
+
+(54, 'Achaguas','parroquia'),
+(54, 'Apurito','parroquia'),
+(54, 'El Yagual','parroquia'),
+(54, 'Guachara','parroquia'),
+(54, 'Mucuritas','parroquia'),
+(54, 'Queseras del medio','parroquia'),
+
+
+(55, 'Biruaca','parroquia'),
+
+
+(56, 'Bruzual','parroquia'),
+(56, 'Mantecal','parroquia'),
+(56, 'Quintero','parroquia'),
+(56, 'Rincón Hondo','parroquia'),
+(56, 'San Vicente','parroquia'),
+
+
+(57, 'Guasdualito','parroquia'),
+(57, 'Aramendi','parroquia'),
+(57, 'El Amparo','parroquia'),
+(57, 'San Camilo','parroquia'),
+(57, 'Urdaneta','parroquia'),
+
+
+(58, 'San Juan de Payara','parroquia'),
+(58, 'Codazzi','parroquia'),
+(58, 'Cunaviche','parroquia'),
+
+(59, 'Elorza','parroquia'),
+(59, 'La Trinidad','parroquia'),
+
+(60, 'San Fernando','parroquia'),
+(60, 'El Recreo','parroquia'),
+(60, 'Peñalver','parroquia'),
+(60, 'San Rafael de Atamaica','parroquia'),
+
+(61, 'Pedro José Ovalles','parroquia'),
+(61, 'Joaquín Crespo','parroquia'),
+(61, 'José Casanova Godoy','parroquia'),
+(61, 'Madre María de San José','parroquia'),
+(61, 'Andrés Eloy Blanco','parroquia'),
+(61, 'Los Tacarigua','parroquia'),
+(61, 'Las Delicias','parroquia'),
+(61,'Choroní','parroquia'),
+
+(62, 'Bolívar','parroquia'),
+
+(63, 'Camatagua','parroquia'),
+(63, 'Carmen de Cura','parroquia'),
+
+(64, 'Santa Rita','parroquia'),
+(64, 'Francisco de Miranda','parroquia'),
+(64, 'Moseñor Feliciano González','parroquia'),
+
+
+
+(65, 'Santa Cruz','parroquia'),
+
+(66, 'José Félix Ribas','parroquia'),
+(66, 'Castor Nieves Ríos','parroquia'),
+(66, 'Las Guacamayas','parroquia'),
+(66, 'Pao de Zárate','parroquia'),
+(66, 'Zuata','parroquia'),
+
+(67, 'José Rafael Revenga','parroquia'),
+(67, 'El Consejo','parroquia'),
+
+(68, 'Palo Negro','parroquia'),
+(68, 'San Martín de Porres','parroquia'),
+
+
+(69, 'Ocumare de la Costa','parroquia'),
+
+(70, 'San Casimiro','parroquia'),
+(70, 'Güiripa','parroquia'),
+(70, 'Ollas de Caramacate','parroquia'),
+(70, 'Valle Morín','parroquia'),
+
+(71, 'El Limón','parroquia'),
+(71, 'Caña de Azúcar','parroquia'),
+
+
+(72, 'San Sebastían','parroquia'),
+
+
+
+(73, 'Turmero','parroquia'),
+(73, 'Arevalo Aponte','parroquia'),
+(73, 'Chuao','parroquia'),
+(73, 'Samán de Güere','parroquia'),
+(73, 'Alfredo Pacheco Miranda','parroquia'),
+
+(74, 'Santos Michelena','parroquia'),
+(74, 'Tiara','parroquia'),
+
+
+
+(75, 'Cagua','parroquia'),
+(75, 'Bella Vista','parroquia'),
+
+(76, 'Tovar','parroquia'),
+
+(77, 'Urdaneta','parroquia'),
+(77, 'Las Peñitas','parroquia'),
+(77, 'San Francisco de Cara','parroquia'),
+(77, 'Taguay','parroquia'),
+
+
+(78, 'Zamora','parroquia'),
+(78, 'Magdaleno','parroquia'),
+(78, 'San Francisco de Asís','parroquia'),
+(78, 'Valles de Tucutunemo','parroquia'),
+(78, 'Augusto Mijares','parroquia'),
+
+
+(79, 'Sabaneta','parroquia'),
+(79, 'Juan Antonio Rodríguez Domínguez','parroquia'),
+
+(80, 'El Cantón','parroquia'),
+(80, 'Santa Cruz de Guacas','parroquia'),
+(80, 'Puerto Vivas','parroquia'),
+
+(81, 'Ticoporo','parroquia'),
+(81, 'Nicolás Pulido','parroquia'),
+(81, 'Andrés Bello','parroquia'),
+
+(82, 'Arismendi','parroquia'),
+(82, 'Guadarrama','parroquia'),
+(82, 'La Unión','parroquia'),
+(82, 'San Antonio','parroquia'),
+
+(83, 'Barinas','parroquia'),
+(83, 'Alberto Arvelo Larriva','parroquia'),
+(83, 'San Silvestre','parroquia'),
+(83, 'Santa Inés','parroquia'),
+(83, 'Santa Lucía','parroquia'),
+(83, 'Torumos','parroquia'),
+(83, 'El Carmen','parroquia'),
+(83, 'Rómulo Betancourt','parroquia'),
+(83, 'Corazón de Jesús','parroquia'),
+(83, 'Ramón Ignacio Méndez','parroquia'),
+(83, 'Alto Barinas','parroquia'),
+(83, 'Manuel Palacio Fajardo','parroquia'),
+(83, 'Juan Antonio Rodríguez Domínguez','parroquia'),
+(83, 'Dominga Ortiz de Páez','parroquia'),
+
+(84, 'Barinitas','parroquia'),
+(84, 'Altamira de Cáceres','parroquia'),
+(84, 'Calderas','parroquia'),
+
+(85, 'Barrancas','parroquia'),
+(85, 'El Socorro','parroquia'),
+(85, 'Mazparrito','parroquia'),
+
+(86, 'Santa Bárbara','parroquia'),
+(86, 'Pedro Briceño Méndez','parroquia'),
+(86, 'Ramón Ignacio Méndez','parroquia'),
+(86, 'José Ignacio del Pumar','parroquia'),
+
+(87, 'Obispos','parroquia'),
+(87, 'Guasimitos','parroquia'),
+(87, 'El Real','parroquia'),
+(87, 'La Luz','parroquia'),
+
+(88, 'Ciudad Bolívia','parroquia'),
+(88, 'José Ignacio Briceño','parroquia'),
+(88, 'José Félix Ribas','parroquia'),
+(88, 'Páez','parroquia'),
+
+(89, 'Libertad','parroquia'),
+(89, 'Dolores','parroquia'),
+(89, 'Santa Rosa','parroquia'),
+(89, 'Palacio Fajardo','parroquia'),
+(89, 'Simón Rodríguez','parroquia'),
+
+
+(90, 'Ciudad de Nutrias','parroquia'),
+(90, 'El Regalo','parroquia'),
+(90, 'Puerto Nutrias','parroquia'),
+(90, 'Santa Catalina','parroquia'),
+(90, 'Simón Bolívar','parroquia'),
+
+(91, 'Cachamay','parroquia'),
+(91, 'Chirica','parroquia'),
+(91, 'Dalla Costa','parroquia'),
+(91, 'Once de Abril','parroquia'),
+(91, 'Simón Bolívar','parroquia'),
+(91, 'Unare','parroquia'),
+(91, 'Universidad','parroquia'),
+(91, 'Vista al Sol','parroquia'),
+(91, 'Pozo Verde','parroquia'),
+(91, 'Yocoima','parroquia'),
+(91, '5 de Julio','parroquia'),
+
+(92, 'Cedeño','parroquia'),
+(92, 'Altagracia','parroquia'),
+(92, 'Ascensión Farreras','parroquia'),
+(92, 'Guaniamo','parroquia'),
+(92, 'La Urbana','parroquia'),
+(92, 'Pijiguaos','parroquia'),
+
+(93, 'El Callao','parroquia'),
+
+(94, 'Gran Sabana','parroquia'),
+(94, 'Ikabarú','parroquia'),
+
+(95, 'Catedral','parroquia'),
+(95, 'Zea','parroquia'),
+(95, 'Orinoco','parroquia'),
+(95, 'José Antonio Páez','parroquia'),
+(95, 'Marhuanta','parroquia'),
+(95, 'Agua Salada','parroquia'),
+(95, 'Vista Hermosa','parroquia'),
+(95, 'La Sabanita','parroquia'),
+(95, 'Panapana','parroquia'),
+
+(96, 'Andrés Eloy Blanco','parroquia'),
+(96, 'Upata','parroquia'),
+(96, 'Pedro Cova','parroquia'),
+
+(97, 'Raúl Leoni','parroquia'),
+(97, 'Barceloneta','parroquia'),
+(97, 'Santa Bárbara','parroquia'),
+(97, 'San Francisco','parroquia'),
+
+(98, 'Roscio','parroquia'),
+(98, 'Salóm','parroquia'),
+
+(99, 'Sifontes','parroquia'),
+(99, 'Dalla Costa','parroquia'),
+(99, 'San Isidro','parroquia'),
+
+(100, 'Sucre','parroquia'),
+(100, 'Aripao','parroquia'),
+(100, 'Guarataro','parroquia'),
+(100, 'Las Majadas','parroquia'),
+(100, 'Moitaco','parroquia'),
+
+(101, 'Padre Pedro Chien','parroquia'),
+(101, 'Río Grande','parroquia'),
+
+
+(102, 'Canoabo','parroquia'),
+(102, 'Simón Bolívar','parroquia'),
+
+
+(103, 'Güigüe','parroquia'),
+(103, 'Carabobo','parroquia'),
+(103, 'Tacarigua','parroquia'),
+
+(104, 'Mariara','parroquia'),
+(104, 'Aguas Calientes','parroquia'),
+
+(105, 'Ciudad Alianza','parroquia'),
+(105, 'Guacara','parroquia'),
+(105, 'Yagua','parroquia'),
+
+(106, 'Morón','parroquia'),
+(106, 'Yagua','parroquia'),
+
+(107, 'Tocuyito','parroquia'),
+(107, 'Independencia','parroquia'),
+	
+(108, 'Los Guayos','parroquia'),
+
+(109, 'Miranda','parroquia'),
+
+(110, 'Montalbán','parroquia'),
+
+(111, 'Naguanagua','parroquia'),
+
+
+(112, 'Bartolomé Salóm','parroquia'),
+(112, 'Democracia','parroquia'),
+(112, 'Fraternidad','parroquia'),
+(112, 'Goaigoaza','parroquia'),
+(112, 'Juan José Flores','parroquia'),
+(112, 'Unión','parroquia'),
+(112, 'Borburata','parroquia'),
+(112, 'Patanemo','parroquia'),
+
+(113, 'San Diego','parroquia'),
+
+(114, 'San Joaquín','parroquia'),
+
+(115, 'Candelaria','parroquia'),
+(115, 'Catedral','parroquia'),
+(115, 'El Socorro','parroquia'),
+(115, 'Miguel Peña','parroquia'),
+(115, 'Rafael Urdaneta','parroquia'),
+(115, 'San Blas','parroquia'),
+(115, 'San José','parroquia'),
+(115, 'Santa Rosa','parroquia'),
+(115, 'Negro Primero','parroquia'),
+
+(116, 'Cojedes','parroquia'),
+(116, 'Juan de Mata Suárez','parroquia'),
+
+(117, 'Tinaquillo','parroquia'),
+
+(118, 'El Baúl','parroquia'),
+(118, 'Sucre','parroquia'),
+
+(119, 'La Aguadita','parroquia'),
+(119, 'Macapo','parroquia'),
+
+
+(120, 'El Pao','parroquia'),
+
+(121, 'El Amparo','parroquia'),
+(121, 'Libertad de Cojedes','parroquia'),
+
+(122, 'Rómulo Gallegos','parroquia'),
+
+(123, 'San Carlos de Austria','parroquia'),
+(123, 'Juan Ángel Bravo','parroquia'),
+(123, 'Manuel Manrique','parroquia'),
+
+(124, 'General en Jefe José Laurencio Silva','parroquia'),
+
+(125, 'Curiapo','parroquia'),
+(125, 'Almirante Luis Brión','parroquia'),
+(125, 'Francisco Aniceto Lugo','parroquia'),
+(125, 'Manuel Renaud','parroquia'),
+(125, 'Padre Barral','parroquia'),
+(125, 'Santos de Abelgas','parroquia'),
+
+(126, 'Imataca','parroquia'),
+(126, 'Juan Bautista Arismendi','parroquia'),
+(126, 'Manuel Piar','parroquia'),
+(126, 'Rómulo Gallegos','parroquia'),
+
+(127, 'Pedernales','parroquia'),
+(127, 'Luis Beltrán Prieto Figueroa','parroquia'),
+
+(128, 'San José','parroquia'),
+(128, 'José Vidal Marcano','parroquia'),
+(128, 'Juan Millán','parroquia'),
+(128, 'Leonardo Ruíz Pineda','parroquia'),
+(128, 'Mariscal Antonio José de Sucre','parroquia'),
+(128, 'Monseñor Argimiro García','parroquia'),
+(128, 'San Rafael (Delta Amacuro)','parroquia'),
+(128, 'Virgen del Valle','parroquia'),
+
+(129, 'Capadare','parroquia'),
+(129, 'La Pastora','parroquia'),
+(129, 'Libertador','parroquia'),
+(129, 'San Juan de los Cayos','parroquia'),
+
+(130, 'Aracua','parroquia'),
+(130, 'La Peña','parroquia'),
+(130, 'San Luis','parroquia'),
+
+(131, 'Bariro','parroquia'),
+(131, 'Borojó','parroquia'),
+(131, 'Capatárida','parroquia'),
+(131, 'Guajiro','parroquia'),
+(131, 'Seque','parroquia'),
+(131, 'Zazárida','parroquia'),
+(131, 'Valle de Eroa','parroquia'),
+
+(132, 'Cacique Manaure','parroquia'),
+
+(133, 'Norte','parroquia'),
+(133, 'Carirubana','parroquia'),
+(133, 'Santa Ana','parroquia'),
+(133, 'Urbana Punta Cardón','parroquia'),
+
+(134, 'La Vela de Coro','parroquia'),
+(134, 'Acurigua','parroquia'),
+(134, 'Guaibacoa','parroquia'),
+(134, 'Las Calderas','parroquia'),
+(134, 'Macoruca','parroquia'),
+
+
+(135, 'Dabajuro','parroquia'),
+
+(136, 'Agua Clara','parroquia'),
+(136, 'Avaria','parroquia'),
+(136, 'Pedregal','parroquia'),
+(136, 'Piedra Grande','parroquia'),
+(136, 'Purureche','parroquia'),
+
+(137, 'Adaure','parroquia'),
+(137, 'Adícora','parroquia'),
+(137, 'Baraived','parroquia'),
+(137, 'Buena Vista','parroquia'),
+(137, 'Jadacaquiva','parroquia'),
+(137, 'El Vínculo','parroquia'),
+(137, 'El Hato','parroquia'),
+(137, 'Moruy','parroquia'),
+(137, 'Pueblo Nuevo','parroquia'),
+
+(138, 'Agua Larga','parroquia'),
+(138, 'Churuguara','parroquia'),
+(138, 'El Paují','parroquia'),
+(138, 'Independencia','parroquia'),
+(138, 'Mapararí','parroquia'),
+
+(139, 'Agua Linda','parroquia'),
+(139, 'Araurima','parroquia'),
+(139, 'Jacura','parroquia'),
+
+(140, 'Tucacas','parroquia'),
+(140, 'Boca de Aroa','parroquia'),
+
+(141, 'Los Taques','parroquia'),
+(141, 'Judibana','parroquia'),
+
+(142, 'Mene de Mauroa','parroquia'),
+(142, 'San Félix','parroquia'),
+(142, 'Casigua','parroquia'),
+
+(143, 'Guzmán Guillermo','parroquia'),
+(143, 'Mitare','parroquia'),
+(143, 'Río Seco','parroquia'),
+(143, 'Sabaneta','parroquia'),
+(143, 'San Antonio','parroquia'),
+(143, 'San Gabriel','parroquia'),
+(143, 'Santa Ana','parroquia'),
+
+
+(144, 'Boca del Tocuyo','parroquia'),
+(144, 'Chichiriviche','parroquia'),
+(144, 'Tocuyo de la Costa','parroquia'),
+
+(145, 'Palmasola','parroquia'),
+
+(146, 'Cabure','parroquia'),
+(146, 'Colina','parroquia'),
+(146, 'Curimagua','parroquia'),
+
+
+(147, 'San José de la Costa','parroquia'),
+(147, 'Píritu','parroquia'),
+
+
+(148, 'San Francisco','parroquia'),
+
+
+(149, 'Sucre','parroquia'),
+(149, 'Pecaya','parroquia'),
+
+
+(150, 'Tocópero','parroquia'),
+
+(151, 'El Charal','parroquia'),
+(151, 'Las Vegas del Tuy','parroquia'),
+(151, 'Santa Cruz de Bucaral','parroquia'),
+
+(152, 'Bruzual','parroquia'),
+(152, 'Urumaco','parroquia'),
+
+(153, 'Puerto Cumarebo','parroquia'),
+(153, 'La Ciénaga','parroquia'),
+(153, 'La Soledad','parroquia'),
+(153, 'Pueblo Cumarebo','parroquia'),
+(153, 'Zazárida','parroquia'),
+
+--(155, 'Churuguara'),
+
+(154, 'Camaguán','parroquia'),
+(154, 'Puerto Miranda','parroquia'),
+(154, 'Uverito','parroquia'),
+
+
+(155, 'Chaguaramas','parroquia'),
+
+(156, 'El Socorro','parroquia'),
+
+(157, 'Tucupido','parroquia'),
+(157, 'San Rafael de Laya','parroquia'),
+
+(158, 'Altagracia de Orituco','parroquia'),
+(158, 'San Rafael de Orituco','parroquia'),
+(158, 'San Francisco Javier de Lezama','parroquia'),
+(158, 'Paso Real de Macaira','parroquia'),
+(158, 'Carlos Soublette','parroquia'),
+(158, 'San Francisco de Macaira','parroquia'),
+(158, 'Libertad de Orituco','parroquia'),
+
+(159, 'Cantagallo','parroquia'),
+(159, 'San Juan de los Morros','parroquia'),
+(159, 'Parapara','parroquia'),
+
+(160, 'El Sombrero','parroquia'),
+(160, 'Sosa','parroquia'),
+
+
+(161, 'Las Mercedes','parroquia'),
+(161, 'Cabruta','parroquia'),
+(161, 'Santa Rita de Manapire','parroquia'),
+
+(162, 'Valle de la Pascua','parroquia'),
+(162, 'Espino','parroquia'),
+
+(163, 'San José de Unare','parroquia'),
+(163, 'Zaraza','parroquia'),
+
+(164, 'San José de Tiznados','parroquia'),
+(164, 'San Francisco de Tiznados','parroquia'),
+(164, 'San Lorenzo de Tiznados','parroquia'),
+(164, 'Ortiz','parroquia'),
+
+(165, 'Guayabal','parroquia'),
+(165, 'Cazorla','parroquia'),
+
+(166, 'San José de Guaribe','parroquia'),
+
+(167, 'Santa María de Ipire','parroquia'),
+(167, 'Altamira','parroquia'),
+
+(168, 'El Calvario','parroquia'),
+(168, 'El Rastro','parroquia'),
+(168, 'Guardatinajas','parroquia'),
+(168, 'Capital Urbana Calabozo','parroquia'),
+
+(169, 'Quebrada Honda de Guache','parroquia'),
+(169, 'Pío Tamayo','parroquia'),
+(169, 'Yacambú','parroquia'),
+
+(170, 'Fréitez','parroquia'),
+(170, 'José María Blanco','parroquia'),
+
+
+(171, 'Catedral','parroquia'),
+(171, 'Concepción','parroquia'),
+(171, 'El Cují','parroquia'),
+(171, 'Juan de Villegas','parroquia'),
+(171, 'Santa Rosa','parroquia'),
+(171, 'Tamaca','parroquia'),
+(171, 'Unión','parroquia'),
+(171, 'Aguedo Felipe Alvarado','parroquia'),
+(171, 'Buena Vista','parroquia'),
+(171, 'Juárez','parroquia'),
+
+(172, 'Juan Bautista Rodríguez','parroquia'),
+(172, 'Cuara','parroquia'),
+(172, 'Diego de Lozada','parroquia'),
+(172, 'Paraíso de San José','parroquia'),
+(172, 'San Miguel','parroquia'),
+(172, 'Tintorero','parroquia'),
+(172, 'José Bernardo Dorante','parroquia'),
+(172, 'Coronel Mariano Peraza ','parroquia'),
+
+
+(173, 'Bolívar','parroquia'),
+(173, 'Anzoátegui','parroquia'),
+(173, 'Guarico','parroquia'),
+(173, 'Hilario Luna y Luna','parroquia'),
+(173, 'Humocaro Alto','parroquia'),
+(173, 'Humocaro Bajo','parroquia'),
+(173, 'La Candelaria','parroquia'),
+(173, 'Morán','parroquia'),
+
+(174, 'Cabudare','parroquia'),
+(174, 'José Gregorio Bastidas','parroquia'),
+(174, 'Agua Viva','parroquia'),
+
+(175,'Sarare','parroquia'),
+(175,'Buría','parroquia'),
+(175,'Gustavo Vegas León','parroquia'),
+
+(176,'Trinidad Samuel','parroquia'),
+(176,'Antonio Díaz','parroquia'),
+(176,'Camacaro','parroquia'),
+(176,'Castañeda','parroquia'),
+(176,'Cecilio Zubillaga','parroquia'),
+(176,'Chiquinquirá','parroquia'),
+(176,'El Blanco','parroquia'),
+(176,'Espinoza de los Monteros','parroquia'),
+(176,'Lara','parroquia'),
+(176,'Las Mercedes','parroquia'),
+(176,'Manuel Morillo','parroquia'),
+(176,'Montaña Verde','parroquia'),
+(176,'Montes de Oca','parroquia'),
+(176,'Torres','parroquia'),
+(176,'Heriberto Arroyo','parroquia'),
+(176,'Reyes Vargas','parroquia'),
+(176,'Altagracia','parroquia'),
+
+
+
+(177, 'Siquisique','parroquia'),
+(177, 'Moroturo','parroquia'),
+(177, 'San Miguel','parroquia'),
+(177, 'Xaguas','parroquia'),
+
+(178, 'Presidente Betancourt','parroquia'),
+(178, 'Presidente Páez','parroquia'),
+(178, 'Presidente Rómulo Gallegos','parroquia'),
+(178, 'Gabriel Picón González','parroquia'),
+(178, 'Héctor Amable Mora','parroquia'),
+(178, 'José Nucete Sardi','parroquia'),
+(178, 'Pulido Méndez','parroquia'),
+
+(179, 'La Azulita','parroquia'),
+
+(180, 'Santa Cruz de Mora','parroquia'),
+(180, 'Mesa Bolívar','parroquia'),
+(180, 'Mesa de Las Palmas','parroquia'),
+
+(181, 'Aricagua','parroquia'),
+(181, 'San Antonio','parroquia'),
+
+(182, 'Canagua','parroquia'),
+(182, 'Capurí','parroquia'),
+(182, 'Chacantá','parroquia'),
+(182, 'El Molino','parroquia'),
+(182, 'Guaimaral','parroquia'),
+(182, 'Mucutuy','parroquia'),
+(182, 'Mucuchachí','parroquia'),
+
+(183, 'Fernández Peña','parroquia'),
+(183, 'Matriz','parroquia'),
+(183, 'Montalbán','parroquia'),
+(183, 'Acequias','parroquia'),
+(183, 'Jají','parroquia'),
+(183, 'La Mesa','parroquia'),
+(183, 'San José del Sur','parroquia'),
+
+(184, 'Tucaní','parroquia'),
+(184, 'Florencio Ramírez','parroquia'),
+
+
+(185, 'Santo Domingo','parroquia'),
+(185, 'Las Piedras','parroquia'),
+
+(186, 'Guaraque','parroquia'),
+(186, 'Mesa de Quintero','parroquia'),
+(186, 'Río Negro','parroquia'),
+
+(187, 'Arapuey','parroquia'),
+(187, 'Palmira','parroquia'),
+
+(188, 'San Cristóbal de Torondoy','parroquia'),
+(188, 'Torondoy','parroquia'),
+
+(189, 'Antonio Spinetti Dini','parroquia'),
+(189, 'Arias','parroquia'),
+(189, 'Caracciolo Parra Pérez','parroquia'),
+(189, 'Domingo Peña','parroquia'),
+(189, 'El Llano','parroquia'),
+(189, 'Gonzalo Picón Febres','parroquia'),
+(189, 'Jacinto Plaza','parroquia'),
+(189, 'Juan Rodríguez Suárez','parroquia'),
+(189, 'Lasso de la Vega','parroquia'),
+(189, 'Mariano Picón Salas','parroquia'),
+(189, 'Milla','parroquia'),
+(189, 'Osuna Rodríguez','parroquia'),
+(189, 'Sagrario','parroquia'),
+(189, 'El Morro','parroquia'),
+(189, 'Los Nevados','parroquia'),
+
+
+(190, 'Andrés Eloy Blanco','parroquia'),
+(190, 'La Venta','parroquia'),
+(190, 'Piñango','parroquia'),
+(190, 'Timotes','parroquia'),
+
+(191, 'Eloy Paredes','parroquia'),
+(191, 'San Rafael de Alcázar','parroquia'),
+(191, 'Santa Elena de Arenales','parroquia'),
+
+(192, 'Santa María de Caparo','parroquia'),
+
+(193, 'Pueblo Llano','parroquia'),
+
+(194, 'Cacute','parroquia'),
+(194, 'La Toma','parroquia'),
+(194, 'Mucuchíes','parroquia'),
+(194, 'Mucurubá','parroquia'),
+(194, 'San Rafael','parroquia'),
+
+
+(195, 'Gerónimo Maldonado','parroquia'),
+(195, 'Bailadores','parroquia'),
+
+(196, 'Tabay','parroquia'),
+
+(197, 'Chiguará','parroquia'),
+(197, 'Estánquez','parroquia'),
+(197, 'Lagunillas','parroquia'),
+(197, 'La Trampa','parroquia'),
+(197, 'Pueblo Nuevo del Sur','parroquia'),
+(197, 'San Juan','parroquia'),
+
+(198, 'El Amparo','parroquia'),
+(198, 'El Llano','parroquia'),
+(198, 'San Francisco','parroquia'),
+(198, 'Tovar','parroquia'),
+
+(199, 'Independencia','parroquia'),
+(199, 'María de la Concepción Palacios Blanco','parroquia'),
+(199, 'Nueva Bolivia','parroquia'),
+(199, 'Santa Apolonia','parroquia'),
+
+(200, 'Caño El Tigre','parroquia'),
+(200, 'Zea','parroquia'),
+
+(201, 'Aragüita','parroquia'),
+(201, 'Arévalo González','parroquia'),
+(201, 'Capaya','parroquia'),
+(201, 'Caucagua','parroquia'),
+(201, 'Panaquire','parroquia'),
+(201, 'Ribas','parroquia'),
+(201, 'El Café','parroquia'),
+(201, 'Marizapa','parroquia'),
+
+(202, 'Cumbo','parroquia'),
+(202, 'San José de Barlovento','parroquia'),
+
+(203, 'El Cafetal','parroquia'),
+(203, 'Las Minas','parroquia'),
+
+(204, 'Higuerote','parroquia'),
+(204, 'Curiepe','parroquia'),
+(204, 'Tacarigua de Brión','parroquia'),
+
+(205, 'Mamporal','parroquia'),
+
+(206, 'Carrizal','parroquia'),
+
+(207, 'Chacao','parroquia'),
+
+(208, 'Charallave','parroquia'),
+(208, 'Las Brisas','parroquia'),
+
+
+
+(209, 'El Hatillo','parroquia'),
+
+(210, 'Altagracia de la Montaña','parroquia'),
+(210, 'Cecilio Acosta','parroquia'),
+(210, 'Los Teques','parroquia'),
+(210, 'El Jarillo','parroquia'),
+(210, 'San Pedro','parroquia'),
+(210, 'Tácata','parroquia'),
+(210, 'Paracotos','parroquia'),
+
+(211, 'Cartanal','parroquia'),
+(211, 'Santa Teresa del Tuy','parroquia'),
+
+(212, 'La Democracia','parroquia'),
+(212, 'Ocumare del Tuy','parroquia'),
+(212, 'Santa Bárbara','parroquia'),
+
+(213, 'San Antonio de los Altos','parroquia'),
+
+(214, 'Río Chico','parroquia'),
+(214, 'El Guapo','parroquia'),
+(214, 'Tacarigua de la Laguna','parroquia'),
+(214, 'Paparo','parroquia'),
+(214, 'San Fernando del Guapo','parroquia'),
+
+(215, 'Santa Lucía del Tuy','parroquia'),
+
+(216, 'Cúpira','parroquia'),
+(216, 'Machurucuto','parroquia'),
+
+(217, 'Guarenas','parroquia'),
+
+(218, 'San Antonio de Yare','parroquia'),
+(218, 'San Francisco de Yare','parroquia'),
+
+
+
+(219, 'Leoncio Martínez','parroquia'),
+(219, 'Petare','parroquia'),
+(219, 'Caucagüita','parroquia'),
+(219, 'Filas de Mariche','parroquia'),
+(219, 'La Dolorita','parroquia'),
+
+
+(220, 'Cúa','parroquia'),
+(220, 'Nueva Cúa','parroquia'),
+
+(221, 'Guatire','parroquia'),
+(221, 'Bolívar','parroquia'),
+
+(222, 'San Antonio de Maturín','parroquia'),
+(222, 'San Francisco de Maturín','parroquia'),
+
+(223, 'Aguasay','parroquia'),
+
+(224, 'Caripito','parroquia'),
+
+(225, 'El Guácharo','parroquia'),
+(225, 'La Guanota','parroquia'),
+(225, 'Sabana de Piedra','parroquia'),
+(225, 'San Agustín','parroquia'),
+(225, 'Teresen','parroquia'),
+(225, 'Caripe','parroquia'),
+
+
+(226, 'Areo','parroquia'),
+(226, 'Capital Cedeño','parroquia'),
+(226, 'San Félix de Cantalicio','parroquia'),
+(226, 'Viento Fresco','parroquia'),
+
+(227, 'El Tejero','parroquia'),
+(227, 'Punta de Mata','parroquia'),
+
+(228, 'Chaguaramas','parroquia'),
+(228, 'Las Alhuacas','parroquia'),
+(228, 'Tabasca','parroquia'),
+(228, 'Temblador','parroquia'),
+
+
+(229, 'Alto de los Godos','parroquia'),
+(229, 'Boquerón','parroquia'),
+(229, 'Las Cocuizas','parroquia'),
+(229, 'La Cruz','parroquia'),
+(229, 'San Simón','parroquia'),
+(229, 'El Corozo','parroquia'),
+(229, 'El Furrial','parroquia'),
+(229, 'Jusepín','parroquia'),
+(229, 'La Pica','parroquia'),
+(229, 'San Vicente','parroquia'),
+
+(230, 'Aparicio','parroquia'),
+(230, 'Aragua de Maturín','parroquia'),
+(230, 'Chaguamal','parroquia'),
+(230, 'El Pinto','parroquia'),
+(230, 'Guanaguana','parroquia'),
+(230, 'La Toscana','parroquia'),
+(230, 'Taguaya','parroquia'),
+
+(231, 'Cachipo','parroquia'),
+(231, 'Quiriquire','parroquia'),
+
+(232, 'Santa Bárbara','parroquia'),
+(232, 'Morón','parroquia'),
+
+(233, 'Barrancas','parroquia'),
+(233, 'Los Barrancos de Fajardo','parroquia'),
+
+(234, 'Uracoa','parroquia'),
+
+
+(235, 'Antolín del Campo','parroquia'),
+
+(236, 'Arismendi','parroquia'),
+
+(237, 'García','parroquia'),
+(237, 'Francisco Fajardo','parroquia'),
+
+(238, 'Bolívar','parroquia'),
+(238, 'Guevara','parroquia'),
+(238, 'Matasiete','parroquia'),
+(238, 'Santa Ana','parroquia'),
+(238, 'Sucre','parroquia'),
+
+(239, 'Aguirre','parroquia'),
+(239, 'Maneiro','parroquia'),
+
+
+(240, 'Adrián','parroquia'),
+(240, 'Juan Griego','parroquia'),
+
+(241, 'Porlamar','parroquia'),
+
+(242, 'San Francisco de Macanao','parroquia'),
+(242, 'Boca de Río','parroquia'),
+
+(243, 'Tubores','parroquia'),
+(243, 'Los Baleales','parroquia'),
+
+(244, 'Vicente Fuentes','parroquia'),
+(244, 'Villalba','parroquia'),
+
+(245, 'San Juan Bautista','parroquia'),
+(245, 'Zabala','parroquia'),
+
+(246, 'Ahua Blanca','parroquia'),
+
+(247, 'Capital Araure','parroquia'),
+(247, 'Río Acarigua','parroquia'),
+
+(248, 'Capital Esteller','parroquia'),
+(248, 'Uveral','parroquia'),
+
+(249, 'Guanare','parroquia'),
+(249, 'Córdoba','parroquia'),
+(249, 'San José de la Montaña','parroquia'),
+(249, 'San Juan de Guanaguanare','parroquia'),
+(249, 'Virgen de la Coromoto','parroquia'),
+
+(250, 'Guanarito','parroquia'),
+(250, 'Trinidad de la Capilla','parroquia'),
+(250, 'Divina Pastora','parroquia'),
+
+(251, 'Monseñor José Vicente de Unda','parroquia'),
+(251, 'Peña Blanca','parroquia'),
+
+(252, 'Capital Ospino','parroquia'),
+(252, 'Aparición','parroquia'),
+(252, 'La Estación','parroquia'),
+
+(253, 'Páez','parroquia'),
+(253, 'Payara','parroquia'),
+(253, 'Pimpinela','parroquia'),
+(253, 'Ramón Peraza','parroquia'),
+
+(254, 'Papelón','parroquia'),
+(254, 'Caño Delgadito','parroquia'),
+
+(255, 'San Genaro de Boconoito','parroquia'),
+(255, 'Antolín Tovar','parroquia'),
+
+(256, 'San Rafael de Onoto','parroquia'),
+(256, 'Santa Fe','parroquia'),
+(256, 'Thermo Morles','parroquia'),
+
+(257, 'Santa Rosalía','parroquia'),
+(257, 'Florida','parroquia'),
+
+(258, 'Sucre','parroquia'),
+(258, 'Concepción','parroquia'),
+(258, 'San Rafael de Palo Alzado','parroquia'),
+(258, 'Uvencio Antonio Velásquez','parroquia'),
+(258, 'San José de Saguaz','parroquia'),
+(258, 'Villa Rosa','parroquia'),
+
+(259, 'Turén','parroquia'),
+(259, 'Canelones','parroquia'),
+(259, 'Santa Cruz','parroquia'),
+(259, 'San Isidro Labrador','parroquia'),
+
+(260, 'Mariño','parroquia'),
+(260, 'Rómulo Gallegos','parroquia'),
+
+(261, 'San José de Aerocuar','parroquia'),
+(261, 'Tavera Acosta','parroquia'),
+
+(262, 'Río Caribe','parroquia'),
+(262, 'Antonio José de Sucre','parroquia'),
+(262, 'El Morro de Puerto Santo','parroquia'),
+(262, 'Puerto Santo','parroquia'),
+(262, 'San Juan de las Galdonas','parroquia'),
+
+(263, 'El Pilar','parroquia'),
+(263, 'El Rincón','parroquia'),
+(263, 'General Francisco Antonio Váquez','parroquia'),
+(263, 'Guaraúnos','parroquia'),
+(263, 'Tunapuicito','parroquia'),
+(263, 'Unión','parroquia'),
+
+(264, 'Santa Catalina','parroquia'),
+(264, 'Santa Rosa','parroquia'),
+(264, 'Santa Teresa','parroquia'),
+(264, 'Bolívar','parroquia'),
+(264, 'Maracapana','parroquia'),
+
+(265, 'Mariguitar','parroquia'),
+
+(266, 'Libertad','parroquia'),
+(266, 'El Paujil','parroquia'),
+(266, 'Yaguaraparo','parroquia'),
+
+(267, 'Cruz Salmerón Acosta','parroquia'),
+(267, 'Chacopata','parroquia'),
+(267, 'Manicuare','parroquia'),
+
+(268, 'Tunapuy','parroquia'),
+(268, 'Campo Elías','parroquia'),
+
+(269, 'Irapa','parroquia'),
+(269, 'Campo Claro','parroquia'),
+(269, 'Maraval','parroquia'),
+(269, 'San Antonio de Irapa','parroquia'),
+(269, 'Soro','parroquia'),
+
+(270, 'Mejía','parroquia'),
+
+(271, 'Cumanacoa','parroquia'),
+(271, 'Arenas','parroquia'),
+(271, 'Aricagua','parroquia'),
+(271, 'Cogollar','parroquia'),
+(271, 'San Fernando','parroquia'),
+(271, 'San Lorenzo','parroquia'),
+
+(272, 'Villa Frontado (Muelle de Cariaco)','parroquia'),
+(272, 'Catuaro','parroquia'),
+(272, 'Rendón','parroquia'),
+(272, 'San Cruz','parroquia'),
+(272, 'Santa María','parroquia'),
+
+(273, 'Altagracia','parroquia'),
+(273, 'Santa Inés','parroquia'),
+(273, 'Valentín Valiente','parroquia'),
+(273, 'Ayacucho','parroquia'),
+(273, 'San Juan','parroquia'),
+(273, 'Raúl Leoni','parroquia'),
+(273, 'Gran Mariscal','parroquia'),
+
+(274, 'Cristóbal Colón','parroquia'),
+(274, 'Bideau','parroquia'),
+(274, 'Punta de Piedras','parroquia'),
+(274, 'Güiria','parroquia'),
+
+
+(275, 'Andrés Bello','parroquia'),
+
+(276, 'Antonio Rómulo Costa','parroquia'),
+
+(277, 'Ayacucho','parroquia'),
+(277, 'Rivas Berti','parroquia'),
+(277, 'San Pedro del Río','parroquia'),
+
+(278, 'Bolívar','parroquia'),
+(278, 'Palotal','parroquia'),
+(278, 'General Juan Vicente Gómez','parroquia'),
+(278, 'Isaías Medina Angarita','parroquia'),
+
+(279, 'Táriba','parroquia'),
+(279, 'Amenodoro Ángel Lamus','parroquia'),
+(279, 'La Florida','parroquia'),
+
+(280, 'Córdoba','parroquia'),
+
+(281, 'Fernández Feo','parroquia'),
+(281, 'Alberto Adriani','parroquia'),
+(281, 'Santo Domingo','parroquia'),
+
+(282, 'Francisco de Miranda','parroquia'),
+
+(283, 'García de Hevia','parroquia'),
+(283, 'Boca de Grita','parroquia'),
+(283, 'José Antonio Páez','parroquia'),
+
+(284, 'Guásimos','parroquia'),
+
+(285, 'Independencia','parroquia'),
+(285, 'Juan Germán Roscio','parroquia'),
+(285, 'Román Cárdenas','parroquia'),
+
+(286, 'Jáuregui','parroquia'),
+(286, 'Emilio Constantino Guerrero','parroquia'),
+(286, 'Monseñor Miguel Antonio Salas','parroquia'),
+
+(287, 'José María Vargas','parroquia'),
+
+(288, 'Junín','parroquia'),
+(288, 'La Petrólea','parroquia'),
+(288, 'Quinimarí','parroquia'),
+(288, 'Bramón','parroquia'),
+
+(289, 'Libertad','parroquia'),
+(289, 'Cipriano Castro','parroquia'),
+(289, 'Manuel Felipe Rugeles','parroquia'),
+
+(290, 'Libertador','parroquia'),
+(290, 'Doradas','parroquia'),
+(290, 'Emeterio Ochoa','parroquia'),
+(290, 'San Joaquín de Navay','parroquia'),
+
+(291, 'Lobatera','parroquia'),
+(291, 'Constitución','parroquia'),
+
+(292, 'Michelena','parroquia'),
+
+(293, 'Panamericano','parroquia'),
+(293, 'La Palmita','parroquia'),
+
+(294, 'Pedro María Ureña','parroquia'),
+(294, 'Nueva Arcadia','parroquia'),
+
+(295, 'Delicias','parroquia'),
+
+(296, 'Samuel Darío Maldonado','parroquia'),
+(296, 'Boconó','parroquia'),
+(296, 'Hernández','parroquia'),
+
+(297, 'La Concordia','parroquia'),
+(297, 'San Juan Bautista','parroquia'),
+(297, 'Pedro María Morantes','parroquia'),
+(297, 'San Sebastián','parroquia'),
+(297, 'Dr. Francisco Romero Lobo','parroquia'),
+
+(298, 'Seboruco','parroquia'),
+
+(299, 'Simón Rodríguez','parroquia'),
+
+(300, 'Sucre','parroquia'),
+(300, 'Eleazar López Contreras','parroquia'),
+(300, 'San Pablo','parroquia'),
+
+(301, 'Torbes','parroquia'),
+
+(302, 'Uribante','parroquia'),
+(302, 'Cárdenas','parroquia'),
+(302, 'Juan Pablo Peñalosa','parroquia'),
+(302, 'Potosí','parroquia'),
+
+(303, 'San Judas Tadeo','parroquia'),
+
+(304, 'Araguaney','parroquia'),
+(304, 'El Jaguito','parroquia'),
+(304, 'La Esperanza','parroquia'),
+(304, 'Santa Isabel','parroquia'),
+
+(305, 'Boconó','parroquia'),
+(305, 'El Carmen','parroquia'),
+(305, 'Mosquey','parroquia'),
+(305, 'Ayacucho','parroquia'),
+(305, 'Burbusay','parroquia'),
+(305, 'General Ribas','parroquia'),
+(305, 'Guaramacal','parroquia'),
+(305, 'Vega de Guaramacal','parroquia'),
+(305, 'Monseñor Jáuregui','parroquia'),
+(305, 'Rafael Rangel','parroquia'),
+(305, 'San Miguel','parroquia'),
+(305, 'San José','parroquia'),
+
+(306, 'Sabana Grande','parroquia'),
+(306, 'Cheregüé','parroquia'),
+(306, 'Granados','parroquia'),
+
+(307, 'Arnoldo Gabaldón','parroquia'),
+(307, 'Bolivia','parroquia'),
+(307, 'Carrillo','parroquia'),
+(307, 'Cegarra','parroquia'),
+(307, 'Chejendé','parroquia'),
+(307, 'Manuel Salvador Ulloa','parroquia'),
+(307, 'San José','parroquia'),
+
+(308, 'Carache','parroquia'),
+(308, 'La Concepción','parroquia'),
+(308, 'Cuicas','parroquia'),
+(308, 'Panamericana','parroquia'),
+(308, 'Santa Cruz','parroquia'),
+
+(309, 'Escuque','parroquia'),
+(309, 'La Unión','parroquia'),
+(309, 'Santa Rita','parroquia'),
+(309, 'Sabana Libre','parroquia'),
+
+(310, 'El Socorro','parroquia'),
+(310, 'Los Caprichos','parroquia'),
+(310, 'Antonio José de Sucre','parroquia'),
+
+(311, 'Campo Elías','parroquia'),
+(311, 'Arnoldo Gabaldón','parroquia'),
+
+(312, 'Santa Apolonia','parroquia'),
+(312, 'El Progreso','parroquia'),
+(312, 'La Ceiba','parroquia'),
+(312, 'Tres de Febrero','parroquia'),
+
+(313, 'El Dividive','parroquia'),
+(313, 'Agua Santa','parroquia'),
+(313, 'Agua Caliente','parroquia'),
+(313, 'El Cenizo','parroquia'),
+(313, 'Valerita','parroquia'),
+
+(314, 'Monte Carmelo','parroquia'),
+(314, 'Buena Vista','parroquia'),
+(314, 'Santa María del Horcón','parroquia'),
+
+(315, 'Motatán','parroquia'),
+(315, 'El Baño','parroquia'),
+(315, 'Jalisco','parroquia'),
+
+(316, 'Pampán','parroquia'),
+(316, 'Flor de Patria','parroquia'),
+(316, 'La Paz','parroquia'),
+(316, 'Santa Ana','parroquia'),
+
+
+
+
+
+(317, 'Pampanito','parroquia'),
+(317, 'La Concepción','parroquia'),
+(317, 'Pampanito II','parroquia'),
+
+(318, 'Betijoque','parroquia'),
+(318, 'José Gregorio Hernández','parroquia'),
+(318, 'La Pueblita','parroquia'),
+(318, 'Los Cedros','parroquia'),
+
+(319, 'Carvajal','parroquia'),
+(319, 'Campo Alegre','parroquia'),
+(319, 'Antonio Nicolás Briceño','parroquia'),
+(319, 'José Leonardo Suárez','parroquia'),
+
+(320, 'Sabana de Mendoza','parroquia'),
+(320, 'Junín','parroquia'),
+(320, 'Valmore Rodríguez','parroquia'),
+(320, 'El Paraíso','parroquia'),
+
+(321, 'Andrés Linares','parroquia'),
+(321, 'Chiquinquirá','parroquia'),
+(321, 'Cristóbal Mendoza','parroquia'),
+(321, 'Cruz Carrillo','parroquia'),
+(321, 'Matriz','parroquia'),
+(321, 'Monseñor Carrillo','parroquia'),
+(321, 'Tres Esquinas','parroquia'),
+
+(322, 'Cabimbú','parroquia'),
+(322, 'Jajó','parroquia'),
+(322, 'La Mesa de Esnujaque','parroquia'),
+(322, 'Santiago','parroquia'),
+(322, 'Tuñame','parroquia'),
+(322, 'La Quebrada','parroquia'),
+
+(323, 'Juan Ignacio Montilla','parroquia'),
+(323, 'La Beatriz','parroquia'),
+(323, 'La Puerta','parroquia'),
+(323, 'Mendoza del Valle de Momboy','parroquia'),
+(323, 'Mercedes Díaz','parroquia'),
+(323, 'San Luis','parroquia'),
+
+(324, 'Caraballeda','parroquia'),
+(324, 'Carayaca','parroquia'),
+(324, 'Carlos Soublette','parroquia'),
+(324, 'Caruao Chuspa','parroquia'),
+(324, 'Catia La Mar','parroquia'),
+(324, 'El Junko','parroquia'),
+(324, 'La Guaira','parroquia'),
+(324, 'Macuto','parroquia'),
+(324, 'Maiquetía','parroquia'),
+(324, 'Naiguatá','parroquia'),
+(324, 'Urimare','parroquia'),
+
+
+(325, 'Arístides Bastidas','parroquia'),
+
+(326, 'Bolívar','parroquia'),
+
+(327, 'Chivacoa','parroquia'),
+(327, 'Campo Elías','parroquia'),
+
+
+(328, 'Cocorote','parroquia'),
+
+(329, 'Independencia','parroquia'),
+
+(330, 'José Antonio Páez','parroquia'),
+
+(331, 'La Trinidad','parroquia'),
+
+(332, 'Manuel Monge','parroquia'),
+
+(333,'Nirgua','parroquia'),
+(333, 'Salóm','parroquia'),
+(333, 'Temerla','parroquia'),
+
+(334, 'San Andrés','parroquia'),
+(334, 'Yaritagua','parroquia'),
+
+(335, 'San Javier','parroquia'),
+(335, 'Albarico','parroquia'),
+(335, 'San Felipe','parroquia'),
+
+(336, 'Sucre','parroquia'),
+
+(337, 'Urachiche','parroquia'),
+
+(338, 'El Guayabo','parroquia'),
+(338, 'Farriar','parroquia'),
+
+
+(339, 'Isla de Toas','parroquia'),
+(339, 'Monagas','parroquia'),
+(339, 'San Fernando','parroquia'),
+
+(340, 'San Timoteo','parroquia'),
+(340, 'General Urdaneta','parroquia'),
+(340, 'Libertador','parroquia'),
+(340, 'Marcelino Briceño','parroquia'),
+(340, 'Pueblo Nuevo','parroquia'),
+(340, 'Manuel Guanipa Matos','parroquia'),
+
+(341, 'Ambrosio','parroquia'),
+(341, 'Carmen Herrera','parroquia'),
+(341, 'La Rosa','parroquia'),
+(341, 'Germán Ríos Linares','parroquia'),
+(341, 'San Benito','parroquia'),
+(341, 'Rómulo Betancourt','parroquia'),
+(341, 'Jorge Hernández','parroquia'),
+(341, 'Punta Gorda','parroquia'),
+(341, 'Arístides Calvani','parroquia'),
+
+(342, 'Encontrados','parroquia'),
+(342, 'Udón Pérez','parroquia'),
+
+(343, 'Moralito','parroquia'),
+(343, 'San Carlos del Zulia','parroquia'),
+(343, 'Santa Cruz del Zulia','parroquia'),
+(343, 'Santa Bárbara','parroquia'),
+(343, 'Urribarrí','parroquia'),
+
+(344, 'Carlos Quevedo','parroquia'),
+(344, 'Francisco Javier Pulgar','parroquia'),
+(344, 'Simón Rodríguez','parroquia'),
+(344, 'Guamo-Gavilanes','parroquia'),
+
+
+(345, 'Sinamaica','parroquia'),
+(345, 'Alta Guajira','parroquia'),
+(345, 'Elías Sánchez Rubio','parroquia'),
+(345, 'Guajira','parroquia'),
+
+
+(346, 'La Concepción','parroquia'),
+(346, 'San José','parroquia'),
+(346, 'Mariano Parra León','parroquia'),
+(346, 'José Ramón Yépez','parroquia'),
+
+(347, 'Jesús María Semprún','parroquia'),
+(347, 'Barí','parroquia'),
+
+(348, 'Concepción','parroquia'),
+(348, 'Andrés Bello','parroquia'),
+(348, 'Chiquinquirá','parroquia'),
+(348, 'El Carmelo','parroquia'),
+(348, 'Potreritos','parroquia'),
+
+(349, 'Libertad','parroquia'),
+(349, 'Alonso de Ojeda','parroquia'),
+(349, 'Venezuela','parroquia'),
+(349, 'Eleazar López Contreras','parroquia'),
+(349, 'Campo Lara','parroquia'),
+
+(350, 'Bartolomé de las Casas','parroquia'),
+(350, 'Libertad','parroquia'),
+(350, 'Río Negro','parroquia'),
+(350, 'San José de Perijá','parroquia'),
+
+
+(351, 'San Rafael','parroquia'),
+(351, 'La Sierrita','parroquia'),
+(351, 'Las Parcelas','parroquia'),
+(351, 'Luis de Vicente','parroquia'),
+(351, 'Monseñor Marcos Sergio Godoy','parroquia'),
+(351, 'Ricaurte','parroquia'),
+(351, 'Tamare','parroquia'),
+
+(352, 'Antonio Borjas Romero','parroquia'),
+(352, 'Bolívar','parroquia'),
+(352, 'Cacique Mara','parroquia'),
+(352, 'Carracciolo Parra Pérez','parroquia'),
+(352, 'Cecilio Acosta','parroquia'),
+(352, 'Cristo de Aranza','parroquia'),
+(352, 'Coquivacoa','parroquia'),
+(352, 'Chiquinquirá','parroquia'),
+(352, 'Francisco Eugenio Bustamante','parroquia'),
+(352, 'Idelfonzo Vásquez','parroquia'),
+(352, 'Juana de Ávila','parroquia'),
+(352, 'Luis Hurtado Higuera','parroquia'),
+(352, 'Manuel Dagnino','parroquia'),
+(352, 'Olegario Villalobos','parroquia'),
+(352, 'Raúl Leoni','parroquia'),
+(352, 'Santa Lucía','parroquia'),
+(352, 'Venancio Pulgar','parroquia'),
+(352, 'San Isidro','parroquia'),
+
+(353, 'Altagracia','parroquia'),
+(353, 'Faría','parroquia'),
+(353, 'Ana María Campos','parroquia'),
+(353, 'San Antonio','parroquia'),
+(353, 'San José','parroquia'),
+
+(354, 'Donaldo García','parroquia'),
+(354, 'El Rosario','parroquia'),
+(354, 'Sixto Zambrano','parroquia'),
+
+(355, 'San Francisco','parroquia'),
+(355, 'El Bajo','parroquia'),
+(355, 'Domitila Flores','parroquia'),
+(355, 'Francisco Ochoa','parroquia'),
+(355, 'Los Cortijos','parroquia'),
+(355, 'Marcial Hernández','parroquia'),
+(355, 'José Domingo Rus','parroquia'),
+
+(356, 'Santa Rita','parroquia'),
+(356, 'El Mene','parroquia'),
+(356, 'Pedro Lucas Urribarrí','parroquia'),
+(356, 'José Cenobio Urribarrí','parroquia'),
+
+(357, 'Rafael Maria Baralt','parroquia'),
+(357, 'Manuel Manrique','parroquia'),
+(357, 'Rafael Urdaneta','parroquia'),
+
+(358, 'Bobures','parroquia'),
+(358, 'Gibraltar','parroquia'),
+(358, 'Heras','parroquia'),
+(358, 'Monseñor Arturo Álvarez','parroquia'),
+(358, 'Rómulo Gallegos','parroquia'),
+(358, 'El Batey','parroquia'),
+
+(359, 'Rafael Urdaneta','parroquia'),
+(359, 'La Victoria','parroquia'),
+(359, 'Raúl Cuenca','parroquia'),
+
+(360, 'Altagracia','parroquia'),
+(360, 'Antímano','parroquia'),
+(360, 'Caricuao','parroquia'),
+(360, 'Catedral','parroquia'),
+(360, 'Coche','parroquia'),
+(360, 'El Junquito','parroquia'),
+(360, 'El Paraíso','parroquia'),
+(360, 'El Recreo','parroquia'),
+(360, 'El Valle','parroquia'),
+(360, 'La Candelaria','parroquia'),
+(360, 'La Pastora','parroquia'),
+(360, 'La Vega','parroquia'),
+(360, 'Macarao','parroquia'),
+(360, 'San Agustín','parroquia'),
+(360, 'San Bernardino','parroquia'),
+(360, 'San José','parroquia'),
+(360, 'San Juan','parroquia'),
+(360, 'San Pedro','parroquia'),
+(360, 'Santa Rosalía','parroquia'),
+(360, 'Santa Teresa','parroquia'),
+(360, 'Sucre (Catia)','parroquia'),
+(360, '23 de enero','parroquia');
+
 
 INSERT INTO sede (codigo_sed, nombre_sed, direccion_sed, fk_lugar, central_sed) VALUES 
-(1, 'Sede Central Caracas', 'Av. Bolívar, Caracas', 122, TRUE),
-(2, 'Sede Maracaibo', 'Calle 1, Maracaibo', 345, FALSE),
-(3, 'Sede Valencia', 'Calle 2, Valencia', 117, FALSE),
-(4, 'Sede Barquisimeto', 'Calle 3, Barquisimeto', 165, FALSE),
-(5, 'Sede San Cristóbal', 'Calle 4, San Cristóbal', 291, FALSE),
-(6, 'Sede Puerto Ordaz', 'Av. Atlántico, Puerto Ordaz', 95, FALSE),
-(7, 'Sede Maturín', 'Calle 5, Maturín', 223, FALSE),
-(8, 'Sede Ciudad Bolívar', 'Av. Libertador, Ciudad Bolívar', 94, FALSE),
-(9, 'Sede Maracay', 'Av. Bolívar, Maracay', 66, FALSE),
-(10, 'Sede Cumaná', 'Calle 6, Cumaná', 267, FALSE);
+(1, 'Sede La Guaira', 'Avenida Balneario',324 , TRUE),
+(2, 'Sede Maracay', 'Avenida Las Delicias, Edificio Municipal, Frente al C.C. Paseo Las Delicias II', 61, FALSE),
+(3, 'Sede Valencia', 'Avenida La Luz, Galpón No. 127, Sector Tocuyito', 658, FALSE),
+(4, 'Sede Guatire', 'Calle Rivas, Número 16', 1019, FALSE),
+(5, 'Sede Colon', 'Avenida San Carlos, Santa Bárbara del Zulia', 1399, FALSE);
+
 
 INSERT INTO almacen (codigo_alm, tamaño_alm, fk_sede) VALUES 
 (1, 'Grande - Capacidad: 1000 m²', 1),
@@ -620,62 +1944,41 @@ INSERT INTO almacen (codigo_alm, tamaño_alm, fk_sede) VALUES
 (3, 'Pequeño - Capacidad: 200 m²', 3),
 (4, 'Grande - Capacidad: 950 m²', 4),
 (5, 'Mediano - Capacidad: 450 m²', 5),
-(6, 'Pequeño - Capacidad: 250 m²', 6),
-(7, 'Grande - Capacidad: 1200 m²', 7),
-(8, 'Mediano - Capacidad: 600 m²', 8),
-(9, 'Pequeño - Capacidad: 300 m²', 9),
-(10, 'Grande - Capacidad: 1100 m²', 10);
+(6, 'Mediano - Capacidad: 470 m²', 1),
+(7, 'Grande - Capacidad: 1100 m²', 2),
+(8, 'Grande - Capacidad: 1000 m²', 3),
+(9, 'Pequeño - Capacidad: 250 m²', 4),
+(10, 'Pequeño - Capacidad: 150 m²', 5);
 
 
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (1, 'Zona Norte', 'Pruebas de aviones', 1);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (2, 'Zona Sur', 'Ensamblaje de piezas', 1);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (3, 'Zona estadoe', 'Embalaje', 1);
+
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (1, 'Zona Norte', 'Embalaje y despacho', 2);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (2, 'Zona Sur', 'Pruebas de materia prima luego de traslado', 2);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (3, 'Zona Este', 'Pruebas de piezas', 2);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (4, 'Zona Oeste', 'Ensamblaje', 2);
 
 
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (4, 'Zona Norte', 'Pruebas de aviones', 2);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (5, 'Zona Sur', 'Ensamblaje de piezas', 2);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (6, 'Zona Oestadoe', 'Embalaje', 2);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (5, 'Zona Norte', 'Pruebas de materia prima', 1);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (6, 'Zona Sur', 'Recepcion materia prima', 1);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (7, 'Zona Oeste', 'Ensamblaje', 1);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (8, 'Zona Noroeste', 'Pruebas de piezas', 1);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (9, 'Zona Este', 'Embalaje y despacho', 1);
 
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (10, 'Zona Norte', 'Ensamblaje de elementos internos de cabina', 3);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (11, 'Zona Sur', 'Acabados internos', 3);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (12, 'Zona Centro', 'Pruebas de piezas', 3);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (13, 'Zona Este', 'Embalaje', 3);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (14, 'Zona Oeste', 'Despacho', 3);
 
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (7, 'Zona Norte', 'Pruebas de aviones', 3);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (8, 'Zona Sur', 'Ensamblaje de piezas', 3);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (9, 'Zona Centro', 'Embalaje', 3);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (15, 'Zona Norte', 'Pruebas de aviones', 4);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (16, 'Zona Sur', 'Ensamblaje de piezas', 4);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (17, 'Zona Este', 'Pruebas de piezas', 4);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (18, 'Zona Oeste', 'Embalaje y despacho', 4);
 
-
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (10, 'Zona Norte', 'Pruebas de aviones', 4);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (11, 'Zona Sur', 'Ensamblaje de piezas', 4);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (12, 'Zona estadoe', 'Embalaje', 4);
-
-
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (13, 'Zona Norte', 'Pruebas de aviones', 5);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (14, 'Zona Sur', 'Ensamblaje de piezas', 5);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (15, 'Zona Oestadoe', 'Embalaje', 5);
-
-
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (16, 'Zona Norte', 'Pruebas de aviones', 6);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (17, 'Zona Sur', 'Ensamblaje de piezas', 6);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (18, 'Zona estadoe', 'Embalaje', 6);
-
-
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (19, 'Zona Norte', 'Pruebas de aviones', 7);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (20, 'Zona Sur', 'Ensamblaje de piezas', 7);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (21, 'Zona Oestadoe', 'Embalaje', 7);
-
-
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (22, 'Zona Norte', 'Pruebas de aviones', 8);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (23, 'Zona Sur', 'Ensamblaje de piezas', 8);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (24, 'Zona estadoe', 'Embalaje', 8);
-
-
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (25, 'Zona Norte', 'Pruebas de aviones', 9);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (26, 'Zona Sur', 'Ensamblaje de piezas', 9);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (27, 'Zona Oestadoe', 'Embalaje', 9);
-
-
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (28, 'Zona Norte', 'Pruebas de aviones', 10);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (29, 'Zona Sur', 'Ensamblaje de piezas', 10);
-INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (30, 'Zona Centro', 'Embalaje', 10);
-
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (19, 'Zona Norte', 'Pruebas de aviones', 5);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (20, 'Zona Sur', 'Ensamblaje de piezas', 5);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (21, 'Zona Oeste', 'Embalaje y despacho', 5);
+INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (22, 'Zona Este', 'Pruebas de piezas', 5);
 
 INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
 (1, 'cheque', 12345678, 'Banco de Venezuela', '2024-01-01', 'Juan Pérez', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
@@ -716,128 +2019,886 @@ INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_e
 INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
 (10, 'transferencia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 99887766, '2024-01-08', 44556677, NULL);
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1000, 'Juan Pérez', 'JuanP123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Juan Pérez', 'JuanP123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1001, 'María García', 'MariaG123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('María García', 'MariaG123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1002, 'Pedro Martínez', 'PedroM123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Pedro Martínez', 'PedroM123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1003, 'Ana Rodríguez', 'AnaR123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Ana Rodríguez', 'AnaR123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1004, 'Luis Fernández', 'LuisF123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Luis Fernández', 'LuisF123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1005, 'Sofía López', 'SofiaL123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Sofía López', 'SofiaL123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1006, 'Carlos Gómez', 'CarlosG123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Carlos Gómez', 'CarlosG123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1007, 'Laura Hernández', 'LauraH123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Laura Hernández', 'LauraH123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1008, 'Miguel Ramírez', 'MiguelR123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Miguel Ramírez', 'MiguelR123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1009, 'Isabel Torres', 'IsabelT123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Isabel Torres', 'IsabelT123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1010, 'Jorge Mendoza', 'JorgeM123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Jorge Mendoza', 'JorgeM123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1011, 'Lucía Romero', 'LuciaR123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Lucía Romero', 'LuciaR123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1012, 'Andrés Castro', 'AndresC123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Andrés Castro', 'AndresC123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1013, 'Paula Suárez', 'PaulaS123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Paula Suárez', 'PaulaS123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1014, 'Diego Silva', 'DiegoS123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Diego Silva', 'DiegoS123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1015, 'Elena Vargas', 'ElenaV123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Elena Vargas', 'ElenaV123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1016, 'Ricardo Flores', 'RicardoF123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Ricardo Flores', 'RicardoF123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1017, 'Valeria León', 'ValeriaL123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Valeria León', 'ValeriaL123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1018, 'Santiago Rojas', 'SantiagoR123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Santiago Rojas', 'SantiagoR123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1019, 'Carolina Méndez', 'CarolinaM123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Carolina Méndez', 'CarolinaM123');
 
-INSERT INTO usuario (codigo_usu, nombre_usu, contraseña_usu)
-VALUES (1020, 'Diego Castillos', 'DiegoC123');
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Diego Castillos', 'DiegoC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Martín Rivera', 'MartinR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Adriana Ruiz', 'AdrianaR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Fernando Morales', 'FernandoM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Daniela Jiménez', 'DanielaJ123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Roberto Díaz', 'RobertoD123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Gabriela Peña', 'GabrielaP123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Esteban Lara', 'EstebanL123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Natalia Soto', 'NataliaS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Alberto Castro', 'AlbertoC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Verónica Reyes', 'VeronicaR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Emilio Ramos', 'EmilioR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Patricia Ortiz', 'PatriciaO123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Cristina Navarro', 'CristinaN123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Alfonso Espinoza', 'AlfonsoE123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Rosa Medina', 'RosaM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Héctor Cordero', 'HectorC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Marta Solís', 'MartaS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Pablo Castro', 'PabloC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Claudia Flores', 'ClaudiaF123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Francisco Muñoz', 'FranciscoM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Francisco Muñoz', 'FranciscoM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Ana María', 'AnaM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Carlos Gómez', 'CarlosG123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Laura Hernández', 'LauraH123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Miguel Ramírez', 'MiguelR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Isabel Torres', 'IsabelT123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Jorge Mendoza', 'JorgeM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Lucía Romero', 'LuciaR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Andrés Castro', 'AndresC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Paula Suárez', 'PaulaS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Diego Silva', 'DiegoS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Elena Vargas', 'ElenaV123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Ricardo Flores', 'RicardoF123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Valeria León', 'ValeriaL123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Santiago Rojas', 'SantiagoR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Carolina Méndez', 'CarolinaM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Martín Rivera', 'MartinR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Adriana Ruiz', 'AdrianaR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Fernando Morales', 'FernandoM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Daniela Jiménez', 'DanielaJ123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Roberto Díaz', 'RobertoD123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Gabriela Peña', 'GabrielaP123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Esteban Lara', 'EstebanL123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Natalia Soto', 'NataliaS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Alberto Castro', 'AlbertoC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Verónica Reyes', 'VeronicaR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Emilio Ramos', 'EmilioR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Patricia Ortiz', 'PatriciaO123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Cristina Navarro', 'CristinaN123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Alfonso Espinoza', 'AlfonsoE123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Rosa Medina', 'RosaM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Héctor Cordero', 'HectorC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Marta Solís', 'MartaS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Pablo Castro', 'PabloC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Claudia Flores', 'ClaudiaF123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Francisco Muñoz', 'FranciscoM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Ana María', 'AnaM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Carlos Gómez', 'CarlosG123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Laura Hernández', 'LauraH123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Miguel Ramírez', 'MiguelR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Isabel Torres', 'IsabelT123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Jorge Mendoza', 'JorgeM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Lucía Romero', 'LuciaR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Andrés Castro', 'AndresC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Paula Suárez', 'PaulaS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Diego Silva', 'DiegoS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Elena Vargas', 'ElenaV123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Ricardo Flores', 'RicardoF123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Valeria León', 'ValeriaL123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Santiago Rojas', 'SantiagoR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Carolina Méndez', 'CarolinaM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Martín Rivera', 'MartinR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Adriana Ruiz', 'AdrianaR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Fernando Morales', 'FernandoM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Daniela Jiménez', 'DanielaJ123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Roberto Díaz', 'RobertoD123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Gabriela Peña', 'GabrielaP123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Esteban Lara', 'EstebanL123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Natalia Soto', 'NataliaS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Alberto Castro', 'AlbertoC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Verónica Reyes', 'VeronicaR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Emilio Ramos', 'EmilioR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Patricia Ortiz', 'PatriciaO123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Cristina Navarro', 'CristinaN123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Alfonso Espinoza', 'AlfonsoE123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Rosa Medina', 'RosaM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Héctor Cordero', 'HectorC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Marta Solís', 'MartaS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Pablo Castro', 'PabloC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Claudia Flores', 'ClaudiaF123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Francisco Muñoz', 'FranciscoM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Ana María', 'AnaM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Carlos Gómez', 'CarlosG123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Laura Hernández', 'LauraH123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Miguel Ramírez', 'MiguelR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Isabel Torres', 'IsabelT123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Jorge Mendoza', 'JorgeM123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Lucía Romero', 'LuciaR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Andrés Castro', 'AndresC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Paula Suárez', 'PaulaS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Diego Silva', 'DiegoS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Elena Vargas', 'ElenaV123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('María Navarro', 'MariaN123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('José Rodríguez', 'JoseR123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Raquel Castillo', 'RaquelC123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Roberto Luna', 'RobertoL123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Patricia Aguilar', 'PatriciaA123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Carmen Díaz', 'CarmenD123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Gustavo Pérez', 'GustavoP123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Elena Ortega', 'ElenaO123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Luis Gómez', 'LuisG123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Mónica Salazar', 'MonicaS123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('David Torres', 'DavidT123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Sandra Pérez', 'SandraP123');
+
+INSERT INTO usuario (nombre_usu, contraseña_usu)
+VALUES ('Javier Ortega', 'JavierO123');
 
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (1, 'Av. Principal 123', 1000000, '2023-01-01', 'proveedor', 'Venezolana', 101, 1001, 'juridico', 'J-12345678-1', 'Empresa ABC', 'ABC C.A.', 'www.empresaabc.com');
+INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+(1, 'Au-80', 'Reactor para pasajeros, destinado a rutas de largo alcance', 1000000, NULL);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (2, 'Calle Secundaria 456', 1500000, '2023-02-01', 'proveedor', 'Venezolana', 102, 1002, 'juridico', 'J-87654321-2', 'Empresa XYZ', 'XYZ S.A.', 'www.empresaxyz.com');
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (3, 'Av. Tercera 789', 1200000, '2023-03-01', 'proveedor', 'Venezolana', 103, 1003, 'juridico', 'J-11223344-3', 'Comercial 123', '123 S.A.', 'www.comercial123.com');
+INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+(2, 'Au-801', 'Modelo derivado de Au-80 para rutas menos largas', 900000, 1),
+(3, 'Au-802', 'Modelo derivado de Au-80 concebido para rutas medias y cortas con capacidad similar', 1300000, 1);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (4, 'Av. Libertador 1011', 1100000, '2023-04-01', 'proveedor', 'Venezolana', 104, 1004, 'juridico', 'J-33445566-4', 'Servicios LMN', 'LMN Ltda.', 'www.servicioslmn.com');
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (5, 'Calle Cuarta 1213', 1300000, '2023-05-01', 'proveedor', 'Venezolana', 105, 1005, 'juridico', 'J-55667788-5', 'Empresa OPQ', 'OPQ Inc.', 'www.empresaopq.com');
+INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+(4, 'Au-802A', 'Modelo derivado de Au-802 de mayor capacidad de pasajeros', 1350000, 3),
+(5, 'Au-802B', 'Modelo derivado de Au-802 para distancias medias', 1360000, 3),
+(6, 'Au-802C', 'Modelo derivado de Au-802 para distancias largas y medias', 1370000, 3),
+(7, 'Au-802D', 'Modelo derivado de Au-802 para distancias largas', 1380000, 3),
+(8, 'Au-802E', 'El segundo modelo derivado de Au-802 mas grande', 1390000, 3),
+(9, 'Au-802F', 'Modelo derivado de Au802 con la mayor capacidad de pasajeros', 1400000, 3);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (6, 'Av. Independencia 1415', 1400000, '2023-06-01', 'proveedor', 'Venezolana', 106, 1006, 'juridico', 'J-66778899-6', 'Comercial RST', 'RST C.A.', 'www.comercialrst.com');
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (7, 'Av. Quinta 1617', 1600000, '2023-07-01', 'proveedor', 'Venezolana', 107, 1007, 'juridico', 'J-77889900-7', 'Distribuidora UVW', 'UVW Ltda.', 'www.distribuidorauvw.com');
+INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+(10, 'Au-747', 'Avión comercial transcontinental de fuselaje ancho', 2000000, NULL);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (8, 'Av. Sexta 1819', 1700000, '2023-08-01', 'proveedor', 'Venezolana', 108, 1008, 'juridico', 'J-88990011-8', 'Servicios XYZ', 'XYZ Ltda.', 'www.serviciosxyz.com');
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (9, 'Av. Principal 2021', 1800000, '2023-09-01', 'proveedor', 'Venezolana', 109, 1009, 'juridico', 'J-99001122-9', 'Comercial ABC', 'ABC C.A.', 'www.comercialabc.com');
+INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+(11, 'Au-747Plus', 'Modelo derivado de Au-747, mayor avion comercial de la historia en Venezuela', 2200000, 10),
+(12, 'Au-747Platinum', 'Modelo derivado de Au-747 para recorridos medios', 2300000, 10),
+(13, 'Au-747Gold', 'Modelo derivado de Au-747 para recorridos medios y largos y con licencia para sobrevolar oceanos', 2400000, 10),
+(14, 'Au-747Silver', 'Modelo derivado de Au-747 para rutas largas con autonomia para sobrevolar oceanos', 2500000, 10);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (10, 'Calle Septima 2223', 1900000, '2023-10-01', 'proveedor', 'Venezolana', 110, 1010, 'juridico', 'J-10111213-0', 'Empresa DEF', 'DEF Inc.', 'www.empresadef.com');
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (11, 'Av. Octava 2425', 500000, '2023-11-01', 'cliente', 'Venezolana', 111, 1011, 'juridico', 'J-11223344-1', 'Consultora GHI', 'GHI Ltda.', 'www.consultoraghi.com');
+INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+(15, 'Au-747SilverB', 'Modelo  derivado de Au-747Silver de mayor tamaño', 2600000, 14);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (12, 'Calle Novena 2627', 600000, '2023-12-01', 'cliente', 'Venezolana', 112, 1012, 'juridico', 'J-22334455-2', 'Servicios JKL', 'JKL Ltda.', 'www.serviciosjkl.com');
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (13, 'Av. Decima 2829', 700000, '2024-01-01', 'cliente', 'Venezolana', 113, 1013, 'juridico', 'J-33445566-3', 'Empresa MNO', 'MNO S.A.', 'www.empresamno.com');
+INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+(16, 'Au-87A', 'Avion para pasajeros mas vendido en la historia, birreactor para rutas cortas y medias', 2700000, NULL);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (14, 'Calle Once 3031', 800000, '2024-02-01', 'cliente', 'Venezolana', 114, 1014, 'juridico', 'J-44556677-4', 'Comercial PQR', 'PQR Ltda.', 'www.comercialpqr.com');
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur)
-VALUES (15, 'Av. Doce 3233', 900000, '2024-03-01', 'cliente', 'Venezolana',115,1015,'juridico','J-55667788-6','Comercial STU', 'STU Pogu.','www.comercialstu.com');
+INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+(17, 'Au-87A de Negocios', 'Modelo derivado de Au-87A con mayor capacidad de pasajeros', 2800000, 16);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (18, 'Av. Quince 3839', 320000, '2023-07-01', 'cliente', 'Venezolana', 107, 1016, 'natural', 'V-23456789-0', 'Pedro', 'Andrés', 'Martínez', 'Hernández');
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (19, 'Calle Dieciséis 4041', 340000, '2023-08-01', 'cliente', 'Venezolana', 108, 1017, 'natural', 'V-34567890-1', 'Ana', 'Lucía', 'Rodríguez', 'Pérez');
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (1, 'Calle Principal 123, Amazonas', 10000.0, '2022-01-01', 'cliente', 'venezolana', 1, 1, 'juridico', 'J-00000001-1', 'Empresa Amazonas', 'Empresa Amazonas S.A.', 'www.amazonas.com.ve', NULL, NULL, NULL, NULL, NULL);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (20, 'Av. Diecisiete 4243', 360000, '2023-09-01', 'cliente', 'Venezolana', 109, 1018, 'natural', 'V-45678901-2', 'Luis', 'Antonio', 'Fernández', 'García');
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (2, 'Avenida Bolívar 456, Amazonas', 15000.0, '2022-02-01', 'cliente', 'venezolana', 1, 2, 'natural', NULL, NULL, NULL, NULL, 'V-12345678-1', 'Carlos', NULL, 'Pérez', NULL);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (21, 'Calle Dieciocho 4445', 380000, '2023-10-01', 'cliente', 'Venezolana', 110, 1019, 'natural', 'V-56789012-3', 'Sofía', 'María', 'López', 'Méndez');
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (3, 'Calle Secundaria 789, Amazonas', 20000.0, '2022-03-01', 'cliente', 'venezolana', 1, 3, 'juridico', 'J-00000002-2', 'Servicios Amazonas', 'Servicios Amazonas C.A.', 'www.serviciosamazonas.com', NULL, NULL, NULL, NULL, NULL);
 
-INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (22, 'Av. Diecinueve 4647', 400000, '2023-11-01', 'cliente', 'Venezolana', 111, 1020, 'natural', 'V-67890123-4', 'Carlos', 'Enrique', 'Gómez', 'Ramírez');
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (4, 'Avenida Principal 123, Amazonas', 25000.0, '2022-04-01', 'cliente', 'venezolana', 1, 4, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-2', 'María', 'Isabel', 'González', 'Fernández');
 
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (5, 'Calle Libertador 123, Anzoátegui', 11000.0, '2022-05-01', 'cliente', 'venezolana', 2, 5, 'juridico', 'J-00000003-3', 'Empresa Anzoátegui', 'Empresa Anzoátegui S.A.', 'www.anzotegui.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (6, 'Avenida Vargas 456, Anzoátegui', 12000.0, '2022-06-01', 'cliente', 'venezolana', 2, 6, 'natural', NULL, NULL, NULL, NULL, 'V-23456789-3', 'Pedro', 'Luis', 'Martínez', 'Rojas');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (7, 'Calle Sol 789, Anzoátegui', 13000.0, '2022-07-01', 'cliente', 'venezolana', 2, 7, 'juridico', 'J-00000004-4', 'Servicios Anzoátegui', 'Servicios Anzoátegui C.A.', 'www.serviciosanzoategui.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (8, 'Avenida Luz 123, Anzoátegui', 14000.0, '2022-08-01', 'cliente', 'venezolana', 2, 8, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-4', 'Ana', 'María', 'Rodríguez', 'Pérez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (9, 'Calle Principal 123, Apure', 16000.0, '2022-09-01', 'cliente', 'venezolana', 3, 9, 'juridico', 'J-00000005-5', 'Empresa Apure', 'Empresa Apure S.A.', 'www.apure.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (10, 'Avenida Bolívar 456, Apure', 17000.0, '2022-10-01', 'cliente', 'venezolana', 3, 10, 'natural', NULL, NULL, NULL, NULL, 'V-34567890-5', 'Javier', NULL, 'Martínez', 'López');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (11, 'Calle Secundaria 789, Apure', 18000.0, '2022-11-01', 'cliente', 'venezolana', 3, 11, 'juridico', 'J-00000006-6', 'Servicios Apure', 'Servicios Apure C.A.', 'www.serviciosapure.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (12, 'Avenida Principal 123, Apure', 19000.0, '2022-12-01', 'cliente', 'venezolana', 3, 12, 'natural', NULL, NULL, NULL, NULL, 'V-65432198-6', 'Laura', 'Beatriz', 'Hernández', 'Gómez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (13, 'Calle Libertador 123, Aragua', 21000.0, '2023-01-01', 'cliente', 'venezolana', 4, 13, 'juridico', 'J-00000007-7', 'Empresa Aragua', 'Empresa Aragua S.A.', 'www.aragua.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (14, 'Avenida Bolívar 456, Aragua', 22000.0, '2023-02-01', 'cliente', 'venezolana', 4, 14, 'natural', NULL, NULL, NULL, NULL, 'V-56789012-7', 'José', NULL, 'Gómez', 'Ramírez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (15, 'Calle Secundaria 789, Aragua', 23000.0, '2023-03-01', 'cliente', 'venezolana', 4, 15, 'juridico', 'J-00000008-8', 'Servicios Aragua', 'Servicios Aragua C.A.', 'www.serviciosaragua.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (16, 'Avenida Principal 123, Aragua', 24000.0, '2023-04-01', 'cliente', 'venezolana', 4, 16, 'natural', NULL, NULL, NULL, NULL, 'V-76543219-8', 'Sara', 'Carolina', 'Sánchez', 'Fernández');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (17, 'Calle Libertador 123, Barinas', 25000.0, '2023-05-01', 'cliente', 'venezolana', 5, 17, 'juridico', 'J-00000009-9', 'Empresa Barinas', 'Empresa Barinas S.A.', 'www.barinas.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (18, 'Avenida Bolívar 456, Barinas', 26000.0, '2023-06-01', 'cliente', 'venezolana', 5, 18, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-9', 'Miguel', NULL, 'Pérez', 'Rodríguez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (19, 'Calle Secundaria 789, Barinas', 27000.0, '2023-07-01', 'cliente', 'venezolana', 5, 19, 'juridico', 'J-00000010-0', 'Servicios Barinas', 'Servicios Barinas C.A.', 'www.serviciosbarinas.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (20, 'Avenida Principal 123, Barinas', 28000.0, '2023-08-01', 'cliente', 'venezolana', 5, 20, 'natural', NULL, NULL, NULL, NULL, 'V-76543210-0', 'Laura', 'Andrea', 'Gómez', 'Martínez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (21, 'Calle Principal 123, Bolívar', 29000.0, '2023-09-01', 'cliente', 'venezolana', 6, 21, 'juridico', 'J-00000011-1', 'Empresa Bolívar', 'Empresa Bolívar S.A.', 'www.bolivar.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (22, 'Avenida Bolívar 456, Bolívar', 30000.0, '2023-10-01', 'cliente', 'venezolana', 6, 22, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-1', 'Luis', NULL, 'Fernández', 'García');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (23, 'Calle Secundaria 789, Bolívar', 31000.0, '2023-11-01', 'cliente', 'venezolana', 6, 23, 'juridico', 'J-00000012-2', 'Servicios Bolívar', 'Servicios Bolívar C.A.', 'www.serviciosbolivar.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (24, 'Avenida Principal 123, Bolívar', 32000.0, '2023-12-01', 'cliente', 'venezolana', 6, 24, 'natural', NULL, NULL, NULL, NULL, 'V-76543210-1', 'Ana', 'María', 'Rodríguez', 'Pérez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (25, 'Calle Libertador 123, Carabobo', 33000.0, '2024-01-01', 'cliente', 'venezolana', 7, 25, 'juridico', 'J-00000013-3', 'Empresa Carabobo', 'Empresa Carabobo S.A.', 'www.carabobo.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (26, 'Avenida Bolívar 456, Carabobo', 34000.0, '2024-02-01', 'cliente', 'venezolana', 7, 26, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-3', 'Pedro', NULL, 'Gómez', 'Ramírez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (27, 'Calle Secundaria 789, Carabobo', 35000.0, '2024-03-01', 'cliente', 'venezolana', 7, 27, 'juridico', 'J-00000014-4', 'Servicios Carabobo', 'Servicios Carabobo C.A.', 'www.servicioscarabobo.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (28, 'Avenida Principal 123, Carabobo', 36000.0, '2024-04-01', 'cliente', 'venezolana', 7, 28, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-4', 'Carla', 'Beatriz', 'Pérez', 'Sánchez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (29, 'Calle Libertador 123, Cojedes', 37000.0, '2024-05-01', 'cliente', 'venezolana', 8, 29, 'juridico', 'J-00000015-5', 'Empresa Cojedes', 'Empresa Cojedes S.A.', 'www.cojedes.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (30, 'Avenida Bolívar 456, Cojedes', 38000.0, '2024-06-01', 'cliente', 'venezolana', 8, 30, 'natural', NULL, NULL, NULL, NULL, 'V-76543210-5', 'Diego', NULL, 'Fernández', 'Morales');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (31, 'Calle Secundaria 789, Cojedes', 39000.0, '2024-07-01', 'cliente', 'venezolana', 8, 31, 'juridico', 'J-00000016-6', 'Servicios Cojedes', 'Servicios Cojedes C.A.', 'www.servicioscojedes.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (32, 'Avenida Principal 123, Cojedes', 40000.0, '2024-08-01', 'cliente', 'venezolana', 8, 32, 'natural', NULL, NULL, NULL, NULL, 'V-43210987-6', 'Laura', 'Beatriz', 'Hernández', 'Gómez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (33, 'Calle Libertador 123, Delta Amacuro', 41000.0, '2024-09-01', 'cliente', 'venezolana', 9, 33, 'juridico', 'J-00000017-7', 'Empresa Delta Amacuro', 'Empresa Delta Amacuro S.A.', 'www.deltaamacuro.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (34, 'Avenida Bolívar 456, Delta Amacuro', 42000.0, '2024-10-01', 'cliente', 'venezolana', 9, 34, 'natural', NULL, NULL, NULL, NULL, 'V-76543210-7', 'Sofía', NULL, 'López', 'Martínez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (35, 'Calle Secundaria 789, Delta Amacuro', 43000.0, '2024-11-01', 'cliente', 'venezolana', 9, 35, 'juridico', 'J-00000018-8', 'Servicios Delta Amacuro', 'Servicios Delta Amacuro C.A.', 'www.serviciosdeltaamacuro.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (36, 'Avenida Principal 123, Delta Amacuro', 44000.0, '2024-12-01', 'cliente', 'venezolana', 9, 36, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-8', 'Juan', 'Carlos', 'Fernández', 'Pérez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (37, 'Calle Principal 123, Falcón', 45000.0, '2024-09-01', 'cliente', 'venezolana', 10, 37, 'juridico', 'J-00000019-9', 'Empresa Falcón', 'Empresa Falcón S.A.', 'www.falcon.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (38, 'Avenida Bolívar 456, Falcón', 46000.0, '2024-10-01', 'cliente', 'venezolana', 10, 38, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-19', 'José', NULL, 'González', 'Pérez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (39, 'Calle Secundaria 789, Falcón', 47000.0, '2024-11-01', 'cliente', 'venezolana', 10, 39, 'juridico', 'J-00000020-0', 'Servicios Falcón', 'Servicios Falcón C.A.', 'www.serviciosfalcon.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (40, 'Avenida Principal 123, Falcón', 48000.0, '2024-12-01', 'cliente', 'venezolana', 10, 40, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-0', 'María', 'José', 'Ramírez', 'López');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (41, 'Calle Libertador 123, Guárico', 49000.0, '2025-01-01', 'cliente', 'venezolana', 11, 41, 'juridico', 'J-00000021-1', 'Empresa Guárico', 'Empresa Guárico S.A.', 'www.guárico.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (42, 'Avenida Bolívar 456, Guárico', 50000.0, '2025-02-01', 'cliente', 'venezolana', 11, 42, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-21', 'Fernando', NULL, 'Méndez', 'Martínez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (43, 'Calle Secundaria 789, Guárico', 51000.0, '2025-03-01', 'cliente', 'venezolana', 11, 43, 'juridico', 'J-00000022-2', 'Servicios Guárico', 'Servicios Guárico C.A.', 'www.serviciosguárico.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (44, 'Avenida Principal 123, Guárico', 52000.0, '2025-04-01', 'cliente', 'venezolana', 11, 44, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-21', 'Andrea', 'Gabriela', 'Morales', 'Gómez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (45, 'Calle Libertador 123, Lara', 53000.0, '2025-05-01', 'cliente', 'venezolana', 12, 45, 'juridico', 'J-00000023-3', 'Empresa Lara', 'Empresa Lara S.A.', 'www.lara.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (46, 'Avenida Bolívar 456, Lara', 54000.0, '2025-06-01', 'cliente', 'venezolana', 12, 46, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-23', 'Enrique', NULL, 'Pérez', 'Ramírez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (47, 'Calle Secundaria 789, Lara', 55000.0, '2025-07-01', 'cliente', 'venezolana', 12, 47, 'juridico', 'J-00000024-4', 'Servicios Lara', 'Servicios Lara C.A.', 'www.servicioslara.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (48, 'Avenida Principal 123, Lara', 56000.0, '2025-08-01', 'cliente', 'venezolana', 12, 48, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-24', 'Valentina', 'María', 'Díaz', 'Fernández');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (49, 'Calle Principal 123, Mérida', 57000.0, '2025-09-01', 'cliente', 'venezolana', 13, 49, 'juridico', 'J-00000025-5', 'Empresa Mérida', 'Empresa Mérida S.A.', 'www.merida.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (50, 'Avenida Bolívar 456, Mérida', 58000.0, '2025-10-01', 'cliente', 'venezolana', 13, 50, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-25', 'Carlos', NULL, 'Martínez', 'López');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (51, 'Calle Secundaria 789, Mérida', 59000.0, '2025-11-01', 'cliente', 'venezolana', 13, 51, 'juridico', 'J-00000026-6', 'Servicios Mérida', 'Servicios Mérida C.A.', 'www.serviciosmerida.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (52, 'Avenida Principal 123, Mérida', 60000.0, '2025-12-01', 'cliente', 'venezolana', 13, 52, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-25', 'María', 'José', 'Ramírez', 'López');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (53, 'Calle Libertador 123, Miranda', 61000.0, '2026-01-01', 'cliente', 'venezolana', 14, 53, 'juridico', 'J-00000027-7', 'Empresa Miranda', 'Empresa Miranda S.A.', 'www.miranda.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (54, 'Avenida Bolívar 456, Miranda', 62000.0, '2026-02-01', 'cliente', 'venezolana', 14, 54, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-27', 'Ana', NULL, 'Fernández', 'Gómez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (55, 'Calle Secundaria 789, Miranda', 63000.0, '2026-03-01', 'cliente', 'venezolana', 14, 55, 'juridico', 'J-00000028-8', 'Servicios Miranda', 'Servicios Miranda C.A.', 'www.serviciosmiranda.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (56, 'Avenida Principal 123, Miranda', 64000.0, '2026-04-01', 'cliente', 'venezolana', 14, 56, 'natural', NULL, NULL, NULL, NULL, 'V-43210987-27', 'Julio', 'César', 'Mora', 'Pérez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (57, 'Calle Principal 123, Monagas', 65000.0, '2026-05-01', 'cliente', 'venezolana', 15, 57, 'juridico', 'J-00000029-9', 'Empresa Monagas', 'Empresa Monagas S.A.', 'www.monagas.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (58, 'Avenida Bolívar 456, Monagas', 66000.0, '2026-06-01', 'cliente', 'venezolana', 15, 58, 'natural', NULL, NULL, NULL, NULL, 'V-76543210-29', 'Luis', NULL, 'García', 'Martínez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (59, 'Calle Secundaria 789, Monagas', 67000.0, '2026-07-01', 'cliente', 'venezolana', 15, 59, 'juridico', 'J-00000030-0', 'Servicios Monagas', 'Servicios Monagas C.A.', 'www.serviciosmonagas.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (60, 'Avenida Principal 123, Monagas', 68000.0, '2026-08-01', 'cliente', 'venezolana', 15, 60, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-29', 'Andrés', 'José', 'Pérez', 'Gómez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (61, 'Calle Principal 123, Nueva Esparta', 69000.0, '2026-09-01', 'cliente', 'venezolana', 16, 61, 'juridico', 'J-00000031-1', 'Empresa Nueva Esparta', 'Empresa Nueva Esparta S.A.', 'www.nuevaesparta.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (62, 'Avenida Bolívar 456, Nueva Esparta', 70000.0, '2026-10-01', 'cliente', 'venezolana', 16, 62, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-22', 'Javier', NULL, 'Rodríguez', 'López');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (63, 'Calle Secundaria 789, Nueva Esparta', 71000.0, '2026-11-01', 'cliente', 'venezolana', 16, 63, 'juridico', 'J-00000032-2', 'Servicios Nueva Esparta', 'Servicios Nueva Esparta C.A.', 'www.serviciosnuevaesparta.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (64, 'Avenida Principal 123, Nueva Esparta', 72000.0, '2026-12-01', 'cliente', 'venezolana', 16, 64, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-22', 'María', 'Isabel', 'Gómez', 'Pérez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (65, 'Calle Principal 123, Portuguesa', 73000.0, '2027-01-01', 'cliente', 'venezolana', 17, 65, 'juridico', 'J-00000033-3', 'Empresa Portuguesa', 'Empresa Portuguesa S.A.', 'www.portuguesa.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (66, 'Avenida Bolívar 456, Portuguesa', 74000.0, '2027-02-01', 'cliente', 'venezolana', 17, 66, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-33', 'Ricardo', NULL, 'Hernández', 'Pérez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (67, 'Calle Secundaria 789, Portuguesa', 75000.0, '2027-03-01', 'cliente', 'venezolana', 17, 67, 'juridico', 'J-00000034-4', 'Servicios Portuguesa', 'Servicios Portuguesa C.A.', 'www.serviciosportuguesa.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (68, 'Avenida Principal 123, Portuguesa', 76000.0, '2027-04-01', 'cliente', 'venezolana', 17, 68, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-33', 'Santiago', 'Carlos', 'Márquez', 'López');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (69, 'Calle Principal 123, Sucre', 77000.0, '2027-05-01', 'cliente', 'venezolana', 18, 69, 'juridico', 'J-00000035-5', 'Empresa Sucre', 'Empresa Sucre S.A.', 'www.sucre.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (70, 'Avenida Bolívar 456, Sucre', 78000.0, '2027-06-01', 'cliente', 'venezolana', 18, 70, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-34', 'Gabriela', NULL, 'Rodríguez', 'Martínez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (71, 'Calle Secundaria 789, Sucre', 79000.0, '2027-07-01', 'cliente', 'venezolana', 18, 71, 'juridico', 'J-00000036-6', 'Servicios Sucre', 'Servicios Sucre C.A.', 'www.serviciossucre.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (72, 'Avenida Principal 123, Sucre', 80000.0, '2027-08-01', 'cliente', 'venezolana', 18, 72, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-34', 'Adriana', 'Beatriz', 'Díaz', 'Fernández');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (73, 'Calle Principal 123, Táchira', 81000.0, '2027-09-01', 'cliente', 'venezolana', 19, 73, 'juridico', 'J-00000037-7', 'Empresa Táchira', 'Empresa Táchira S.A.', 'www.tachira.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (74, 'Avenida Bolívar 456, Táchira', 82000.0, '2027-10-01', 'cliente', 'venezolana', 19, 74, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-39', 'David', NULL, 'Vargas', 'González');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (75, 'Calle Secundaria 789, Táchira', 83000.0, '2027-11-01', 'cliente', 'venezolana', 19, 75, 'juridico', 'J-00000038-8', 'Servicios Táchira', 'Servicios Táchira C.A.', 'www.serviciostachira.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (76, 'Avenida Principal 123, Táchira', 84000.0, '2027-12-01', 'cliente', 'venezolana', 19, 76, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-37', 'Claudia', 'Isabel', 'Jiménez', 'Ramos');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (77, 'Calle Principal 123, Trujillo', 85000.0, '2028-01-01', 'cliente', 'venezolana', 20, 77, 'juridico', 'J-00000039-9', 'Empresa Trujillo', 'Empresa Trujillo S.A.', 'www.trujillo.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (78, 'Avenida Bolívar 456, Trujillo', 86000.0, '2028-02-01', 'cliente', 'venezolana', 20, 78, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-38', 'Marcos', NULL, 'López', 'Morales');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (79, 'Calle Secundaria 789, Trujillo', 87000.0, '2028-03-01', 'cliente', 'venezolana', 20, 79, 'juridico', 'J-00000040-0', 'Servicios Trujillo', 'Servicios Trujillo C.A.', 'www.serviciostrujillo.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (80, 'Avenida Principal 123, Trujillo', 88000.0, '2028-04-01', 'cliente', 'venezolana', 20, 80, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-49', 'Elena', 'María', 'Sánchez', 'Pérez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (81, 'Calle Principal 123, Vargas', 89000.0, '2028-05-01', 'cliente', 'venezolana', 21, 81, 'juridico', 'J-00000041-1', 'Empresa Vargas', 'Empresa Vargas S.A.', 'www.vargas.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (82, 'Avenida Bolívar 456, Vargas', 90000.0, '2028-06-01', 'cliente', 'venezolana', 21, 82, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-36', 'Laura', NULL, 'Fernández', 'Martínez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (83, 'Calle Secundaria 789, Vargas', 91000.0, '2028-07-01', 'cliente', 'venezolana', 21, 83, 'juridico', 'J-00000042-2', 'Servicios Vargas', 'Servicios Vargas C.A.', 'www.serviciosvargas.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (84, 'Avenida Principal 123, Vargas', 92000.0, '2028-08-01', 'cliente', 'venezolana', 21, 84, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-46', 'José', 'Luis', 'Rodríguez', 'Pérez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (85, 'Calle Principal 123, Zulia', 93000.0, '2028-09-01', 'cliente', 'venezolana', 23, 85, 'juridico', 'J-00000043-3', 'Empresa Zulia', 'Empresa Zulia S.A.', 'www.zulia.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (86, 'Avenida Bolívar 456, Zulia', 94000.0, '2028-10-01', 'cliente', 'venezolana', 23, 86, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-41', 'María', NULL, 'Gómez', 'Rodríguez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (87, 'Calle Secundaria 789, Zulia', 95000.0, '2028-11-01', 'cliente', 'venezolana', 23, 87, 'juridico', 'J-00000044-4', 'Servicios Zulia', 'Servicios Zulia C.A.', 'www.servicioszulia.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (88, 'Avenida Principal 123, Zulia', 96000.0, '2028-12-01', 'cliente', 'venezolana', 23, 88, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-47', 'Carlos', 'Alberto', 'Mendoza', 'Pérez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (89, 'Calle Principal 123, Distrito Capital', 97000.0, '2029-01-01', 'cliente', 'venezolana', 24, 89, 'juridico', 'J-00000045-5', 'Empresa Distrito Capital', 'Empresa Distrito Capital S.A.', 'www.distritocapital.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (90, 'Avenida Bolívar 456, Distrito Capital', 98000.0, '2029-02-01', 'cliente', 'venezolana', 24, 90, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-42', 'Paola', NULL, 'Gómez', 'Fernández');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (91, 'Calle Secundaria 789, Distrito Capital', 99000.0, '2029-03-01', 'cliente', 'venezolana', 24, 91, 'juridico', 'J-00000046-6', 'Servicios Distrito Capital', 'Servicios Distrito Capital C.A.', 'www.serviciosdistritocapital.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (92, 'Avenida Principal 123, Distrito Capital', 100000.0, '2029-04-01', 'cliente', 'venezolana', 24, 92, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-58', 'Ana', 'María', 'Fernández', 'Gómez');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (93, 'Calle Principal 123, Yaracuy', 101000.0, '2029-05-01', 'cliente', 'venezolana', 22, 93, 'juridico', 'J-00000047-67', 'Empresa Yaracuy', 'Empresa Yaracuy S.A.', 'www.yaracuy.com.ve', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (94, 'Avenida Bolívar 456, Yaracuy', 102000.0, '2029-06-01', 'cliente', 'venezolana', 22, 94, 'natural', NULL, NULL, NULL, NULL, 'V-12345678-69', 'Luis', NULL, 'Pérez', 'García');
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (95, 'Calle Secundaria 789, Yaracuy', 103000.0, '2029-07-01', 'cliente', 'venezolana', 22, 95, 'juridico', 'J-00000048-68', 'Servicios Yaracuy', 'Servicios Yaracuy C.A.', 'www.serviciosyaracuy.com', NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO comercial (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_comercial_com, rif_jur, denominacion_comercial_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
+VALUES (96, 'Avenida Principal 123, Yaracuy', 104000.0, '2029-08-01', 'cliente', 'venezolana', 22, 96, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-65', 'Ana', 'María', 'Hernández', 'Rodríguez');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (1, 'Juan', 'Carlos', 'Perez', 'Gomez', 'Calle A, 123', '2022-01-01', 400, 1500.00, 97, 'V-12345678');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (2, 'Maria', 'Fernanda', 'Rodriguez', 'Lopez', 'Calle B, 456', '2022-02-01', 762, 1600.00, 98, 'V-23456789');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (3, 'Luis', 'Enrique', 'Gonzalez', 'Martinez', 'Calle C, 789', '2022-03-01', 522, 1700.00, 99, 'V-34567890');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (4, 'Ana', 'Isabel', 'Hernandez', 'Jimenez', 'Calle D, 101', '2022-04-01', 985, 1800.00, 100, 'V-45678901');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (5, 'Carlos', 'Eduardo', 'Ramirez', 'Torres', 'Calle E, 202', '2022-05-01', 1450, 1900.00, 101, 'V-56789012');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (6, 'Elena', 'Maria', 'Fernandez', 'Castro', 'Calle F, 303', '2022-06-01', 1348, 2000.00, 102, 'V-67890123');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (7, 'Jorge', 'Luis', 'Moreno', 'Ruiz', 'Calle G, 404', '2022-07-01', 612, 2100.00, 103, 'V-78901234');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (8, 'Patricia', 'Victoria', 'Munoz', 'Perez', 'Calle H, 505', '2022-08-01', 921, 2200.00, 104, 'V-89012345');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (9, 'Ricardo', 'Jose', 'Rojas', 'Gomez', 'Calle I, 606', '2022-09-01', 458, 2300.00, 105, 'V-90123456');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (10, 'Sofia', 'Gabriela', 'Diaz', 'Lopez', 'Calle J, 707', '2022-10-01', 1167, 2400.00, 106, 'V-01234567');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (11, 'Daniela', 'Rocio', 'Acosta', 'Sanchez', 'Calle K, 808', '2022-11-01', 745, 2500.00, 107, 'V-12345679');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (12, 'Manuel', 'Antonio', 'Soto', 'Navarro', 'Calle L, 909', '2022-12-01', 1102, 2600.00, 108, 'V-23456780');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (13, 'Gabriela', 'Lourdes', 'Vargas', 'Pena', 'Calle M, 1010', '2023-01-01', 1322, 2700.00, 109, 'V-34567891');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (14, 'Miguel', 'Angel', 'Ortega', 'Perez', 'Calle N, 1111', '2023-02-01', 978, 2800.00, 110, 'V-45678902');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (15, 'Adriana', 'Paola', 'Reyes', 'Diaz', 'Calle O, 1212', '2023-03-01', 804, 2900.00, 111, 'V-56789013');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (16, 'Francisco', 'Javier', 'Flores', 'Morales', 'Calle P, 1313', '2023-04-01', 503, 3000.00, 112, 'V-67890124');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (17, 'Valeria', 'Nicole', 'Ramos', 'Castillo', 'Calle Q, 1414', '2023-05-01', 641, 3100.00, 113, 'V-78901235');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (18, 'Fernando', 'Luis', 'Cruz', 'Romero', 'Calle R, 1515', '2023-06-01', 411, 3200.00, 114, 'V-89012346');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (19, 'Natalia', 'Andrea', 'Mendoza', 'Ortega', 'Calle S, 1616', '2023-07-01', 726, 3300.00, 115, 'V-90123457');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (20, 'Julian', 'Martin', 'Mejia', 'Herrera', 'Calle T, 1717', '2023-08-01', 1253, 3400.00, 116, 'V-01234568');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (21, 'Liliana', 'Susana', 'Silva', 'Vega', 'Calle U, 1818', '2023-09-01', 850, 3500.00, 117, 'V-12345669');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (22, 'Alejandro', 'Jose', 'Rios', 'Gonzalez', 'Calle V, 1919', '2023-10-01', 417, 3600.00, 118, 'V-23456790');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (23, 'Monica', 'Cristina', 'Suarez', 'Lara', 'Calle W, 2020', '2023-11-01', 1198, 3700.00, 119, 'V-34567892');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (24, 'Roberto', 'Carlos', 'Vargas', 'Fuentes', 'Calle X, 2121', '2023-12-01', 369, 3800.00, 120, 'V-45678903');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (25, 'Sandra', 'Elena', 'Navarro', 'Mendoza', 'Calle Y, 2222', '2024-01-01', 1402, 3900.00, 121, 'V-56789014');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (26, 'Diego', 'Esteban', 'Paredes', 'Guzman', 'Calle Z, 2323', '2024-02-01', 713, 4000.00, 122, 'V-67890125');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (27, 'Paola', 'Andrea', 'Quintero', 'Lopez', 'Calle AA, 2424', '2024-03-01', 411, 4100.00, 123, 'V-78901236');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (28, 'Rafael', 'David', 'Salas', 'Paz', 'Calle BB, 2525', '2024-04-01', 1203, 4200.00, 124, 'V-89012347');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (29, 'Claudia', 'Juliana', 'Palacios', 'Cruz', 'Calle CC, 2626', '2024-05-01', 998, 4300.00, 125, 'V-90123458');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (30, 'Emilio', 'Raul', 'Aguilar', 'Rojas', 'Calle DD, 2727', '2024-06-01', 1341, 4400.00, 126, 'V-01234569');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (31, 'Lorena', 'Patricia', 'Muñoz', 'González', 'Calle EE, 2828', '2024-07-01', 761, 4500.00, 127, 'V-12345680');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (32, 'Eduardo', 'Andres', 'Gutierrez', 'Vera', 'Calle FF, 2929', '2024-08-01', 1199, 4600.00, 128, 'V-23456791');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (33, 'Laura', 'Sofia', 'Ramirez', 'Fernandez', 'Calle GG, 3030', '2024-09-01', 369, 4700.00, 129, 'V-34567893');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (34, 'Alberto', 'Emilio', 'Diaz', 'Campos', 'Calle HH, 3131', '2024-10-01', 1403, 4800.00, 130, 'V-45678904');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (35, 'Paula', 'Isabel', 'Mendoza', 'Lopez', 'Calle II, 3232', '2024-11-01', 714, 4900.00, 131, 'V-56789015');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (36, 'Victor', 'Raul', 'Paredes', 'Morales', 'Calle JJ, 3333', '2024-12-01', 1056, 5000.00, 132, 'V-67890126');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (37, 'Mariana', 'Beatriz', 'Castillo', 'Martinez', 'Calle KK, 3434', '2025-01-01', 409, 5100.00, 133, 'V-78901237');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (38, 'Javier', 'Tomas', 'Cruz', 'Ortiz', 'Calle LL, 3535', '2025-02-01', 622, 5200.00, 134, 'V-89012348');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (39, 'Diana', 'Lorena', 'Soto', 'Perez', 'Calle MM, 3636', '2025-03-01', 1251, 5300.00, 135, 'V-90123459');
+
+INSERT INTO personal (codigo_personal_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES (40, 'Felipe', 'Ricardo', 'Chavez', 'Santos', 'Calle NN, 3737', '2025-04-01', 967, 5400.00, 136, 'V-01234570');
+
+
+INSERT INTO caracteristica (codigo_car,nombre_car) VALUES
+(1,'cantida tripulacion'),
+(2,'capacidad pasajeros'),
+(3,'longitud'),
+(4,'envergadura'),
+(5,'altura'),
+(6,'peso vacio'),
+(7,'peso maximo de despegue'),
+(8,'volumen de carga'),
+(9,'velocidad maxima'),
+(10,'maxima capacidad de combustible');
+
+INSERT INTO caracteristica_modelo (valor_cm,unidad_medida_cm,fk_caracteristica,fk_modelo_avion) VALUES
+(6,'personas',1,3),
+(289,'pasajeros',2,7),
+(36.5,'metros',3,4),
+(35.7,'metros',4,7),
+(12.5,'metros',5,7),
+(162.400,'kilogramos',6,11),
+(333.400,'kilogramos',7,11),
+(52.5,'metros cuadrados',8,9),
+(0.92,'March',9,14),
+(199.160,'litros',10,13);
 

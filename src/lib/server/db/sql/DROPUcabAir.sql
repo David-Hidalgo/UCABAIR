@@ -1,3 +1,5 @@
+
+DROP PROCEDURE IF EXISTS insertar_usuario;
 ALTER TABLE sede DROP CONSTRAINT IF EXISTS fk_lugar;
 
 ALTER TABLE almacen DROP CONSTRAINT IF EXISTS fk_sede;
@@ -422,6 +424,8 @@ ALTER TABLE transporte_configuracion_pieza DROP CONSTRAINT IF EXISTS transporte_
 
 ALTER TABLE turno DROP CONSTRAINT IF EXISTS turno_pk;
 
+ALTER TABLE sesion DROP CONSTRAINT IF EXISTS usuario_fk;
+
 ALTER TABLE usuario DROP CONSTRAINT IF EXISTS usuario_pk;
 
 ALTER TABLE venta DROP CONSTRAINT IF EXISTS venta_pk;
@@ -500,3 +504,7 @@ DROP TABLE IF EXISTS usuario;
 DROP TABLE IF EXISTS venta;
 DROP TABLE IF EXISTS zona;
 DROP TABLE IF EXISTS sesion;
+
+DROP SEQUENCE IF EXISTS usuario_codigo_usu_seq;
+DROP SEQUENCE IF EXISTS lugar_codigo_lug_seq;
+

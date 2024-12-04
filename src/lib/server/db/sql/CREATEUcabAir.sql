@@ -240,11 +240,12 @@ CREATE TABLE lote_materia_prima (
     cantidad_lmp      		INTEGER NOT NULL
 );
 CREATE TABLE lugar (
-    codigo_lug  INTEGER NOT NULL,
+    codigo_lug  SERIAL NOT NULL,
     nombre_lug  VARCHAR(255) NOT NULL,
     tipo_lug    VARCHAR(255) NOT NULL,
     fk_lugar    INTEGER
 );
+
 CREATE TABLE modelo_avion (
     codigo_ma        INTEGER NOT NULL,
     nombre_ma        VARCHAR(255) NOT NULL,
@@ -464,7 +465,7 @@ CREATE TABLE turno (
     hora_salida_tur  TIMESTAMP NOT NULL
 );
 CREATE TABLE usuario (
-    codigo_usu INTEGER NOT NULL,
+    codigo_usu SERIAL NOT NULL,
     nombre_usu VARCHAR(255) NOT NULL,
     contraseña_usu VARCHAR(255) NOT NULL
 );
@@ -485,8 +486,19 @@ CREATE TABLE zona (
 
 CREATE TABLE sesion(
 
-    id  INTEGER PRIMARY KEY,
+    id  VARCHAR(255) PRIMARY KEY,
     user_id INTEGER NOT NULL,
     expires_at timestamp with time zone NOT NULL
 
 );
+
+CREATE OR REPLACE PROCEDURE insertar_usuario(
+    nombre_usu VARCHAR(255),
+    contraseña_usu VARCHAR(255)
+)
+LANGUAGE plpgsql
+AS $$ BEGIN
+INSERT INTO usuario (nombre_usu,contraseña_usu) VALUES (nombre_usu,contraseña_usu);
+END;
+$$;
+
