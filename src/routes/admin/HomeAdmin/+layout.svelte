@@ -13,7 +13,7 @@
 		{ id: 'admin/HomeAdmin/ensamblajes', name: 'Ensamblajes' },
 		{ id: 'admin/HomeAdmin/inventario', name: 'Inventario' },
 		{ id: 'admin/HomeAdmin/aliados', name: 'Proveedores' },
-		{ id: 'admin/HomeAdmin/proyectos', name: 'Pruebas' },
+		{ id: 'admin/HomeAdmin/pruebas', name: 'Pruebas' },
 		{ id: 'admin/HomeAdmin/roles', name: 'Roles' }
 	];
 </script>

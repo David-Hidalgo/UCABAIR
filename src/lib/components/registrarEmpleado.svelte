@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	export let message;
+	export let cedula_per;
 	// Interfaz para representar un empleado
 	interface Empleado {
-		cedula_per: string;
+		cedula_per: number;
 		primer_nombre_per: string;
 		segundo_nombre_per: string;
 		primer_apellido_per: string;
@@ -13,13 +13,13 @@
 		experiencia_profesional_per: string;
 		titulacion_per: string;
 		sueldo_per: number;
-		telefono_per: string[];
+		telefono_per: number[];
 		correo_per: string[];
 		labor_per:string;
 	}
 
 	let empleado: Empleado = {
-		cedula_per: '',
+		cedula_per: cedula_per,
 		primer_nombre_per: '',
 		segundo_nombre_per: '',
 		primer_apellido_per: '',

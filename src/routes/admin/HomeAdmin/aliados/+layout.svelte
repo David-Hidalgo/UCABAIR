@@ -1,54 +1,59 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
+
 	let searchTerm = '';
 	function search() {
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	let opcionSeleccionada = 'Proveedor';
-	 interface Aliado {
-		razon_social: string;
-		rif: string;
-		direccion_fiscal: string;
-		telefono: string[];
-		correo: string[];
-		monto_acreditado: string;
+	export let codigo_com;
+	interface Proveedor {
+		codigo_com: number;
+		rif_jur: string;
+		denominacion_comercial_jur: string;
+		razon_social_jur: string;
+		pagina_web_jur: string;
+		telefono_com: number[];
+		correo_com: string[];
+		direccion_com: string;
+		monto_acreditado_com: number;
+		fecha_inicio_operaciones_com: Date;
 	}
 
-	let aliados: Aliado[] = [
-		{
-			razon_social: 'Industrias Metalmecánicas Orinoco C.A.',
-			rif: 'J-30584623-7',
-			direccion_fiscal: 'Zona Industrial Matanzas, Puerto Ordaz, Bolívar',
-			telefono: ['+58-286-9945678', '+58-286-9945679'],
-			correo: ['contacto@imorinoco.com', 'ventas@imorinoco.com'],
-			monto_acreditado: '5000 toneladas/mes'
-		},
-		{
-			razon_social: 'Alimentos Carabobo S.A.',
-			rif: 'J-20134567-8',
-			direccion_fiscal: 'Av. Henry Ford, Valencia, Carabobo',
-			telefono: ['+58-241-8334567', '+58-241-8334568'],
-			correo: ['info@alica.com', 'soporte@alica.com'],
-			monto_acreditado: '20000 cajas/mes'
-		},
-		{
-			razon_social: 'Textiles Maracay C.A.',
-			rif: 'J-30987654-2',
-			direccion_fiscal: 'Calle Los Cedros, Maracay, Aragua',
-			telefono: ['+58-243-5556789', '+58-243-5556790'],
-			correo: ['atencioncliente@textilmaracay.com', 'ventas@textilmaracay.com'],
-			monto_acreditado: '15000 metros de tela/mes'
-		}
-		// Tus datos aquí
-	];
 
-	async function generarReporte(aliados: Aliado[]) {
+	let proveedores: Proveedor[] = [{
+		codigo_com: Math.floor(Math.random() * 1000),	
+		rif_jur: "J-123456789",
+		denominacion_comercial_jur: "Tablas S.A.",
+		razon_social_jur: "Tablas C.A.",
+		pagina_web_jur: " www.tablas.com",
+		telefono_com: [ 1234567, 7654321],
+		correo_com: ["latabla@hotmail,com","tablasca@hotmail.com" ],
+		direccion_com: " Av. Los Tablones, Edif. Tablas, Piso 1, Ofic. 1",
+		monto_acreditado_com: 1000000,
+		fecha_inicio_operaciones_com: new Date()
+	},
+	{
+		codigo_com: Math.floor(Math.random() * 1000),
+		rif_jur: "J-987654321",
+		denominacion_comercial_jur: "Sillas S.A.",
+		razon_social_jur: "Sillas C.A.",
+		pagina_web_jur: " www.sillas.com",
+		telefono_com: [ 1234567, 7654321],
+		correo_com: ["lasilla@hotmail,com"],
+		direccion_com: " Av. Las Sillas, Edif. Sillas, Piso 1, Ofic. 1",
+		monto_acreditado_com: 1000000,
+		fecha_inicio_operaciones_com: new Date()
+	}];
+
+	async function generarReporte(proveedores: Proveedor[]) {
 		//logica para
 	}
 
 	function editarRegistro(index: number) {
 		// Lógica para editar el registro en 'datos'
 		console.log(`Editando registro en índice ${index}`);
+		goto(`/admin/HomeAdmin/editar/aliado/${index}`);
 	}
 
 	// Función para eliminar un registro
@@ -70,22 +75,22 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#each aliados as aliado, i}
+		{#each proveedores as proveedor, i}
 			<tr>
-				<td>{aliado.razon_social}</td>
-				<td>{aliado.rif}</td>
-				<td>{aliado.direccion_fiscal}</td>
-				<td>{aliado.telefono}</td>
-				<td>{aliado.correo}</td>
+				<td>{proveedor.razon_social_jur}</td>	
+				<td>{proveedor.rif_jur}</td>
+				<td>{proveedor.direccion_com}</td>
+				<td>{proveedor.telefono_com}</td>
+				<td>{proveedor.correo_com}</td>
+				<td>{proveedor.monto_acreditado_com}</td>
+				<td>{proveedor.fecha_inicio_operaciones_com}</td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/aliado">
-							<button on:click={() => editarRegistro(i)}>
+							<button on:click={() => editarRegistro(proveedor.codigo_com)}>
 								<span>✏️</span>
 								<!-- Icono de lápiz -->
 							</button>
-						</a>
-						<button on:click={() => eliminarRegistro(i)}>
+						<button on:click={() => eliminarRegistro(proveedor.codigo_com)}>
 							<span>🗑️</span>
 							<!-- Icono de papelera -->
 						</button>

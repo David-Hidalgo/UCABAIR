@@ -1,22 +1,25 @@
 <script lang="ts">
+	
 	export let id_editar: number;
 	console.log(id_editar);
 	import { goto } from '$app/navigation';
 
+
 	// Interfaz para representar un empleado
 	interface Rol {
-		id_rol: string;
-		ro_nombre: string;
+		codigo_rol: number|undefined;
+		nombre_rol: string;
+		descripcion_rol: string;
 	}
-
 	let rol: Rol = {
-		id_rol: '',
-		ro_nombre: ''
+		codigo_rol:undefined,
+		nombre_rol: '',
+		descripcion_rol: ''
 	};
 
 	// Función para manejar el envío del formulario
 	async function registrarRol() {
-		const res = await fetch(`http://localhost:4000/rol`, {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/rol`, {
 			method: 'POST',
 			body: JSON.stringify(rol),
 			headers: { 'Content-Type': 'application/json' }
@@ -32,10 +35,13 @@
 	<h2>Registrar Rol</h2>
 
 	<label for="rol">Rol</label>
-	<input id="rol" bind:value={rol.id_rol} />
+	<input id="rol" bind:value={rol.codigo_rol} />
 
 	<label for="nombreRol">Nombre del Rol</label>
-	<input id="nombreRol" bind:value={rol.ro_nombre} />
+	<input id="nombreRol" bind:value={rol.nombre_rol} />
+
+	<label for="descripcionRol">Descripción del Rol</label>
+	<input id="descripcionRol" bind:value={rol.descripcion_rol} />
 
 	<button type="submit">Registrar Rol</button>
 </form>

@@ -390,9 +390,9 @@ ALTER TABLE embalaje_configuracion_pieza
         REFERENCES configuracion_pieza ( fk_tipo_materia_prima,
                                          fk_tipo_pieza );
 
-ALTER TABLE rol
-    ADD CONSTRAINT fk_usuario FOREIGN KEY ( fk_usuario )
-        REFERENCES usuario ( codigo_usu );
+ALTER TABLE usuario
+    ADD CONSTRAINT fk_rol FOREIGN KEY ( fk_rol )
+        REFERENCES rol ( codigo_rol );
 
 ALTER TABLE privilegio
     ADD CONSTRAINT fk_rol FOREIGN KEY ( fk_rol )
@@ -812,7 +812,7 @@ ALTER TABLE ensamblaje
 
 
 
-ALTER TABLE lugar ADD CONSTRAINT tipo_lug_check check(tipo_lug in ('parroquia','municipio', 'estado','pais'));
+ALTER TABLE lugar ADD CONSTRAINT tipo_lug_check check(tipo_lug in ('parroquia','municipio', 'estado'));
 
 ALTER TABLE comercial ADD CONSTRAINT tipo_com_check check(tipo_com in ('cliente','proveedor'));
 
@@ -837,3 +837,5 @@ ALTER TABLE personal ADD UNIQUE (fk_usuario);
 ALTER TABLE personal ADD UNIQUE (cedula_per);
 
 ALTER TABLE telefono ADD UNIQUE (numero_telefono_tel);
+
+ALTER TABLE sesion ADD CONSTRAINT usuario_fk FOREIGN KEY(user_id) REFERENCES usuario(codigo_usu);

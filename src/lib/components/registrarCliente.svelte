@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	export const cedula: string = '';
+	export let cedula_nat ;
 	// Interfaz para representar un empleado
 	interface Cliente {
-		cedula_nat: string;
+		cedula_nat: number;
 		primer_nombre_nat: string;
 		segundo_nombre_nat: string;
 		primer_apelido_nat: string;
 		segundo_apelido_nat: string;
-		telefono_com: string[];
+		telefono_com: number[];
 		correo_com: string[];
 		direccion_com: string;
 		monto_acreditado_com: number;
@@ -17,7 +17,7 @@
 	}
 
 	let cliente: Cliente = {
-		cedula_nat: '',
+		cedula_nat: cedula_nat,
 		primer_nombre_nat: '',
 		segundo_nombre_nat: '',
 		primer_apelido_nat: '',

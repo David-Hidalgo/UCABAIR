@@ -1,11 +1,7 @@
 <script>
 	import { page } from '$app/stores';
-	import Editar from '$lib/components/configurarProyecto.svelte';
-	let id_editar = Number($page.params.index);
+	import Editar from '$lib/components/registrarProveedor.svelte';
+	let codigo_com = Number($page.params.index);
 </script>
 
-<body>
-	<div class="ConfigurarProyecto">
-		<Editar bind:id_editar />
-	</div>
-</body>
+<Editar codigo_com={codigo_com} />

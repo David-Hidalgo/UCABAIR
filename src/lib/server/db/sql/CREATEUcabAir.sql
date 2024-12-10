@@ -240,11 +240,12 @@ CREATE TABLE lote_materia_prima (
     cantidad_lmp      		INTEGER NOT NULL
 );
 CREATE TABLE lugar (
-    codigo_lug  INTEGER NOT NULL,
+    codigo_lug  SERIAL NOT NULL,
     nombre_lug  VARCHAR(255) NOT NULL,
     tipo_lug    VARCHAR(255) NOT NULL,
     fk_lugar    INTEGER
 );
+
 CREATE TABLE modelo_avion (
     codigo_ma        INTEGER NOT NULL,
     nombre_ma        VARCHAR(255) NOT NULL,
@@ -382,7 +383,7 @@ CREATE TABLE red_social (
 CREATE TABLE rol (
     codigo_rol INTEGER NOT NULL,
     nombre_rol VARCHAR(255) NOT NULL,
-    fk_usuario INTEGER NOT NULL
+    descripcion_rol VARCHAR(255) NOT NULL
 );
 CREATE TABLE sede (
     codigo_sed    INTEGER NOT NULL,
@@ -464,9 +465,10 @@ CREATE TABLE turno (
     hora_salida_tur  TIMESTAMP NOT NULL
 );
 CREATE TABLE usuario (
-    codigo_usu INTEGER NOT NULL,
+    codigo_usu SERIAL NOT NULL,
     nombre_usu VARCHAR(255) NOT NULL,
-    contraseña_usu VARCHAR(255) NOT NULL
+    contraseña_usu VARCHAR(255) NOT NULL,
+    fk_rol INTEGER NOT NULL DEFAULT 3
 );
 CREATE TABLE venta (
     codigo_venta_ven   INTEGER NOT NULL,
@@ -482,3 +484,42 @@ CREATE TABLE zona (
     descripcion_zon VARCHAR(255) NOT NULL,
     fk_sede         INTEGER NOT NULL
 );
+
+CREATE TABLE sesion(
+
+    id  VARCHAR(255) PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    expires_at timestamp with time zone NOT NULL
+
+);
+
+CREATE OR REPLACE PROCEDURE insertar_usuario(
+    nombre_usu VARCHAR(255),
+    contraseña_usu VARCHAR(255)
+)
+LANGUAGE plpgsql
+AS $$ BEGIN
+INSERT INTO usuario (nombre_usu,contraseña_usu) VALUES (nombre_usu,contraseña_usu);
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE insertar_rol( 
+    codigo_rol INTEGER, 
+    nombre_rol VARCHAR(255),
+    descripcion_rol VARCHAR(255)
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO rol (codigo_rol,nombre_rol,descripcion_rol) 
+    VALUES (codigo_rol,nombre_rol,descripcion_rol);
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE eliminar_rol(
+    codigo_rolE INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    DELETE FROM rol WHERE codigo_rol=codigo_rolE;
+END;
+$$;

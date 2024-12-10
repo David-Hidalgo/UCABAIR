@@ -1,13 +1,14 @@
 <script lang="ts">
+	import { goto } from "$app/navigation";
+
 	let searchTerm = '';
 	function search() {
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	let opcionSeleccionada = 'Empleados';
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 	interface Empleado {
-		cedula_per: string;
+		cedula_per: number;
 		primer_nombre_per: string;
 		segundo_nombre_per: string;
 		primer_apellido_per: string;
@@ -17,7 +18,7 @@
 		experiencia_profesional_per: string;
 		titulacion_per: string;
 		sueldo_per: number;
-		telefono_per: string[];
+		telefono_per: number[];
 		correo_per: string[];
 		labor_per:string;
 	}
@@ -25,7 +26,7 @@
 	// Ahora declara 'datos' con el tipo explícito 'Dato[]'
 	let empleados: Empleado[] = [
 		{
-			cedula_per: 'V-12345678',
+			cedula_per: 12345678,
 			primer_nombre_per: 'Juan',
 			segundo_nombre_per: 'Gabriel',
 			primer_apellido_per: 'Pérez',
@@ -35,12 +36,12 @@
 			experiencia_profesional_per: '5 años',
 			titulacion_per: 'Ingeniero en Informática',
 			sueldo_per: 15000,
-			telefono_per: ['+58-212-1234567', '+58-414-9876543'],
+			telefono_per: [ 2121234567, 4161234567],
 			correo_per: ['hola123@gmail.com', 'xyzcorreo@gmail.com'],
 			labor_per:'Maquinista'
 		},
 		{
-			cedula_per: 'E-87654321',
+			cedula_per: 87654321,
 			primer_nombre_per: 'María',
 			segundo_nombre_per: 'Alejandra',
 			primer_apellido_per: 'González',
@@ -50,12 +51,12 @@
 			experiencia_profesional_per: '3 años',
 			titulacion_per: 'Licenciada en Administración',
 			sueldo_per: 20000,
-			telefono_per: ['+58-212-7654321', '+58-416-1234567'],
+			telefono_per: [2129876543, 4146543210],
 			correo_per: ['maria.gonzalez@example.com', 'mgonzalez@workemail.com'],
 			labor_per:'Gerente'
 		},
 		{
-			cedula_per: 'V-12344321',
+			cedula_per: 13579246,
 			primer_nombre_per: 'Carlos',
 			segundo_nombre_per: 'Martínez',
 			primer_apellido_per: 'Gómez',
@@ -65,7 +66,7 @@
 			experiencia_profesional_per: '2 años',
 			titulacion_per: 'Licenciado en Comunicación Social',
 			sueldo_per: 18000,
-			telefono_per: ['+58-212-9876543', '+58-414-6543210'],
+			telefono_per: [2125555555, 4165555555],
 			correo_per: ['carlos.martinez@example.com', 'cmartinez@workemail.com'],
 			labor_per:'Operador'
 		}
@@ -75,6 +76,7 @@
 	function editarRegistro(index: number) {
 		// Lógica para editar el registro en 'datos'
 		console.log(`Editando registro en índice ${index}`);
+		goto(`/admin/HomeAdmin/editar/empleado/${index}`);
 	}
 
 	// Función para eliminar un registro
@@ -119,13 +121,11 @@
 				<td>{dato.labor_per}</td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/empleado">
-							<button on:click={() => editarRegistro(i)}>
+							<button on:click={() => editarRegistro(dato.cedula_per)}>
 								<span>✏️</span>
 								<!-- Icono de lápiz -->
 							</button>
-						</a>
-						<button on:click={() => eliminarRegistro(i)}>
+						<button on:click={() => eliminarRegistro(dato.cedula_per)}>
 							<span>🗑️</span>
 							<!-- Icono de papelera -->
 						</button>

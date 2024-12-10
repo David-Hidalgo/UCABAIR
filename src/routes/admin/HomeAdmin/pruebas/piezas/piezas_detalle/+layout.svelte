@@ -49,7 +49,6 @@
 		//logica para
 	}
 
-	/*ESTA COMENTADO POR QUE NO SE HA IMPLEMENTADO Y ARROJA ERROR CON LA BD
 	async function mostrarDatos() {
 		const response = await fetch('http://localhost:4000/piezas');
 		const data: Pieza[] = await response.json();
@@ -84,11 +83,13 @@
 		await fetch(`http://localhost:4000/Pieza/${piezas.id_pieza}`, {
 			method: 'DELETE'
 		});
-	}*/
+	}
 </script>
 
 <h2>Inventario Piezas</h2>
-	<slot/>
+<div class="ComboboxSedes">
+	<Combobox/>
+</div>
 <table>
 	<thead>
 		<tr>
@@ -111,15 +112,16 @@
 				<td>{dato.cantidad}</td>
 				<td>
 					<div class="botonesUD">
-						<!--ESTA COMENTADA PORQUE NO SE HA CREADO LA RUTA PARA EDITAR Y ELIMINAR
 						<a href="/admin/HomeAdmin/editar/Pieza">
 							<button on:click={() => editarRegistro(dato)}>
 								<span>✏️</span>
+								<!-- Icono de lápiz -->
 							</button>
 						</a>
 						<button on:click={() => eliminarRegistro(dato)}>
 							<span>🗑️</span>
-						</button>-->
+							<!-- Icono de papelera -->
+						</button>
 					</div>
 				</td>
 			</tr>
@@ -130,10 +132,7 @@
 	<button>Registrar Pieza</button>
 </a>
 <a href="/admin/HomeAdmin/reponerInventario">
-	<button>Iniciar Ensamblaje Pieza</button>
-</a>
-<a href="/admin/HomeAdmin/reponerInventario">
-	<button>Solicitar Pieza a Sede</button>
+	<button>Reponer Inventario</button>
 </a>
 
 <style>
