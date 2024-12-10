@@ -503,3 +503,23 @@ INSERT INTO usuario (nombre_usu,contraseña_usu) VALUES (nombre_usu,contraseña_
 END;
 $$;
 
+CREATE OR REPLACE PROCEDURE insertar_rol( 
+    codigo_rol INTEGER, 
+    nombre_rol VARCHAR(255),
+    descripcion_rol VARCHAR(255)
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO rol (codigo_rol,nombre_rol,descripcion_rol) 
+    VALUES (codigo_rol,nombre_rol,descripcion_rol);
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE eliminar_rol(
+    codigo_rol INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    DELETE FROM rol WHERE codigo_rol=codigo_rol;
+END;
+$$;

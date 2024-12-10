@@ -4,4 +4,4 @@
 </script>
 
 
-		<RegistrarRol />
+		<RegistrarRol id_editar={1} />

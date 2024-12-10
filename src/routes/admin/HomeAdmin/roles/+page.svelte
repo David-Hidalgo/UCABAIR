@@ -1,9 +1,12 @@
 <script lang="ts">
 	//import navigate from 'svelte-spa-router';
-	import { createEventDispatcher } from 'svelte';
+	// import { createEventDispatcher } from 'svelte';
+	import { enhance } from '$app/forms';
+	import type { ActionData } from './$types';
+
 	import type { PageData } from './$types';
 	import type { Rol } from './+page.server.ts';
-	const dispatch = createEventDispatcher();
+	// const dispatch = createEventDispatcher();
 
 
 	let { data }: { data: PageData } = $props();
@@ -67,11 +70,14 @@
 	}
 
 	// Función para eliminar un registro
+	/* 
 	async function eliminarRegistro(roles: Rol) {
-		/*await fetch(`http://localhost:4000/mineral/${roles.id}`, {
+		await fetch(`http://localhost:4000/mineral/${roles.id}`, {
 			method: 'DELETE'
-		});*/
+		});
 	}
+ */
+
 </script>
 
 <h2>Roles</h2>
@@ -85,22 +91,24 @@
 	</thead>
 	<tbody>
 		{#each roles as rol}
-			<tr>
-				<td>{rol.codigo_rol}</td>
-				<td>{rol.nombre_rol}</td>
-				<td>{rol.descripcion_rol}</td>
-				<td>
-					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/rol">
-							<button onclick={() => editarRegistro(rol)}>
-								<span>✏️</span>
-								<!-- Icono de lápiz -->
-							</button>
-						</a>
-						<button onclick={() => eliminarRegistro(rol)}>
-							<span>🗑️</span>
-							<!-- Icono de papelera -->
+		<tr>
+			<td>{rol.codigo_rol}</td>
+			<td>{rol.nombre_rol}</td>
+			<td>{rol.descripcion_rol}</td>
+			<td>
+				<div class="botonesUD">
+					<a href="/admin/HomeAdmin/editar/rol">
+						<button onclick={() => editarRegistro(rol)}>
+							<span>✏️</span>
+							<!-- Icono de lápiz -->
 						</button>
+					</a>
+						<form method="post" action="?/delete" use:enhance> 
+							<button>
+								<span>🗑️</span>
+							<!-- Icono de papelera -->
+							</button>
+						</form>
 					</div>
 				</td>
 			</tr>
