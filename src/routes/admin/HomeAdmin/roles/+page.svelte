@@ -38,14 +38,6 @@
 		//logica para
 	}
 
-	/*   async function mostrarDatos() {
-    
-    const response = await fetch('http://localhost:4000/minerales');
-    const data: Rol[] = await response.json();
-    rol = data;
-    
-  } */
-
 	//mostrarDatos();
 	//
 	// Función para editar un registro
@@ -70,13 +62,15 @@
 	}
 
 	// Función para eliminar un registro
-	/* 
+	
 	async function eliminarRegistro(roles: Rol) {
-		await fetch(`http://localhost:4000/mineral/${roles.id}`, {
-			method: 'DELETE'
+		await fetch(`http://localhost:5173/admin/HomeAdmin/roles`, {
+			method: 'DELETE',
+
+			body: JSON.stringify(roles.codigo_rol),
 		});
 	}
- */
+
 
 </script>
 
@@ -103,12 +97,10 @@
 							<!-- Icono de lápiz -->
 						</button>
 					</a>
-						<form method="post" action="?/delete" use:enhance> 
-							<button>
+							<button onclick={() => eliminarRegistro(rol)}>
 								<span>🗑️</span>
 							<!-- Icono de papelera -->
 							</button>
-						</form>
 					</div>
 				</td>
 			</tr>

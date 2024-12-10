@@ -2,7 +2,7 @@ import type { RequestEvent } from '@sveltejs/kit';
 import { eq } from 'drizzle-orm';
 import { sha256 } from '@oslojs/crypto/sha2';
 import { encodeBase32LowerCase, encodeHexLowerCase } from '@oslojs/encoding';
-import { db, dbPostgre } from '$lib/server/db';
+import { dbPostgre } from '$lib/server/db';
 import * as table from '$lib/server/db/schema';
 import util from 'util'; 
 const DAY_IN_MS = 1000 * 60 * 60 * 24;
@@ -37,8 +37,8 @@ export async function validateSessionToken(token: string) {
 	if (!result) {
 		return { session: null, user: null };
 	}
-	let session = { id: result.id, expiresAt: new Date(result.expires_at) };
-	let user = { id: result.codigo_usu, username: result.nombre_usu };
+	const session = { id: result.id, expiresAt: new Date(result.expires_at) };
+	const user = { id: result.codigo_usu, username: result.nombre_usu };
 
 	const sessionExpired = Date.now() >= session.expiresAt.getTime();
 	if (sessionExpired) {
