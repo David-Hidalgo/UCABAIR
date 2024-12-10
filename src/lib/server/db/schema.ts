@@ -1,4 +1,4 @@
-import { pgTable, serial, text, integer, timestamp } from 'drizzle-orm/pg-core';
+/* import { pgTable, serial, text, integer, timestamp } from 'drizzle-orm/pg-core';
 
 export const user = pgTable('user', {
 	id: text('id').primaryKey(),
@@ -18,3 +18,9 @@ export const session = pgTable('session', {
 export type Session = typeof session.$inferSelect;
 
 export type User = typeof user.$inferSelect;
+ */
+export 	interface Rol {
+	codigo_rol: number | undefined;
+	nombre_rol: string;
+	descripcion_rol: string;
+}

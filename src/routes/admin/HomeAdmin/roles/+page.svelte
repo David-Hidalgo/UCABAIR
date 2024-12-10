@@ -1,6 +1,8 @@
 <script lang="ts">
-	//import navigate from 'svelte-spa-router';
+	// import navigate from 'svelte-spa-router';
 	// import { createEventDispatcher } from 'svelte';
+
+	import { goto } from '$app/navigation';
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
@@ -8,7 +10,6 @@
 	import type { PageData } from './$types';
 	import type { Rol } from './+page.server.ts';
 	// const dispatch = createEventDispatcher();
-
 
 	let { data }: { data: PageData } = $props();
 
@@ -18,7 +19,7 @@
 		console.log(`Buscando: ${searchTerm}`);
 	}
 
-	let roles: Rol[]= new Array();
+	let roles: Rol[] = new Array();
 	for (let index = 0; index < data.roltable.length; index++) {
 		let rol: Rol = {
 			codigo_rol: 0,
@@ -29,11 +30,9 @@
 		rol.nombre_rol = data.roltable[index].nombre_rol;
 		rol.descripcion_rol = data.roltable[index].descripcion_rol;
 		roles.push(rol);
-	};
-
+	}
 
 	console.log(roles);
-	
 
 	async function generarReporte(minerales: Rol[]) {
 		//logica para
@@ -63,18 +62,16 @@
 	}
 
 	// Función para eliminar un registro
-	
-	async function eliminarRegistro(roles: Rol) {
+
+	async function eliminarRegistro(rol: Rol) {
 		await fetch(`http://localhost:5173/admin/HomeAdmin/roles`, {
 			method: 'DELETE',
 
-			body: JSON.stringify(roles.codigo_rol),
+			body: JSON.stringify(rol.codigo_rol)
 		});
 		alert('Rol fue eliminado con éxito');
 		window.location.reload()
 	}
-
-
 </script>
 
 <h2>Roles</h2>
@@ -88,22 +85,22 @@
 	</thead>
 	<tbody>
 		{#each roles as rol}
-		<tr>
-			<td>{rol.codigo_rol}</td>
-			<td>{rol.nombre_rol}</td>
-			<td>{rol.descripcion_rol}</td>
-			<td>
-				<div class="botonesUD">
-					<a href="/admin/HomeAdmin/editar/rol">
-						<button onclick={() => editarRegistro(rol)}>
-							<span>✏️</span>
-							<!-- Icono de lápiz -->
-						</button>
-					</a>
-							<button onclick={() => eliminarRegistro(rol)}>
-								<span>🗑️</span>
-							<!-- Icono de papelera -->
+			<tr>
+				<td>{rol.codigo_rol}</td>
+				<td>{rol.nombre_rol}</td>
+				<td>{rol.descripcion_rol}</td>
+				<td>
+					<div class="botonesUD">
+						<a href='/admin/HomeAdmin/editar/rol/{rol.codigo_rol}'>
+							<button onclick={() => editarRegistro(rol)}>
+								<span>✏️</span>
+								<!-- Icono de lápiz -->
 							</button>
+						</a>
+						<button onclick={() => eliminarRegistro(rol)}>
+							<span>🗑️</span>
+							<!-- Icono de papelera -->
+						</button>
 					</div>
 				</td>
 			</tr>
