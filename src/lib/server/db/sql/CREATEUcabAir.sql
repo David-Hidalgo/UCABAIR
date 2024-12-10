@@ -516,10 +516,23 @@ END;
 $$;
 
 CREATE OR REPLACE PROCEDURE eliminar_rol(
-    codigo_rolE INTEGER
+    codigo_rolN INTEGER
     ) 
     LANGUAGE plpgsql 
     AS $$ BEGIN
-    DELETE FROM rol WHERE codigo_rol=codigo_rolE;
+    DELETE FROM rol WHERE codigo_rol=codigo_rolN;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE editar_rol(
+    codigo_rolN INTEGER,
+    nombre_rolN VARCHAR(255),
+    descripcionN VARCHAR(255),
+    viejo_codigo_rolN INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    UPDATE rol SET codigo_rol=codigo_rolN,nombre_rol=nombre_rolN,descripcion_rol=descripcionN
+    WHERE codigo_rol=viejo_codigo_rolN;
 END;
 $$;

@@ -1,23 +1,45 @@
 <script lang="ts">
-	
-	export let id_editar: number;
+	import type { Rol } from '$lib/server/db/schema';
+	export let id_editar: Rol | undefined;
+
 	console.log(id_editar);
 	import { goto } from '$app/navigation';
-
-
+	console.log(id_editar);
+	
 	// Interfaz para representar un empleado
-	interface Rol {
-		codigo_rol: number|undefined;
-		nombre_rol: string;
-		descripcion_rol: string;
+	let rol: Rol;
+	let codigo_viejo: number;
+	if (id_editar!=undefined) {
+		rol = id_editar;
+		if (id_editar.codigo_rol)
+		codigo_viejo=id_editar.codigo_rol
+	} else {
+		rol = {
+			codigo_rol: undefined,
+			nombre_rol: '',
+			descripcion_rol: ''
+		};
 	}
-	let rol: Rol = {
-		codigo_rol:undefined,
-		nombre_rol: '',
-		descripcion_rol: ''
-	};
-
+	async function decide() {
+		
+		if (id_editar==undefined) {
+			registrarRol();
+		} else {
+			actualizarRol()
+		}
+	}
 	// Función para manejar el envío del formulario
+	async function actualizarRol() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/rol`, {
+			method: 'PUT',
+			body: JSON.stringify({rol:rol , codigo_viejo:codigo_viejo}),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+		console.log(data);
+		alert('Rol agregado con exito');
+		goto('/admin/HomeAdmin/roles');
+	}
 	async function registrarRol() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/rol`, {
 			method: 'POST',
@@ -31,7 +53,7 @@
 	}
 </script>
 
-<form on:submit|preventDefault={registrarRol}>
+<form on:submit|preventDefault={decide}>
 	<h2>Registrar Rol</h2>
 
 	<label for="rol">Rol</label>

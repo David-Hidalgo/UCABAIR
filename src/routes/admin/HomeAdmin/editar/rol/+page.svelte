@@ -1,15 +1,16 @@
 <script>
 	import EditarRol from '$lib/components/registrarRol.svelte';
-	//import rif from '$lib/components/registrarAliado.svelte'
+	//import codigo_rol from '$lib/components/registrarRol.svelte'
 	/**
 	 * @type {any}
 	 */
-	let rif_aliado;
+	let codigo_rol;
 </script>
 
 <body>
 	<div class="EditarRol">
-		<!-- <EditarRol bind:rif={rif_aliado}/> -->
-		<EditarRol />
+		<b>HOLA AQUI ESOT</b>
+		<!-- <EditarRol bind:rif={codigo_rol}/> -->
+		<EditarRol id_editar={codigo_rol} />
 	</div>
 </body>
