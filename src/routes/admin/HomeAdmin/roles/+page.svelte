@@ -1,8 +1,6 @@
 <script lang="ts">
 	// import navigate from 'svelte-spa-router';
 	// import { createEventDispatcher } from 'svelte';
-
-	import { goto } from '$app/navigation';
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
@@ -30,9 +28,11 @@
 		rol.nombre_rol = data.roltable[index].nombre_rol;
 		rol.descripcion_rol = data.roltable[index].descripcion_rol;
 		roles.push(rol);
-	}
+	};
 
 
+	console.log(roles);
+	
 
 	async function generarReporte(minerales: Rol[]) {
 		//logica para
@@ -69,8 +69,6 @@
 
 			body: JSON.stringify(rol.codigo_rol)
 		});
-		alert('Rol fue eliminado con éxito');
-		window.location.reload()
 	}
 </script>
 
