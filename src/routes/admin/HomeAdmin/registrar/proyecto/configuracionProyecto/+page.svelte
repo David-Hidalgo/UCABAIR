@@ -1,15 +1,13 @@
 <script>
-	import ConfigurarProyecto from '$lib/components/configurarProyecto.svelte';
+	import MostrarPresupuesto from '$lib/components/mostrarPresupuesto.svelte';
 </script>
 
-<body>
-	<div class="ConfigurarProyecto">
-		<ConfigurarProyecto />
-		<a href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa">
-			<button>Configurar Etapas</button>
-		</a>
-	</div>
-</body>
+
+	<MostrarPresupuesto />
+	
+	<a href="/admin/HomeAdmin/ensamblajes">
+		<button>Registrar Ensamblaje</button>
+	</a>
 
 <style>
 	button {

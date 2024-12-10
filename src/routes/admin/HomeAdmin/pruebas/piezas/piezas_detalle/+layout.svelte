@@ -1,7 +1,8 @@
 <script lang="ts">
+	import Combobox from "$lib/components/combobox.svelte";
 	//import navigate from 'svelte-spa-router';
 	//import { createEventDispatcher } from 'svelte';
-	//import RegistrarMineral from '$lib/components/registrarAeronave.svelte'; HAY QUE CREARLO
+	//import RegistrarPieza from '$lib/components/registrarPieza.svelte';
 
 	//const dispatch = createEventDispatcher();
 
@@ -10,65 +11,65 @@
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	
+	let opcionSeleccionada = 'Pieza';
 	// Define una interfaz para el tipo de datos que contiene 'datos'
-	interface Aeronave {
-		id_avi: number;
-		nombre_avi: string;
-		tipo_avi: string;
-		color_avi: string;
-		ubicacion_avi: string;
+	interface Pieza {
+		id_pieza: number;
+		nombre_pie:string;
+		tipo_pieza: string;
+		precio_pieza: number;
+		cantidad: number;
 	}
 
-	export let aeronaves: Aeronave[] = [
+	export let piezas: Pieza[] = [
 		{
-			id_avi: 1,
-			nombre_avi: 'Aeronave 1',
-			tipo_avi: 'AU-787',
-			color_avi: 'Blanco',
-			ubicacion_avi: 'Sede Valencia'
+			id_pieza: 1,
+			nombre_pie: 'Ala',
+			tipo_pieza: 'Tipo T',
+			precio_pieza: 100,
+			cantidad: 100
 		},
 		{
-			id_avi: 2,
-			nombre_avi: 'Aeronave 2',
-			tipo_avi: 'AU-80',
-			color_avi: 'Azul',
-			ubicacion_avi: 'Sede Caracas'
+			id_pieza: 2,
+			nombre_pie: 'Tren de Aterrizaje',
+			tipo_pieza: 'Grande',
+			precio_pieza: 200,
+			cantidad: 200
 		},
 		{
-			id_avi: 3,
-			nombre_avi: 'Aeronave 3',
-			tipo_avi: 'AU-747',
-			color_avi: 'Rojo',
-			ubicacion_avi: 'Sede Maracay'
+			id_pieza: 3,
+			nombre_pie: 'Alerón',
+			tipo_pieza: 'Curvo',
+			precio_pieza: 300,
+			cantidad: 300
 		}
 	];
 
-	async function generarReporte(aeronaves: Aeronave[]) {
+	async function generarReporte(piezas: Pieza[]) {
 		//logica para
 	}
 
 	async function mostrarDatos() {
-		const response = await fetch('http://localhost:4000/aeronave');
-		const data: Aeronave[] = await response.json();
-		aeronaves = data;
+		const response = await fetch('http://localhost:4000/piezas');
+		const data: Pieza[] = await response.json();
+		piezas = data;
 	}
 
 	mostrarDatos();
 	//
 	// Función para editar un registro
-	async function editarRegistro(aeronaves: Aeronave) {
+	async function editarRegistro(piezas: Pieza) {
 		try {
-			const res = await fetch(`http://localhost:4000/mineral/${aeronaves.id_avi}`, {//configurar la ruta
+			const res = await fetch(`http://localhost:4000/Pieza/${piezas.id_mineral}`, {
 				method: 'PUT',
-				body: JSON.stringify(aeronaves),
+				body: JSON.stringify(piezas),
 				headers: { 'Content-Type': 'application/json' }
 			});
 
 			if (res.ok) {
 				// Si la solicitud fue exitosa, redirige al usuario
 			} else {
-				console.error('Error al actualizar el mineral:', res.status);
+				console.error('Error al actualizar el Pieza:', res.status);
 				// Maneja el error (por ejemplo, muestra un mensaje de error al usuario)
 			}
 		} catch (error) {
@@ -78,35 +79,40 @@
 	}
 
 	// Función para eliminar un registro
-	async function eliminarRegistro(aeronaves: Aeronave) {
-		await fetch(`http://localhost:4000/mineral/${aeronaves.id_avi}`, {
+	async function eliminarRegistro(piezas: Pieza) {
+		await fetch(`http://localhost:4000/Pieza/${piezas.id_pieza}`, {
 			method: 'DELETE'
 		});
 	}
 </script>
 
-<h2>Aeronaves</h2>
+<h2>Inventario Piezas</h2>
+<div class="ComboboxSedes">
+	<Combobox/>
+</div>
 <table>
 	<thead>
 		<tr>
-			<th>Id</th>
-			<th>Nombre</th>
-			<th>Tipo</th>
-			<th>Color</th>
-			<th>Ubicación</th>
+			<th>ID</th>
+			<th>Pieza</th>
+			<th>Tipo de Pieza</th>
+			<th>Precio por unidad</th>
+			<th>Cantidad</th>
 		</tr>
 	</thead>
 	<tbody>
-		{#each aeronaves as dato}
+		{#each piezas as dato}
 			<tr>
-				<td>{dato.id_avi}</td>
-				<td>{dato.nombre_avi}</td>
-				<td>{dato.tipo_avi}</td>
-				<td>{dato.color_avi}</td>
-				<td>{dato.ubicacion_avi}</td>
+				<td><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.id_pieza}`}>
+						{dato.id_pieza}
+					</a>			</td>
+				<td>{dato.nombre_pie}</td>
+				<td>{dato.tipo_pieza}</td>
+				<td>{dato.precio_pieza}</td>
+				<td>{dato.cantidad}</td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/mineral"> // Hara falta un editar aeronave?
+						<a href="/admin/HomeAdmin/editar/Pieza">
 							<button on:click={() => editarRegistro(dato)}>
 								<span>✏️</span>
 								<!-- Icono de lápiz -->
@@ -122,11 +128,11 @@
 		{/each}
 	</tbody>
 </table>
-<a href="/admin/HomeAdmin/registrar/aeronave">
-	<button>Registrar Aeronave</button>
+<a href="/admin/HomeAdmin/registrar/Pieza">
+	<button>Registrar Pieza</button>
 </a>
 <a href="/admin/HomeAdmin/reponerInventario">
-	<button>Iniciar Ensamblaje Aeronave</button>
+	<button>Reponer Inventario</button>
 </a>
 
 <style>

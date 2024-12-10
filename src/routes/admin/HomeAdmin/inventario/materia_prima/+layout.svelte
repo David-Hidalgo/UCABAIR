@@ -2,9 +2,11 @@
 	import Combobox from '$lib/components/combobox.svelte';
 	//import navigate from 'svelte-spa-router';
 	import { createEventDispatcher } from 'svelte';
-	import RegistrarMineral from '$lib/components/registrarMineral.svelte';
+	import RegistrarMaterial from '$lib/components/registrarMateriaPrima.svelte';
 
 	const dispatch = createEventDispatcher();
+
+
 
 	let searchTerm = '';
 	function search() {
@@ -48,6 +50,7 @@
 		}
 	];
 
+	/* ESTA COMENTADO POR QUE NO SE HA IMPLEMENTADO Y ARROJA ERROR CON LA BD
 	async function mostrarDatos() {
 		const response = await fetch('http://localhost:4000/materia_prima');
 		const data: Materia_Prima[] = await response.json();
@@ -83,12 +86,11 @@
 			method: 'DELETE'
 		});
 	}
+	*/
 </script>
 
 <h2>Inventario Materia Prima</h2>
-<div class="ComboboxSedes">
-	<Combobox />
-</div>
+<slot/>
 <table>
 	<thead>
 		<tr>
@@ -115,23 +117,24 @@
 				<td>{dato.cantidad_tmp}</td>
 				<td>
 					<div class="botonesUD">
+						<!--BOTONES DE EDITAR Y ELIMINAR, ESTAN COMENTADOS PORQUE NO SE HAN IMPLEMENTADO
 						<a href="/admin/HomeAdmin/editar/Materia_Prima">
 							<button on:click={() => editarRegistro(dato)}>
 								<span>✏️</span>
-								<!-- Icono de lápiz -->
+								 Icono de lápiz
 							</button>
 						</a>
 						<button on:click={() => eliminarRegistro(dato)}>
 							<span>🗑️</span>
-							<!-- Icono de papelera -->
-						</button>
+							Icono de papelera
+						</button>-->
 					</div>
 				</td>
 			</tr>
 		{/each}
 	</tbody>
 </table>
-<a href="/admin/HomeAdmin/registrar/Materia_Prima">
+<a href="/admin/HomeAdmin/registrar/materia_prima">
 	<button>Registrar Materia Prima</button>
 </a>
 <a href="/admin/HomeAdmin/reponerInventario">

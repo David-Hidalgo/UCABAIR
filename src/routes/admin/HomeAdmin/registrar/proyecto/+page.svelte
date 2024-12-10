@@ -1,16 +1,13 @@
 <script>
 	import Registro from '$lib/components/configurarProyecto.svelte';
-	console.log('Hola desde la consolaaaaanaskanska');
 </script>
 
-<body>
 	<div class="RegistrarProyecto">
 		<Registro />
 		<a href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa">
 			<button>Configurar Etapas</button>
 		</a>
 	</div>
-</body>
 
 <style>
 	button {

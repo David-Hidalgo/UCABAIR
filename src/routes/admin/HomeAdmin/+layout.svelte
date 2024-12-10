@@ -13,7 +13,7 @@
 		{ id: 'admin/HomeAdmin/ensamblajes', name: 'Ensamblajes' },
 		{ id: 'admin/HomeAdmin/inventario', name: 'Inventario' },
 		{ id: 'admin/HomeAdmin/aliados', name: 'Proveedores' },
-		{ id: 'admin/HomeAdmin/proyectos', name: 'Pruebas' },
+		{ id: 'admin/HomeAdmin/pruebas', name: 'Pruebas' },
 		{ id: 'admin/HomeAdmin/roles', name: 'Roles' }
 	];
 </script>
@@ -42,12 +42,7 @@
 		<div class="Contenido">
 			<div class="title">{opcionSeleccionada}</div>
 			<div class="search-bar">
-				<input
-					class="search-input"
-					type="text"
-					placeholder="Escribe aquí..."
-					bind:value={searchTerm}
-				/>
+				<input class="search-input" type="text" placeholder="Escribe aquí..." bind:value={searchTerm}/>
 				<button class="search-button" on:click={search}>Buscar</button>
 			</div>
 			<slot />

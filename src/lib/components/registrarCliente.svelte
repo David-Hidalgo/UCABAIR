@@ -1,23 +1,33 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	export let cedula;
+	export let cedula_nat ;
 	// Interfaz para representar un empleado
 	interface Cliente {
-		cedula: string;
-		nombre: string[];
-		apellido: string[];
-		telefono: string[];
-		correo: string[];
-		direccion: string;
+		cedula_nat: number;
+		primer_nombre_nat: string;
+		segundo_nombre_nat: string;
+		primer_apelido_nat: string;
+		segundo_apelido_nat: string;
+		telefono_com: number[];
+		correo_com: string[];
+		direccion_com: string;
+		monto_acreditado_com: number;
+		fecha_inicio_operaciones_com: Date;
+		tipo_com: string;
 	}
 
 	let cliente: Cliente = {
-		cedula: 'V-2871812729',
-		nombre: [],
-		apellido: [],
-		telefono: [],
-		correo: [],
-		direccion: ''
+		cedula_nat: cedula_nat,
+		primer_nombre_nat: '',
+		segundo_nombre_nat: '',
+		primer_apelido_nat: '',
+		segundo_apelido_nat: '',
+		telefono_com: [],
+		correo_com: [],
+		direccion_com: '',
+		monto_acreditado_com: 0,
+		fecha_inicio_operaciones_com: new Date(),
+		tipo_com: ''
 	};
 
 	// Función para manejar el envío del formulario
@@ -33,24 +43,42 @@
 	<h2>Registrar Cliente</h2>
 
 	<label for="cedula">Cédula</label>
-	<input id="cedula" bind:value={cliente.cedula} />
+	<input id="cedula" bind:value={cliente.cedula_nat} />
 
-	<label for="nombre">Nombre</label>
-	<input id="nombre" bind:value={cliente.nombre} />
+	<label for="primerNombre">Primer Nombre</label>
+	<input id="primerNombre" bind:value={cliente.primer_nombre_nat} />
 
-	<label for="apellido">Apellido</label>
-	<input id="apellido" bind:value={cliente.apellido} />
+	<label for="segundoNombre">Segundo Nombre</label>
+	<input id="segundoNombre" bind:value={cliente.segundo_nombre_nat} />
 
-	<label for="telefonos">Nombres</label>
-	<input id="telefonos" bind:value={cliente.telefono} />
+	<label for="primerApellido">Primer Apellido</label>
+	<input id="primerApellido" bind:value={cliente.primer_apelido_nat} />
 
-	<label for="correo">Correos</label>
-	<input id="correo" bind:value={cliente.correo} />
+	<label for="segundoApellido">Segundo Apellido</label>
+	<input id="segundoApellido" bind:value={cliente.segundo_apelido_nat} />
 
-	<label for="direccion">Direccion</label>
-	<input id="direccion" bind:value={cliente.direccion} />
+	<label for="telefono">Teléfono</label>
+	<input id="telefono" bind:value={cliente.telefono_com} />
 
-	<button type="submit">Registrar Cliente</button>
+	<label for="correo">Correo</label>
+	<input id="correo" bind:value={cliente.correo_com} />
+
+	<label for="direccion">Dirección</label>
+	<input id="direccion" bind:value={cliente.direccion_com} />
+
+	<label for="montoAcreditado">Monto Acreditado</label>
+	<input id="montoAcreditado" bind:value={cliente.monto_acreditado_com} />
+
+	<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
+	<input type="date" id="fechaInicio" bind:value={cliente.fecha_inicio_operaciones_com} />
+
+	<label for="tipo">Tipo de Cliente</label>
+	<select id="tipo" bind:value={cliente.tipo_com}>
+		<option value="natural">Natural</option>
+		<option value="juridico">Jurídico</option>
+	</select>
+
+	<button type="submit">Registrar Cliente</button>	
 </form>
 
 <style>
