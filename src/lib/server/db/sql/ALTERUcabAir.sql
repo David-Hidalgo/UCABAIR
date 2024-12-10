@@ -390,9 +390,9 @@ ALTER TABLE embalaje_configuracion_pieza
         REFERENCES configuracion_pieza ( fk_tipo_materia_prima,
                                          fk_tipo_pieza );
 
-ALTER TABLE rol
-    ADD CONSTRAINT fk_usuario FOREIGN KEY ( fk_usuario )
-        REFERENCES usuario ( codigo_usu );
+ALTER TABLE usuario
+    ADD CONSTRAINT fk_rol FOREIGN KEY ( fk_rol )
+        REFERENCES rol ( codigo_rol );
 
 ALTER TABLE privilegio
     ADD CONSTRAINT fk_rol FOREIGN KEY ( fk_rol )

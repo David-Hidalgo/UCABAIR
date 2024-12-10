@@ -9,7 +9,6 @@
 		nombre_rol: string;
 		descripcion_rol: string;
 	}
-
 	let rol: Rol = {
 		id_rol: 0,
 		nombre_rol: '',

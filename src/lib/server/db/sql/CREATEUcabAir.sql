@@ -383,7 +383,7 @@ CREATE TABLE red_social (
 CREATE TABLE rol (
     codigo_rol INTEGER NOT NULL,
     nombre_rol VARCHAR(255) NOT NULL,
-    fk_usuario INTEGER NOT NULL
+    descripcion_rol VARCHAR(255) NOT NULL
 );
 CREATE TABLE sede (
     codigo_sed    INTEGER NOT NULL,
@@ -467,7 +467,8 @@ CREATE TABLE turno (
 CREATE TABLE usuario (
     codigo_usu SERIAL NOT NULL,
     nombre_usu VARCHAR(255) NOT NULL,
-    contraseña_usu VARCHAR(255) NOT NULL
+    contraseña_usu VARCHAR(255) NOT NULL,
+    fk_rol INTEGER NOT NULL DEFAULT 3
 );
 CREATE TABLE venta (
     codigo_venta_ven   INTEGER NOT NULL,
