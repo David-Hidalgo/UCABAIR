@@ -2,9 +2,9 @@
 	import type { Rol } from '$lib/server/db/schema';
 	export let id_editar: Rol | undefined;
 
-	console.log(id_editar);
+	
 	import { goto } from '$app/navigation';
-	console.log(id_editar);
+	
 	
 	// Interfaz para representar un empleado
 	let rol: Rol;
@@ -36,7 +36,6 @@
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-		console.log(data);
 		alert('Rol agregado con exito');
 		goto('/admin/HomeAdmin/roles');
 	}
@@ -47,7 +46,7 @@
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-		console.log(data);
+
 		alert('Rol agregado con exito');
 		goto('/admin/HomeAdmin/roles');
 	}
