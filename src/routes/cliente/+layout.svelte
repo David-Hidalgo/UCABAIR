@@ -18,7 +18,7 @@
 
 	<div class="Caja2">
 		<div class="logo">
-			<img src={logoUcabAir} alt="minerucab Logo" />
+			<img src={logoUcabAir} alt="AirUcab Logo" />
 		</div>
 		<div class="Buscar">
 			<form action="/buscar" method="post" class="cajachica">
@@ -34,7 +34,7 @@
 			</form>
 		</div>
 		<div class="carrito">
-			<img src={carrito} alt="ASORON Logo" />
+			<img src={carrito} alt="AirUcab Logo" />
 			<a href="/cliente/carrito">Carrito de Compras</a>
 		</div>
 	</div>

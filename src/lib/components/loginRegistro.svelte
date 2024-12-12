@@ -37,7 +37,7 @@
 	<div class="cajaRegistro">
 		<div class="mensajeRegistrate">
 			<p>Si no tienes una cuenta registrate</p>
-			<a href="/registro">Registrarme</a>
+			<a href="/cliente/registro">Registrarme</a>
 		</div>
 	</div>
 </div>

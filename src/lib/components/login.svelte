@@ -17,6 +17,9 @@
 		} else if (password === '3') {
 			// Redirigir a la página aliado
 			goto('/aliado/HomeAliado');
+		} else if (password === '4') {
+			// Redirigir a la página aliado
+			goto('/cliente/Home');
 		} else {
 			// Clave incorrecta, mostrar un mensaje de error o hacer otra acción
 			console.error('Clave incorrecta');
