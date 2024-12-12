@@ -2291,36 +2291,49 @@ INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES
 ('empresasmerida', '$argon2id$v=19$m=19456,t=2,p=1$JYvoR7BURC755QaFJpzLLA$CynZ3stKTsteOMgYNnoQqtH/s0zuqbSBw9xOw7mOsK0', 4);
 
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
-('comercialelvigia', '$argon2id$v=19$m=19456,t=2,p=1$HFewgcV578Bb5AN3kZI6MA$cflwXbqiHgkT5lXgoEZszu1Ltq83rCl4OByPVrhP8oU', 4),
-('empresaslosteques', '$argon2id$v=19$m=19456,t=2,p=1$8pey6VrGnZdAbqmOVZj7Nw$mBfnFbo0SDJe7ZPyh6fCW2y1me9UYoBMjJTtOiGqr70', 4),
-('comercialguarenas', '$argon2id$v=19$m=19456,t=2,p=1$2Kfsoi5b1EYsEZr3jQmfPQ$D1g5mNA+zu5zxIYr+hGzznENV+rusGx3gZA7IO4IjCU', 4),
-('industriasmaturin', '$argon2id$v=19$m=19456,t=2,p=1$DKNSHGfjTaopBF2eS6Lj2A$rGY+mNP1Po/rKpm2FpycnD8NXY/e0LlM26+02hqLhLM', 4),
-('comercialcaripito', '$argon2id$v=19$m=19456,t=2,p=1$X+y5BW84ADszhMjffw355w$PRB3+WX7kOxa0Nh8i9S5PuxzA4SjJuab8TBWRIP6CQA', 4),
-('empresasporlamar', '$argon2id$v=19$m=19456,t=2,p=1$kN0mz6BhmwHDZ4ZeeRgLCw$3uppG845MKy0QUxawneXm8at2zfJBmYKSheXsnmGxIE', 4),
-('comercialjuangriego', '$argon2id$v=19$m=19456,t=2,p=1$dnScItFgISV5LEkkuP0kUQ$2WQ9jfFEN2/nBtYEp1Mb5dyw4E6zMKWw71RgNGzXCaI', 4),
-('empresasacarigua', '$argon2id$v=19$m=19456,t=2,p=1$MgZDc5rzoW/zP/6oWJ/H2A$OcRJn9jFo40+lrxH3o29bTBp/eg3Ag4IFYQuoXtVAU8', 4),
-('comercialguanare', '$argon2id$v=19$m=19456,t=2,p=1$1rzBzzG8SBTPxp/gmwIG3A$YIJujpFfMQJCQVWVkTH6+seOX14BRrEGd8h/ddZB890', 4),
-('empresascumana', '$argon2id$v=19$m=19456,t=2,p=1$C8BpIouzFa9mZGYiMik4xg$xoRvij7/ave9O4SqsQfrNJoCpG6Un3ERqaOORLGU6pk', 4),
-('comercialcarupano', '$argon2id$v=19$m=19456,t=2,p=1$ry60IZzn5xelkTYlCWsi/g$YmNCvDHUjBpXJlDjQiTNAhO72DoP5rJWaXs4z2GIvIg', 4),
-('empresassancristobal', '$argon2id$v=19$m=19456,t=2,p=1$kz/CPjiJJzXtcy14ZXF8sg$lgoRLdc361WgiHfjApA8HfvJfI46EUjvcYjr1C6o39g', 4),
-('comercialsanantonio', '$argon2id$v=19$m=19456,t=2,p=1$EZLLfwktLrU5npoPP6aHZQ$rLPvGJ/0fds/UP/lKcFCjl31X86AhzJD7OhNjaI5Ydg', 4),
-('empresasvalera', '$argon2id$v=19$m=19456,t=2,p=1$wWZHnuyx+T+0bBN49aPa0g$0PLyb3UkiCjjdYxex6vXD5oqnwQ40NlKU2w2lY52PzM', 4),
-('comercialtrujillo', '$argon2id$v=19$m=19456,t=2,p=1$bY2mpnUftVz4RptOwIBeuw$D7X1zmOXFKtmsLJ0kqYRFF9wFCdH9b+HYj7H34M9mAA', 4),
-('empresaslaguaira', '$argon2id$v=19$m=19456,t=2,p=1$5gqf9PpkxY7UGHl7UJOKhg$wc7lgDc/Q7n6hMQ+u/lkA8pUfjn+T/g8UN+Ifra2jHE', 4),
-('comercialmaiquetia', '$argon2id$v=19$m=19456,t=2,p=1$HJxgWPaKZsKmF9JNv83fKg$dslA2tVeVn4ocObDSZIzEucnLjXjieX2WSdTtUlV1/s', 4),
-('empresassanfelipe', '$argon2id$v=19$m=19456,t=2,p=1$T3gv7nDh80WglFXz3UQeLA$drJkGc1VAKW7r4nI4rrRiYm09u2XK6TeA4+ARZudwOw', 4),
-('comercialyaritagua', '$argon2id$v=19$m=19456,t=2,p=1$GstlzE6c5oaeKg8J+RygNQ$+rXqh0uiSDBQQoeyrZ8o+lwA9yip4qjLkp9SleXzQGQ', 4),
-('empresasmaracaibo', '$argon2id$v=19$m=19456,t=2,p=1$E8M/nE70Q79NUMuxu9avvQ$aetwUgiHXRnnYyMqj2ldPjkHc6QmRwGI9IwPw7hi7vM', 4),
-('comercialcabimas', '$argon2id$v=19$m=19456,t=2,p=1$IGPUzKUJsTfWSsPjONDWhQ$9wvYzjZ67fOZHRHzBeWCExbJXjMc//gTIMbnTrhQIlI', 4),
-('empresascaracas', '$argon2id$v=19$m=19456,t=2,p=1$BfxayslZZBrqYRgUMacPYQ$PjF7wwtFK8X0Tjg+8yT/0WRGTm2nOLT6cgSB33Pq10g', 4),
-('comercialelhatillo', '$argon2id$v=19$m=19456,t=2,p=1$81/TXuEtC+nc2Byhts/lhw$JavC6M3+9m0X5/DLZONNl2JoX2BfCULdXC5XwZQPJMQ', 4),
-('sofia', '$argon2id$v=19$m=19456,t=2,p=1$NvFMivOjM2M1zdXtAMqZWw$89B1AJyRVdfj1AfQrQAOv76PO09RzMivKfzQQnxrIDo', 1),
-('david_hidalgo', '$argon2id$v=19$m=19456,t=2,p=1$MC3SZ0NtQZn9EAYtnD4KHw$A9nD/QSW0xDvg/IAknaGMwtQO0RSWQVtDA2om/x4i9s', 1),
-('david','$argon2id$v=19$m=19456,t=2,p=1$rWxVD4q/WDUeOInnLV4ekw$1YYD6DcPZRhu35o28TliUWZbzLYFimVjORsEwwllGjA',1),
-('sofia_wilson', '$argon2id$v=19$m=19456,t=2,p=1$fy7EGFqq8CrWS31UYAW7ZQ$GFYdUYwrXYZaAl/wY7L/wXPEn4GwfwqFmnUsOTdirXs', 1),
-('german', '$argon2id$v=19$m=19456,t=2,p=1$Ms6Gi+AHH7npm5S+jHkL+w$plVt+wB7GQd++20KuOQaLnRK5cUsUQ72JH0SwXxm9Ys', 1),
-('german_oropeza', '$argon2id$v=19$m=19456,t=2,p=1$STZNe2yxaYJr8fpUpDxffA$cBIvRkKac15QQhD5a4FQTFmYBre5VtHQPgJobwGgJVg', 1);
-
+('david_torres', '$argon2id$v=19$m=19456,t=2,p=1$Av3dPdkk/PkqRbdbFWrACQ$6ibT2iemu7LtCQAboIsBm/GXQA8W6pIaHmeBpyn5qA8', 3);
+INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
+('sandra_perez', '$argon2id$v=19$m=19456,t=2,p=1$WDOozQhinlcZapOHxc1tfw$Q+N0W9Hxcw0XY0r7GfTyz9UTTqpGaNoj958tE7YqhI8', 3);
+INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
+('javier_ortega', '$argon2id$v=19$m=19456,t=2,p=1$jQdJ//wR6InR6Y+C0yZpHQ$n1KNIctKjmXI5ZZ4ux3LTx48aZYU+Mubm+poDSjxIQ0', 3);
+INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
+('sofia', '$argon2id$v=19$m=19456,t=2,p=1$NvFMivOjM2M1zdXtAMqZWw$89B1AJyRVdfj1AfQrQAOv76PO09RzMivKfzQQnxrIDo', 3),
+('david_hidalgo', '$argon2id$v=19$m=19456,t=2,p=1$MC3SZ0NtQZn9EAYtnD4KHw$A9nD/QSW0xDvg/IAknaGMwtQO0RSWQVtDA2om/x4i9s', 3),
+('sofia_wilson', '$argon2id$v=19$m=19456,t=2,p=1$fy7EGFqq8CrWS31UYAW7ZQ$GFYdUYwrXYZaAl/wY7L/wXPEn4GwfwqFmnUsOTdirXs', 3),
+('german', '$argon2id$v=19$m=19456,t=2,p=1$Ms6Gi+AHH7npm5S+jHkL+w$plVt+wB7GQd++20KuOQaLnRK5cUsUQ72JH0SwXxm9Ys', 3),
+('german_oropeza', '$argon2id$v=19$m=19456,t=2,p=1$STZNe2yxaYJr8fpUpDxffA$cBIvRkKac15QQhD5a4FQTFmYBre5VtHQPgJobwGgJVg', 3),
+('john_smith', '$argon2id$v=19$m=19456,t=2,p=1$3i0PmIHzSagugGyQXjireQ$6yTka2saXjnBrQcm8ZxkqwfPiADqIWaMngxejlqSEVg', 3),
+('emily_johnson', '$argon2id$v=19$m=19456,t=2,p=1$nCjbkvyan6UUZRovR+VuYw$E9mrTdtbZgl5TbHtwQmd5KnlEPGZT4XqP73kbyymu5g', 3),
+('michael_brown', '$argon2id$v=19$m=19456,t=2,p=1$lLmxNyJZ62Htt5wALkH3eQ$2FI6WnwkIKW1jTN2DOp7qq0MWDCHimBKZq/alASG6w0', 3),
+('jessica_davis', '$argon2id$v=19$m=19456,t=2,p=1$I7NrmkwqHh4uMczHLYs+RA$Zk2zmcsWO+Be3tO4FRe9mO/HBM6vNUdp2rj110i0fC8', 3),
+('james_wilson', '$argon2id$v=19$m=19456,t=2,p=1$PW0rjQhyOX5RZ74o9afB5w$DvrHHikkxSiNpli3fjzpE8ZaDPTq4g0qVNCAMxGSkbM', 3),
+('sarah_miller', '$argon2id$v=19$m=19456,t=2,p=1$gI3/ccWPxucDihR6TD6biw$Xl5Pud8xMHkkkoXE4iNxPNsMl0jX2mmTypInlp9iPkQ', 3),
+('matthew_taylor', '$argon2id$v=19$m=19456,t=2,p=1$NQrB+kcfmdWrNajy5jW4hw$jwzTZGEYmLI39mNCKcpwg7LMe+Byy+2HbH10pTCW0/8', 3),
+('ashley_anderson', '$argon2id$v=19$m=19456,t=2,p=1$K+KsLKMldZEk/3pjG9wNKw$Qs0s9oA8wXJ8a0tl1b/oEg1IN02CqCjtFOjRAisOgWc', 3),
+('daniel_thomas', '$argon2id$v=19$m=19456,t=2,p=1$61sNpCqa3U52u0LqA51wxg$s/t1nUGB5K9KPtvGFXs/ESViBown2UGICaxeOyY2Pl0', 3),
+('rachel_jackson', '$argon2id$v=19$m=19456,t=2,p=1$IH6JtEQx3m7kwrgjhi2mKA$Olz9SvZD23sSF5OUclpnfE/Ehz/HiO3YyCyMRNGZRKY', 3),
+('christopher_white', '$argon2id$v=19$m=19456,t=2,p=1$09Zm/EotzZWNxZ1B2QaTgg$mDbmSxqp9357TjyuIU+bYXzwEOkM1JaEBVxeSDWovFM', 3),
+('megan_harris', '$argon2id$v=19$m=19456,t=2,p=1$ITI91Oi6g5n9XOgXnpQsXw$ananBA1CjnIAo9TKTorvG0aDeFI3f7Lf+ZLvnUlescg', 3),
+('joshua_martin', '$argon2id$v=19$m=19456,t=2,p=1$8tyJUCNZsEE+oCfyUoBAyg$MxlbjIelg7THRdezrtqZ4i4dqbw16QrIP1mQQ62lGUE', 3),
+('samantha_thompson', '$argon2id$v=19$m=19456,t=2,p=1$PND+4GfH45h5jzhTxxa5IQ$oo6Zv4ML/5nr/UAnx21SU1nPukqpuIxdA5CRn6SnWbU', 3),
+('andrew_garcia', '$argon2id$v=19$m=19456,t=2,p=1$bj2ebn1H76iKEws7HpftmQ$snh4MijO9B7DE9PjXuhW/qcCMaqpL+sBuIvdanRB9xw', 3),
+('jennifer_martinez', '$argon2id$v=19$m=19456,t=2,p=1$L3fF9lFhG2QPUKkrCdp5GA$CZP3J04h8ftt+mLPPm3qgSYxXeLyXRsQkae2pkpukhs', 3),
+('david_robinson', '$argon2id$v=19$m=19456,t=2,p=1$5fDqptp1f/IrvWtHrly1EQ$YGTsAfN8ebDU2mis0E61j3+9h1Z93j/JHPZ6y8DRut8', 3),
+('amanda_clark', '$argon2id$v=19$m=19456,t=2,p=1$PZQDwQWLKN/MF/SmoWk1Og$VlEC0hCDQ8fcdzSg0hRdFAweL2lZKGph4aRPrGnskxk', 3),
+('justin_lewis', '$argon2id$v=19$m=19456,t=2,p=1$0rWGZf9bPrpa7A6F8zmagA$9Y6VQhQ1pvRsymSj+Cpmf24YEuKHFlMeSUAjPc0HfoY', 3),
+('lauren_lee', '$argon2id$v=19$m=19456,t=2,p=1$ncnhpouxFvsOOAT7ODvnHw$chONRZrQsOXu5naa8A6MOujgCe6dLnv3QBbVllOd/Bk', 3),
+('kevin_walker', '$argon2id$v=19$m=19456,t=2,p=1$MAB6EQQYSHaQ9iTzx6pbQA$Rp1yZrek7h5IWys9KcAMgKaxqvwfHBKiI+MyIa5FeeA', 3),
+('elizabeth_hall', '$argon2id$v=19$m=19456,t=2,p=1$lbjj/fG0CfTquzI0ttlTjQ$gXTavRFjsD3go0IpECiANdT8ZAeEGTzDpfcbCNvX/J8', 3);
+INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
+('brian_young', '$argon2id$v=19$m=19456,t=2,p=1$kkjooRUzJYau49B6ZoNzbQ$2v5ttKD585BIx/DQjnGhrC3esXLfHtOQxZkLuf3QN1A', 3),
+('stephanie_king', '$argon2id$v=19$m=19456,t=2,p=1$9FxnQ+7QsaG7EH8GUXT8mA$By8Zlf0PiHhol9yz2BxgHllgDKcFK0CTFRQp/r4mpWk', 3),
+('charles_spring', '$argon2id$v=19$m=19456,t=2,p=1$s1a9ijeMSgmsM7ARqnHnew$YjaHw9xj6fMBPWJ7tvNaIi8rLL04Kd++aHGBlPatass', 3),
+('rebecca_sugar', '$argon2id$v=19$m=19456,t=2,p=1$e3sIGDVp1uxnFLZgTHt38A$UZNPyskcTzGFj5IvwrOU0HUfq+uEVcNMJXl8CcCe0aA', 3),
+('steven_green', '$argon2id$v=19$m=19456,t=2,p=1$4R8rQMrZLlo5l0Utj5i4Tg$sgEvKIzFA/TB33H8K/HXIAxKqTLkmMRt7p6gH5Z9qyo', 3),
+('nick_nelson', '$argon2id$v=19$m=19456,t=2,p=1$c105LqvTFezQMk0Iqz4H8w$cX9hm7jktjewGUs2epasXwbsqyJ8Q8V827LGrbgeiBU', 3),
+('joe_locke2', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 3),
+('joe_locke', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 2),
+('kit_connor', '$argon2id$v=19$m=19456,t=2,p=1$MYgBxS1yE4jSrGbtXn6ybQ$4ZKvIWpzPLziey5nvDm0b8MaFxLXEFMwjBCKj08nBgY', 3);
 
 
 INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
