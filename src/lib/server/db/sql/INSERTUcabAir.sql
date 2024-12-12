@@ -2218,51 +2218,57 @@ INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
 ('luis_gomez', '$argon2id$v=19$m=19456,t=2,p=1$doXykxPdckcA4FODAkMg0g$7WZSO3vPuTA9dfmsXEdqf80zxChemJ5D8bwOEuzWobM', 3);
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
-('monica_salazar', '$argon2id$v=19$m=19456,t=2,p=1$KK7X38JI3g/VQ9nd+pt2UQ$p0w/0Y/mdH4JPWk7v4IsaGmfyts0XVkBCf7c1h0oWq0', 3);
+('monica_salazar', '$argon2id$v=19$m=19456,t=2,p=1$KK7X38JI3g/VQ9nd+pt2UQ$p0w/0Y/mdH4JPWk7v4IsaGmfyts0XVkBCf7c1h0oWq0', 2);
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
-('david_torres', '$argon2id$v=19$m=19456,t=2,p=1$Av3dPdkk/PkqRbdbFWrACQ$6ibT2iemu7LtCQAboIsBm/GXQA8W6pIaHmeBpyn5qA8', 3);
+('david_torres', '$argon2id$v=19$m=19456,t=2,p=1$Av3dPdkk/PkqRbdbFWrACQ$6ibT2iemu7LtCQAboIsBm/GXQA8W6pIaHmeBpyn5qA8', 2);
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
-('sandra_perez', '$argon2id$v=19$m=19456,t=2,p=1$WDOozQhinlcZapOHxc1tfw$Q+N0W9Hxcw0XY0r7GfTyz9UTTqpGaNoj958tE7YqhI8', 3);
+('sandra_perez', '$argon2id$v=19$m=19456,t=2,p=1$WDOozQhinlcZapOHxc1tfw$Q+N0W9Hxcw0XY0r7GfTyz9UTTqpGaNoj958tE7YqhI8', 2);
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
-('javier_ortega', '$argon2id$v=19$m=19456,t=2,p=1$jQdJ//wR6InR6Y+C0yZpHQ$n1KNIctKjmXI5ZZ4ux3LTx48aZYU+Mubm+poDSjxIQ0', 3);
+('javier_ortega', '$argon2id$v=19$m=19456,t=2,p=1$jQdJ//wR6InR6Y+C0yZpHQ$n1KNIctKjmXI5ZZ4ux3LTx48aZYU+Mubm+poDSjxIQ0', 2);
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
-('sofia', '$argon2id$v=19$m=19456,t=2,p=1$NvFMivOjM2M1zdXtAMqZWw$89B1AJyRVdfj1AfQrQAOv76PO09RzMivKfzQQnxrIDo', 3),
-('david_hidalgo', '$argon2id$v=19$m=19456,t=2,p=1$MC3SZ0NtQZn9EAYtnD4KHw$A9nD/QSW0xDvg/IAknaGMwtQO0RSWQVtDA2om/x4i9s', 3),
-('sofia_wilson', '$argon2id$v=19$m=19456,t=2,p=1$fy7EGFqq8CrWS31UYAW7ZQ$GFYdUYwrXYZaAl/wY7L/wXPEn4GwfwqFmnUsOTdirXs', 3),
-('german', '$argon2id$v=19$m=19456,t=2,p=1$Ms6Gi+AHH7npm5S+jHkL+w$plVt+wB7GQd++20KuOQaLnRK5cUsUQ72JH0SwXxm9Ys', 3),
-('german_oropeza', '$argon2id$v=19$m=19456,t=2,p=1$STZNe2yxaYJr8fpUpDxffA$cBIvRkKac15QQhD5a4FQTFmYBre5VtHQPgJobwGgJVg', 3),
-('john_smith', '$argon2id$v=19$m=19456,t=2,p=1$3i0PmIHzSagugGyQXjireQ$6yTka2saXjnBrQcm8ZxkqwfPiADqIWaMngxejlqSEVg', 3),
-('emily_johnson', '$argon2id$v=19$m=19456,t=2,p=1$nCjbkvyan6UUZRovR+VuYw$E9mrTdtbZgl5TbHtwQmd5KnlEPGZT4XqP73kbyymu5g', 3),
-('michael_brown', '$argon2id$v=19$m=19456,t=2,p=1$lLmxNyJZ62Htt5wALkH3eQ$2FI6WnwkIKW1jTN2DOp7qq0MWDCHimBKZq/alASG6w0', 3),
-('jessica_davis', '$argon2id$v=19$m=19456,t=2,p=1$I7NrmkwqHh4uMczHLYs+RA$Zk2zmcsWO+Be3tO4FRe9mO/HBM6vNUdp2rj110i0fC8', 3),
-('james_wilson', '$argon2id$v=19$m=19456,t=2,p=1$PW0rjQhyOX5RZ74o9afB5w$DvrHHikkxSiNpli3fjzpE8ZaDPTq4g0qVNCAMxGSkbM', 3),
-('sarah_miller', '$argon2id$v=19$m=19456,t=2,p=1$gI3/ccWPxucDihR6TD6biw$Xl5Pud8xMHkkkoXE4iNxPNsMl0jX2mmTypInlp9iPkQ', 3),
-('matthew_taylor', '$argon2id$v=19$m=19456,t=2,p=1$NQrB+kcfmdWrNajy5jW4hw$jwzTZGEYmLI39mNCKcpwg7LMe+Byy+2HbH10pTCW0/8', 3),
-('ashley_anderson', '$argon2id$v=19$m=19456,t=2,p=1$K+KsLKMldZEk/3pjG9wNKw$Qs0s9oA8wXJ8a0tl1b/oEg1IN02CqCjtFOjRAisOgWc', 3),
-('daniel_thomas', '$argon2id$v=19$m=19456,t=2,p=1$61sNpCqa3U52u0LqA51wxg$s/t1nUGB5K9KPtvGFXs/ESViBown2UGICaxeOyY2Pl0', 3),
-('rachel_jackson', '$argon2id$v=19$m=19456,t=2,p=1$IH6JtEQx3m7kwrgjhi2mKA$Olz9SvZD23sSF5OUclpnfE/Ehz/HiO3YyCyMRNGZRKY', 3),
-('christopher_white', '$argon2id$v=19$m=19456,t=2,p=1$09Zm/EotzZWNxZ1B2QaTgg$mDbmSxqp9357TjyuIU+bYXzwEOkM1JaEBVxeSDWovFM', 3),
-('megan_harris', '$argon2id$v=19$m=19456,t=2,p=1$ITI91Oi6g5n9XOgXnpQsXw$ananBA1CjnIAo9TKTorvG0aDeFI3f7Lf+ZLvnUlescg', 3),
-('joshua_martin', '$argon2id$v=19$m=19456,t=2,p=1$8tyJUCNZsEE+oCfyUoBAyg$MxlbjIelg7THRdezrtqZ4i4dqbw16QrIP1mQQ62lGUE', 3),
-('samantha_thompson', '$argon2id$v=19$m=19456,t=2,p=1$PND+4GfH45h5jzhTxxa5IQ$oo6Zv4ML/5nr/UAnx21SU1nPukqpuIxdA5CRn6SnWbU', 3),
-('andrew_garcia', '$argon2id$v=19$m=19456,t=2,p=1$bj2ebn1H76iKEws7HpftmQ$snh4MijO9B7DE9PjXuhW/qcCMaqpL+sBuIvdanRB9xw', 3),
-('jennifer_martinez', '$argon2id$v=19$m=19456,t=2,p=1$L3fF9lFhG2QPUKkrCdp5GA$CZP3J04h8ftt+mLPPm3qgSYxXeLyXRsQkae2pkpukhs', 3),
-('david_robinson', '$argon2id$v=19$m=19456,t=2,p=1$5fDqptp1f/IrvWtHrly1EQ$YGTsAfN8ebDU2mis0E61j3+9h1Z93j/JHPZ6y8DRut8', 3),
-('amanda_clark', '$argon2id$v=19$m=19456,t=2,p=1$PZQDwQWLKN/MF/SmoWk1Og$VlEC0hCDQ8fcdzSg0hRdFAweL2lZKGph4aRPrGnskxk', 3),
-('justin_lewis', '$argon2id$v=19$m=19456,t=2,p=1$0rWGZf9bPrpa7A6F8zmagA$9Y6VQhQ1pvRsymSj+Cpmf24YEuKHFlMeSUAjPc0HfoY', 3),
-('lauren_lee', '$argon2id$v=19$m=19456,t=2,p=1$ncnhpouxFvsOOAT7ODvnHw$chONRZrQsOXu5naa8A6MOujgCe6dLnv3QBbVllOd/Bk', 3),
-('kevin_walker', '$argon2id$v=19$m=19456,t=2,p=1$MAB6EQQYSHaQ9iTzx6pbQA$Rp1yZrek7h5IWys9KcAMgKaxqvwfHBKiI+MyIa5FeeA', 3),
-('elizabeth_hall', '$argon2id$v=19$m=19456,t=2,p=1$lbjj/fG0CfTquzI0ttlTjQ$gXTavRFjsD3go0IpECiANdT8ZAeEGTzDpfcbCNvX/J8', 3);
+('daniel_diaz', '$argon2id$v=19$m=19456,t=2,p=1$bcSQV7B1PgGoUkc/6n02AQ$Qr5aTqtvBztcvDYNgTFwej1KM9FtEAeFXBiGrlKfYrc', 2),
+('billy_maximoff', '$argon2id$v=19$m=19456,t=2,p=1$EXem++2zF0uSIp8SizzrMw$rW4OpTfefq54aVwPIWUUID8F7N8jcdX9dvg8GFVIFRc', 2),
+('bruce_wayne', '$argon2id$v=19$m=19456,t=2,p=1$0RJLIyRbY+CzEtOvJcDppg$3M+x2IQJCncRim2sRcZqNlHmXB3o/sk2+ZUH+/QRsEM', 2),
+('esmeralda_perez', '$argon2id$v=19$m=19456,t=2,p=1$oeDTvR7vbHg4qopBJ9ZBCw$GCguYWuOSiqIbK33mKxZpPwe66ZQvL7PkWA+zBeOGRE', 2),
+('angel_fernandez', '$argon2id$v=19$m=19456,t=2,p=1$gPXpalCKTse97wPmcjXEMw$kZfUlxVQZ/XrSyWUfEvrlfslwwzwWAgPtOAG9JSkmNM', 2),
+('john_smith', '$argon2id$v=19$m=19456,t=2,p=1$3i0PmIHzSagugGyQXjireQ$6yTka2saXjnBrQcm8ZxkqwfPiADqIWaMngxejlqSEVg', 2),
+('emily_johnson', '$argon2id$v=19$m=19456,t=2,p=1$nCjbkvyan6UUZRovR+VuYw$E9mrTdtbZgl5TbHtwQmd5KnlEPGZT4XqP73kbyymu5g', 2),
+('michael_brown', '$argon2id$v=19$m=19456,t=2,p=1$lLmxNyJZ62Htt5wALkH3eQ$2FI6WnwkIKW1jTN2DOp7qq0MWDCHimBKZq/alASG6w0', 2),
+('jessica_davis', '$argon2id$v=19$m=19456,t=2,p=1$I7NrmkwqHh4uMczHLYs+RA$Zk2zmcsWO+Be3tO4FRe9mO/HBM6vNUdp2rj110i0fC8', 2),
+('james_wilson', '$argon2id$v=19$m=19456,t=2,p=1$PW0rjQhyOX5RZ74o9afB5w$DvrHHikkxSiNpli3fjzpE8ZaDPTq4g0qVNCAMxGSkbM', 2),
+('sarah_miller', '$argon2id$v=19$m=19456,t=2,p=1$gI3/ccWPxucDihR6TD6biw$Xl5Pud8xMHkkkoXE4iNxPNsMl0jX2mmTypInlp9iPkQ', 2),
+('matthew_taylor', '$argon2id$v=19$m=19456,t=2,p=1$NQrB+kcfmdWrNajy5jW4hw$jwzTZGEYmLI39mNCKcpwg7LMe+Byy+2HbH10pTCW0/8', 2),
+('ashley_anderson', '$argon2id$v=19$m=19456,t=2,p=1$K+KsLKMldZEk/3pjG9wNKw$Qs0s9oA8wXJ8a0tl1b/oEg1IN02CqCjtFOjRAisOgWc', 2),
+('daniel_thomas', '$argon2id$v=19$m=19456,t=2,p=1$61sNpCqa3U52u0LqA51wxg$s/t1nUGB5K9KPtvGFXs/ESViBown2UGICaxeOyY2Pl0', 2),
+('rachel_jackson', '$argon2id$v=19$m=19456,t=2,p=1$IH6JtEQx3m7kwrgjhi2mKA$Olz9SvZD23sSF5OUclpnfE/Ehz/HiO3YyCyMRNGZRKY', 2),
+('christopher_white', '$argon2id$v=19$m=19456,t=2,p=1$09Zm/EotzZWNxZ1B2QaTgg$mDbmSxqp9357TjyuIU+bYXzwEOkM1JaEBVxeSDWovFM', 2),
+('megan_harris', '$argon2id$v=19$m=19456,t=2,p=1$ITI91Oi6g5n9XOgXnpQsXw$ananBA1CjnIAo9TKTorvG0aDeFI3f7Lf+ZLvnUlescg', 2),
+('joshua_martin', '$argon2id$v=19$m=19456,t=2,p=1$8tyJUCNZsEE+oCfyUoBAyg$MxlbjIelg7THRdezrtqZ4i4dqbw16QrIP1mQQ62lGUE', 2),
+('samantha_thompson', '$argon2id$v=19$m=19456,t=2,p=1$PND+4GfH45h5jzhTxxa5IQ$oo6Zv4ML/5nr/UAnx21SU1nPukqpuIxdA5CRn6SnWbU', 2),
+('andrew_garcia', '$argon2id$v=19$m=19456,t=2,p=1$bj2ebn1H76iKEws7HpftmQ$snh4MijO9B7DE9PjXuhW/qcCMaqpL+sBuIvdanRB9xw', 2),
+('jennifer_martinez', '$argon2id$v=19$m=19456,t=2,p=1$L3fF9lFhG2QPUKkrCdp5GA$CZP3J04h8ftt+mLPPm3qgSYxXeLyXRsQkae2pkpukhs', 2),
+('david_robinson', '$argon2id$v=19$m=19456,t=2,p=1$5fDqptp1f/IrvWtHrly1EQ$YGTsAfN8ebDU2mis0E61j3+9h1Z93j/JHPZ6y8DRut8', 2),
+('amanda_clark', '$argon2id$v=19$m=19456,t=2,p=1$PZQDwQWLKN/MF/SmoWk1Og$VlEC0hCDQ8fcdzSg0hRdFAweL2lZKGph4aRPrGnskxk', 2),
+('justin_lewis', '$argon2id$v=19$m=19456,t=2,p=1$0rWGZf9bPrpa7A6F8zmagA$9Y6VQhQ1pvRsymSj+Cpmf24YEuKHFlMeSUAjPc0HfoY', 2),
+('lauren_lee', '$argon2id$v=19$m=19456,t=2,p=1$ncnhpouxFvsOOAT7ODvnHw$chONRZrQsOXu5naa8A6MOujgCe6dLnv3QBbVllOd/Bk', 2),
+('kevin_walker', '$argon2id$v=19$m=19456,t=2,p=1$MAB6EQQYSHaQ9iTzx6pbQA$Rp1yZrek7h5IWys9KcAMgKaxqvwfHBKiI+MyIa5FeeA', 2),
+('elizabeth_hall', '$argon2id$v=19$m=19456,t=2,p=1$lbjj/fG0CfTquzI0ttlTjQ$gXTavRFjsD3go0IpECiANdT8ZAeEGTzDpfcbCNvX/J8', 2);
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
-('brian_young', '$argon2id$v=19$m=19456,t=2,p=1$kkjooRUzJYau49B6ZoNzbQ$2v5ttKD585BIx/DQjnGhrC3esXLfHtOQxZkLuf3QN1A', 3),
-('stephanie_king', '$argon2id$v=19$m=19456,t=2,p=1$9FxnQ+7QsaG7EH8GUXT8mA$By8Zlf0PiHhol9yz2BxgHllgDKcFK0CTFRQp/r4mpWk', 3),
-('charles_spring', '$argon2id$v=19$m=19456,t=2,p=1$s1a9ijeMSgmsM7ARqnHnew$YjaHw9xj6fMBPWJ7tvNaIi8rLL04Kd++aHGBlPatass', 3),
-('rebecca_sugar', '$argon2id$v=19$m=19456,t=2,p=1$e3sIGDVp1uxnFLZgTHt38A$UZNPyskcTzGFj5IvwrOU0HUfq+uEVcNMJXl8CcCe0aA', 3),
-('steven_green', '$argon2id$v=19$m=19456,t=2,p=1$4R8rQMrZLlo5l0Utj5i4Tg$sgEvKIzFA/TB33H8K/HXIAxKqTLkmMRt7p6gH5Z9qyo', 3),
-('nick_nelson', '$argon2id$v=19$m=19456,t=2,p=1$c105LqvTFezQMk0Iqz4H8w$cX9hm7jktjewGUs2epasXwbsqyJ8Q8V827LGrbgeiBU', 3),
-('joe_locke2', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 3),
+('brian_young', '$argon2id$v=19$m=19456,t=2,p=1$kkjooRUzJYau49B6ZoNzbQ$2v5ttKD585BIx/DQjnGhrC3esXLfHtOQxZkLuf3QN1A', 2),
+('stephanie_king', '$argon2id$v=19$m=19456,t=2,p=1$9FxnQ+7QsaG7EH8GUXT8mA$By8Zlf0PiHhol9yz2BxgHllgDKcFK0CTFRQp/r4mpWk', 2),
+('charles_spring', '$argon2id$v=19$m=19456,t=2,p=1$s1a9ijeMSgmsM7ARqnHnew$YjaHw9xj6fMBPWJ7tvNaIi8rLL04Kd++aHGBlPatass', 2),
+('rebecca_sugar', '$argon2id$v=19$m=19456,t=2,p=1$e3sIGDVp1uxnFLZgTHt38A$UZNPyskcTzGFj5IvwrOU0HUfq+uEVcNMJXl8CcCe0aA', 2),
+('steven_green', '$argon2id$v=19$m=19456,t=2,p=1$4R8rQMrZLlo5l0Utj5i4Tg$sgEvKIzFA/TB33H8K/HXIAxKqTLkmMRt7p6gH5Z9qyo', 2),
+('nick_nelson', '$argon2id$v=19$m=19456,t=2,p=1$c105LqvTFezQMk0Iqz4H8w$cX9hm7jktjewGUs2epasXwbsqyJ8Q8V827LGrbgeiBU', 2),
+('joe_lopez', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 2),
 ('joe_locke', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 2),
-('kit_connor', '$argon2id$v=19$m=19456,t=2,p=1$MYgBxS1yE4jSrGbtXn6ybQ$4ZKvIWpzPLziey5nvDm0b8MaFxLXEFMwjBCKj08nBgY', 3);
+('kit_connor', '$argon2id$v=19$m=19456,t=2,p=1$MYgBxS1yE4jSrGbtXn6ybQ$4ZKvIWpzPLziey5nvDm0b8MaFxLXEFMwjBCKj08nBgY', 2),
+('sofia', '$argon2id$v=19$m=19456,t=2,p=1$NvFMivOjM2M1zdXtAMqZWw$89B1AJyRVdfj1AfQrQAOv76PO09RzMivKfzQQnxrIDo', 1),
+('david_hidalgo', '$argon2id$v=19$m=19456,t=2,p=1$MC3SZ0NtQZn9EAYtnD4KHw$A9nD/QSW0xDvg/IAknaGMwtQO0RSWQVtDA2om/x4i9s', 1),
+('david','$argon2id$v=19$m=19456,t=2,p=1$rWxVD4q/WDUeOInnLV4ekw$1YYD6DcPZRhu35o28TliUWZbzLYFimVjORsEwwllGjA',1),
+('sofia_wilson', '$argon2id$v=19$m=19456,t=2,p=1$fy7EGFqq8CrWS31UYAW7ZQ$GFYdUYwrXYZaAl/wY7L/wXPEn4GwfwqFmnUsOTdirXs', 1),
+('german', '$argon2id$v=19$m=19456,t=2,p=1$Ms6Gi+AHH7npm5S+jHkL+w$plVt+wB7GQd++20KuOQaLnRK5cUsUQ72JH0SwXxm9Ys', 1),
+('german_oropeza', '$argon2id$v=19$m=19456,t=2,p=1$STZNe2yxaYJr8fpUpDxffA$cBIvRkKac15QQhD5a4FQTFmYBre5VtHQPgJobwGgJVg', 1);
 
 
 INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
