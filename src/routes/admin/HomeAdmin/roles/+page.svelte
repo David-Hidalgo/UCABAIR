@@ -31,7 +31,7 @@
 		roles.push(rol);
 	}
 
-	console.log(roles);
+
 
 	async function generarReporte(minerales: Rol[]) {
 		//logica para
