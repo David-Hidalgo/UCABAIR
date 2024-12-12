@@ -2261,7 +2261,7 @@ INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES
 ('steven_green', '$argon2id$v=19$m=19456,t=2,p=1$4R8rQMrZLlo5l0Utj5i4Tg$sgEvKIzFA/TB33H8K/HXIAxKqTLkmMRt7p6gH5Z9qyo', 3),
 ('nick_nelson', '$argon2id$v=19$m=19456,t=2,p=1$c105LqvTFezQMk0Iqz4H8w$cX9hm7jktjewGUs2epasXwbsqyJ8Q8V827LGrbgeiBU', 3),
 ('joe_locke2', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 3),
-('joe_locke', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 1),
+('joe_locke', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 2),
 ('kit_connor', '$argon2id$v=19$m=19456,t=2,p=1$MYgBxS1yE4jSrGbtXn6ybQ$4ZKvIWpzPLziey5nvDm0b8MaFxLXEFMwjBCKj08nBgY', 3);
 
 
