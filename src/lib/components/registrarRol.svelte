@@ -3,9 +3,10 @@
 	export let id_editar: Rol | undefined;
 
 	
+	
 	import { goto } from '$app/navigation';
-
-
+	
+	
 	// Interfaz para representar un empleado
 	let rol: Rol;
 	let codigo_viejo: number;
@@ -29,6 +30,16 @@
 		}
 	}
 	// Función para manejar el envío del formulario
+	async function actualizarRol() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/rol`, {
+			method: 'PUT',
+			body: JSON.stringify({rol:rol , codigo_viejo:codigo_viejo}),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+		alert('Rol agregado con exito');
+		goto('/admin/HomeAdmin/roles');
+	}
 	async function registrarRol() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/rol`, {
 			method: 'POST',
@@ -36,6 +47,7 @@
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
+
 
 		alert('Rol agregado con exito');
 		goto('/admin/HomeAdmin/roles');
