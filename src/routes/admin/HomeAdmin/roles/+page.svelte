@@ -2,6 +2,7 @@
 	//import navigate from 'svelte-spa-router';
 	// import { createEventDispatcher } from 'svelte';
 	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
 
 	import type { PageData } from './$types';
@@ -69,6 +70,8 @@
 
 			body: JSON.stringify(roles.codigo_rol),
 		});
+		alert('Rol fue eliminado con éxito');
+		window.location.reload()
 	}
 
 
