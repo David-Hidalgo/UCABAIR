@@ -34,14 +34,12 @@
 	function registrarCliente() {
 		// Aquí iría la lógica para procesar los datos del formulario
 		console.log('Registrando cliente:', cliente);
-
-		goto('/admin/HomeAdmin/clientes');
-		alert('Se agregó exitosamente el cliente');
+		goto('/cliente/Home');
 	}
 </script>
 
 <form on:submit|preventDefault={registrarCliente}>
-	<h2>Registrar Cliente</h2>
+	<h2>Registrar Usuario</h2>
 
 	<label for="cedula">Cédula</label>
 	<input id="cedula" bind:value={cliente.cedula_nat} />
@@ -66,12 +64,6 @@
 
 	<label for="direccion">Dirección</label>
 	<input id="direccion" bind:value={cliente.direccion_com} />
-
-	<label for="montoAcreditado">Monto Acreditado</label>
-	<input id="montoAcreditado" bind:value={cliente.monto_acreditado_com} />
-
-	<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
-	<input type="date" id="fechaInicio" bind:value={cliente.fecha_inicio_operaciones_com} />
 
 	<label for="tipo">Tipo de Cliente</label>
 	<select id="tipo" bind:value={cliente.tipo_com}>

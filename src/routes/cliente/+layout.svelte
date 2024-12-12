@@ -1,6 +1,6 @@
 <script>
 	import icono from '$lib/images/icono.png';
-	import carrito from '$lib/images/carrito_icono.png';
+	import carrito from '$lib/images/avion_logo.png';
 	import logoUcabAir from '$lib/images/logo_ucabair.png';
 	let buscar = '';
 </script>
@@ -11,7 +11,6 @@
 			<img src={icono} alt="Icono Ingresar" class="Icono-img" />
 			<div class="IngresarCrearCuenta">
 				<a href="/cliente/login">Ingresar</a>
-				<a href="/cliente/registro">Crear Cuenta</a>
 			</div>
 		</div>
 	</div>

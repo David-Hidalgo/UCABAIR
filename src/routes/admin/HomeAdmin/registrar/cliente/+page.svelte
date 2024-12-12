@@ -2,4 +2,6 @@
 	import Registro from '$lib/components/registrarCliente.svelte';
 </script>
 
-		<Registro/>
+
+		<Registro cedula_nat={null}/>
+
