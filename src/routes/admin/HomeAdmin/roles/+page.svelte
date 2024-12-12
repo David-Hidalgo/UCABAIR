@@ -4,6 +4,7 @@
 
 	import { goto } from '$app/navigation';
 	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
 
 	import type { PageData } from './$types';
@@ -68,8 +69,8 @@
 
 			body: JSON.stringify(rol.codigo_rol)
 		});
-		//roles.splice(rol.codigo_rol, 1);
-		window.location.reload();
+		alert('Rol fue eliminado con éxito');
+		window.location.reload()
 	}
 </script>
 

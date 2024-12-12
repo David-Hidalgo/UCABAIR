@@ -1,6 +1,6 @@
 <script>
 	import icono from '$lib/images/icono.png';
-	import carrito from '$lib/images/carrito_icono.png';
+	import carrito from '$lib/images/avion_logo.png';
 	import logoUcabAir from '$lib/images/logo_ucabair.png';
 	let buscar = '';
 </script>
@@ -11,14 +11,13 @@
 			<img src={icono} alt="Icono Ingresar" class="Icono-img" />
 			<div class="IngresarCrearCuenta">
 				<a href="/cliente/login">Ingresar</a>
-				<a href="/cliente/registro">Crear Cuenta</a>
 			</div>
 		</div>
 	</div>
 
 	<div class="Caja2">
 		<div class="logo">
-			<img src={logoUcabAir} alt="minerucab Logo" />
+			<img src={logoUcabAir} alt="AirUcab Logo" />
 		</div>
 		<div class="Buscar">
 			<form action="/buscar" method="post" class="cajachica">
@@ -34,7 +33,7 @@
 			</form>
 		</div>
 		<div class="carrito">
-			<img src={carrito} alt="ASORON Logo" />
+			<img src={carrito} alt="AirUcab Logo" />
 			<a href="/cliente/carrito">Carrito de Compras</a>
 		</div>
 	</div>
