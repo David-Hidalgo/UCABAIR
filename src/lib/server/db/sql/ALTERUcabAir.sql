@@ -2,7 +2,7 @@ ALTER TABLE almacen ADD CONSTRAINT almacen_pk PRIMARY KEY ( codigo_alm,
                                                             fk_sede );
 
 ALTER TABLE asistencia ADD CONSTRAINT asistencia_pk PRIMARY KEY ( fk_turno,
-                                                                  fk_personal );
+                                                                  fk_empleado );
 
 ALTER TABLE avion ADD CONSTRAINT avion_pk PRIMARY KEY ( codigo_avi,
                                                         fk_ensamblaje );
@@ -17,7 +17,7 @@ ALTER TABLE caracteristica_modelo ADD CONSTRAINT caracteristica_modelo_pk PRIMAR
 ALTER TABLE caracteristica_pieza ADD CONSTRAINT caracteristica_pieza_pk PRIMARY KEY ( fk_tipo_pieza,
                                                                                       fk_caracteristica );
 
-ALTER TABLE comercial ADD CONSTRAINT empresa_pk PRIMARY KEY ( codigo_com );
+ALTER TABLE persona ADD CONSTRAINT empresa_pk PRIMARY KEY ( codigo_com );
 
 ALTER TABLE compra ADD CONSTRAINT compra_pk PRIMARY KEY ( codigo_compra_com );
 
@@ -28,10 +28,10 @@ ALTER TABLE configuracion_pieza ADD CONSTRAINT configuracion_pieza_pk PRIMARY KE
                                                                                     fk_tipo_pieza );
 
 ALTER TABLE correo_electronico
-    ADD CONSTRAINT arco_ce CHECK ( ( ( fk_comercial IS NOT NULL )
-                                   AND ( fk_personal IS NULL ) )
-                                 OR ( ( fk_personal IS NOT NULL )
-                                      AND ( fk_comercial IS NULL ) ));
+    ADD CONSTRAINT arco_ce CHECK ( ( ( fk_persona IS NOT NULL )
+                                   AND ( fk_empleado IS NULL ) )
+                                 OR ( ( fk_empleado IS NOT NULL )
+                                      AND ( fk_persona IS NULL ) ));
 
 ALTER TABLE correo_electronico ADD CONSTRAINT correo_electronico_pk PRIMARY KEY ( codigo_ce );
 
@@ -64,7 +64,7 @@ ALTER TABLE embalaje_configuracion_pieza
 ALTER TABLE embalaje_plan ADD CONSTRAINT embalaje_plan_pk PRIMARY KEY ( codigo_ep );
 
 ALTER TABLE empleado_profesion ADD CONSTRAINT empleado_profesion_pk PRIMARY KEY ( fk_profesion,
-                                                                                  fk_personal );
+                                                                                  fk_empleado );
 ALTER TABLE ensamblaje
     ADD CONSTRAINT arco_ens CHECK ( ( ( fk_lote_materia_prima IS NOT NULL )
                                    AND ( fk_pieza IS NULL )
@@ -86,8 +86,8 @@ ALTER TABLE ensamblaje_pieza
 
 ALTER TABLE equipo ADD CONSTRAINT equipo_pk PRIMARY KEY ( codigo_equ );
 
-ALTER TABLE equipo_personal ADD CONSTRAINT equipo_personal_pk PRIMARY KEY ( fk_equipo,
-                                                                            fk_personal );
+ALTER TABLE equipo_empleado ADD CONSTRAINT equipo_empleado_pk PRIMARY KEY ( fk_equipo,
+                                                                            fk_empleado );
 
 ALTER TABLE estatus ADD CONSTRAINT estatus_pk PRIMARY KEY ( codigo_est );
 
@@ -98,7 +98,7 @@ ALTER TABLE estatus_historial_ensamblaje
                                                                  fk_ensamblaje );
 
 
-ALTER TABLE estimacion_profesion_personal ADD CONSTRAINT estimacion_profesion_personal_pk PRIMARY KEY ( codigo_epp );
+ALTER TABLE estimacion_profesion_empleado ADD CONSTRAINT estimacion_profesion_empleado_pk PRIMARY KEY ( codigo_epp );
 
 ALTER TABLE historial_estatus_compra
     ADD CONSTRAINT historial_estatus_compra_pk PRIMARY KEY ( fecha_hec,
@@ -131,7 +131,7 @@ ALTER TABLE historial_estatus_venta
                                                             fk_estatus );
 
 ALTER TABLE horario ADD CONSTRAINT horario_pk PRIMARY KEY ( fk_turno,
-                                                            fk_personal );
+                                                            fk_empleado );
 
 ALTER TABLE labor ADD CONSTRAINT labor_pk PRIMARY KEY ( codigo_lab );
 
@@ -159,12 +159,12 @@ ALTER TABLE pago_moneda
 
 ALTER TABLE pago_moneda ADD CONSTRAINT pago_moneda_pk PRIMARY KEY ( fk_moneda );
 
-ALTER TABLE pago_personal ADD CONSTRAINT pago_personal_pk PRIMARY KEY ( codigo_pp );
+ALTER TABLE pago_empleado ADD CONSTRAINT pago_empleado_pk PRIMARY KEY ( codigo_pp );
 
 ALTER TABLE pago_venta
     ADD CONSTRAINT pago_venta_pk PRIMARY KEY ( codigo_pago_pv );
 
-ALTER TABLE personal ADD CONSTRAINT personal_pk PRIMARY KEY ( codigo_personal_per );
+ALTER TABLE empleado ADD CONSTRAINT empleado_pk PRIMARY KEY ( codigo_empleado_per );
 
 ALTER TABLE pieza ADD CONSTRAINT pieza_pk PRIMARY KEY ( codigo_pie,
                                                         fk_ensamblaje );
@@ -215,10 +215,10 @@ ALTER TABLE sede ADD CONSTRAINT sede_pk PRIMARY KEY ( codigo_sed );
 ALTER TABLE solicitud_transferencia ADD CONSTRAINT solicitud_transferencia_pk PRIMARY KEY ( codigo_st );
 
 ALTER TABLE telefono
-    ADD CONSTRAINT arco_tel CHECK ( ( ( fk_comercial IS NOT NULL )
-                                   AND ( fk_personal IS NULL ) )
-                                 OR ( ( fk_personal IS NOT NULL )
-                                      AND ( fk_comercial IS NULL ) ) );
+    ADD CONSTRAINT arco_tel CHECK ( ( ( fk_persona IS NOT NULL )
+                                   AND ( fk_empleado IS NULL ) )
+                                 OR ( ( fk_empleado IS NOT NULL )
+                                      AND ( fk_persona IS NULL ) ) );
 
 ALTER TABLE telefono ADD CONSTRAINT telefono_pk PRIMARY KEY ( codigo_tel );
 
@@ -345,24 +345,24 @@ ALTER TABLE embalaje
                            fk_ensamblaje );
 
 ALTER TABLE embalaje
-    ADD CONSTRAINT fk_equipo_personal FOREIGN KEY ( fk_equipo_personal,
-                                              fk_equipo_personal2 )
-        REFERENCES equipo_personal ( fk_equipo,
-                                     fk_personal );
+    ADD CONSTRAINT fk_equipo_empleado FOREIGN KEY ( fk_equipo_empleado,
+                                              fk_equipo_empleado2 )
+        REFERENCES equipo_empleado ( fk_equipo,
+                                     fk_empleado );
 
 ALTER TABLE transporte
-    ADD CONSTRAINT fk_equipo_personal FOREIGN KEY ( fk_equipo_personal,
-                                              fk_equipo_personal2 )
-        REFERENCES equipo_personal ( fk_equipo,
-                                     fk_personal );
+    ADD CONSTRAINT fk_equipo_empleado FOREIGN KEY ( fk_equipo_empleado,
+                                              fk_equipo_empleado2 )
+        REFERENCES equipo_empleado ( fk_equipo,
+                                     fk_empleado );
 
 ALTER TABLE ensamblaje
-    ADD CONSTRAINT fk_equipo_personal FOREIGN KEY ( fk_equipo_personal,
-                                              fk_equipo_personal2 )
-        REFERENCES equipo_personal ( fk_equipo,
-                                     fk_personal );
+    ADD CONSTRAINT fk_equipo_empleado FOREIGN KEY ( fk_equipo_empleado,
+                                              fk_equipo_empleado2 )
+        REFERENCES equipo_empleado ( fk_equipo,
+                                     fk_empleado );
 
-ALTER TABLE comercial
+ALTER TABLE persona
     ADD CONSTRAINT fk_lugar FOREIGN KEY ( fk_lugar )
         REFERENCES lugar ( codigo_lug );
 
@@ -414,7 +414,7 @@ ALTER TABLE prueba_configuracion_pieza
         REFERENCES configuracion_pieza ( fk_tipo_materia_prima,
                                          fk_tipo_pieza );
 
-ALTER TABLE personal
+ALTER TABLE empleado
     ADD CONSTRAINT fk_lugar FOREIGN KEY ( fk_lugar )
         REFERENCES lugar ( codigo_lug );
 
@@ -422,35 +422,35 @@ ALTER TABLE prueba_configuracion_pieza
     ADD CONSTRAINT fk_tipo_prueba FOREIGN KEY ( fk_tipo_prueba )
         REFERENCES tipo_prueba ( codigo_tp );
 
-ALTER TABLE estimacion_profesion_personal
+ALTER TABLE estimacion_profesion_empleado
     ADD CONSTRAINT fk_tipo_prueba FOREIGN KEY ( fk_tipo_prueba )
         REFERENCES tipo_prueba ( codigo_tp );
 
-ALTER TABLE estimacion_profesion_personal
+ALTER TABLE estimacion_profesion_empleado
     ADD CONSTRAINT fk_embalaje_plan FOREIGN KEY ( fk_embalaje_plan )
         REFERENCES embalaje_plan ( codigo_ep );
 
-ALTER TABLE estimacion_profesion_personal
+ALTER TABLE estimacion_profesion_empleado
     ADD CONSTRAINT fk_plan_transporte FOREIGN KEY ( fk_plan_transporte )
         REFERENCES plan_transporte ( codigo_pt );
 
-ALTER TABLE estimacion_profesion_personal
+ALTER TABLE estimacion_profesion_empleado
     ADD CONSTRAINT fk_plan_ensamblaje FOREIGN KEY ( fk_plan_ensamblaje )
         REFERENCES plan_ensamblaje ( codigo_pe );
 
-ALTER TABLE estimacion_profesion_personal
+ALTER TABLE estimacion_profesion_empleado
     ADD CONSTRAINT fk_profesion FOREIGN KEY ( fk_profesion )
         REFERENCES profesion ( codigo_pro );
 
-ALTER TABLE comercial
+ALTER TABLE persona
     ADD CONSTRAINT fk_usuario FOREIGN KEY ( fk_usuario )
         REFERENCES usuario ( codigo_usu );
 
-ALTER TABLE personal
+ALTER TABLE empleado
     ADD CONSTRAINT fk_usuario FOREIGN KEY ( fk_usuario )
         REFERENCES usuario ( codigo_usu );
 
-ALTER TABLE pago_personal
+ALTER TABLE pago_empleado
     ADD CONSTRAINT fk_modo_pago FOREIGN KEY ( fk_modo_pago )
         REFERENCES modo_pago ( codigo_mp );
 
@@ -459,8 +459,8 @@ ALTER TABLE horario
         REFERENCES turno ( codigo_tur );
 
 ALTER TABLE horario
-    ADD CONSTRAINT fk_personal FOREIGN KEY ( fk_personal )
-        REFERENCES personal ( codigo_personal_per );
+    ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
+        REFERENCES empleado ( codigo_empleado_per );
 
 ALTER TABLE zona
     ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
@@ -535,36 +535,36 @@ ALTER TABLE detalle_transferencia
         REFERENCES solicitud_transferencia ( codigo_st );
 
 ALTER TABLE correo_electronico
-    ADD CONSTRAINT fk_comercial FOREIGN KEY ( fk_comercial )
-        REFERENCES comercial ( codigo_com );
+    ADD CONSTRAINT fk_persona FOREIGN KEY ( fk_persona )
+        REFERENCES persona ( codigo_com );
 
 ALTER TABLE correo_electronico
-    ADD CONSTRAINT fk_personal FOREIGN KEY ( fk_personal )
-        REFERENCES personal ( codigo_personal_per );
+    ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
+        REFERENCES empleado ( codigo_empleado_per );
 
 ALTER TABLE telefono
-    ADD CONSTRAINT fk_comercial FOREIGN KEY ( fk_comercial )
-        REFERENCES comercial ( codigo_com );
+    ADD CONSTRAINT fk_persona FOREIGN KEY ( fk_persona )
+        REFERENCES persona ( codigo_com );
 
 ALTER TABLE telefono
-    ADD CONSTRAINT fk_personal FOREIGN KEY ( fk_personal )
-        REFERENCES personal ( codigo_personal_per );
+    ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
+        REFERENCES empleado ( codigo_empleado_per );
 
 ALTER TABLE red_social
-    ADD CONSTRAINT fk_personal FOREIGN KEY ( fk_personal )
-        REFERENCES personal ( codigo_personal_per );
+    ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
+        REFERENCES empleado ( codigo_empleado_per );
 
-ALTER TABLE pago_personal
-    ADD CONSTRAINT fk_personal FOREIGN KEY ( fk_personal )
-        REFERENCES personal ( codigo_personal_per );
+ALTER TABLE pago_empleado
+    ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
+        REFERENCES empleado ( codigo_empleado_per );
 
 ALTER TABLE beneficiario
-    ADD CONSTRAINT fk_personal FOREIGN KEY ( fk_personal )
-        REFERENCES personal ( codigo_personal_per );
+    ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
+        REFERENCES empleado ( codigo_empleado_per );
 
 ALTER TABLE asistencia
-    ADD CONSTRAINT fk_personal FOREIGN KEY ( fk_personal )
-        REFERENCES personal ( codigo_personal_per );
+    ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
+        REFERENCES empleado ( codigo_empleado_per );
 
 ALTER TABLE asistencia
     ADD CONSTRAINT fk_turno FOREIGN KEY ( fk_turno )
@@ -574,13 +574,13 @@ ALTER TABLE equipo
     ADD CONSTRAINT fk_labor FOREIGN KEY ( fk_labor )
         REFERENCES labor ( codigo_lab );
 
-ALTER TABLE equipo_personal
+ALTER TABLE equipo_empleado
     ADD CONSTRAINT fk_equipo FOREIGN KEY ( fk_equipo )
         REFERENCES equipo ( codigo_equ );
 
-ALTER TABLE equipo_personal
-    ADD CONSTRAINT fk_personal FOREIGN KEY ( fk_personal )
-        REFERENCES personal ( codigo_personal_per );
+ALTER TABLE equipo_empleado
+    ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
+        REFERENCES empleado ( codigo_empleado_per );
 
 ALTER TABLE caracteristica_pieza
     ADD CONSTRAINT fk_tipo_pieza FOREIGN KEY ( fk_tipo_pieza )
@@ -651,10 +651,10 @@ ALTER TABLE prueba
         REFERENCES tipo_prueba ( codigo_tp );
 
 ALTER TABLE prueba
-    ADD CONSTRAINT fk_equipo_personal FOREIGN KEY ( fk_equipo_personal,
-                                             fk_equipo_personal2 )
-        REFERENCES equipo_personal ( fk_equipo,
-                                     fk_personal );
+    ADD CONSTRAINT fk_equipo_empleado FOREIGN KEY ( fk_equipo_empleado,
+                                             fk_equipo_empleado2 )
+        REFERENCES equipo_empleado ( fk_equipo,
+                                     fk_empleado );
 
 ALTER TABLE prueba
     ADD CONSTRAINT fk_zona FOREIGN KEY ( fk_zona, 
@@ -701,12 +701,12 @@ ALTER TABLE lote_materia_prima
         REFERENCES compra ( codigo_compra_com );
 
 ALTER TABLE compra
-    ADD CONSTRAINT fk_comercial FOREIGN KEY ( fk_comercial )
-        REFERENCES comercial ( codigo_com );
+    ADD CONSTRAINT fk_persona FOREIGN KEY ( fk_persona )
+        REFERENCES persona ( codigo_com );
 
 ALTER TABLE venta
-    ADD CONSTRAINT fk_comercial FOREIGN KEY ( fk_comercial )
-        REFERENCES comercial ( codigo_com );
+    ADD CONSTRAINT fk_persona FOREIGN KEY ( fk_persona )
+        REFERENCES persona ( codigo_com );
 
 ALTER TABLE avion
     ADD CONSTRAINT fk_almacen FOREIGN KEY ( fk_almacen,
@@ -773,8 +773,8 @@ ALTER TABLE pago_venta
         REFERENCES venta ( codigo_venta_ven );
 
 ALTER TABLE empleado_profesion
-    ADD CONSTRAINT fk_personal FOREIGN KEY ( fk_personal )
-        REFERENCES personal ( codigo_personal_per );
+    ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
+        REFERENCES empleado ( codigo_empleado_per );
 
 ALTER TABLE ensamblaje_pieza
     ADD CONSTRAINT fk_plan_ensamblaje FOREIGN KEY ( fk_plan_ensamblaje )
@@ -814,27 +814,27 @@ ALTER TABLE ensamblaje
 
 ALTER TABLE lugar ADD CONSTRAINT tipo_lug_check check(tipo_lug in ('parroquia','municipio', 'estado'));
 
-ALTER TABLE comercial ADD CONSTRAINT tipo_com_check check(tipo_com in ('cliente','proveedor'));
+ALTER TABLE persona ADD CONSTRAINT tipo_com_check check(tipo_com in ('cliente','proveedor'));
 
-ALTER TABLE comercial ADD CONSTRAINT tipo_comerial_com_check check(tipo_comercial_com in ('juridico','natural'));
+ALTER TABLE persona ADD CONSTRAINT tipo_comerial_com_check check(tipo_persona_com in ('juridico','natural'));
 
-ALTER TABLE comercial ADD UNIQUE (fk_usuario);
+ALTER TABLE persona ADD UNIQUE (fk_usuario);
 
-ALTER TABLE comercial ADD UNIQUE (rif_jur);
+ALTER TABLE persona ADD UNIQUE (rif_jur);
 
-ALTER TABLE comercial ADD UNIQUE (denominacion_comercial_jur);
+ALTER TABLE persona ADD UNIQUE (denominacion_persona_jur);
 
-ALTER TABLE comercial ADD UNIQUE (pagina_web_jur);
+ALTER TABLE persona ADD UNIQUE (pagina_web_jur);
 
-ALTER TABLE comercial ADD UNIQUE (cedula_nat);
+ALTER TABLE persona ADD UNIQUE (cedula_nat);
 
 ALTER TABLE compra ADD UNIQUE (numero_factura_com);
 
 ALTER TABLE correo_electronico ADD UNIQUE (direccion_correo_ce);
 
-ALTER TABLE personal ADD UNIQUE (fk_usuario);
+ALTER TABLE empleado ADD UNIQUE (fk_usuario);
 
-ALTER TABLE personal ADD UNIQUE (cedula_per);
+ALTER TABLE empleado ADD UNIQUE (cedula_per);
 
 ALTER TABLE telefono ADD UNIQUE (numero_telefono_tel);
 
