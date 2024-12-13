@@ -41,7 +41,7 @@
 
 <div class="Caja3">
 	<div class="botonesCaja3">
-		<a class="Home" href="/cliente">Home</a>
+		<a class="Home" href="/cliente/Home">Home</a>
 		<a class="Comprar" href="/cliente/productos">Comprar</a>
 		<a class="AcercaDe" href="/cliente/Acercade">Acerca De</a>
 	</div>
