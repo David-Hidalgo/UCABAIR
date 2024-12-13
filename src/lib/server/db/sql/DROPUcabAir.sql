@@ -249,15 +249,9 @@ ALTER TABLE IF EXISTS lugar DROP CONSTRAINT IF EXISTS tipo_lug_check;
 
 ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS tipo_com_check;
 
-ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS tipo_comerial_com_check;
+ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS tipo_persona_com_check;
 
 ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS persona_fk_usuario_key;
-
-ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS persona_rif_jur_key;
-
-ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS persona_denominacion_persona_jur_key;
-
-ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS persona_pagina_web_jur_key;
 
 ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS persona_cedula_nat_key;
 
