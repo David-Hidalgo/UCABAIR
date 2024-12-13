@@ -2023,7 +2023,7 @@ INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_e
 INSERT INTO rol values(1,'admin','rol de administrador');
 INSERT INTO rol values(2,'cliente','rol de cliente');
 INSERT INTO rol values(3,'empleado','rol de empleado');
-
+INSERT INTO rol values(4,'proveedor','rol de proveedor');
 
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
 ('juan_perez', '$argon2id$v=19$m=19456,t=2,p=1$X8iCmRKOT+lNjtLvGXXjug$fF57audgEBzHQ3i9DGNmvvltuk9qgtIpkUbtlellvJM', 3);
@@ -2270,6 +2270,58 @@ INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES
 ('german', '$argon2id$v=19$m=19456,t=2,p=1$Ms6Gi+AHH7npm5S+jHkL+w$plVt+wB7GQd++20KuOQaLnRK5cUsUQ72JH0SwXxm9Ys', 1),
 ('german_oropeza', '$argon2id$v=19$m=19456,t=2,p=1$STZNe2yxaYJr8fpUpDxffA$cBIvRkKac15QQhD5a4FQTFmYBre5VtHQPgJobwGgJVg', 1);
 
+INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
+('cedrosamazonas', '$argon2id$v=19$m=19456,t=2,p=1$StiRzSLC6cUgN+BDRn5cug$KBai83g3Z1YFHmzdMepAdzGvZYGJyT5XCxWyPEM/ATQ', 4),
+('industriaamazonica', '$argon2id$v=19$m=19456,t=2,p=1$G4OlmjDhpYJ6yCkIr1Ce+g$jPivo0/8cRs/a2q2v9xuW7gqGhAha3R+cYPJBeBql1c', 4),
+('comerciollanos', '$argon2id$v=19$m=19456,t=2,p=1$S+KeWCeTTBgWBqdkJ/bO/A$SYcpaVVh76mgG6sBwAQTTf0tXWoTRywR4fyQJR6rRj0', 4),
+('financierosplc', '$argon2id$v=19$m=19456,t=2,p=1$82bHIUSQjePvLPRG/B9HyA$WTSiBt2m52WXW+AIm77TTcVMQfKCHmAvVbAWirB3CPw', 4),
+('agropecuariaapure', '$argon2id$v=19$m=19456,t=2,p=1$cHe9GFZmc1AZ56cL94HVlg$RL/A1SkVIjCSEKbJCMoPm9uPPRoHbN/xsIyCh0S1GHQ', 4),
+('comercialapure', '$argon2id$v=19$m=19456,t=2,p=1$U1HQyVauKli4Kt64s/Y+zw$AaH/qMILz1FqGjQLBiW59zxkg6ZCMdwIiiDEeiMdF+o', 4),
+('empresamaracay', '$argon2id$v=19$m=19456,t=2,p=1$qBtR+jyHPpAPjvZ3eLMxTA$1KjfR/IJp4+VeyQchRTVcR0hMnBcc5S3m+HtaogTzVI', 4),
+('serviciosaragua', '$argon2id$v=19$m=19456,t=2,p=1$6M5TgoQ/EIiij7s0IGdBzA$xyWKrWaIB9gsHlpz/dT8bCzjCI6NtrIQlt8MwfCSQOY', 4),
+('industriasbarinas', '$argon2id$v=19$m=19456,t=2,p=1$wrYbxD8TrMJtTzo/XDcN/w$mcRjoMWK/zuhDUMlGtPxogUdi4CZstGO8JfrkO2T83E', 4),
+('comercializadorabarinas', '$argon2id$v=19$m=19456,t=2,p=1$excUFwqptSkDWubuiOugFQ$jDXR8fT88+h1QxXtfC5M55ebPfESL5IhTTMuHK+slfI', 4),
+('industriasguayana', '$argon2id$v=19$m=19456,t=2,p=1$nlZUx3xvjZte/fBBocuzSg$id3Mvb64/eiLaY82HrxLmywQ9nVYbxLmkT6M2/lU0Zs', 4),
+('comercialbolivar', '$argon2id$v=19$m=19456,t=2,p=1$vOOv5aVrmFU3WpRk8yc4Vw$doupCpAUTRBrWgRmsI3Cj5q7YI0fUoEGb9docXF0raA', 4),
+('empresasvalencia', '$argon2id$v=19$m=19456,t=2,p=1$olsyGfBtiFo20v2+0egtsw$blcboBvtSfZ2zHPagnQZOyHm9zHv09SG4bD1od+1AFQ', 4),
+('servicioscarabobo', '$argon2id$v=19$m=19456,t=2,p=1$pcyBOahKmuGvF2r2h+O6jw$4rrKliaZ06MxDRok6C1WBLGrTMh8cbFrcng75/tpExs', 4),
+('centroagropecuario', '$argon2id$v=19$m=19456,t=2,p=1$fgs8ezPSyBYNOBxz6zRScw$+yi94R6Q8MOTr5OusxKcVLMlLFBL+0fav0AU92wT6bo', 4),
+('productostinaco', '$argon2id$v=19$m=19456,t=2,p=1$Vz34X/+6lv0ClsPrSia1Cw$2iQCi+O7cafjKtWw2Gt+tDMBQYqdLJLQSawGGFBrL50', 4),
+('comercialdelta', '$argon2id$v=19$m=19456,t=2,p=1$bPuELoSSFktOwK+Vzkmn6w$JcEvVl/C7Hl00Y++sID2zdkSp/184jlL/cz/i1SWECE', 4),
+('deltaproductos', '$argon2id$v=19$m=19456,t=2,p=1$loK+WDQwMOXsTjtubki1uA$E929ICG30wg/zZeHdCQAODeePRbGV/mtD60G2qQlWcs', 4),
+('empresasparaguana', '$argon2id$v=19$m=19456,t=2,p=1$7Jj3Av+rbwTfp3FvsvXNmw$hLODGoVK87H7KgIqA7GICJ7rPWi1bukGrwVWl2fp/fk', 4),
+('serviciosfalcon', '$argon2id$v=19$m=19456,t=2,p=1$eeXDbjueOmO9YPVBWe181w$0EzRorHlqPFz3WfHS3Xf+MDd6W6QwbhTeP7Nyp+ptEk', 4),
+('comercialsanjuan', '$argon2id$v=19$m=19456,t=2,p=1$xhH6hk8aulsxxpu5OZvDXw$PcadKtUwrtadckuvv13qqbbw1tb/SXnnWozQVYAdPts', 4),
+('empresascalabozo', '$argon2id$v=19$m=19456,t=2,p=1$Rya+Bf5I7Rnq2dzydm3xLA$xWDKo83R2LZfgqFgDalouR6zkOy0OtVOT+LAOc94wdc', 4),
+('industriasbarquisimeto', '$argon2id$v=19$m=19456,t=2,p=1$3lVoDch9Tux2DhMA4W6dTw$OeYjlgV0WLTy5drPBIterJG1hBc/wjqKjXcjottOEHI', 4),
+('comercialcarora', '$argon2id$v=19$m=19456,t=2,p=1$1Dijagr7v8srazjI1iazBw$wwiPsa9toWuzts58BoDsw+weA9tpaoVjnvMFSNY1iNY', 4),
+('empresasmerida', '$argon2id$v=19$m=19456,t=2,p=1$JYvoR7BURC755QaFJpzLLA$CynZ3stKTsteOMgYNnoQqtH/s0zuqbSBw9xOw7mOsK0', 4);
+
+INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
+('comercialelvigia', '$argon2id$v=19$m=19456,t=2,p=1$HFewgcV578Bb5AN3kZI6MA$cflwXbqiHgkT5lXgoEZszu1Ltq83rCl4OByPVrhP8oU', 4),
+('empresaslosteques', '$argon2id$v=19$m=19456,t=2,p=1$8pey6VrGnZdAbqmOVZj7Nw$mBfnFbo0SDJe7ZPyh6fCW2y1me9UYoBMjJTtOiGqr70', 4),
+('comercialguarenas', '$argon2id$v=19$m=19456,t=2,p=1$2Kfsoi5b1EYsEZr3jQmfPQ$D1g5mNA+zu5zxIYr+hGzznENV+rusGx3gZA7IO4IjCU', 4),
+('industriasmaturin', '$argon2id$v=19$m=19456,t=2,p=1$DKNSHGfjTaopBF2eS6Lj2A$rGY+mNP1Po/rKpm2FpycnD8NXY/e0LlM26+02hqLhLM', 4),
+('comercialcaripito', '$argon2id$v=19$m=19456,t=2,p=1$X+y5BW84ADszhMjffw355w$PRB3+WX7kOxa0Nh8i9S5PuxzA4SjJuab8TBWRIP6CQA', 4),
+('empresasporlamar', '$argon2id$v=19$m=19456,t=2,p=1$kN0mz6BhmwHDZ4ZeeRgLCw$3uppG845MKy0QUxawneXm8at2zfJBmYKSheXsnmGxIE', 4),
+('comercialjuangriego', '$argon2id$v=19$m=19456,t=2,p=1$dnScItFgISV5LEkkuP0kUQ$2WQ9jfFEN2/nBtYEp1Mb5dyw4E6zMKWw71RgNGzXCaI', 4),
+('empresasacarigua', '$argon2id$v=19$m=19456,t=2,p=1$MgZDc5rzoW/zP/6oWJ/H2A$OcRJn9jFo40+lrxH3o29bTBp/eg3Ag4IFYQuoXtVAU8', 4),
+('comercialguanare', '$argon2id$v=19$m=19456,t=2,p=1$1rzBzzG8SBTPxp/gmwIG3A$YIJujpFfMQJCQVWVkTH6+seOX14BRrEGd8h/ddZB890', 4),
+('empresascumana', '$argon2id$v=19$m=19456,t=2,p=1$C8BpIouzFa9mZGYiMik4xg$xoRvij7/ave9O4SqsQfrNJoCpG6Un3ERqaOORLGU6pk', 4),
+('comercialcarupano', '$argon2id$v=19$m=19456,t=2,p=1$ry60IZzn5xelkTYlCWsi/g$YmNCvDHUjBpXJlDjQiTNAhO72DoP5rJWaXs4z2GIvIg', 4),
+('empresassancristobal', '$argon2id$v=19$m=19456,t=2,p=1$kz/CPjiJJzXtcy14ZXF8sg$lgoRLdc361WgiHfjApA8HfvJfI46EUjvcYjr1C6o39g', 4),
+('comercialsanantonio', '$argon2id$v=19$m=19456,t=2,p=1$EZLLfwktLrU5npoPP6aHZQ$rLPvGJ/0fds/UP/lKcFCjl31X86AhzJD7OhNjaI5Ydg', 4),
+('empresasvalera', '$argon2id$v=19$m=19456,t=2,p=1$wWZHnuyx+T+0bBN49aPa0g$0PLyb3UkiCjjdYxex6vXD5oqnwQ40NlKU2w2lY52PzM', 4),
+('comercialtrujillo', '$argon2id$v=19$m=19456,t=2,p=1$bY2mpnUftVz4RptOwIBeuw$D7X1zmOXFKtmsLJ0kqYRFF9wFCdH9b+HYj7H34M9mAA', 4),
+('empresaslaguaira', '$argon2id$v=19$m=19456,t=2,p=1$5gqf9PpkxY7UGHl7UJOKhg$wc7lgDc/Q7n6hMQ+u/lkA8pUfjn+T/g8UN+Ifra2jHE', 4),
+('comercialmaiquetia', '$argon2id$v=19$m=19456,t=2,p=1$HJxgWPaKZsKmF9JNv83fKg$dslA2tVeVn4ocObDSZIzEucnLjXjieX2WSdTtUlV1/s', 4),
+('empresassanfelipe', '$argon2id$v=19$m=19456,t=2,p=1$T3gv7nDh80WglFXz3UQeLA$drJkGc1VAKW7r4nI4rrRiYm09u2XK6TeA4+ARZudwOw', 4),
+('comercialyaritagua', '$argon2id$v=19$m=19456,t=2,p=1$GstlzE6c5oaeKg8J+RygNQ$+rXqh0uiSDBQQoeyrZ8o+lwA9yip4qjLkp9SleXzQGQ', 4),
+('empresasmaracaibo', '$argon2id$v=19$m=19456,t=2,p=1$E8M/nE70Q79NUMuxu9avvQ$aetwUgiHXRnnYyMqj2ldPjkHc6QmRwGI9IwPw7hi7vM', 4),
+('comercialcabimas', '$argon2id$v=19$m=19456,t=2,p=1$IGPUzKUJsTfWSsPjONDWhQ$9wvYzjZ67fOZHRHzBeWCExbJXjMc//gTIMbnTrhQIlI', 4),
+('empresascaracas', '$argon2id$v=19$m=19456,t=2,p=1$BfxayslZZBrqYRgUMacPYQ$PjF7wwtFK8X0Tjg+8yT/0WRGTm2nOLT6cgSB33Pq10g', 4),
+('comercialelhatillo', '$argon2id$v=19$m=19456,t=2,p=1$81/TXuEtC+nc2Byhts/lhw$JavC6M3+9m0X5/DLZONNl2JoX2BfCULdXC5XwZQPJMQ', 4);
+
 
 INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
 (1, 'Au-80', 'Reactor para pasajeros, destinado a rutas de largo alcance', 1000000, NULL);
@@ -2319,7 +2371,7 @@ INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inic
 VALUES (2, 'Avenida Bolívar 456, Amazonas', 15000.0, '2022-02-01', 'cliente', 'venezolana', 1, 2, 'natural', NULL, NULL, NULL, NULL, 'V-12345678-1', 'Carlos', NULL, 'Pérez', NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (3, 'Calle Secundaria 789, Amazonas', 20000.0, '2022-03-01', 'cliente', 'venezolana', 1, 3, 'juridico', 'J-00000002-2', 'Servicios Amazonas', 'Servicios Amazonas C.A.', 'www.serviciosamazonas.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (3, 'Calle Secundaria 789, Amazonas', 20000.0, '2022-03-01', 'cliente', 'venezolana', 1, 3, 'juridico', 'J-00000002-2', 'Servicio Amazonas', 'Servicio Amazonas C.A.', 'www.serviciosamazonas.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
 VALUES (4, 'Avenida Principal 123, Amazonas', 25000.0, '2022-04-01', 'cliente', 'venezolana', 1, 4, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-2', 'María', 'Isabel', 'González', 'Fernández');
@@ -2355,7 +2407,7 @@ INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inic
 VALUES (14, 'Avenida Bolívar 456, Aragua', 22000.0, '2023-02-01', 'cliente', 'venezolana', 4, 14, 'natural', NULL, NULL, NULL, NULL, 'V-56789012-7', 'José', NULL, 'Gómez', 'Ramírez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (15, 'Calle Secundaria 789, Aragua', 23000.0, '2023-03-01', 'cliente', 'venezolana', 4, 15, 'juridico', 'J-00000008-8', 'Servicios Aragua', 'Servicios Aragua C.A.', 'www.serviciosaragua.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (15, 'Calle Secundaria 789, Aragua', 23000.0, '2023-03-01', 'cliente', 'venezolana', 4, 15, 'juridico', 'J-00000008-8', 'Servicio de Aragua', 'Servicio de Aragua C.A.', 'www.servicioaragua.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
 VALUES (16, 'Avenida Principal 123, Aragua', 24000.0, '2023-04-01', 'cliente', 'venezolana', 4, 16, 'natural', NULL, NULL, NULL, NULL, 'V-76543219-8', 'Sara', 'Carolina', 'Sánchez', 'Fernández');
@@ -2599,6 +2651,141 @@ VALUES (95, 'Calle Secundaria 789, Yaracuy', 103000.0, '2029-07-01', 'cliente', 
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
 VALUES (96, 'Avenida Principal 123, Yaracuy', 104000.0, '2029-08-01', 'cliente', 'venezolana', 22, 96, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-65', 'Ana', 'María', 'Hernández', 'Rodríguez');
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(97, 'Calle Los Cedros, Sector Centro, Puerto Ayacucho', 1000.0, '2023-01-01', 'proveedor', 'Venezolana', 1, 137, 'juridico', 'J-12345678-1', 'Cedros Amazonas S.A.', 'Productos Naturales del Amazonas', 'www.cedrosamazonas.com'),
+(98, 'Avenida Orinoco, Zona Industrial, Puerto Ayacucho', 1500.0, '2023-01-02', 'proveedor', 'Venezolana', 1, 138, 'juridico', 'J-87654321-1', 'Industria Amazónica', 'Manufacturas del Amazonas', 'www.industriaamazonica.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(99, 'Avenida Intercomunal, Edificio Los Llanos, Barcelona', 1200.0, '2023-01-03', 'proveedor', 'Venezolana', 2, 139, 'juridico', 'J-22345678-2', 'Comercial Llanos', 'Distribuidora Llanos', 'www.comerciollanos.com'),
+(100, 'Calle Sucre, Centro Financiero, Puerto La Cruz', 1700.0, '2023-01-04', 'proveedor', 'Venezolana', 2, 140, 'juridico', 'J-87654322-2', 'Financieros PLC', 'Servicios Financieros PLC', 'www.financierosplc.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(101, 'Carretera Nacional, Galpón Industrial, San Fernando', 1300.0, '2023-01-05', 'proveedor', 'Venezolana', 3, 141, 'juridico', 'J-32345678-3', 'Agropecuaria Apure', 'Productos del Llano Apureño', 'www.agropecuariaapure.com'),
+(102, 'Avenida Paseo Libertador, Complejo Comercial, San Fernando', 1800.0, '2023-01-06', 'proveedor', 'Venezolana', 3, 142, 'juridico', 'J-87654323-3', 'Comercial Apure', 'Mercado Mayorista Apure', 'www.comercialapure.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(103, 'Calle Bolívar, Edificio Empresarial, Maracay', 1400.0, '2023-01-07', 'proveedor', 'Venezolana', 4, 143, 'juridico', 'J-42345678-4', 'Empresas Maracay', 'Corporación Industrial Maracay', 'www.empresamaracay.com'),
+(104, 'Avenida Las Delicias, Torre Comercial, Maracay', 1900.0, '2023-01-08', 'proveedor', 'Venezolana', 4, 144, 'juridico', 'J-87654324-4', 'Servicios Aragua', 'Compañía de Servicios Aragua', 'www.serviciosaragua.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(105, 'Calle Carabobo, Zona Comercial, Barinas', 1500.0, '2023-01-09', 'proveedor', 'Venezolana', 5, 145, 'juridico', 'J-52345678-5', 'Industrias Barinas', 'Fabricaciones Barinas', 'www.industriasbarinas.com'),
+(106, 'Avenida 23 de Enero, Edificio Comercial, Barinas', 2000.0, '2023-01-10', 'proveedor', 'Venezolana', 5, 146, 'juridico', 'J-87654325-5', 'Comercializadora Barinas', 'Distribuidora Barinas', 'www.comercializadorabarinas.com');
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(107, 'Avenida Guayana, Zona Industrial Matanzas, Ciudad Guayana', 2100.0, '2023-01-11', 'proveedor', 'Venezolana', 6, 147, 'juridico', 'J-62345678-6', 'Industrias Guayana', 'Fabricaciones Guayana', 'www.industriasguayana.com'),
+(108, 'Calle Caroní, Edificio Empresarial, Ciudad Bolívar', 2200.0, '2023-01-12', 'proveedor', 'Venezolana', 6, 148, 'juridico', 'J-87654326-6', 'Comercial Bolívar', 'Distribuciones Bolívar', 'www.comercialbolivar.com');
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(109, 'Avenida Lara, Zona Industrial La Quizanda, Valencia', 2300.0, '2023-01-13', 'proveedor', 'Venezolana', 7, 149, 'juridico', 'J-72345678-7', 'Empresas Valencia', 'Corporación Industrial Carabobo', 'www.empresasvalencia.com'),
+(110, 'Calle Michelena, Centro Comercial Guaparo, Valencia', 2400.0, '2023-01-14', 'proveedor', 'Venezolana', 7, 150, 'juridico', 'J-87654327-7', 'Servicios Carabobo', 'Compañía de Servicios Carabobo', 'www.servicioscarabobo.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(111, 'Avenida Bolívar, Edificio Central, San Carlos', 2500.0, '2023-01-15', 'proveedor', 'Venezolana', 8, 151, 'juridico', 'J-82345678-8', 'Centro Agropecuario', 'Distribuidora de Cojedes', 'www.centroagropecuario.com'),
+(112, 'Calle Zamora, Galpón Industrial, Tinaco', 2600.0, '2023-01-16', 'proveedor', 'Venezolana', 8, 152, 'juridico', 'J-87654328-8', 'Productos Tinaco', 'Distribuidora de Alimentos Cojedes', 'www.productostinaco.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(113, 'Avenida Orinoco, Centro Comercial Delta, Tucupita', 2700.0, '2023-01-17', 'proveedor', 'Venezolana', 9, 153, 'juridico', 'J-92345678-9', 'Comercial Delta', 'Distribuidora de Bienes Delta', 'www.comercialdelta.com'),
+(114, 'Calle Mariño, Zona Comercial, Tucupita', 2800.0, '2023-01-18', 'proveedor', 'Venezolana', 9, 154, 'juridico', 'J-87654329-9', 'Delta Productos', 'Productos y Servicios Delta', 'www.deltaproductos.com');
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(117, 'Avenida Bolívar, Zona Comercial, San Juan de Los Morros', 3100.0, '2023-01-21', 'proveedor', 'Venezolana', 11, 157, 'juridico', 'J-112345678-11', 'Comercial San Juan', 'Distribuidora San Juan', 'www.comercialsanjuan.com'),
+(118, 'Calle Ribas, Centro Empresarial, Calabozo', 3200.0, '2023-01-22', 'proveedor', 'Venezolana', 11, 158, 'juridico', 'J-87654331-11', 'Empresas Calabozo', 'Corporación Calabozo', 'www.empresascalabozo.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(119, 'Avenida 20, Torre Industrial, Barquisimeto', 3300.0, '2023-01-23', 'proveedor', 'Venezolana', 12, 159, 'juridico', 'J-122345678-12', 'Industrias Barquisimeto', 'Fabricaciones Lara', 'www.industriasbarquisimeto.com'),
+(120, 'Calle Venezuela, Complejo Comercial, Carora', 3400.0, '2023-01-24', 'proveedor', 'Venezolana', 12, 160, 'juridico', 'J-87654332-12', 'Comercial Carora', 'Distribuidora Carora', 'www.comercialcarora.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(121, 'Avenida Las Américas, Edificio Empresarial, Mérida', 3500.0, '2023-01-25', 'proveedor', 'Venezolana', 13, 161, 'juridico', 'J-132345678-13', 'Empresas Mérida', 'Corporación Industrial Mérida', 'www.empresasmerida.com'),
+(122, 'Calle 26, Zona Comercial, El Vigía', 3600.0, '2023-01-26', 'proveedor', 'Venezolana', 13, 162, 'juridico', 'J-87654333-13', 'Comercial El Vigía', 'Distribuidora El Vigía', 'www.comercialelvigia.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(123, 'Avenida Francisco de Miranda, Torre Empresarial, Los Teques', 3700.0, '2023-01-27', 'proveedor', 'Venezolana', 14, 163, 'juridico', 'J-142345678-14', 'Empresas Los Teques', 'Corporación Industrial Miranda', 'www.empresaslosteques.com'),
+(124, 'Calle Bolívar, Complejo Comercial, Guarenas', 3800.0, '2023-01-28', 'proveedor', 'Venezolana', 14, 164, 'juridico', 'J-87654334-14', 'Comercial Guarenas', 'Distribuidora Guarenas', 'www.comercialguarenas.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(125, 'Avenida Bolívar, Zona Industrial, Maturín', 3900.0, '2023-01-29', 'proveedor', 'Venezolana', 15, 165, 'juridico', 'J-152345678-15', 'Industrias Maturín', 'Fabricaciones Monagas', 'www.industriasmaturin.com'),
+(126, 'Calle Azcúe, Centro Empresarial, Caripito', 4000.0, '2023-01-30', 'proveedor', 'Venezolana', 15, 166, 'juridico', 'J-87654335-15', 'Comercial Caripito', 'Distribuidora Caripito', 'www.comercialcaripito.com');
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(115, 'Avenida Libertador, Centro Empresarial Paraguaná, Punto Fijo', 2900.0, '2023-01-19', 'proveedor', 'Venezolana', 10, 155, 'juridico', 'J-102345678-10', 'Empresas Paraguaná', 'Corporación Industrial Falcón', 'www.empresasparaguana.com'),
+(116, 'Calle Colón, Complejo Comercial, Coro', 3000.0, '2023-01-20', 'proveedor', 'Venezolana', 10, 156, 'juridico', 'J-87654330-10', 'Servicios Falcón', 'Compañía de Servicios Falcón', 'www.serviciosfalcon.com');
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(127, 'Avenida 4 de Mayo, Torre Empresarial, Porlamar', 4100.0, '2023-01-31', 'proveedor', 'Venezolana', 16, 167, 'juridico', 'J-162345678-16', 'Empresas Porlamar', 'Corporación Industrial Nueva Esparta', 'www.empresasporlamar.com'),
+(128, 'Calle Igualdad, Centro Comercial, Juan Griego', 4200.0, '2023-02-01', 'proveedor', 'Venezolana', 16, 168, 'juridico', 'J-87654336-16', 'Comercial Juan Griego', 'Distribuidora Juan Griego', 'www.comercialjuangriego.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(129, 'Avenida Páez, Zona Industrial, Acarigua', 4300.0, '2023-02-02', 'proveedor', 'Venezolana', 17, 169, 'juridico', 'J-172345678-17', 'Empresas Acarigua', 'Corporación Industrial Portuguesa', 'www.empresasacarigua.com'),
+(130, 'Calle 5 de Julio, Centro Empresarial, Guanare', 4400.0, '2023-02-03', 'proveedor', 'Venezolana', 17, 170, 'juridico', 'J-87654337-17', 'Comercial Guanare', 'Distribuidora Guanare', 'www.comercialguanare.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(131, 'Avenida Bermúdez, Torre Comercial, Cumaná', 4500.0, '2023-02-04', 'proveedor', 'Venezolana', 18, 171, 'juridico', 'J-182345678-18', 'Empresas Cumaná', 'Corporación Industrial Sucre', 'www.empresascumana.com'),
+(132, 'Calle Mariño, Centro Empresarial, Carúpano', 4600.0, '2023-02-05', 'proveedor', 'Venezolana', 18, 172, 'juridico', 'J-87654338-18', 'Comercial Carúpano', 'Distribuidora Carúpano', 'www.comercialcarupano.com');
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(133, 'Avenida 19 de Abril, Zona Comercial, San Cristóbal', 4700.0, '2023-02-06', 'proveedor', 'Venezolana', 19, 173, 'juridico', 'J-192345678-19', 'Empresas San Cristóbal', 'Corporación Industrial Táchira', 'www.empresassancristobal.com'),
+(134, 'Calle 5, Centro Empresarial, San Antonio del Táchira', 4800.0, '2023-02-07', 'proveedor', 'Venezolana', 19, 174, 'juridico', 'J-87654339-19', 'Comercial San Antonio', 'Distribuidora San Antonio', 'www.comercialsanantonio.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(135, 'Avenida Bolívar, Torre Empresarial, Valera', 4900.0, '2023-02-08', 'proveedor', 'Venezolana', 20, 175, 'juridico', 'J-202345678-20', 'Empresas Valera', 'Corporación Industrial Trujillo', 'www.empresasvalera.com'),
+(136, 'Calle Sucre, Complejo Comercial, Trujillo', 5000.0, '2023-02-09', 'proveedor', 'Venezolana', 20, 176, 'juridico', 'J-87654340-20', 'Comercial Trujillo', 'Distribuidora Trujillo', 'www.comercialtrujillo.com');
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(137, 'Avenida La Playa, Edificio Empresarial, La Guaira', 5100.0, '2023-02-10', 'proveedor', 'Venezolana', 21, 177, 'juridico', 'J-212345678-21', 'Empresas La Guaira', 'Corporación Industrial Vargas', 'www.empresaslaguaira.com'),
+(138, 'Calle Bolívar, Centro Comercial, Maiquetía', 5200.0, '2023-02-11', 'proveedor', 'Venezolana', 21, 178, 'juridico', 'J-87654341-21', 'Comercial Maiquetía', 'Distribuidora Maiquetía', 'www.comercialmaiquetia.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(139, 'Avenida Bolívar, Zona Industrial, San Felipe', 5300.0, '2023-02-12', 'proveedor', 'Venezolana', 22, 179, 'juridico', 'J-222345678-22', 'Empresas San Felipe', 'Corporación Industrial Yaracuy', 'www.empresassanfelipe.com'),
+(140, 'Calle 19 de Abril, Centro Empresarial, Yaritagua', 5400.0, '2023-02-13', 'proveedor', 'Venezolana', 22, 180, 'juridico', 'J-87654342-22', 'Comercial Yaritagua', 'Distribuidora Yaritagua', 'www.comercialyaritagua.com');
+
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(141, 'Avenida Bella Vista, Torre Empresarial, Maracaibo', 5500.0, '2023-02-14', 'proveedor', 'Venezolana', 23, 181, 'juridico', 'J-232345678-23', 'Empresas Maracaibo', 'Corporación Industrial Zulia', 'www.empresasmaracaibo.com'),
+(142, 'Calle 72, Complejo Comercial, Cabimas', 5600.0, '2023-02-15', 'proveedor', 'Venezolana', 23, 182, 'juridico', 'J-87654343-23', 'Comercial Cabimas', 'Distribuidora Cabimas', 'www.comercialcabimas.com');
+
+INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
+VALUES 
+(143, 'Avenida Urdaneta, Edificio Empresarial, Caracas', 5700.0, '2023-02-16', 'proveedor', 'Venezolana', 24, 183, 'juridico', 'J-242345678-24', 'Empresas Caracas', 'Corporación Industrial Distrito Capital', 'www.empresascaracas.com'),
+(144, 'Calle Sucre, Centro Comercial, El Hatillo', 5800.0, '2023-02-17', 'proveedor', 'Venezolana', 24, 184, 'juridico', 'J-87654344-24', 'Comercial El Hatillo', 'Distribuidora El Hatillo', 'www.comercialelhatillo.com');
 
 INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
 VALUES (1, 'Juan', 'Carlos', 'Perez', 'Gomez', 'Calle A, 123', '2022-01-01', 400, 1500.00, 97, 'V-12345678');
