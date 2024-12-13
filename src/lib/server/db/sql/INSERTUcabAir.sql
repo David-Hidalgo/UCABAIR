@@ -2262,13 +2262,7 @@ INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES
 ('nick_nelson', '$argon2id$v=19$m=19456,t=2,p=1$c105LqvTFezQMk0Iqz4H8w$cX9hm7jktjewGUs2epasXwbsqyJ8Q8V827LGrbgeiBU', 2),
 ('joe_lopez', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 2),
 ('joe_locke', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 2),
-('kit_connor', '$argon2id$v=19$m=19456,t=2,p=1$MYgBxS1yE4jSrGbtXn6ybQ$4ZKvIWpzPLziey5nvDm0b8MaFxLXEFMwjBCKj08nBgY', 2),
-('sofia', '$argon2id$v=19$m=19456,t=2,p=1$NvFMivOjM2M1zdXtAMqZWw$89B1AJyRVdfj1AfQrQAOv76PO09RzMivKfzQQnxrIDo', 1),
-('david_hidalgo', '$argon2id$v=19$m=19456,t=2,p=1$MC3SZ0NtQZn9EAYtnD4KHw$A9nD/QSW0xDvg/IAknaGMwtQO0RSWQVtDA2om/x4i9s', 1),
-('david','$argon2id$v=19$m=19456,t=2,p=1$rWxVD4q/WDUeOInnLV4ekw$1YYD6DcPZRhu35o28TliUWZbzLYFimVjORsEwwllGjA',1),
-('sofia_wilson', '$argon2id$v=19$m=19456,t=2,p=1$fy7EGFqq8CrWS31UYAW7ZQ$GFYdUYwrXYZaAl/wY7L/wXPEn4GwfwqFmnUsOTdirXs', 1),
-('german', '$argon2id$v=19$m=19456,t=2,p=1$Ms6Gi+AHH7npm5S+jHkL+w$plVt+wB7GQd++20KuOQaLnRK5cUsUQ72JH0SwXxm9Ys', 1),
-('german_oropeza', '$argon2id$v=19$m=19456,t=2,p=1$STZNe2yxaYJr8fpUpDxffA$cBIvRkKac15QQhD5a4FQTFmYBre5VtHQPgJobwGgJVg', 1);
+('kit_connor', '$argon2id$v=19$m=19456,t=2,p=1$MYgBxS1yE4jSrGbtXn6ybQ$4ZKvIWpzPLziey5nvDm0b8MaFxLXEFMwjBCKj08nBgY', 2);
 
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
 ('cedrosamazonas', '$argon2id$v=19$m=19456,t=2,p=1$StiRzSLC6cUgN+BDRn5cug$KBai83g3Z1YFHmzdMepAdzGvZYGJyT5XCxWyPEM/ATQ', 4),
@@ -2320,7 +2314,14 @@ INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES
 ('empresasmaracaibo', '$argon2id$v=19$m=19456,t=2,p=1$E8M/nE70Q79NUMuxu9avvQ$aetwUgiHXRnnYyMqj2ldPjkHc6QmRwGI9IwPw7hi7vM', 4),
 ('comercialcabimas', '$argon2id$v=19$m=19456,t=2,p=1$IGPUzKUJsTfWSsPjONDWhQ$9wvYzjZ67fOZHRHzBeWCExbJXjMc//gTIMbnTrhQIlI', 4),
 ('empresascaracas', '$argon2id$v=19$m=19456,t=2,p=1$BfxayslZZBrqYRgUMacPYQ$PjF7wwtFK8X0Tjg+8yT/0WRGTm2nOLT6cgSB33Pq10g', 4),
-('comercialelhatillo', '$argon2id$v=19$m=19456,t=2,p=1$81/TXuEtC+nc2Byhts/lhw$JavC6M3+9m0X5/DLZONNl2JoX2BfCULdXC5XwZQPJMQ', 4);
+('comercialelhatillo', '$argon2id$v=19$m=19456,t=2,p=1$81/TXuEtC+nc2Byhts/lhw$JavC6M3+9m0X5/DLZONNl2JoX2BfCULdXC5XwZQPJMQ', 4),
+('sofia', '$argon2id$v=19$m=19456,t=2,p=1$NvFMivOjM2M1zdXtAMqZWw$89B1AJyRVdfj1AfQrQAOv76PO09RzMivKfzQQnxrIDo', 1),
+('david_hidalgo', '$argon2id$v=19$m=19456,t=2,p=1$MC3SZ0NtQZn9EAYtnD4KHw$A9nD/QSW0xDvg/IAknaGMwtQO0RSWQVtDA2om/x4i9s', 1),
+('david','$argon2id$v=19$m=19456,t=2,p=1$rWxVD4q/WDUeOInnLV4ekw$1YYD6DcPZRhu35o28TliUWZbzLYFimVjORsEwwllGjA',1),
+('sofia_wilson', '$argon2id$v=19$m=19456,t=2,p=1$fy7EGFqq8CrWS31UYAW7ZQ$GFYdUYwrXYZaAl/wY7L/wXPEn4GwfwqFmnUsOTdirXs', 1),
+('german', '$argon2id$v=19$m=19456,t=2,p=1$Ms6Gi+AHH7npm5S+jHkL+w$plVt+wB7GQd++20KuOQaLnRK5cUsUQ72JH0SwXxm9Ys', 1),
+('german_oropeza', '$argon2id$v=19$m=19456,t=2,p=1$STZNe2yxaYJr8fpUpDxffA$cBIvRkKac15QQhD5a4FQTFmYBre5VtHQPgJobwGgJVg', 1);
+
 
 
 INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
@@ -2488,169 +2489,169 @@ INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inic
 VALUES (41, 'Calle Libertador 123, Guárico', 49000.0, '2025-01-01', 'cliente', 'venezolana', 11, 41, 'juridico', 'J-00000021-1', 'Empresa Guárico', 'Empresa Guárico S.A.', 'www.guárico.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (42, 'Avenida Bolívar 456, Guárico', 50000.0, '2025-02-01', 'cliente', 'venezolana', 11, 42, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-21', 'Fernando', NULL, 'Méndez', 'Martínez');
+VALUES (42, 'Avenida Bolívar 456, Guárico', 50000.0, '2025-01-02', 'cliente', 'venezolana', 11, 42, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-21', 'Fernando', NULL, 'Méndez', 'Martínez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (43, 'Calle Secundaria 789, Guárico', 51000.0, '2025-03-01', 'cliente', 'venezolana', 11, 43, 'juridico', 'J-00000022-2', 'Servicios Guárico', 'Servicios Guárico C.A.', 'www.serviciosguárico.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (43, 'Calle Secundaria 789, Guárico', 51000.0, '2025-01-03', 'cliente', 'venezolana', 11, 43, 'juridico', 'J-00000022-2', 'Servicios Guárico', 'Servicios Guárico C.A.', 'www.serviciosguárico.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (44, 'Avenida Principal 123, Guárico', 52000.0, '2025-04-01', 'cliente', 'venezolana', 11, 44, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-21', 'Andrea', 'Gabriela', 'Morales', 'Gómez');
+VALUES (44, 'Avenida Principal 123, Guárico', 52000.0, '2025-01-05', 'cliente', 'venezolana', 11, 44, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-21', 'Andrea', 'Gabriela', 'Morales', 'Gómez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (45, 'Calle Libertador 123, Lara', 53000.0, '2025-05-01', 'cliente', 'venezolana', 12, 45, 'juridico', 'J-00000023-3', 'Empresa Lara', 'Empresa Lara S.A.', 'www.lara.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (45, 'Calle Libertador 123, Lara', 53000.0, '2025-01-07', 'cliente', 'venezolana', 12, 45, 'juridico', 'J-00000023-3', 'Empresa Lara', 'Empresa Lara S.A.', 'www.lara.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (46, 'Avenida Bolívar 456, Lara', 54000.0, '2025-06-01', 'cliente', 'venezolana', 12, 46, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-23', 'Enrique', NULL, 'Pérez', 'Ramírez');
+VALUES (46, 'Avenida Bolívar 456, Lara', 54000.0, '2025-01-09', 'cliente', 'venezolana', 12, 46, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-23', 'Enrique', NULL, 'Pérez', 'Ramírez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (47, 'Calle Secundaria 789, Lara', 55000.0, '2025-07-01', 'cliente', 'venezolana', 12, 47, 'juridico', 'J-00000024-4', 'Servicios Lara', 'Servicios Lara C.A.', 'www.servicioslara.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (47, 'Calle Secundaria 789, Lara', 55000.0, '2025-01-11', 'cliente', 'venezolana', 12, 47, 'juridico', 'J-00000024-4', 'Servicios Lara', 'Servicios Lara C.A.', 'www.servicioslara.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (48, 'Avenida Principal 123, Lara', 56000.0, '2025-08-01', 'cliente', 'venezolana', 12, 48, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-24', 'Valentina', 'María', 'Díaz', 'Fernández');
+VALUES (48, 'Avenida Principal 123, Lara', 56000.0, '2025-01-11', 'cliente', 'venezolana', 12, 48, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-24', 'Valentina', 'María', 'Díaz', 'Fernández');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (49, 'Calle Principal 123, Mérida', 57000.0, '2025-09-01', 'cliente', 'venezolana', 13, 49, 'juridico', 'J-00000025-5', 'Empresa Mérida', 'Empresa Mérida S.A.', 'www.merida.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (49, 'Calle Principal 123, Mérida', 57000.0, '2025-01-12', 'cliente', 'venezolana', 13, 49, 'juridico', 'J-00000025-5', 'Empresa Mérida', 'Empresa Mérida S.A.', 'www.merida.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (50, 'Avenida Bolívar 456, Mérida', 58000.0, '2025-10-01', 'cliente', 'venezolana', 13, 50, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-25', 'Carlos', NULL, 'Martínez', 'López');
+VALUES (50, 'Avenida Bolívar 456, Mérida', 58000.0, '2024-11-02', 'cliente', 'venezolana', 13, 50, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-25', 'Carlos', NULL, 'Martínez', 'López');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (51, 'Calle Secundaria 789, Mérida', 59000.0, '2025-11-01', 'cliente', 'venezolana', 13, 51, 'juridico', 'J-00000026-6', 'Servicios Mérida', 'Servicios Mérida C.A.', 'www.serviciosmerida.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (51, 'Calle Secundaria 789, Mérida', 59000.0, '2024-11-03', 'cliente', 'venezolana', 13, 51, 'juridico', 'J-00000026-6', 'Servicios Mérida', 'Servicios Mérida C.A.', 'www.serviciosmerida.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (52, 'Avenida Principal 123, Mérida', 60000.0, '2025-12-01', 'cliente', 'venezolana', 13, 52, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-25', 'María', 'José', 'Ramírez', 'López');
+VALUES (52, 'Avenida Principal 123, Mérida', 60000.0, '2024-12-06', 'cliente', 'venezolana', 13, 52, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-25', 'María', 'José', 'Ramírez', 'López');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (53, 'Calle Libertador 123, Miranda', 61000.0, '2026-01-01', 'cliente', 'venezolana', 14, 53, 'juridico', 'J-00000027-7', 'Empresa Miranda', 'Empresa Miranda S.A.', 'www.miranda.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (53, 'Calle Libertador 123, Miranda', 61000.0, '2024-01-08', 'cliente', 'venezolana', 14, 53, 'juridico', 'J-00000027-7', 'Empresa Miranda', 'Empresa Miranda S.A.', 'www.miranda.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (54, 'Avenida Bolívar 456, Miranda', 62000.0, '2026-02-01', 'cliente', 'venezolana', 14, 54, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-27', 'Ana', NULL, 'Fernández', 'Gómez');
+VALUES (54, 'Avenida Bolívar 456, Miranda', 62000.0, '2024-02-13', 'cliente', 'venezolana', 14, 54, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-27', 'Ana', NULL, 'Fernández', 'Gómez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (55, 'Calle Secundaria 789, Miranda', 63000.0, '2026-03-01', 'cliente', 'venezolana', 14, 55, 'juridico', 'J-00000028-8', 'Servicios Miranda', 'Servicios Miranda C.A.', 'www.serviciosmiranda.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (55, 'Calle Secundaria 789, Miranda', 63000.0, '2024-03-23', 'cliente', 'venezolana', 14, 55, 'juridico', 'J-00000028-8', 'Servicios Miranda', 'Servicios Miranda C.A.', 'www.serviciosmiranda.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (56, 'Avenida Principal 123, Miranda', 64000.0, '2026-04-01', 'cliente', 'venezolana', 14, 56, 'natural', NULL, NULL, NULL, NULL, 'V-43210987-27', 'Julio', 'César', 'Mora', 'Pérez');
+VALUES (56, 'Avenida Principal 123, Miranda', 64000.0, '2024-04-26', 'cliente', 'venezolana', 14, 56, 'natural', NULL, NULL, NULL, NULL, 'V-43210987-27', 'Julio', 'César', 'Mora', 'Pérez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (57, 'Calle Principal 123, Monagas', 65000.0, '2026-05-01', 'cliente', 'venezolana', 15, 57, 'juridico', 'J-00000029-9', 'Empresa Monagas', 'Empresa Monagas S.A.', 'www.monagas.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (57, 'Calle Principal 123, Monagas', 65000.0, '2024-05-26', 'cliente', 'venezolana', 15, 57, 'juridico', 'J-00000029-9', 'Empresa Monagas', 'Empresa Monagas S.A.', 'www.monagas.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (58, 'Avenida Bolívar 456, Monagas', 66000.0, '2026-06-01', 'cliente', 'venezolana', 15, 58, 'natural', NULL, NULL, NULL, NULL, 'V-76543210-29', 'Luis', NULL, 'García', 'Martínez');
+VALUES (58, 'Avenida Bolívar 456, Monagas', 66000.0, '2024-06-14', 'cliente', 'venezolana', 15, 58, 'natural', NULL, NULL, NULL, NULL, 'V-76543210-29', 'Luis', NULL, 'García', 'Martínez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (59, 'Calle Secundaria 789, Monagas', 67000.0, '2026-07-01', 'cliente', 'venezolana', 15, 59, 'juridico', 'J-00000030-0', 'Servicios Monagas', 'Servicios Monagas C.A.', 'www.serviciosmonagas.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (59, 'Calle Secundaria 789, Monagas', 67000.0, '2024-07-18', 'cliente', 'venezolana', 15, 59, 'juridico', 'J-00000030-0', 'Servicios Monagas', 'Servicios Monagas C.A.', 'www.serviciosmonagas.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (60, 'Avenida Principal 123, Monagas', 68000.0, '2026-08-01', 'cliente', 'venezolana', 15, 60, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-29', 'Andrés', 'José', 'Pérez', 'Gómez');
+VALUES (60, 'Avenida Principal 123, Monagas', 68000.0, '2024-08-15', 'cliente', 'venezolana', 15, 60, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-29', 'Andrés', 'José', 'Pérez', 'Gómez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (61, 'Calle Principal 123, Nueva Esparta', 69000.0, '2026-09-01', 'cliente', 'venezolana', 16, 61, 'juridico', 'J-00000031-1', 'Empresa Nueva Esparta', 'Empresa Nueva Esparta S.A.', 'www.nuevaesparta.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (61, 'Calle Principal 123, Nueva Esparta', 69000.0, '2024-09-30', 'cliente', 'venezolana', 16, 61, 'juridico', 'J-00000031-1', 'Empresa Nueva Esparta', 'Empresa Nueva Esparta S.A.', 'www.nuevaesparta.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (62, 'Avenida Bolívar 456, Nueva Esparta', 70000.0, '2026-10-01', 'cliente', 'venezolana', 16, 62, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-22', 'Javier', NULL, 'Rodríguez', 'López');
+VALUES (62, 'Avenida Bolívar 456, Nueva Esparta', 70000.0, '2024-10-21', 'cliente', 'venezolana', 16, 62, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-22', 'Javier', NULL, 'Rodríguez', 'López');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (63, 'Calle Secundaria 789, Nueva Esparta', 71000.0, '2026-11-01', 'cliente', 'venezolana', 16, 63, 'juridico', 'J-00000032-2', 'Servicios Nueva Esparta', 'Servicios Nueva Esparta C.A.', 'www.serviciosnuevaesparta.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (63, 'Calle Secundaria 789, Nueva Esparta', 71000.0, '2024-11-26', 'cliente', 'venezolana', 16, 63, 'juridico', 'J-00000032-2', 'Servicios Nueva Esparta', 'Servicios Nueva Esparta C.A.', 'www.serviciosnuevaesparta.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (64, 'Avenida Principal 123, Nueva Esparta', 72000.0, '2026-12-01', 'cliente', 'venezolana', 16, 64, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-22', 'María', 'Isabel', 'Gómez', 'Pérez');
+VALUES (64, 'Avenida Principal 123, Nueva Esparta', 72000.0, '2024-12-26', 'cliente', 'venezolana', 16, 64, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-22', 'María', 'Isabel', 'Gómez', 'Pérez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (65, 'Calle Principal 123, Portuguesa', 73000.0, '2027-01-01', 'cliente', 'venezolana', 17, 65, 'juridico', 'J-00000033-3', 'Empresa Portuguesa', 'Empresa Portuguesa S.A.', 'www.portuguesa.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (65, 'Calle Principal 123, Portuguesa', 73000.0, '2024-01-22', 'cliente', 'venezolana', 17, 65, 'juridico', 'J-00000033-3', 'Empresa Portuguesa', 'Empresa Portuguesa S.A.', 'www.portuguesa.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (66, 'Avenida Bolívar 456, Portuguesa', 74000.0, '2027-02-01', 'cliente', 'venezolana', 17, 66, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-33', 'Ricardo', NULL, 'Hernández', 'Pérez');
+VALUES (66, 'Avenida Bolívar 456, Portuguesa', 74000.0, '2024-02-02', 'cliente', 'venezolana', 17, 66, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-33', 'Ricardo', NULL, 'Hernández', 'Pérez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (67, 'Calle Secundaria 789, Portuguesa', 75000.0, '2027-03-01', 'cliente', 'venezolana', 17, 67, 'juridico', 'J-00000034-4', 'Servicios Portuguesa', 'Servicios Portuguesa C.A.', 'www.serviciosportuguesa.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (67, 'Calle Secundaria 789, Portuguesa', 75000.0, '2024-03-10', 'cliente', 'venezolana', 17, 67, 'juridico', 'J-00000034-4', 'Servicios Portuguesa', 'Servicios Portuguesa C.A.', 'www.serviciosportuguesa.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (68, 'Avenida Principal 123, Portuguesa', 76000.0, '2027-04-01', 'cliente', 'venezolana', 17, 68, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-33', 'Santiago', 'Carlos', 'Márquez', 'López');
+VALUES (68, 'Avenida Principal 123, Portuguesa', 76000.0, '2024-04-02', 'cliente', 'venezolana', 17, 68, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-33', 'Santiago', 'Carlos', 'Márquez', 'López');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (69, 'Calle Principal 123, Sucre', 77000.0, '2027-05-01', 'cliente', 'venezolana', 18, 69, 'juridico', 'J-00000035-5', 'Empresa Sucre', 'Empresa Sucre S.A.', 'www.sucre.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (69, 'Calle Principal 123, Sucre', 77000.0, '2024-05-04', 'cliente', 'venezolana', 18, 69, 'juridico', 'J-00000035-5', 'Empresa Sucre', 'Empresa Sucre S.A.', 'www.sucre.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (70, 'Avenida Bolívar 456, Sucre', 78000.0, '2027-06-01', 'cliente', 'venezolana', 18, 70, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-34', 'Gabriela', NULL, 'Rodríguez', 'Martínez');
+VALUES (70, 'Avenida Bolívar 456, Sucre', 78000.0, '2024-06-07', 'cliente', 'venezolana', 18, 70, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-34', 'Gabriela', NULL, 'Rodríguez', 'Martínez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (71, 'Calle Secundaria 789, Sucre', 79000.0, '2027-07-01', 'cliente', 'venezolana', 18, 71, 'juridico', 'J-00000036-6', 'Servicios Sucre', 'Servicios Sucre C.A.', 'www.serviciossucre.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (71, 'Calle Secundaria 789, Sucre', 79000.0, '2024-07-29', 'cliente', 'venezolana', 18, 71, 'juridico', 'J-00000036-6', 'Servicios Sucre', 'Servicios Sucre C.A.', 'www.serviciossucre.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (72, 'Avenida Principal 123, Sucre', 80000.0, '2027-08-01', 'cliente', 'venezolana', 18, 72, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-34', 'Adriana', 'Beatriz', 'Díaz', 'Fernández');
+VALUES (72, 'Avenida Principal 123, Sucre', 80000.0, '2024-08-10', 'cliente', 'venezolana', 18, 72, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-34', 'Adriana', 'Beatriz', 'Díaz', 'Fernández');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (73, 'Calle Principal 123, Táchira', 81000.0, '2027-09-01', 'cliente', 'venezolana', 19, 73, 'juridico', 'J-00000037-7', 'Empresa Táchira', 'Empresa Táchira S.A.', 'www.tachira.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (73, 'Calle Principal 123, Táchira', 81000.0, '2024-09-14', 'cliente', 'venezolana', 19, 73, 'juridico', 'J-00000037-7', 'Empresa Táchira', 'Empresa Táchira S.A.', 'www.tachira.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (74, 'Avenida Bolívar 456, Táchira', 82000.0, '2027-10-01', 'cliente', 'venezolana', 19, 74, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-39', 'David', NULL, 'Vargas', 'González');
+VALUES (74, 'Avenida Bolívar 456, Táchira', 82000.0, '2024-10-27', 'cliente', 'venezolana', 19, 74, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-39', 'David', NULL, 'Vargas', 'González');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (75, 'Calle Secundaria 789, Táchira', 83000.0, '2027-11-01', 'cliente', 'venezolana', 19, 75, 'juridico', 'J-00000038-8', 'Servicios Táchira', 'Servicios Táchira C.A.', 'www.serviciostachira.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (75, 'Calle Secundaria 789, Táchira', 83000.0, '2024-11-21', 'cliente', 'venezolana', 19, 75, 'juridico', 'J-00000038-8', 'Servicios Táchira', 'Servicios Táchira C.A.', 'www.serviciostachira.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (76, 'Avenida Principal 123, Táchira', 84000.0, '2027-12-01', 'cliente', 'venezolana', 19, 76, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-37', 'Claudia', 'Isabel', 'Jiménez', 'Ramos');
+VALUES (76, 'Avenida Principal 123, Táchira', 84000.0, '2024-12-14', 'cliente', 'venezolana', 19, 76, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-37', 'Claudia', 'Isabel', 'Jiménez', 'Ramos');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (77, 'Calle Principal 123, Trujillo', 85000.0, '2028-01-01', 'cliente', 'venezolana', 20, 77, 'juridico', 'J-00000039-9', 'Empresa Trujillo', 'Empresa Trujillo S.A.', 'www.trujillo.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (77, 'Calle Principal 123, Trujillo', 85000.0, '2024-01-03', 'cliente', 'venezolana', 20, 77, 'juridico', 'J-00000039-9', 'Empresa Trujillo', 'Empresa Trujillo S.A.', 'www.trujillo.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (78, 'Avenida Bolívar 456, Trujillo', 86000.0, '2028-02-01', 'cliente', 'venezolana', 20, 78, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-38', 'Marcos', NULL, 'López', 'Morales');
+VALUES (78, 'Avenida Bolívar 456, Trujillo', 86000.0, '2024-02-05', 'cliente', 'venezolana', 20, 78, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-38', 'Marcos', NULL, 'López', 'Morales');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (79, 'Calle Secundaria 789, Trujillo', 87000.0, '2028-03-01', 'cliente', 'venezolana', 20, 79, 'juridico', 'J-00000040-0', 'Servicios Trujillo', 'Servicios Trujillo C.A.', 'www.serviciostrujillo.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (79, 'Calle Secundaria 789, Trujillo', 87000.0, '2024-03-09', 'cliente', 'venezolana', 20, 79, 'juridico', 'J-00000040-0', 'Servicios Trujillo', 'Servicios Trujillo C.A.', 'www.serviciostrujillo.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (80, 'Avenida Principal 123, Trujillo', 88000.0, '2028-04-01', 'cliente', 'venezolana', 20, 80, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-49', 'Elena', 'María', 'Sánchez', 'Pérez');
+VALUES (80, 'Avenida Principal 123, Trujillo', 88000.0, '2024-04-11', 'cliente', 'venezolana', 20, 80, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-49', 'Elena', 'María', 'Sánchez', 'Pérez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (81, 'Calle Principal 123, Vargas', 89000.0, '2028-05-01', 'cliente', 'venezolana', 21, 81, 'juridico', 'J-00000041-1', 'Empresa Vargas', 'Empresa Vargas S.A.', 'www.vargas.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (81, 'Calle Principal 123, Vargas', 89000.0, '2024-05-13', 'cliente', 'venezolana', 21, 81, 'juridico', 'J-00000041-1', 'Empresa Vargas', 'Empresa Vargas S.A.', 'www.vargas.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (82, 'Avenida Bolívar 456, Vargas', 90000.0, '2028-06-01', 'cliente', 'venezolana', 21, 82, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-36', 'Laura', NULL, 'Fernández', 'Martínez');
+VALUES (82, 'Avenida Bolívar 456, Vargas', 90000.0, '2024-06-16', 'cliente', 'venezolana', 21, 82, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-36', 'Laura', NULL, 'Fernández', 'Martínez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (83, 'Calle Secundaria 789, Vargas', 91000.0, '2028-07-01', 'cliente', 'venezolana', 21, 83, 'juridico', 'J-00000042-2', 'Servicios Vargas', 'Servicios Vargas C.A.', 'www.serviciosvargas.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (83, 'Calle Secundaria 789, Vargas', 91000.0, '2024-07-30-', 'cliente', 'venezolana', 21, 83, 'juridico', 'J-00000042-2', 'Servicios Vargas', 'Servicios Vargas C.A.', 'www.serviciosvargas.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (84, 'Avenida Principal 123, Vargas', 92000.0, '2028-08-01', 'cliente', 'venezolana', 21, 84, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-46', 'José', 'Luis', 'Rodríguez', 'Pérez');
+VALUES (84, 'Avenida Principal 123, Vargas', 92000.0, '2024-08-29', 'cliente', 'venezolana', 21, 84, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-46', 'José', 'Luis', 'Rodríguez', 'Pérez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (85, 'Calle Principal 123, Zulia', 93000.0, '2028-09-01', 'cliente', 'venezolana', 23, 85, 'juridico', 'J-00000043-3', 'Empresa Zulia', 'Empresa Zulia S.A.', 'www.zulia.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (85, 'Calle Principal 123, Zulia', 93000.0, '2024-09-28', 'cliente', 'venezolana', 23, 85, 'juridico', 'J-00000043-3', 'Empresa Zulia', 'Empresa Zulia S.A.', 'www.zulia.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (86, 'Avenida Bolívar 456, Zulia', 94000.0, '2028-10-01', 'cliente', 'venezolana', 23, 86, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-41', 'María', NULL, 'Gómez', 'Rodríguez');
+VALUES (86, 'Avenida Bolívar 456, Zulia', 94000.0, '2024-10-25', 'cliente', 'venezolana', 23, 86, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-41', 'María', NULL, 'Gómez', 'Rodríguez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (87, 'Calle Secundaria 789, Zulia', 95000.0, '2028-11-01', 'cliente', 'venezolana', 23, 87, 'juridico', 'J-00000044-4', 'Servicios Zulia', 'Servicios Zulia C.A.', 'www.servicioszulia.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (87, 'Calle Secundaria 789, Zulia', 95000.0, '2024-11-22', 'cliente', 'venezolana', 23, 87, 'juridico', 'J-00000044-4', 'Servicios Zulia', 'Servicios Zulia C.A.', 'www.servicioszulia.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (88, 'Avenida Principal 123, Zulia', 96000.0, '2028-12-01', 'cliente', 'venezolana', 23, 88, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-47', 'Carlos', 'Alberto', 'Mendoza', 'Pérez');
+VALUES (88, 'Avenida Principal 123, Zulia', 96000.0, '2024-12-21', 'cliente', 'venezolana', 23, 88, 'natural', NULL, NULL, NULL, NULL, 'V-65432109-47', 'Carlos', 'Alberto', 'Mendoza', 'Pérez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (89, 'Calle Principal 123, Distrito Capital', 97000.0, '2029-01-01', 'cliente', 'venezolana', 24, 89, 'juridico', 'J-00000045-5', 'Empresa Distrito Capital', 'Empresa Distrito Capital S.A.', 'www.distritocapital.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (89, 'Calle Principal 123, Distrito Capital', 97000.0, '2024-01-06', 'cliente', 'venezolana', 24, 89, 'juridico', 'J-00000045-5', 'Empresa Distrito Capital', 'Empresa Distrito Capital S.A.', 'www.distritocapital.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (90, 'Avenida Bolívar 456, Distrito Capital', 98000.0, '2029-02-01', 'cliente', 'venezolana', 24, 90, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-42', 'Paola', NULL, 'Gómez', 'Fernández');
+VALUES (90, 'Avenida Bolívar 456, Distrito Capital', 98000.0, '2024-02-05', 'cliente', 'venezolana', 24, 90, 'natural', NULL, NULL, NULL, NULL, 'V-98765432-42', 'Paola', NULL, 'Gómez', 'Fernández');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (91, 'Calle Secundaria 789, Distrito Capital', 99000.0, '2029-03-01', 'cliente', 'venezolana', 24, 91, 'juridico', 'J-00000046-6', 'Servicios Distrito Capital', 'Servicios Distrito Capital C.A.', 'www.serviciosdistritocapital.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (91, 'Calle Secundaria 789, Distrito Capital', 99000.0, '2024-03-06', 'cliente', 'venezolana', 24, 91, 'juridico', 'J-00000046-6', 'Servicios Distrito Capital', 'Servicios Distrito Capital C.A.', 'www.serviciosdistritocapital.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (92, 'Avenida Principal 123, Distrito Capital', 100000.0, '2029-04-01', 'cliente', 'venezolana', 24, 92, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-58', 'Ana', 'María', 'Fernández', 'Gómez');
+VALUES (92, 'Avenida Principal 123, Distrito Capital', 100000.0, '2024-04-09', 'cliente', 'venezolana', 24, 92, 'natural', NULL, NULL, NULL, NULL, 'V-54321098-58', 'Ana', 'María', 'Fernández', 'Gómez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (93, 'Calle Principal 123, Yaracuy', 101000.0, '2029-05-01', 'cliente', 'venezolana', 22, 93, 'juridico', 'J-00000047-67', 'Empresa Yaracuy', 'Empresa Yaracuy S.A.', 'www.yaracuy.com.ve', NULL, NULL, NULL, NULL, NULL);
+VALUES (93, 'Calle Principal 123, Yaracuy', 101000.0, '2024-05-14', 'cliente', 'venezolana', 22, 93, 'juridico', 'J-00000047-67', 'Empresa Yaracuy', 'Empresa Yaracuy S.A.', 'www.yaracuy.com.ve', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (94, 'Avenida Bolívar 456, Yaracuy', 102000.0, '2029-06-01', 'cliente', 'venezolana', 22, 94, 'natural', NULL, NULL, NULL, NULL, 'V-12345678-69', 'Luis', NULL, 'Pérez', 'García');
+VALUES (94, 'Avenida Bolívar 456, Yaracuy', 102000.0, '2024-06-15', 'cliente', 'venezolana', 22, 94, 'natural', NULL, NULL, NULL, NULL, 'V-12345678-69', 'Luis', NULL, 'Pérez', 'García');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (95, 'Calle Secundaria 789, Yaracuy', 103000.0, '2029-07-01', 'cliente', 'venezolana', 22, 95, 'juridico', 'J-00000048-68', 'Servicios Yaracuy', 'Servicios Yaracuy C.A.', 'www.serviciosyaracuy.com', NULL, NULL, NULL, NULL, NULL);
+VALUES (95, 'Calle Secundaria 789, Yaracuy', 103000.0, '2024-07-17', 'cliente', 'venezolana', 22, 95, 'juridico', 'J-00000048-68', 'Servicios Yaracuy', 'Servicios Yaracuy C.A.', 'www.serviciosyaracuy.com', NULL, NULL, NULL, NULL, NULL);
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
-VALUES (96, 'Avenida Principal 123, Yaracuy', 104000.0, '2029-08-01', 'cliente', 'venezolana', 22, 96, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-65', 'Ana', 'María', 'Hernández', 'Rodríguez');
+VALUES (96, 'Avenida Principal 123, Yaracuy', 104000.0, '2024-08-18', 'cliente', 'venezolana', 22, 96, 'natural', NULL, NULL, NULL, NULL, 'V-87654321-65', 'Ana', 'María', 'Hernández', 'Rodríguez');
 
 INSERT INTO persona (codigo_com, direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur)
 VALUES 
