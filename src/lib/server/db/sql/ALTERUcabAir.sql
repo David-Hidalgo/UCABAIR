@@ -889,16 +889,10 @@ ALTER TABLE lugar ADD CONSTRAINT tipo_lug_check check(tipo_lug in ('parroquia','
 ALTER TABLE persona ADD CONSTRAINT tipo_com_check check(tipo_com in ('cliente','proveedor'));
 ALTER TABLE persona ADD CONSTRAINT tipo_com_check check(tipo_com in ('cliente','proveedor'));
 
-ALTER TABLE persona ADD CONSTRAINT tipo_comerial_com_check check(tipo_persona_com in ('juridico','natural'));
+ALTER TABLE persona ADD CONSTRAINT tipo_persona_com_check check(tipo_persona_com in ('juridico','natural'));
 
 ALTER TABLE persona ADD UNIQUE (fk_usuario);
 ALTER TABLE persona ADD UNIQUE (fk_usuario);
-
-ALTER TABLE persona ADD UNIQUE (rif_jur);
-
-ALTER TABLE persona ADD UNIQUE (denominacion_persona_jur);
-
-ALTER TABLE persona ADD UNIQUE (pagina_web_jur);
 
 ALTER TABLE persona ADD UNIQUE (cedula_nat);
 
