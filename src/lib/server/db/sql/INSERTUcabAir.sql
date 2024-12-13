@@ -2333,13 +2333,7 @@ INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES
 ('nick_nelson', '$argon2id$v=19$m=19456,t=2,p=1$c105LqvTFezQMk0Iqz4H8w$cX9hm7jktjewGUs2epasXwbsqyJ8Q8V827LGrbgeiBU', 2),
 ('joe_lopez', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 2),
 ('joe_locke', '$argon2id$v=19$m=19456,t=2,p=1$7PvAfOs74RXgZVEWCygc5g$s+I3Sdrjzio3/0k4TSm2R8vUWOjn6uo6iskBU4uDUQM', 2),
-('kit_connor', '$argon2id$v=19$m=19456,t=2,p=1$MYgBxS1yE4jSrGbtXn6ybQ$4ZKvIWpzPLziey5nvDm0b8MaFxLXEFMwjBCKj08nBgY', 2),
-('sofia', '$argon2id$v=19$m=19456,t=2,p=1$NvFMivOjM2M1zdXtAMqZWw$89B1AJyRVdfj1AfQrQAOv76PO09RzMivKfzQQnxrIDo', 1),
-('david_hidalgo', '$argon2id$v=19$m=19456,t=2,p=1$MC3SZ0NtQZn9EAYtnD4KHw$A9nD/QSW0xDvg/IAknaGMwtQO0RSWQVtDA2om/x4i9s', 1),
-('david','$argon2id$v=19$m=19456,t=2,p=1$rWxVD4q/WDUeOInnLV4ekw$1YYD6DcPZRhu35o28TliUWZbzLYFimVjORsEwwllGjA',1),
-('sofia_wilson', '$argon2id$v=19$m=19456,t=2,p=1$fy7EGFqq8CrWS31UYAW7ZQ$GFYdUYwrXYZaAl/wY7L/wXPEn4GwfwqFmnUsOTdirXs', 1),
-('german', '$argon2id$v=19$m=19456,t=2,p=1$Ms6Gi+AHH7npm5S+jHkL+w$plVt+wB7GQd++20KuOQaLnRK5cUsUQ72JH0SwXxm9Ys', 1),
-('german_oropeza', '$argon2id$v=19$m=19456,t=2,p=1$STZNe2yxaYJr8fpUpDxffA$cBIvRkKac15QQhD5a4FQTFmYBre5VtHQPgJobwGgJVg', 1);
+('kit_connor', '$argon2id$v=19$m=19456,t=2,p=1$MYgBxS1yE4jSrGbtXn6ybQ$4ZKvIWpzPLziey5nvDm0b8MaFxLXEFMwjBCKj08nBgY', 2);
 
 INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES 
 ('cedrosamazonas', '$argon2id$v=19$m=19456,t=2,p=1$StiRzSLC6cUgN+BDRn5cug$KBai83g3Z1YFHmzdMepAdzGvZYGJyT5XCxWyPEM/ATQ', 4),
@@ -2391,7 +2385,14 @@ INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES
 ('empresasmaracaibo', '$argon2id$v=19$m=19456,t=2,p=1$E8M/nE70Q79NUMuxu9avvQ$aetwUgiHXRnnYyMqj2ldPjkHc6QmRwGI9IwPw7hi7vM', 4),
 ('comercialcabimas', '$argon2id$v=19$m=19456,t=2,p=1$IGPUzKUJsTfWSsPjONDWhQ$9wvYzjZ67fOZHRHzBeWCExbJXjMc//gTIMbnTrhQIlI', 4),
 ('empresascaracas', '$argon2id$v=19$m=19456,t=2,p=1$BfxayslZZBrqYRgUMacPYQ$PjF7wwtFK8X0Tjg+8yT/0WRGTm2nOLT6cgSB33Pq10g', 4),
-('comercialelhatillo', '$argon2id$v=19$m=19456,t=2,p=1$81/TXuEtC+nc2Byhts/lhw$JavC6M3+9m0X5/DLZONNl2JoX2BfCULdXC5XwZQPJMQ', 4);
+('comercialelhatillo', '$argon2id$v=19$m=19456,t=2,p=1$81/TXuEtC+nc2Byhts/lhw$JavC6M3+9m0X5/DLZONNl2JoX2BfCULdXC5XwZQPJMQ', 4),
+('sofia', '$argon2id$v=19$m=19456,t=2,p=1$NvFMivOjM2M1zdXtAMqZWw$89B1AJyRVdfj1AfQrQAOv76PO09RzMivKfzQQnxrIDo', 1),
+('david_hidalgo', '$argon2id$v=19$m=19456,t=2,p=1$MC3SZ0NtQZn9EAYtnD4KHw$A9nD/QSW0xDvg/IAknaGMwtQO0RSWQVtDA2om/x4i9s', 1),
+('david','$argon2id$v=19$m=19456,t=2,p=1$rWxVD4q/WDUeOInnLV4ekw$1YYD6DcPZRhu35o28TliUWZbzLYFimVjORsEwwllGjA',1),
+('sofia_wilson', '$argon2id$v=19$m=19456,t=2,p=1$fy7EGFqq8CrWS31UYAW7ZQ$GFYdUYwrXYZaAl/wY7L/wXPEn4GwfwqFmnUsOTdirXs', 1),
+('german', '$argon2id$v=19$m=19456,t=2,p=1$Ms6Gi+AHH7npm5S+jHkL+w$plVt+wB7GQd++20KuOQaLnRK5cUsUQ72JH0SwXxm9Ys', 1),
+('german_oropeza', '$argon2id$v=19$m=19456,t=2,p=1$STZNe2yxaYJr8fpUpDxffA$cBIvRkKac15QQhD5a4FQTFmYBre5VtHQPgJobwGgJVg', 1);
+
 
 
 INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
