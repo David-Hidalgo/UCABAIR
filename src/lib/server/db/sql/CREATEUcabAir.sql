@@ -536,3 +536,58 @@ CREATE OR REPLACE PROCEDURE editar_rol(
     WHERE codigo_rol=viejo_codigo_rolN;
 END;
 $$;
+
+CREATE OR REPLACE PROCEDURE insertar_empleado( 
+    codigo       INTEGER,
+    primer_nombre         VARCHAR(255),
+    segundo_nombre        VARCHAR(255),
+    primer_apellido       VARCHAR(255),
+    segundo_apellido      VARCHAR(255),
+    direccion            VARCHAR(516),
+    fecha_inicio_servicio DATE,
+    fk_lugar                  INTEGER,
+    sueldo                  REAL,
+    fk_usuario                INTEGER,
+    cedula                VARCHAR(255)
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO empleado (codigo_empleado_per,primer_nombre_per,segundo_nombre_per,primer_apellido_per,
+    segundo_apellido_per,direccion_per,fecha_inicio_servicio_per,fk_lugar,sueldo_per,fk_usuario,cedula_per) 
+    VALUES (codigo,primer_nombre,segundo_nombre,primer_apellido,
+    segundo_apellido,direccion,fecha_inicio_servicio,fk_lugar,sueldo,fk_usuario,cedula);
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE eliminar_empleado(
+    codigo INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    DELETE FROM empleado WHERE codigo_rol=codigo;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE editar_empleado(
+    codigo INTEGER,
+    primer_nombre         VARCHAR(255),
+    segundo_nombre        VARCHAR(255),
+    primer_apellido       VARCHAR(255),
+    segundo_apellido      VARCHAR(255),
+    direccion            VARCHAR(516),
+    fecha_inicio_servicio DATE,
+    fk_lugar2                 INTEGER,
+    sueldo                  REAL,
+    fk_usuario2                INTEGER,
+    cedula                VARCHAR(255),
+    viejo_codigo INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    UPDATE empleado SET codigo_empleado_per=codigo,primer_nombre_per=primer_nombre,segundo_nombre_per=segundo_nombre,
+    primer_apellido_per=primer_apellido,segundo_apellido_per=segundo_apellido,direccion_per=direccion,
+    fecha_inicio_servicio_per=fecha_inicio_servicio,fk_lugar=fk_lugar2,sueldo_per=sueldo,fk_usuario=fk_usuario2,
+    cedula_per=cedula
+    WHERE codigo_empleado_per=viejo_codigo;
+END;
+$$;

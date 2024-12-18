@@ -1,5 +1,6 @@
 <script>
-	import Registro from '$lib/components/registrarEmpleado.svelte';
+	import RegistrarEmpleado from '$lib/components/registrarEmpleado.svelte';
 </script>
 
-		<Registro />
+
+		<RegistrarEmpleado id_editar={undefined} />

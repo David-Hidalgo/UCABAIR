@@ -7,7 +7,7 @@
 	import { goto } from '$app/navigation';
 	
 	
-	// Interfaz para representar un empleado
+	
 	let rol: Rol;
 	let codigo_viejo: number;
 	if (id_editar!=undefined) {
@@ -37,7 +37,7 @@
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-		alert('Rol agregado con exito');
+		alert('Rol modificado con exito');
 		goto('/admin/HomeAdmin/roles');
 	}
 	async function registrarRol() {

@@ -1,45 +1,66 @@
 <script lang="ts">
+	import type { Empleado } from '$lib/server/db/schema';
+	export let id_editar: Empleado | undefined;
 	import { goto } from '$app/navigation';
-	export let cedula_per;
-	// Interfaz para representar un empleado
-	interface Empleado {
-		cedula_per: number;
-		primer_nombre_per: string;
-		segundo_nombre_per: string;
-		primer_apellido_per: string;
-		segundo_apellido_per: string;
-		direccion_per: string;
-		fecha_inicio_servicio_per: Date;
-		experiencia_profesional_per: string;
-		titulacion_per: string;
-		sueldo_per: number;
-		telefono_per: number[];
-		correo_per: string[];
-		labor_per:string;
+	
+	let empleado: Empleado;
+	let codigo_viejo: number;
+
+	if (id_editar!=undefined) {
+		empleado = id_editar;
+		if (id_editar.codigo_empleado_per)
+		codigo_viejo=id_editar.codigo_empleado_per
+	} else {
+		empleado = {
+	codigo_empleado_per: undefined,
+	cedula_per: '',
+	primer_nombre_per: '',
+	segundo_nombre_per: '',
+	primer_apellido_per: '',
+	segundo_apellido_per: '',
+	direccion_per: '',
+	fecha_inicio_servicio_per: undefined,
+	//experiencia_profesional_per: '',
+	//titulacion_per: '',
+	sueldo_per: undefined,
+	//telefono_per: '',
+	//correo_per: '',
+	//labor_per: '',
+	fk_lugar: undefined,
+	fk_usuario: undefined
+		};
+	}
+	async function decide() {
+		
+		if (id_editar==undefined) {
+			registrarEmpleado();
+		} else {
+			actualizarEmpleado()
+		}
 	}
 
-	let empleado: Empleado = {
-		cedula_per: cedula_per,
-		primer_nombre_per: '',
-		segundo_nombre_per: '',
-		primer_apellido_per: '',
-		segundo_apellido_per: '',
-		direccion_per: '',
-		fecha_inicio_servicio_per: new Date(),
-		experiencia_profesional_per: '',
-		titulacion_per: '',
-		sueldo_per: 0,
-		telefono_per: [],
-		correo_per: [],
-		labor_per:''
-	};
-
 	// Función para manejar el envío del formulario
-	function registrarEmpleado() {
-		// Aquí iría la lógica para procesar los datos del formulario
-		console.log('Registrando empleado:', empleado);
+	async function actualizarEmpleado() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/empleado`, {
+			method: 'PUT',
+			body: JSON.stringify({empleado:empleado , codigo_viejo:codigo_viejo}),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+		alert('Empleado modificado con exito');
 		goto('/admin/HomeAdmin/empleado');
-		alert('Se agregó exitosamente el empleado');
+	}
+	async function registrarEmpleado() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/empleado`, {
+			method: 'POST',
+			body: JSON.stringify(empleado),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+
+
+		alert('Empleado agregado con exito');
+		goto('/admin/HomeAdmin/empleado');
 	}
 </script>
 
@@ -66,25 +87,9 @@
 
 	<label for="fechaInicio">Fecha de Inicio de Servicio</label>
 	<input id="fechaInicio" type="date" bind:value={empleado.fecha_inicio_servicio_per} />
-
-	<label for="experiencia">Experiencia Profesional</label>
-	<input id="experiencia" bind:value={empleado.experiencia_profesional_per} />
-
-	<label for="titulacion">Titulación</label>
-	<input id="titulacion" bind:value={empleado.titulacion_per} />
-
+	
 	<label for="sueldo">Sueldo</label>
 	<input id="sueldo" bind:value={empleado.sueldo_per} />
-
-	<label for="telefono">Teléfono</label>
-	<input id="telefono" bind:value={empleado.telefono_per} />
-
-	<label for="correo">Correo</label>
-	<input id="correo" bind:value={empleado.correo_per} />
-
-	<label for="labor">Labor</label>
-	<input id="labor" bind:value={empleado.labor_per} />
-
 	<button type="submit">Registrar Empleado</button>
 </form>
 
