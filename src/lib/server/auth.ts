@@ -31,14 +31,14 @@ export async function validateSessionToken(token: string) {
 	const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
 	const [result] =
 		
-		await dbPostgre`SELECT usuario.codigo_usu, usuario.nombre_usu, sesion.id, sesion.expires_at
+		await dbPostgre`SELECT usuario.codigo_usu, usuario.nombre_usu, usuario.fk_rol, sesion.id, sesion.expires_at
 		FROM sesion INNER JOIN usuario ON sesion.user_id = usuario.codigo_usu WHERE sesion.id = ${sessionId}`;
 	
 	if (!result) {
 		return { session: null, user: null };
 	}
 	const session = { id: result.id, expiresAt: new Date(result.expires_at) };
-	const user = { id: result.codigo_usu, username: result.nombre_usu };
+	const user = { id: result.codigo_usu, username: result.nombre_usu, rol: result.fk_rol };
 
 	const sessionExpired = Date.now() >= session.expiresAt.getTime();
 	if (sessionExpired) {

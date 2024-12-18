@@ -468,7 +468,7 @@ CREATE TABLE usuario (
     codigo_usu SERIAL NOT NULL,
     nombre_usu VARCHAR(255) NOT NULL,
     contraseña_usu VARCHAR(255) NOT NULL,
-    fk_rol INTEGER NOT NULL DEFAULT 3
+    fk_rol INTEGER NOT NULL DEFAULT 2
 );
 CREATE TABLE venta (
     codigo_venta_ven   INTEGER NOT NULL,

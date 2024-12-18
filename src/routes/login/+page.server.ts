@@ -13,7 +13,7 @@ import type { Actions, PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	if (event.locals.user) {
-		return redirect(302, '/demo/lucia');
+		return redirect(302, '/');
 	}
 	return {};
 };
@@ -21,7 +21,7 @@ export const load: PageServerLoad = async (event) => {
 export const actions: Actions = {
 	login: async (event) => {
 		const formData = await event.request.formData();
-		const username  = formData.get('username');
+		const username = formData.get('username');
 		const password = formData.get('password');
 
 		if (!validateUsername(username)) {
@@ -31,9 +31,9 @@ export const actions: Actions = {
 			return fail(400, { message: 'Invalid password' });
 		}
 
-		const results = 
-		// await db.select().from(table.user).where(eq(table.user.username, username));
-		await dbPostgre`
+		const results =
+			// await db.select().from(table.user).where(eq(table.user.username, username));
+			await dbPostgre`
 			select * from usuario
 			where nombre_usu = ${username};
 		`;
@@ -41,33 +41,48 @@ export const actions: Actions = {
 		console.log('results: \n', results);
 		let validPassword = false;
 		for (let index = 0; index < results.length; index++) {
-			const existingUser= results[index];
+			const existingUser = results[index];
 			if (!existingUser) {
 				console.log('No existe el usuario');
 				return fail(400, { message: 'Username does not exist' });
 			}
-	
+
 			validPassword = await verify(existingUser.contraseña_usu, password, {
 				memoryCost: 19456,
 				timeCost: 2,
 				outputLen: 32,
 				parallelism: 1
 			});
-			
+
 			if (validPassword) {
 				const sessionToken = auth.generateSessionToken();
-				
+
 				const session = await auth.createSession(sessionToken, existingUser.codigo_usu);
 				auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
-		
-				return redirect(302, '/admin/HomeAdmin');
-			} else  {
+				const {user}=await auth.validateSessionToken(sessionToken);
+				console.log(user?.rol);
+				
+				switch (user?.rol) {
+					case 1:
+						return redirect(302, '/admin/HomeAdmin');
+						break;
+					case 2:
+						return redirect(302, '/cliente/Home');
+
+						break;
+					case 3:
+						return redirect(302, '/empleado/HomeEmpleado');
+						break;
+
+					default:
+						return redirect(302, '/cliente/Home');
+						break;
+				}
+			} else {
 				console.log('Contraseña incorrecta');
 				return fail(400, { message: 'Incorrect username or password' });
 			}
-
 		}
-		
 	},
 	register: async (event) => {
 		const formData = await event.request.formData();
@@ -80,8 +95,8 @@ export const actions: Actions = {
 		if (!validatePassword(password)) {
 			return fail(400, { message: 'Invalid password' });
 		}
-		
-		console.log(" validé todo");
+
+		console.log(' validé todo');
 		const userId = generateUserId();
 		const passwordHash = await hash(password, {
 			// recommended minimum parameters
@@ -90,8 +105,8 @@ export const actions: Actions = {
 			outputLen: 32,
 			parallelism: 1
 		});
-		
-		console.log(" generé userId y passwordHash");
+
+		console.log(' generé userId y passwordHash');
 		try {
 			// await db.insert(table.user).values({ id: userId, username, passwordHash });
 			//console.log(' entré al try los valores son: ', username, passwordHash);
@@ -110,10 +125,25 @@ export const actions: Actions = {
 			const session = await auth.createSession(sessionToken, a.codigo_usu);
 			auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
 		} catch (e) {
-			console.error("el error es \n",e);
+			console.error('el error es \n', e);
 			return fail(500, { message: 'An error has occurred' });
 		}
-		return redirect(302, '/demo/lucia');
+		switch (event.locals.user?.rol) {
+			case 1:
+				return redirect(302, '/admin/HomeAdmin');
+				break;
+			case 2:
+				return redirect(302, '/cliente/Home');
+
+				break;
+			case 3:
+				return redirect(302, '/empleado/HomeEmpleado');
+				break;
+
+			default:
+				return redirect(302, '/cliente/Home');
+				break;
+		}
 	}
 };
 
@@ -125,7 +155,6 @@ function generateUserId() {
 }
 
 function validateUsername(username: unknown): username is string {
-	
 	return (
 		typeof username === 'string' &&
 		username.length >= 3 &&
