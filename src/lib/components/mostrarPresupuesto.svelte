@@ -1,22 +1,21 @@
 <script lang="ts">
+    export let id_editar: number;
+
     interface Presupuesto {
         pieza: string;
-        subtrabajo: string;
-        costo: number;
+        subtrabajo: { nombre: string; costo: number}[];
     }
 
-    interface MateriaPrima {
+    interface MateriaPrimaxPieza {
         pieza: string;
-        material: string;
-        cantidad: number;
-        costo: number;
+        materiales: { nombre: string; costo: number; cantidad: number }[];
     }
 
-    interface Costo {
+    interface Costo_Personal {
+
         personal_encargado: string;
-        personal_requerido: string;
-        trabajo: string;
-        costo: number;
+        empleados: number;
+        subtrabajo:{nombre: string; costo: number }[];
     }
 
     interface Empresa {
@@ -28,86 +27,113 @@
     }
 
     interface Ensamblaje {
+        id_modelo: number;
         modelo: string;
         fecha_inicio: string;
         fecha_fin: string;
     }
 
+
     let presupuestos: Presupuesto[] = [
         {
             pieza: 'Alas',
-            subtrabajo: 'Ensamblaje de alas',
-            costo: 1000000
+            subtrabajo: [{ nombre: 'Corte de aluminio', costo: 100000 },
+                        { nombre: 'Doblado de aluminio', costo: 100000 },
+                        { nombre: 'Ensamblaje de alas', costo: 100000 }],
         },
         {
             pieza: 'Fuselaje',
-            subtrabajo: 'Ensamblaje de fuselaje',
-            costo: 1000000
+            subtrabajo: [
+                { nombre: 'Corte de aluminio', costo: 100000 },
+                { nombre: 'Doblado de aluminio', costo: 100000 },
+                { nombre: 'Ensamblaje de fuselaje', costo: 100000 }
+            ]
         },
         {
             pieza: 'Tren de aterrizaje',
-            subtrabajo: 'Ensamblaje de tren de aterrizaje',
-            costo: 1000000
+            subtrabajo: [
+                { nombre: 'Corte de acero', costo: 100000 },
+                { nombre: 'Doblado de acero', costo: 100000 },
+                { nombre: 'Ensamblaje de tren de aterrizaje', costo: 100000 }
+            ]
         },
         {
             pieza: 'Motores',
-            subtrabajo: 'Ensamblaje de motores',
-            costo: 1000000
+            subtrabajo: [
+                { nombre: 'Corte de acero', costo: 100000 },
+                { nombre: 'Doblado de acero', costo: 100000 },
+                { nombre: 'Ensamblaje de motores', costo: 100000 }
+            ]
         }
     ];
 
-    let materias_primas: MateriaPrima[] = [
+    let materias_primas: MateriaPrimaxPieza[] = [
         {
             pieza: 'Alas',
-            material: 'Aluminio',
-            cantidad: 1000,
-            costo: 1000000
+            materiales: [
+                { nombre: 'Aluminio', costo: 100000, cantidad: 100 },
+                { nombre: 'Remaches', costo: 100000, cantidad: 100 }
+            ]
         },
         {
             pieza: 'Fuselaje',
-            material: 'Aluminio',
-            cantidad: 1000,
-            costo: 1000000
+            materiales: [
+                { nombre: 'Aluminio', costo: 100000, cantidad: 100 },
+                { nombre: 'Remaches', costo: 100000, cantidad: 100 }
+            ]
         },
         {
             pieza: 'Tren de aterrizaje',
-            material: 'Acero',
-            cantidad: 1000,
-            costo: 1000000
+            materiales: [
+                { nombre: 'Acero', costo: 100000, cantidad: 100 },
+                { nombre: 'Remaches', costo: 100000, cantidad: 100 }
+            ]
         },
         {
             pieza: 'Motores',
-            material: 'Acero',
-            cantidad: 1000,
-            costo: 1000000
+            materiales: [
+                { nombre: 'Acero', costo: 100000, cantidad: 100 },
+                { nombre: 'Remaches', costo: 100000, cantidad: 100 }
+            ]
         }
     ];
 
 
-    let costos: Costo[] = [
+    let costos: Costo_Personal[] = [
         {
-            personal_encargado: 'Juan Pérez',
-            personal_requerido: '5',
-            trabajo: 'Ensamblaje de alas',
-            costo: 1000000
+            personal_encargado: 'Ingeniero de ensamblaje',
+            empleados: 1,
+            subtrabajo: [
+            { nombre: 'Ensamblaje de piezas', costo: 100000 },
+            { nombre: 'Revisión de ensamblaje', costo: 50000 }]
         },
         {
-            personal_encargado: 'María González',
-            personal_requerido: '3',
-            trabajo: 'Ensamblaje de fuselaje',
-            costo: 1000000
+            personal_encargado: 'Ingeniero de calidad',
+            empleados: 1,
+            subtrabajo: [
+            { nombre: 'Control de calidad', costo: 100000 },
+            { nombre: 'Pruebas de calidad', costo: 75000 }]
         },
         {
-            personal_encargado: 'Carlos Martínez',
-            personal_requerido: '2',
-            trabajo: 'Ensamblaje de tren de aterrizaje',
-            costo: 1000000
+            personal_encargado: 'Técnico de mantenimiento',
+            empleados: 1,
+            subtrabajo: [
+            { nombre: 'Mantenimiento de piezas', costo: 100000 },
+            { nombre: 'Reparación de piezas', costo: 60000 }]
         },
         {
-            personal_encargado: 'José Rodríguez',
-            personal_requerido: '4',
-            trabajo: 'Ensamblaje de motores',
-            costo: 1000000
+            personal_encargado: 'Supervisor de producción',
+            empleados: 1,
+            subtrabajo: [
+            { nombre: 'Supervisión de línea de producción', costo: 120000 },
+            { nombre: 'Coordinación de equipos', costo: 80000 }]
+        },
+        {
+            personal_encargado: 'Operador de maquinaria',
+            empleados: 2,
+            subtrabajo: [
+            { nombre: 'Operación de maquinaria', costo: 90000 },
+            { nombre: 'Mantenimiento de maquinaria', costo: 70000 }]
         }
     ];
 
@@ -120,14 +146,16 @@
     };
 
     let ensamblaje: Ensamblaje = {
+        id_modelo: id_editar,
         modelo: 'Airbus A320',
         fecha_inicio: '2021-01-01',
         fecha_fin: '2021-01-31'
     };
 
+
 </script>
 <div class="presupuesto">
-    <h1>Presupuesto de ensamblaje de {ensamblaje.modelo}</h1>
+    <h1>Presupuesto de ensamblaje de {ensamblaje.modelo} con ID: {ensamblaje.id_modelo}</h1>
 
     <h2>Datos de la empresa</h2>
     <p>Nombre: {empresa.nombre}</p>
@@ -156,9 +184,15 @@
             {#each costos as costo}
                 <tr>
                     <td>{costo.personal_encargado}</td>
-                    <td>{costo.personal_requerido}</td>
-                    <td>{costo.trabajo}</td>
-                    <td>{costo.costo}</td>
+                    <td>{costo.empleados}</td>
+                    <td>{#each costo.subtrabajo as subtrabajo}
+                        <tr>
+                            <td>{subtrabajo.nombre}</td>
+                            <td>{subtrabajo.costo}</td>
+                        </tr>
+                        {/each}
+                    </td>
+                    <td>{costo.subtrabajo.reduce((acc, curr) => acc + curr.costo, 0)}</td>
                 </tr>
             {/each}
         </tbody>
@@ -176,8 +210,14 @@
             {#each presupuestos as presupuesto, i}
                 <tr>
                     <td>{presupuesto.pieza}</td>
-                    <td>{presupuesto.subtrabajo}</td>
-                    <td>{presupuesto.costo}</td>
+                    <td>{#each presupuesto.subtrabajo as subtrabajo, i}
+                        <tr>
+                            <td>{subtrabajo.nombre}</td>
+                            <td>{subtrabajo.costo}</td>
+                        </tr>
+                        {/each}
+                    </td>
+                    <td>{presupuesto.subtrabajo.reduce((acc, curr) => acc + curr.costo, 0)}</td>
                 </tr>
             {/each}
         </tbody>
@@ -196,9 +236,15 @@
             {#each materias_primas as materia_prima, i}
                 <tr>
                     <td>{materia_prima.pieza}</td>
-                    <td>{materia_prima.material}</td>
-                    <td>{materia_prima.cantidad}</td>
-                    <td>{materia_prima.costo}</td>
+                    <td>{#each materia_prima.materiales as material, i}
+                        <tr>
+                            <td>{material.nombre}</td>
+                            <td>{material.cantidad}</td>
+                            <td>{material.costo}</td>
+                        </tr>
+                        {/each}
+                    </td>
+                    <td>{materia_prima.materiales.reduce((acc, curr) => acc + curr.costo, 0)}</td>
                 </tr>
             {/each}
         </tbody>
