@@ -23,3 +23,16 @@ export interface Empleado {
 	fk_lugar: number | undefined;
 	fk_usuario: number | undefined;
 }
+
+export interface Proveedor {
+	codigo_com: number | undefined;
+	rif_jur: string;
+	denominacion_persona_jur: string;
+	razon_social_jur: string;
+	pagina_web_jur: string;
+	//telefono_com: number[];
+	//correo_com: string[];
+	direccion_com: string;
+	monto_acreditado_com: number | undefined;
+	fecha_inicio_operaciones_com: Date | undefined;
+}

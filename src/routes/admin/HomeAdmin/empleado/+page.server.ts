@@ -22,7 +22,7 @@ export interface Empleado {
 
 
 
-export const actions: Actions = {
+/*export const actions: Actions = {
             delete: async (event) => {
             const formData = await event.request.formData();
             console.log(formData);
@@ -45,13 +45,16 @@ export const actions: Actions = {
             };
             }
         }
-
+*/
 
 export const load: PageServerLoad = async ({ params }) => {
 
-    const roltable = 	await dbPostgre<Empleado[]>`
-    SELECT * FROM empleado;
-`
+    const roltable = await dbPostgre<Empleado[]>`
+    select e.primer_nombre_per,e.segundo_nombre_per,e.primer_apellido_per,e.segundo_apellido_per,
+    e.direccion_per,e.fecha_inicio_servicio_per,est.nombre_lug,e.sueldo_per,u.nombre_usu,e.cedula_per 
+    from empleado e inner join lugar par on e.fk_lugar=par.codigo_lug inner join lugar mun on par.fk_lugar=mun.codigo_lug 
+    inner join lugar est on mun.fk_lugar=est.codigo_lug inner join usuario u on e.fk_usuario=u.codigo_usu;
+`;
     // console.log(roltable);
     return {roltable};
 };

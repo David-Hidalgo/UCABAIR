@@ -1,78 +1,87 @@
 <script lang="ts">
-	//import { goto } from '$app/navigation';
-	// Interfaz para representar un proveedor
-	export let codigo_com;
-	interface Proveedor {
-		codigo_com: number;
-		rif_jur: string;
-		denominacion_comercial_jur: string;
-		razon_social_jur: string;
-		pagina_web_jur: string;
-		telefono_com: string[];
-		correo_com: string[];
-		direccion_com: string;
-		monto_acreditado_com: number;
-		fecha_inicio_operaciones_com: Date;
+	import type { Proveedor } from '$lib/server/db/schema';
+	export let id_editar: Proveedor | undefined;
+	import { goto } from '$app/navigation';
+	
+	let proveedor: Proveedor;
+	let codigo_viejo: number;
+
+	if (id_editar!=undefined) {
+		proveedor = id_editar;
+		if (id_editar.codigo_com)
+		codigo_viejo=id_editar.codigo_com
+	} else {
+		proveedor = {
+	codigo_com: undefined,
+	rif_jur: '',
+	denominacion_persona_jur: '',
+	razon_social_jur: '',
+	pagina_web_jur: '',
+	//telefono_com: undefined,
+	//correo_com: '',
+	direccion_com: '',
+	monto_acreditado_com:undefined,
+	fecha_inicio_operaciones_com:undefined
+		};
+	}
+	async function decide() {
+		
+		if (id_editar==undefined) {
+			registrarProveedor();
+		} else {
+			actualizarProveedor()
+		}
 	}
 
-
-	let proveedor: Proveedor = {
-		codigo_com: codigo_com,
-		telefono_com: [],
-		correo_com: [],
-		direccion_com: '',
-		monto_acreditado_com: 0,
-		fecha_inicio_operaciones_com: new Date(),
-		rif_jur: "",
-		denominacion_comercial_jur: "",
-		razon_social_jur: "",
-		pagina_web_jur: ""
-	};
-
 	// Función para manejar el envío del formulario
-	function registrarProveedor() {
-		// Aquí iría la lógica para procesar los datos del formulario
-		console.log('Registrando proveedor:', proveedor);
-		//goto('/admin/HomeAdmin/aliados');
-		alert('Se agregó exitosamente el aliado');
+	async function actualizarProveedor() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/aliado`, {
+			method: 'PUT',
+			body: JSON.stringify({proveedor:proveedor , codigo_viejo:codigo_viejo}),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+		alert('Proveedor modificado con exito');
+		goto('/admin/HomeAdmin/aliado');
+	}
+	async function registrarProveedor() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aliado`, {
+			method: 'POST',
+			body: JSON.stringify(proveedor),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+
+
+		alert('Proveedor agregado con exito');
+		goto('/admin/HomeAdmin/aliado');
 	}
 </script>
 
 <form on:submit|preventDefault={registrarProveedor}>
-	<h2>Registrar Aliado</h2>
-
-	<label for="codigo">Código</label>
-	<input type="number" id="codigo" bind:value={proveedor.codigo_com} required>
+	<h2>Registrar Proveedor</h2>
 
 	<label for="rif">RIF</label>
-	<input type="text" id="rif" bind:value={proveedor.rif_jur} required>
+	<input id="rif" bind:value={proveedor.rif_jur} />
 
-	<label for="denominacion_comercial">Denominación Comercial</label>
-	<input type="text" id="denominacion_comercial" bind:value={proveedor.denominacion_comercial_jur} required>
+	<label for="denominacion">Denominacion comercial</label>
+	<input id="denominacion" bind:value={proveedor.denominacion_persona_jur} />
 
-	<label for="razon_social">Razón Social</label>
-	<input type="text" id="razon_social" bind:value={proveedor.razon_social_jur} required>
+	<label for="razon">Razon social</label>
+	<input id="razon" bind:value={proveedor.razon_social_jur} />
 
-	<label for="pagina_web">Página Web</label>
-	<input type="text" id="pagina_web" bind:value={proveedor.pagina_web_jur} required>
+	<label for="paginaweb">Pagina web</label>
+	<input id="paginaweb" bind:value={proveedor.pagina_web_jur} />
 
-	<label for="telefono">Teléfono</label>
-	<input type="text" id="telefono" bind:value={proveedor.telefono_com} required>
+	<label for="direccion">Direccion</label>
+	<input id="direccion" bind:value={proveedor.direccion_com} />
 
-	<label for="correo">Correo</label>
-	<input type="text" id="correo" bind:value={proveedor.correo_com} required>
+	<label for="monto">Monto acreditado</label>
+	<input id="monto" bind:value={proveedor.monto_acreditado_com} />
 
-	<label for="direccion">Dirección</label>
-	<input type="text" id="direccion" bind:value={proveedor.direccion_com} required>
-
-	<label for="monto_acreditado">Monto Acreditado</label>
-	<input type="number" id="monto_acreditado" bind:value={proveedor.monto_acreditado_com} required>
-
-	<label for="fecha_inicio_operaciones">Fecha de Inicio de Operaciones</label>
-	<input type="date" id="fecha_inicio_operaciones" bind:value={proveedor.fecha_inicio_operaciones_com} required>
-
-
-	<button type="submit">Registrar Aliados</button>
+	<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
+	<input id="fechaInicio" type="date" bind:value={proveedor.fecha_inicio_operaciones_com} />
+	
 </form>
 
 <style>

@@ -564,7 +564,7 @@ CREATE OR REPLACE PROCEDURE eliminar_empleado(
     ) 
     LANGUAGE plpgsql 
     AS $$ BEGIN
-    DELETE FROM empleado WHERE codigo_rol=codigo;
+    DELETE FROM empleado WHERE codigo_empleado_per=codigo;
 END;
 $$;
 
@@ -589,5 +589,78 @@ CREATE OR REPLACE PROCEDURE editar_empleado(
     fecha_inicio_servicio_per=fecha_inicio_servicio,fk_lugar=fk_lugar2,sueldo_per=sueldo,fk_usuario=fk_usuario2,
     cedula_per=cedula
     WHERE codigo_empleado_per=viejo_codigo;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE insertar_persona( 
+    codigo                 INTEGER,
+    direccion             VARCHAR(516),
+    monto_acreditado       REAL,
+    fecha_inicio_operacion DATE,
+    tipo                  VARCHAR(255),
+    nacionalidad           VARCHAR(255),
+    fk_lugar2                   INTEGER,
+    fk_usuario2         	       INTEGER,
+    tipo_persona 	       VARCHAR(255),
+    rif                    VARCHAR(255),
+    denominacion_persona VARCHAR(255),
+    razon_social           VARCHAR(255),
+    pagina_web             VARCHAR(255),
+    cedula                VARCHAR(100),
+    primer_nombre          VARCHAR(255),
+    segundo_nombre         VARCHAR(255),
+    primer_apellido        VARCHAR(255),
+    segundo_apellido       VARCHAR(255)
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO persona (codigo_com,direccion_com,monto_acreditado_com,fecha_inicio_operacion_com,
+    tipo_com,nacionalidad_com,fk_lugar,fk_usuario,tipo_persona_com,rif_jur,
+    denominacion_persona_jur,razon_social_jur,pagina_web_jur,cedula_nat,
+    primer_nombre_nat,segundo_nombre_nat,primer_apellido_nat,segundo_apellido_nat) 
+    VALUES (codigo,direccion,monto_acreditado,fecha_inicio_operacion,tipo,nacionalidad,
+    fk_lugar2,fk_usuario2,tipo_persona,rif,denominacion_persona,razon_social,pagina_web,cedula,
+    primer_nombre,segundo_nombre,primer_apellido,segundo_apellido);
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE eliminar_persona(
+    codigo INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    DELETE FROM persona WHERE codigo_com=codigo;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE editar_persona(
+    codigo                 INTEGER,
+    direccion             VARCHAR(516),
+    monto_acreditado       REAL,
+    fecha_inicio_operacion DATE,
+    tipo                  VARCHAR(255),
+    nacionalidad           VARCHAR(255),
+    fk_lugar2                   INTEGER,
+    fk_usuario2         	       INTEGER,
+    tipo_persona 	       VARCHAR(255),
+    rif                    VARCHAR(255),
+    denominacion_persona VARCHAR(255),
+    razon_social           VARCHAR(255),
+    pagina_web             VARCHAR(255),
+    cedula                VARCHAR(100),
+    primer_nombre          VARCHAR(255),
+    segundo_nombre         VARCHAR(255),
+    primer_apellido        VARCHAR(255),
+    segundo_apellido       VARCHAR(255),
+    viejo_codigo           INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    UPDATE persona SET codigo_com=codigo,direccion_com=direccion,monto_acreditado_com=monto_acreditado,fecha_inicio_operacion_com=fecha_inicio_operacion,
+    tipo_com=tipo,nacionalidad_com=nacionalidad,fk_lugar=fk_lugar2,fk_usuario=fk_usuario2,tipo_persona_com=tipo_persona,
+    rif_jur=rif,denominacion_persona_jur=denominacion_persona,razon_social_jur=razon_social,pagina_web_jur=pagina_web,
+    cedula_nat=cedula,primer_nombre_nat=primer_nombre,segundo_nombre_nat=segundo_nombre,primer_apellido_nat=primer_apellido,
+    segundo_apellido_nat=segundo_apellido
+    WHERE codigo_com=viejo_codigo;
 END;
 $$;

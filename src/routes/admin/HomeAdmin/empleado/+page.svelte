@@ -3,7 +3,7 @@
 	import type { ActionData } from './$types';
 	import type { PageData } from './$types';
 	import type { Empleado } from './+page.server.ts';
-
+	import { goto } from '$app/navigation';
 	let { data }: { data: PageData } = $props();
 
 	let searchTerm = '';
@@ -71,7 +71,9 @@
 			method: 'DELETE',
 
 			body: JSON.stringify(empleado.codigo_empleado_per)
+			
 		});
+		// goto('/admin/HomeAdmin/empleado')
 	}
 </script>
 
@@ -87,6 +89,8 @@
             <th>Direccion</th>
             <th>Fecha inicio servicio</th>
             <th>Sueldo</th>
+			<th>Estado</th>
+			<th>Usuario</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -100,6 +104,8 @@
                 <td>{empleado.direccion_per}</td>
                 <td>{empleado.fecha_inicio_servicio_per}</td>
                 <td>{empleado.sueldo_per}</td>
+				<td>{empleado.fk_usuario}</td>
+				<td>{empleado.fk_lugar}</td>
 				<td>
 					<div class="botonesUD">
 						<a href='/admin/HomeAdmin/editar/empleado/{empleado.codigo_empleado_per}'>
