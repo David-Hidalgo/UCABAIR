@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { desc } from 'drizzle-orm';
+    import MostrarPresupuesto from '$lib/components/mostrarPresupuesto.svelte';
 	let id_editar = Number($page.params.index);
+    import { onMount } from 'svelte';
+    import { writable } from 'svelte/store';
 
     let avion = { 
         id: 1, 
@@ -19,6 +22,11 @@
         ]
     };
 
+    let mostrarPresupuesto = writable(false);
+
+    function togglePresupuesto() {
+        mostrarPresupuesto.update(value => !value);
+    }
 </script>
 
 <p>Estás viendo el producto con id {id_editar}</p>
@@ -35,9 +43,15 @@
     </ul>
     <p>Stock disponible: {avion.stock}</p>
 </div>
-<a href='/cliente/productos'>
-    <button>Generar Solicitud de Compra</button>
-</a>
+
+    <button on:click={togglePresupuesto}>Generar Solicitud de Compra</button>
+    <br>
+    <br>
+    <br>
+    {#if $mostrarPresupuesto}
+        <MostrarPresupuesto {id_editar} />
+    {/if}
+
 
 <style>
     button{
