@@ -2932,3 +2932,14 @@ INSERT INTO caracteristica_modelo (valor_cm,unidad_medida_cm,fk_caracteristica,f
 (0.92,'March',9,14),
 (199.160,'litros',10,13);
 
+INSERT INTO tipo_prueba (codigo_tp, nombre_tp, descripcion_tp, duracion_estimada_tp) VALUES
+(1, 'Prueba de Motor', 'Evaluación completa de rendimiento y resistencia del motor.', '30 dias'),
+(2, 'Prueba de Alerones', 'Verificación de funcionalidad y ajustes de los alerones.', '18 dias'),
+(3, 'Prueba de Tren de Aterrizaje', 'Revisión del mecanismo del tren de aterrizaje en diversas condiciones.', '16 dias'),
+(4, 'Prueba de Combustible', 'Análisis de eficiencia y consumo del sistema de combustible.', '27 dias'),
+(5, 'Prueba de Presurización', 'Evaluación de la integridad del sistema de presurización en altura.', '25 dias'),
+(6, 'Prueba de Aviónica', 'Verificación de todos los sistemas electrónicos y de navegación.', '31 dias'),
+(7, 'Prueba de Vibración', 'Prueba de resistencia y comportamiento bajo vibraciones.', '12 dias'),
+(8, 'Prueba de Radar', 'Comprobación de alcance y precisión del radar.', '7 dias'),
+(9, 'Prueba de Desempeño en Climas Fríos', 'Evaluación del rendimiento en bajas temperaturas.', '14 dias'),
+(10, 'Prueba de Estructura', 'Análisis de la integridad estructural', '23 dias');
