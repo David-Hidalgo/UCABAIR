@@ -2942,4 +2942,4 @@ INSERT INTO tipo_prueba (codigo_tp, nombre_tp, descripcion_tp, duracion_estimada
 (7, 'Prueba de Vibración', 'Prueba de resistencia y comportamiento bajo vibraciones.', '12 dias'),
 (8, 'Prueba de Radar', 'Comprobación de alcance y precisión del radar.', '7 dias'),
 (9, 'Prueba de Desempeño en Climas Fríos', 'Evaluación del rendimiento en bajas temperaturas.', '14 dias'),
-(10, 'Prueba de Estructura', 'Análisis de la integridad estructural', '23 dias');
+(10, 'Prueba de Calidad', 'Análisis de la calidad de materia prima', '30 dias');
