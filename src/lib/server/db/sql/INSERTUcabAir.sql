@@ -2944,17 +2944,29 @@ INSERT INTO tipo_prueba (codigo_tp, nombre_tp, descripcion_tp, duracion_estimada
 (9, 'Prueba de Desempeño en Climas Fríos', 'Evaluación del rendimiento en bajas temperaturas.', '14 dias'),
 (10, 'Prueba de Calidad', 'Análisis de la calidad de materia prima', '30 dias');
 
+-- Insertar datos en la tabla tipo_pieza
 INSERT INTO tipo_pieza (codigo_tp, nombre_tp, descripcion_tp, fk_tipo_pieza, precio_unidad_tp) VALUES 
-(1, 'Tornillo', 'Tornillo de acero inoxidable', NULL, 0.10),
-(2, 'Tuerca', 'Tuerca de acero inoxidable', 1, 0.05),
-(3, 'Arandela', 'Arandela de acero inoxidable', 1, 0.02),
-(4, 'Clavo', 'Clavo de acero', NULL, 0.03),
-(5, 'Perno', 'Perno de acero', 1, 0.15),
-(6, 'Remache', 'Remache de aluminio', NULL, 0.08),
-(7, 'Tornillo de cabeza plana', 'Tornillo de acero inoxidable con cabeza plana', 1, 0.12),
-(8, 'Tornillo de cabeza redonda', 'Tornillo de acero inoxidable con cabeza redonda', 1, 0.12),
-(9, 'Tornillo de cabeza hexagonal', 'Tornillo de acero inoxidable con cabeza hexagonal', 1, 0.14),
-(10, 'Tornillo de cabeza Phillips', 'Tornillo de acero inoxidable con cabeza Phillips', 1, 0.13);
+(1, 'Ala', 'Ala principal del avión', NULL, 5000.00),
+(2, 'Motor', 'Motor a reacción', NULL, 200000.00),
+(3, 'Tren de aterrizaje', 'Tren de aterrizaje principal', NULL, 15000.00),
+(4, 'Cabina', 'Cabina de mando', NULL, 30000.00),
+(5, 'Fuselaje', 'Cuerpo principal del avión', NULL, 100000.00),
+(6, 'Estabilizador horizontal', 'Estabilizador horizontal trasero', NULL, 8000.00),
+(7, 'Estabilizador vertical', 'Estabilizador vertical trasero', NULL, 7000.00),
+(8, 'Alerón', 'Alerón de control de vuelo', 1, 2000.00),
+(9, 'Flap', 'Flap de control de vuelo', 1, 2500.00),
+(10, 'Spoiler', 'Spoiler de control de vuelo', 1, 2200.00),
+(11, 'Timón de dirección', 'Timón de dirección trasero', 7, 3000.00),
+(12, 'Compuerta de tren de aterrizaje', 'Compuerta del tren de aterrizaje', 3, 1200.00),
+(13, 'Ventana', 'Ventana de la cabina de pasajeros', 4, 500.00),
+(14, 'Puerta', 'Puerta de acceso principal', 4, 4000.00),
+(15, 'Asiento', 'Asiento de pasajero', 4, 300.00),
+(16, 'Cinturón de seguridad', 'Cinturón de seguridad de pasajero', 15, 50.00),
+(17, 'Sistema de entretenimiento', 'Sistema de entretenimiento a bordo', 4, 1000.00),
+(18, 'Sistema de navegación', 'Sistema de navegación del avión', 4, 15000.00),
+(19, 'Sistema de comunicación', 'Sistema de comunicación del avión', 4, 12000.00),
+(20, 'Sistema de oxígeno', 'Sistema de oxígeno de emergencia', 4, 8000.00);
+
 
 -- Insertar datos en la tabla plan_transporte
 INSERT INTO plan_transporte (codigo_pt, duracion_estimada_pt, descripcion_pt) VALUES 
