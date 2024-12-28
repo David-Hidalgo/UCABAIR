@@ -75,14 +75,12 @@ ALTER TABLE ensamblaje
 
 ALTER TABLE ensamblaje ADD CONSTRAINT ensamblaje_pk PRIMARY KEY ( codigo_ens ) ;
 
-ALTER TABLE ensamblaje_avion
-    ADD CONSTRAINT ensamblaje_avion_pk PRIMARY KEY ( fk_plan_ensamblaje,
-                                                     fk_configuracion_avion,
-                                                     fk_configuracion_avion2 ) ;
-ALTER TABLE ensamblaje_pieza
-    ADD CONSTRAINT ensamblaje_pieza_pk PRIMARY KEY ( fk_plan_ensamblaje,
-                                                     fk_configuracion_pieza,
-                                                     fk_configuracion_pieza2 ) ;
+ALTER TABLE configuracion_ensamblaje_pieza
+    ADD CONSTRAINT configuracion_ensamblaje_pieza_pk PRIMARY KEY ( fk_plan_ensamblaje,
+                                                     fk_tipo_pieza ) ;
+ALTER TABLE configuracion_ensamblaje_materia
+    ADD CONSTRAINT configuracion_ensamblaje_materia_pk PRIMARY KEY ( fk_plan_ensamblaje,
+                                                     fk_tipo_materia_prima ) ;
 
 ALTER TABLE equipo ADD CONSTRAINT equipo_pk PRIMARY KEY ( codigo_equ ) ;
 
@@ -776,25 +774,21 @@ ALTER TABLE empleado_profesion
     ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
         REFERENCES empleado ( codigo_empleado_per ) ON DELETE CASCADE;
 
-ALTER TABLE ensamblaje_pieza
+ALTER TABLE configuracion_ensamblaje_pieza
     ADD CONSTRAINT fk_plan_ensamblaje FOREIGN KEY ( fk_plan_ensamblaje )
         REFERENCES plan_ensamblaje ( codigo_pe ) ON DELETE CASCADE;
 
-ALTER TABLE ensamblaje_avion
+ALTER TABLE configuracion_ensamblaje_materia
     ADD CONSTRAINT fk_plan_ensamblaje FOREIGN KEY ( fk_plan_ensamblaje )
         REFERENCES plan_ensamblaje ( codigo_pe ) ON DELETE CASCADE;
 
-ALTER TABLE ensamblaje_pieza
-    ADD CONSTRAINT fk_configuracion_pieza FOREIGN KEY ( fk_configuracion_pieza,
-                                             fk_configuracion_pieza2 )
-        REFERENCES configuracion_pieza ( fk_tipo_materia_prima,
-                                         fk_tipo_pieza ) ON DELETE CASCADE;
+ALTER TABLE configuracion_ensamblaje_pieza
+    ADD CONSTRAINT fk_tipo_pieza FOREIGN KEY ( fk_tipo_pieza )
+        REFERENCES tipo_pieza ( codigo_tp ) ON DELETE CASCADE;
 
-ALTER TABLE ensamblaje_avion
-    ADD CONSTRAINT fk_configuracion_avion FOREIGN KEY ( fk_configuracion_avion,
-                                             fk_configuracion_avion2 )
-        REFERENCES configuracion_avion ( fk_tipo_pieza,
-                                         fk_modelo_avion ) ON DELETE CASCADE;
+ALTER TABLE configuracion_ensamblaje_materia
+    ADD CONSTRAINT fk_tipo_materia_prima FOREIGN KEY ( fk_tipo_materia_prima )
+        REFERENCES tipo_materia_prima ( codigo_tpm) ON DELETE CASCADE;
 
 ALTER TABLE ensamblaje
     ADD CONSTRAINT fk_plan_ensamblaje FOREIGN KEY ( fk_plan_ensamblaje )
