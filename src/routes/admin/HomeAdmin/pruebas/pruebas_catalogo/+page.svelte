@@ -23,7 +23,7 @@
 	let tipo_pruebas: Tipo_prueba[] = new Array();
 	for (let index = 0; index < data.tptable.length; index++) {
 		let tipo_prueba: Tipo_prueba = {
-            codigo_tp: 0,
+            codigo_tp: undefined,
 	        nombre_tp: '',
 	        descripcion_tp: '',
 	        duracion_estimada_tp: ''
@@ -110,12 +110,12 @@
 				<td>
 					<div class="botonesUD">
 						<a href="/admin/HomeAdmin/editar/prueba">
-							<button on:click={() => editarRegistro(dato)}>
+							<button onclick={() => editarRegistro(dato)}>
 								<span>✏️</span>
 								<!-- Icono de lápiz -->
 							</button>
 						</a>
-						<button on:click={() => eliminarRegistro(dato)}>
+						<button onclick={() => eliminarRegistro(dato)}>
 							<span>🗑️</span>
 							<!-- Icono de papelera -->
 						</button>

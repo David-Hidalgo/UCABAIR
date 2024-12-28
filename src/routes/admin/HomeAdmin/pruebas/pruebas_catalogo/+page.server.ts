@@ -2,13 +2,13 @@ import { dbPostgre } from '$lib/server/db';
 import type { Actions,PageServerLoad } from './$types';
 
 export interface Tipo_prueba {
-    codigo_tp: number;
-    nombre_tp: string;
-    descripcion_tp: string;
-    duracion_estimada_tp: string;
+	codigo_tp: number | undefined;
+	nombre_tp: string;
+	descripcion_tp: string;
+	duracion_estimada_tp: string;
 }
 
-export const actions: Actions = {
+/*export const actions: Actions = {
     delete: async (event) => {
         const formData = await event.request.formData();
         console.log(formData);
@@ -30,7 +30,7 @@ export const actions: Actions = {
             }
         };
     }
-};
+};*/
 
 export const load: PageServerLoad = async ({ params }) => {
     const tptable = await dbPostgre<Tipo_prueba[]>`

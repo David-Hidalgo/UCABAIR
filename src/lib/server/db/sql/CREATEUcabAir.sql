@@ -521,15 +521,15 @@ END;
 $$;
 
 CREATE OR REPLACE PROCEDURE insertar_tipo_prueba( 
-    codigo_tp            INTEGER,
-    nombre_tp            VARCHAR(255),
-    descripcion_tp       VARCHAR(512),
-    duracion_estimada_tp VARCHAR(255)
+    codigo_tp2            INTEGER,
+    nombre_tp2            VARCHAR(255),
+    descripcion_tp2       VARCHAR(512),
+    duracion_estimada_tp2 VARCHAR(255)
     ) 
     LANGUAGE plpgsql
     AS $$ BEGIN
     INSERT INTO tipo_prueba (codigo_tp,nombre_tp,descripcion_tp,duracion_estimada_tp) 
-    VALUES (codigo_tp,nombre_tp,descripcion_tp,duracion_estimada_tp);
+    VALUES (codigo_tp2,nombre_tp2,descripcion_tp2,duracion_estimada_tp2);
 END;
 $$;
 
