@@ -520,6 +520,15 @@ CREATE OR REPLACE PROCEDURE eliminar_rol(
 END;
 $$;
 
+CREATE OR REPLACE PROCEDURE eliminar_tipo_prueba(
+    codigo_tpN INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    DELETE FROM tipo_prueba WHERE codigo_tp=codigo_tpN;
+END;
+$$;
+
 CREATE OR REPLACE PROCEDURE editar_rol(
     codigo_rolN INTEGER,
     nombre_rolN VARCHAR(255),

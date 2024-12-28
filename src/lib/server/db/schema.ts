@@ -1,5 +1,5 @@
 
-export 	interface Rol {
+export interface Rol {
 	codigo_rol: number | undefined;
 	nombre_rol: string;
 	descripcion_rol: string;
@@ -35,4 +35,11 @@ export interface Proveedor {
 	direccion_com: string;
 	monto_acreditado_com: number | undefined;
 	fecha_inicio_operaciones_com: Date | undefined;
+}
+
+export interface Tipo_prueba {
+	codigo_tp: number;
+	nombre_tp: string;
+	descripcion_tp: string;
+	duracion_estimada_tp: string;
 }
