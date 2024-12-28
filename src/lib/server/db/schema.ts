@@ -38,7 +38,7 @@ export interface Proveedor {
 }
 
 export interface Tipo_prueba {
-	codigo_tp: number;
+	codigo_tp: number | undefined;
 	nombre_tp: string;
 	descripcion_tp: string;
 	duracion_estimada_tp: string;

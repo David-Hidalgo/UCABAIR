@@ -125,7 +125,7 @@
 		{/each}
 	</tbody>
 </table>
-<a href="/admin/HomeAdmin/registrar/aeronave">
+<a href="/admin/HomeAdmin/registrar/prueba">
 	<button>Registrar Prueba</button>
 </a>
 

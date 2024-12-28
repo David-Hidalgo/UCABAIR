@@ -788,7 +788,7 @@ ALTER TABLE configuracion_ensamblaje_pieza
 
 ALTER TABLE configuracion_ensamblaje_materia
     ADD CONSTRAINT fk_tipo_materia_prima FOREIGN KEY ( fk_tipo_materia_prima )
-        REFERENCES tipo_materia_prima ( codigo_tpm) ON DELETE CASCADE;
+        REFERENCES tipo_materia_prima ( codigo_tmp) ON DELETE CASCADE;
 
 ALTER TABLE ensamblaje
     ADD CONSTRAINT fk_plan_ensamblaje FOREIGN KEY ( fk_plan_ensamblaje )

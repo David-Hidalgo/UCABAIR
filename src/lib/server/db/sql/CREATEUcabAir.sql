@@ -520,6 +520,19 @@ CREATE OR REPLACE PROCEDURE eliminar_rol(
 END;
 $$;
 
+CREATE OR REPLACE PROCEDURE insertar_tipo_prueba( 
+    codigo_tp            INTEGER NOT NULL,
+    nombre_tp            VARCHAR(255) NOT NULL,
+    descripcion_tp       VARCHAR(512) NOT NULL,
+    duracion_estimada_tp VARCHAR(255) NOT NULL
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO tipo_prueba (codigo_tp,nombre_tp,descripcion_tp,duracion_estimada_tp) 
+    VALUES (codigo_tp,nombre_tp,descripcion_tp,duracion_estimada_tp);
+END;
+$$;
+
 CREATE OR REPLACE PROCEDURE eliminar_tipo_prueba(
     codigo_tpN INTEGER
     ) 

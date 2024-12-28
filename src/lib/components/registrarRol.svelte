@@ -1,12 +1,7 @@
 <script lang="ts">
 	import type { Rol } from '$lib/server/db/schema';
 	export let id_editar: Rol | undefined;
-
-	
-	
 	import { goto } from '$app/navigation';
-	
-	
 	
 	let rol: Rol;
 	let codigo_viejo: number;
@@ -26,7 +21,7 @@
 		if (id_editar==undefined) {
 			registrarRol();
 		} else {
-			actualizarRol()
+			actualizarRol();
 		}
 	}
 	// Función para manejar el envío del formulario
