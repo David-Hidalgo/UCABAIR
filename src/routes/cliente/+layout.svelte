@@ -21,6 +21,7 @@
 	<div class="botonesCaja3">
 		<a class="Home" href="/cliente/Home">Home</a>
 		<a class="Comprar" href="/cliente/productos">Comprar</a>
+		<a class="Perfil" href="/cliente/perfil">Perfil</a>
 	</div>
 </div>
 <div class="margenContenido">
@@ -56,7 +57,7 @@
 		cursor: pointer;
 	}
 
-	a.AcercaDe {
+	a.Perfil {
 		border: none;
 		color: white;
 		padding: 14px 36px;
@@ -88,12 +89,12 @@
 		color: rgb(75, 74, 74);
 	}
 
-	.AcercaDe {
+	.Perfil {
 		background-color: rgb(31, 30, 30);
 		color: gainsboro;
 	}
 
-	.AcercaDe:hover {
+	.Perfil:hover {
 		background-color: #dadada;
 		color: rgb(75, 74, 74);
 	}

@@ -51,7 +51,7 @@
     {#if $mostrarPresupuesto}
         <MostrarPresupuesto {id_editar} />
     {/if}
-    <a href='/cliente/pago/{avion.id}'>
+    <a href='/cliente/pago/{id_editar}'>
         <button>Proceder al Pago</button>
     </a>
     
