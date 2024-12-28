@@ -7,8 +7,6 @@ export interface Rol {
 	descripcion_rol: string;
 	}
 
-
-
 export const actions: Actions = {
 			delete: async (event) => {
 			const formData = await event.request.formData();
