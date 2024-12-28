@@ -3020,13 +3020,13 @@ INSERT INTO profesion (codigo_pro, nombre_pro) VALUES
 INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avion, fk_sede) VALUES 
 (100, 1, 1, 1),
 (200, 2, 1, 1),
-(150, 3, 1, 1),
-(120, 4, 1, 1),
-(180, 5, 1, 1),
-(130, 6, 1, 1),
-(110, 7, 1, 1),
-(140, 8, 1, 1),
-(160, 9, 1, 1),
+(150, 3, 2, 1),
+(120, 4, 3, 1),
+(180, 5, 6, 1),
+(130, 6, 5, 1),
+(110, 7, 5, 1),
+(140, 8, 4, 1),
+(160, 9, 7, 1),
 (170, 10, 1, 1);
 
 INSERT INTO configuracion_pieza (cantidad_materia_prima_cp, fk_tipo_materia_prima, fk_tipo_pieza, fk_sede) VALUES 
@@ -3065,3 +3065,15 @@ INSERT INTO estimacion_profesion_empleado (codigo_epp, fk_tipo_prueba, fk_embala
 (9, 9, 9, 9, 9, 11, 9),
 (10, 10, 10, 10, 10, 13, 10);
 
+INSERT INTO configuracion_ensamblaje_pieza (fk_plan_ensamblaje, fk_tipo_pieza)
+VALUES 
+(1, 1),
+(1, 2),
+(2, 3),
+(2, 4),
+(3, 5),
+(3, 6),
+(4, 7),
+(4, 8),
+(5, 9),
+(5, 10);
