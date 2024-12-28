@@ -2944,7 +2944,6 @@ INSERT INTO tipo_prueba (codigo_tp, nombre_tp, descripcion_tp, duracion_estimada
 (9, 'Prueba de Desempeño en Climas Fríos', 'Evaluación del rendimiento en bajas temperaturas.', '14 dias'),
 (10, 'Prueba de Calidad', 'Análisis de la calidad de materia prima', '30 dias');
 
--- Insertar datos en la tabla tipo_pieza
 INSERT INTO tipo_pieza (codigo_tp, nombre_tp, descripcion_tp, fk_tipo_pieza, precio_unidad_tp) VALUES 
 (1, 'Tornillo', 'Tornillo de acero inoxidable', NULL, 0.10),
 (2, 'Tuerca', 'Tuerca de acero inoxidable', 1, 0.05),
@@ -2957,6 +2956,42 @@ INSERT INTO tipo_pieza (codigo_tp, nombre_tp, descripcion_tp, fk_tipo_pieza, pre
 (9, 'Tornillo de cabeza hexagonal', 'Tornillo de acero inoxidable con cabeza hexagonal', 1, 0.14),
 (10, 'Tornillo de cabeza Phillips', 'Tornillo de acero inoxidable con cabeza Phillips', 1, 0.13);
 
+-- Insertar datos en la tabla plan_transporte
+INSERT INTO plan_transporte (codigo_pt, duracion_estimada_pt, descripcion_pt) VALUES 
+(1, '5 días', 'Transporte terrestre local'),
+(2, '10 días', 'Transporte terrestre nacional'),
+(3, '15 días', 'Transporte terrestre regional'),
+(4, '20 días', 'Transporte terrestre interprovincial'),
+(5, '25 días', 'Transporte terrestre de larga distancia'),
+(6, '30 días', 'Transporte terrestre especializado'),
+(7, '35 días', 'Transporte terrestre urgente'),
+(8, '40 días', 'Transporte terrestre de carga pesada'),
+(9, '45 días', 'Transporte terrestre de productos frágiles'),
+(10, '50 días', 'Transporte terrestre de mercancías generales');
+
+INSERT INTO embalaje_plan (codigo_ep, duracion_estimada_ep) VALUES 
+(1, '5 días'),
+(2, '10 días'),
+(3, '15 días'),
+(4, '20 días'),
+(5, '25 días'),
+(6, '30 días'),
+(7, '35 días'),
+(8, '40 días'),
+(9, '45 días'),
+(10, '50 días');
+
+INSERT INTO tipo_materia_prima (codigo_tmp, nombre_tmp, descripcion_tmp, unidad_medida_tmp) VALUES 
+(1, 'Acero', 'Acero inoxidable', 'kg'),
+(2, 'Aluminio', 'Aluminio puro', 'kg'),
+(3, 'Cobre', 'Cobre electrolítico', 'kg'),
+(4, 'Plástico', 'Plástico ABS', 'kg'),
+(5, 'Madera', 'Madera de roble', 'm3'),
+(6, 'Vidrio', 'Vidrio templado', 'm2'),
+(7, 'Caucho', 'Caucho natural', 'kg'),
+(8, 'Fibra de carbono', 'Fibra de carbono de alta resistencia', 'kg'),
+(9, 'Titanio', 'Titanio grado aeroespacial', 'kg'),
+(10, 'Latón', 'Latón de alta pureza', 'kg');
 
 INSERT INTO profesion (codigo_pro, nombre_pro) VALUES 
 (1, 'Ingeniero'),
