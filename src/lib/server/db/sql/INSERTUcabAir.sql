@@ -2943,3 +2943,78 @@ INSERT INTO tipo_prueba (codigo_tp, nombre_tp, descripcion_tp, duracion_estimada
 (8, 'Prueba de Radar', 'Comprobación de alcance y precisión del radar.', '7 dias'),
 (9, 'Prueba de Desempeño en Climas Fríos', 'Evaluación del rendimiento en bajas temperaturas.', '14 dias'),
 (10, 'Prueba de Calidad', 'Análisis de la calidad de materia prima', '30 dias');
+
+-- Insertar datos en la tabla tipo_pieza
+INSERT INTO tipo_pieza (codigo_tp, nombre_tp, descripcion_tp, fk_tipo_pieza, precio_unidad_tp) VALUES 
+(1, 'Tornillo', 'Tornillo de acero inoxidable', NULL, 0.10),
+(2, 'Tuerca', 'Tuerca de acero inoxidable', 1, 0.05),
+(3, 'Arandela', 'Arandela de acero inoxidable', 1, 0.02),
+(4, 'Clavo', 'Clavo de acero', NULL, 0.03),
+(5, 'Perno', 'Perno de acero', 1, 0.15),
+(6, 'Remache', 'Remache de aluminio', NULL, 0.08),
+(7, 'Tornillo de cabeza plana', 'Tornillo de acero inoxidable con cabeza plana', 1, 0.12),
+(8, 'Tornillo de cabeza redonda', 'Tornillo de acero inoxidable con cabeza redonda', 1, 0.12),
+(9, 'Tornillo de cabeza hexagonal', 'Tornillo de acero inoxidable con cabeza hexagonal', 1, 0.14),
+(10, 'Tornillo de cabeza Phillips', 'Tornillo de acero inoxidable con cabeza Phillips', 1, 0.13);
+
+
+INSERT INTO profesion (codigo_pro, nombre_pro) VALUES 
+(1, 'Ingeniero'),
+(2, 'Mecánico'),
+(3, 'Electricista'),
+(4, 'Carpintero'),
+(5, 'Plomero'),
+(6, 'Albañil'),
+(7, 'Pintor'),
+(8, 'Soldador'),
+(9, 'Técnico en refrigeración'),
+(10, 'Técnico en electrónica');
+
+INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avion, fk_sede) VALUES 
+(100, 1, 1, 1),
+(200, 2, 1, 1),
+(150, 3, 1, 1),
+(120, 4, 1, 1),
+(180, 5, 1, 1),
+(130, 6, 1, 1),
+(110, 7, 1, 1),
+(140, 8, 1, 1),
+(160, 9, 1, 1),
+(170, 10, 1, 1);
+
+INSERT INTO configuracion_pieza (cantidad_materia_prima_cp, fk_tipo_materia_prima, fk_tipo_pieza, fk_sede) VALUES 
+(50, 1, 1, 1),
+(60, 2, 2, 1),
+(70, 3, 3, 1),
+(80, 4, 4, 1),
+(90, 5, 5, 1),
+(100, 6, 6, 1),
+(110, 7, 7, 1),
+(120, 8, 8, 1),
+(130, 9, 9, 1),
+(140, 10, 10, 1);
+
+INSERT INTO plan_ensamblaje (codigo_pe, descripcion_pe, duracion_estimada_pe) VALUES 
+(1, 'Ensamblaje inicial', '30 días'),
+(2, 'Ensamblaje intermedio', '45 días'),
+(3, 'Ensamblaje final', '60 días'),
+(4, 'Pruebas de calidad', '15 días'),
+(5, 'Ajustes finales', '10 días'),
+(6, 'Inspección final', '5 días'),
+(7, 'Preparación para entrega', '7 días'),
+(8, 'Entrega al cliente', '3 días'),
+(9, 'Mantenimiento preventivo', '20 días'),
+(10, 'Revisión post-entrega', '10 días');
+
+INSERT INTO estimacion_profesion_empleado (codigo_epp, fk_tipo_prueba, fk_embalaje_plan, fk_plan_transporte, fk_plan_ensamblaje, cantidad_empleado_epp, fk_profesion) VALUES 
+(1, 1, 1, 1, 1, 10, 1),
+(2, 2, 2, 2, 2, 8, 2),
+(3, 3, 3, 3, 3, 6, 3),
+(4, 4, 4, 4, 4, 4, 4),
+(5, 5, 5, 5, 5, 12, 5),
+(6, 6, 6, 6, 6, 7, 6),
+(7, 7, 7, 7, 7, 9, 7),
+(8, 8, 8, 8, 8, 5, 8),
+(9, 9, 9, 9, 9, 11, 9),
+(10, 10, 10, 10, 10, 13, 10);
+
