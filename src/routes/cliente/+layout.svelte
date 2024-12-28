@@ -6,31 +6,9 @@
 </script>
 
 <header>
-	<div class="Caja1">
-		<div class="Usuario">
-			<img src={icono} alt="Icono Ingresar" class="Icono-img" />
-			<div class="IngresarCrearCuenta">
-				<a href="/cliente/login">Ingresar</a>
-			</div>
-		</div>
-	</div>
-
 	<div class="Caja2">
 		<div class="logo">
 			<img src={logoUcabAir} alt="AirUcab Logo" />
-		</div>
-		<div class="Buscar">
-			<form action="/buscar" method="post" class="cajachica">
-				<input
-					bind:value={buscar}
-					class="palabras"
-					id="buscar"
-					name="Buscar"
-					type="text"
-					placeholder="Buscar por producto, marca o presentacion"
-				/>
-				<button type="submit" class="ingresar">Buscar</button>
-			</form>
 		</div>
 		<div class="carrito">
 			<img src={carrito} alt="AirUcab Logo" />
@@ -43,7 +21,6 @@
 	<div class="botonesCaja3">
 		<a class="Home" href="/cliente/Home">Home</a>
 		<a class="Comprar" href="/cliente/productos">Comprar</a>
-		<a class="AcercaDe" href="/cliente/Acercade">Acerca De</a>
 	</div>
 </div>
 <div class="margenContenido">

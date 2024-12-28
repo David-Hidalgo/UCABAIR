@@ -3,17 +3,6 @@
 </script>
 
 <div class="cuadroPublicidades">
-	<div class="cuadroPublicidad1">
-		<p>Publicidad 1</p>
-	</div>
-	<div class="cuadroPublicidad2">
-		<div class="publicidad2">
-			<p>Publicidad 2</p>
-		</div>
-		<div class="publicidad3">
-			<p>Publicidad 3</p>
-		</div>
-	</div>
 </div>
 <div class="cajaMascomprados">
 	<div class="masCompradosHeader">
@@ -24,46 +13,6 @@
 	</div>
 	<div class="objetosMascomprados">
 		<div class="objetos">
-			<div class="objeto">
-				<div class="imagenProducto">
-					<img src={carrito} alt="ASORON Logo" />
-				</div>
-				<div class="descripcionProducto">
-					<a href="/cliente/productos/vistaProducto">Producto 1</a>
-				</div>
-			</div>
-			<div class="objeto">
-				<div class="imagenProducto">
-					<img src={carrito} alt="ASORON Logo" />
-				</div>
-				<div class="descripcionProducto">
-					<p>Producto2</p>
-				</div>
-			</div>
-			<div class="objeto">
-				<div class="imagenProducto">
-					<img src={carrito} alt="ASORON Logo" />
-				</div>
-				<div class="descripcionProducto">
-					<p>Producto3</p>
-				</div>
-			</div>
-			<div class="objeto">
-				<div class="imagenProducto">
-					<img src={carrito} alt="ASORON Logo" />
-				</div>
-				<div class="descripcionProducto">
-					<p>Producto4</p>
-				</div>
-			</div>
-			<div class="objeto">
-				<div class="imagenProducto">
-					<img src={carrito} alt="ASORON Logo" />
-				</div>
-				<div class="descripcionProducto">
-					<p>Producto5</p>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>

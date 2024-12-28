@@ -521,10 +521,10 @@ END;
 $$;
 
 CREATE OR REPLACE PROCEDURE insertar_tipo_prueba( 
-    codigo_tp            INTEGER NOT NULL,
-    nombre_tp            VARCHAR(255) NOT NULL,
-    descripcion_tp       VARCHAR(512) NOT NULL,
-    duracion_estimada_tp VARCHAR(255) NOT NULL
+    codigo_tp            INTEGER,
+    nombre_tp            VARCHAR(255),
+    descripcion_tp       VARCHAR(512),
+    duracion_estimada_tp VARCHAR(255)
     ) 
     LANGUAGE plpgsql
     AS $$ BEGIN
