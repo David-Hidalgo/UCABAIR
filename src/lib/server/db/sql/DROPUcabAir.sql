@@ -238,13 +238,13 @@ ALTER TABLE IF EXISTS pago_venta DROP CONSTRAINT IF EXISTS fk_venta;
 
 ALTER TABLE IF EXISTS empleado_profesion DROP CONSTRAINT IF EXISTS fk_empleado;
 
-ALTER TABLE IF EXISTS ensamblaje_pieza DROP CONSTRAINT IF EXISTS fk_plan_ensamblaje;
+ALTER TABLE IF EXISTS configuracion_ensamblaje_pieza DROP CONSTRAINT IF EXISTS fk_plan_ensamblaje;
 
-ALTER TABLE IF EXISTS ensamblaje_avion DROP CONSTRAINT IF EXISTS fk_plan_ensamblaje;
+ALTER TABLE IF EXISTS configuracion_ensamblaje_materia DROP CONSTRAINT IF EXISTS fk_plan_ensamblaje;
 
-ALTER TABLE IF EXISTS ensamblaje_pieza DROP CONSTRAINT IF EXISTS fk_configuracion_pieza;
+ALTER TABLE IF EXISTS configuracion_ensamblaje_pieza DROP CONSTRAINT IF EXISTS fk_tipo_pieza;
 
-ALTER TABLE IF EXISTS ensamblaje_avion DROP CONSTRAINT IF EXISTS fk_configuracion_avion;
+ALTER TABLE IF EXISTS configuracion_ensamblaje_materia DROP CONSTRAINT IF EXISTS fk_tipo_materia_prima;
 
 ALTER TABLE IF EXISTS ensamblaje DROP CONSTRAINT IF EXISTS fk_plan_ensamblaje;
 
@@ -324,9 +324,9 @@ ALTER TABLE IF EXISTS ensamblaje DROP CONSTRAINT IF EXISTS arco_ens;
 
 ALTER TABLE IF EXISTS ensamblaje DROP CONSTRAINT IF EXISTS ensamblaje_pk;
 
-ALTER TABLE IF EXISTS ensamblaje_avion DROP CONSTRAINT IF EXISTS ensamblaje_avion_pk;
+ALTER TABLE IF EXISTS configuracion_ensamblaje_pieza DROP CONSTRAINT IF EXISTS configuracion_ensamblaje_pieza_pk;
 
-ALTER TABLE IF EXISTS ensamblaje_pieza DROP CONSTRAINT IF EXISTS ensamblaje_pieza_pk;
+ALTER TABLE IF EXISTS configuracion_ensamblaje_materia DROP CONSTRAINT IF EXISTS configuracion_ensamblaje_materia_pk;
 
 ALTER TABLE IF EXISTS equipo DROP CONSTRAINT IF EXISTS equipo_pk;
 
@@ -457,8 +457,8 @@ DROP TABLE IF EXISTS embalaje_configuracion_pieza;
 DROP TABLE IF EXISTS embalaje_plan;
 DROP TABLE IF EXISTS empleado_profesion;
 DROP TABLE IF EXISTS ensamblaje;
-DROP TABLE IF EXISTS ensamblaje_avion;
-DROP TABLE IF EXISTS ensamblaje_pieza;
+DROP TABLE IF EXISTS configuracion_ensamblaje_materia;
+DROP TABLE IF EXISTS configuracion_ensamblaje_pieza;
 DROP TABLE IF EXISTS equipo;
 DROP TABLE IF EXISTS equipo_empleado;
 DROP TABLE IF EXISTS estatus;

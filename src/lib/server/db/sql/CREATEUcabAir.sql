@@ -149,17 +149,13 @@ CREATE TABLE ensamblaje (
     fk_equipo_empleado           INTEGER NOT NULL,
     fk_equipo_empleado2          INTEGER NOT NULL
 );
-CREATE TABLE ensamblaje_avion (
+CREATE TABLE configuracion_ensamblaje_pieza (
     fk_plan_ensamblaje               	  INTEGER NOT NULL,
-    fk_configuracion_avion                INTEGER NOT NULL,
-    fk_configuracion_avion2               INTEGER NOT NULL,
-    cantidad_ensamblajes_ea 		  INTEGER NOT NULL
+    fk_tipo_pieza                         INTEGER NOT NULL
 );
-CREATE TABLE ensamblaje_pieza (
+CREATE TABLE configuracion_ensamblaje_materia (
     fk_plan_ensamblaje               	 INTEGER NOT NULL,
-    fk_configuracion_pieza               INTEGER NOT NULL,
-    fk_configuracion_pieza2              INTEGER NOT NULL,
-    cantidad_ensamblajes_ep 		 INTEGER NOT NULL
+    fk_tipo_materia_prima                INTEGER NOT NULL
 );
 CREATE TABLE equipo (
     codigo_equ      	INTEGER NOT NULL,
