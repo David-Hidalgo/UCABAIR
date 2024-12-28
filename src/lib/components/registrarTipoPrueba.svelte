@@ -41,7 +41,7 @@
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-		goto('/admin/HomeAdmin/pruebas');
+		goto('/admin/HomeAdmin/pruebas/pruebas_catalogo');
 	}
 </script>
 
