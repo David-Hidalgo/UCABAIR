@@ -4,11 +4,11 @@ CREATE TABLE almacen (
     fk_sede    INTEGER NOT NULL
 );
 CREATE TABLE asistencia (
+    codigo_asi     	INTEGER NOT NULL,
     fecha_asi           DATE NOT NULL,
     hora_entrada_asi    TIMESTAMP,
     hora_salida_asi     TIMESTAMP,
-    fk_empleado         INTEGER NOT NULL,
-    fk_turno            INTEGER NOT NULL
+    fk_empleado         INTEGER NOT NULL
 );
 CREATE TABLE avion (
     codigo_avi       INTEGER NOT NULL,
@@ -17,13 +17,18 @@ CREATE TABLE avion (
     fk_venta         INTEGER NOT NULL,
     fk_almacen       INTEGER NOT NULL,
     fk_almacen2      INTEGER NOT NULL,
-    fk_ensamblaje    INTEGER NOT NULL
+    fk_ensamblaje    INTEGER NOT NULL,
+    nombre_avi	     VARCHAR(255) NOT NULL,
+    matricula_avi    VARCHAR(255) NOT NULL
 );
 CREATE TABLE beneficiario (
-    codigo_ben          INTEGER NOT NULL,
-    nombre_ben          VARCHAR(255) NOT NULL,
-    descripcion_ben     TEXT NOT NULL,
-    fk_empleado         INTEGER NOT NULL
+    codigo_ben             INTEGER NOT NULL,
+    primer_nombre_ben      VARCHAR(255) NOT NULL,
+    segundo_nombre_ben     VARCHAR(255) NOT NULL,
+    primer_apellido_ben    VARCHAR(255) NOT NULL,
+    segundo_apellido_ben   VARCHAR(255) NOT NULL,
+    descripcion_ben        TEXT NOT NULL,
+    fk_empleado            INTEGER NOT NULL
 );
 CREATE TABLE caracteristica (
     codigo_car INTEGER NOT NULL,
@@ -66,8 +71,7 @@ CREATE TABLE compra (
     numero_factura_com INTEGER NOT NULL,
     fecha_hora_com     DATE NOT NULL,
     monto_total_com    REAL NOT NULL,
-    impuesto_total_com REAL NOT NULL,
-    fk_persona       INTEGER NOT NULL
+    impuesto_total_com REAL NOT NULL
 );
 CREATE TABLE configuracion_avion (
     cantidad_pieza_ca     INTEGER NOT NULL,
@@ -91,19 +95,15 @@ CREATE TABLE detalle_compra (
     cantidad_dc        INTEGER NOT NULL,
     precio_unitario_dc REAL NOT NULL,
     fk_compra  	       INTEGER NOT NULL,
-    codigo_dc          INTEGER NOT NULL
-);
-CREATE TABLE detalle_transferencia (
-    fecha_envio_dt                    DATE NOT NULL,
-    fecha_recibo_dt                   DATE,
-    fk_solicitud_transferencia        INTEGER NOT NULL,
-    codigo_dt                         INTEGER NOT NULL 
+    codigo_dc          INTEGER NOT NULL,
+    fk_persona	       INTEGER NOT NULL
 );
 CREATE TABLE detalle_venta (
     cantidad_dv        INTEGER NOT NULL,
     precio_unitario_dv REAL NOT NULL,
     fk_venta   	       INTEGER NOT NULL,
-    codigo_dv          INTEGER NOT NULL
+    codigo_dv          INTEGER NOT NULL,
+    fk_persona	       INTEGER NOT NULL
 );
 CREATE TABLE embalaje (
     codigo_emb            INTEGER NOT NULL,
@@ -111,22 +111,24 @@ CREATE TABLE embalaje (
     fecha_hora_fin_emb    DATE,
     fk_embalaje_plan      INTEGER NOT NULL,
     fk_pieza              INTEGER,
-    fk_pieza2             INTEGER,
     fk_equipo_empleado    INTEGER NOT NULL,
     fk_equipo_empleado2   INTEGER NOT NULL,
     fk_lote_materia_prima INTEGER
 );
 CREATE TABLE embalaje_configuracion_avion (
     fk_embalaje_plan                     INTEGER NOT NULL,
-    fk_configuracion_avion               INTEGER NOT NULL,
-    fk_configuracion_avion2              INTEGER NOT NULL,
-    cantidad_embalajes_eca 		 INTEGER NOT NULL
+    fk_modelo_avion			 INTEGER NOT NULL,
+    fk_sede				 INTEGER NOT NULL
 );
 CREATE TABLE embalaje_configuracion_pieza (
     fk_embalaje_plan                     INTEGER NOT NULL,
-    fk_configuracion_pieza               INTEGER NOT NULL,
-    fk_configuracion_pieza2              INTEGER NOT NULL,
-    cantidad_embalajes_ecp 		 INTEGER NOT NULL
+    fk_tipo_pieza			 INTEGER NOT NULL,
+    fk_sede				 INTEGER NOT NULL
+);
+CREATE TABLE embalaje_configuracion_materia (
+    fk_embalaje_plan                     INTEGER NOT NULL,
+    fk_tipo_materia_prima		 INTEGER NOT NULL,
+    fk_sede				 INTEGER NOT NULL
 );
 CREATE TABLE embalaje_plan (
     codigo_ep            INTEGER NOT NULL,
@@ -145,17 +147,18 @@ CREATE TABLE ensamblaje (
     fk_plan_ensamblaje           INTEGER NOT NULL,
     fk_pieza                     INTEGER,
     fk_lote_materia_prima        INTEGER,
-    fk_pieza2                    INTEGER,
     fk_equipo_empleado           INTEGER NOT NULL,
     fk_equipo_empleado2          INTEGER NOT NULL
 );
 CREATE TABLE configuracion_ensamblaje_pieza (
     fk_plan_ensamblaje               	  INTEGER NOT NULL,
-    fk_tipo_pieza                         INTEGER NOT NULL
+    fk_tipo_pieza                         INTEGER NOT NULL,
+    fk_sede				  INTEGER NOT NULL
 );
 CREATE TABLE configuracion_ensamblaje_materia (
     fk_plan_ensamblaje               	 INTEGER NOT NULL,
-    fk_tipo_materia_prima                INTEGER NOT NULL
+    fk_tipo_materia_prima                INTEGER NOT NULL,
+    fk_sede				 INTEGER NOT NULL
 );
 CREATE TABLE equipo (
     codigo_equ      	INTEGER NOT NULL,
@@ -221,6 +224,9 @@ CREATE TABLE horario (
     fk_turno             INTEGER NOT NULL,
     fk_empleado		 INTEGER NOT NULL
 );
+CREATE TABLE inventario_avion (
+
+);
 CREATE TABLE labor (
     codigo_lab            INTEGER NOT NULL,
     nombre_lab            VARCHAR(255) NOT NULL,
@@ -270,7 +276,9 @@ CREATE TABLE modo_pago (
 CREATE TABLE moneda (
     codigo_mon      INTEGER NOT NULL,
     nombre_mon      VARCHAR(255) NOT NULL,
-    tasa_cambio_mon REAL NOT NULL
+    tasa_cambio_mon REAL NOT NULL,
+    fecha_inicio_mon DATE NOT NULL,
+    fecha_fin_mon    DATE
 );
 CREATE TABLE pago_compra (
     codigo_pago_pc    	 INTEGER NOT NULL,
@@ -315,13 +323,11 @@ CREATE TABLE empleado (
 CREATE TABLE pieza (
     codigo_pie   	      INTEGER NOT NULL,
     fk_pieza 		      INTEGER,
-    fk_pieza2		      INTEGER,
     fk_configuracion_avion    INTEGER NOT NULL,
     fk_configuracion_avion2   INTEGER NOT NULL,
     fk_almacen   	      INTEGER NOT NULL,
     fk_almacen2   	      INTEGER NOT NULL,
     fk_avion   		      INTEGER,
-    fk_avion2  	 	      INTEGER,
     fk_ensamblaje 	      INTEGER
 );
 CREATE TABLE plan_ensamblaje (
@@ -336,8 +342,11 @@ CREATE TABLE plan_transporte (
 );
 CREATE TABLE privilegio (
     codigo_pri INTEGER NOT NULL,
-    nombre_pri VARCHAR(255) NOT NULL,
-    fk_rol     INTEGER NOT NULL
+    nombre_pri VARCHAR(255) NOT NULL
+);
+CREATE TABLE rol_privilegio(
+    fk_rol 	  INTEGER NOT NULL,
+    fk_privilegio INTEGER NOT NULL
 );
 CREATE TABLE profesion (
     codigo_pro INTEGER NOT NULL,
@@ -354,21 +363,22 @@ CREATE TABLE prueba (
     fk_zona2          	    INTEGER NOT NULL,
     fk_lote_materia_prima   INTEGER,
     fk_pieza          	    INTEGER,
-    fk_avion                INTEGER,
-    fk_avion2		    INTEGER,
-    fk_pieza2               INTEGER
+    fk_avion                INTEGER
 );
-CREATE TABLE prueba_configuracion_avion (
-    fk_tipo_prueba            INTEGER NOT NULL,
-    fk_configuracion_avion    INTEGER NOT NULL,
-    fk_configuracion_avion2   INTEGER NOT NULL,
-    cantidad_pruebas_pca      INTEGER NOT NULL
+CREATE TABLE configuracion_prueba_avion (
+    fk_tipo_prueba               	  INTEGER NOT NULL,
+    fk_modelo_avion                       INTEGER NOT NULL,
+    fk_sede				  INTEGER NOT NULL
 );
-CREATE TABLE prueba_configuracion_pieza (
-    fk_configuracion_pieza   INTEGER NOT NULL,
-    fk_configuracion_pieza2  INTEGER NOT NULL,
-    fk_tipo_prueba           INTEGER NOT NULL,
-    cantidad_pruebas_pcp     INTEGER NOT NULL
+CREATE TABLE configuracion_prueba_pieza (
+    fk_tipo_prueba               	INTEGER NOT NULL,
+    fk_tipo_pieza                       INTEGER NOT NULL,
+    fk_sede				INTEGER NOT NULL
+);
+CREATE TABLE configuracion_prueba_materia (
+    fk_tipo_prueba               	  INTEGER NOT NULL,
+    fk_tipo_materia_prima                 INTEGER NOT NULL,
+    fk_sede				  INTEGER NOT NULL
 );
 CREATE TABLE red_social (
     codigo_rs           INTEGER NOT NULL,
@@ -427,32 +437,36 @@ CREATE TABLE transferencia_pieza_material (
     fk_solicitud_transferencia  INTEGER NOT NULL,
     fk_lote_materia_prima       INTEGER,
     fk_pieza               	INTEGER,
-    fk_pieza2       	        INTEGER,
-    codigo_tpm			INTEGER NOT NULL
+    codigo_tpm			INTEGER NOT NULL,
+    fecha_envio_tpm		DATE NOT NULL,
+    fecha_recibo_tpm		DATE
 );
 CREATE TABLE transporte (
     codigo_tra            	INTEGER NOT NULL,
     fecha_hora_inicio_tra	DATE NOT NULL,
     fecha_hora_fin_tra    	DATE,
     fk_plan_transporte          INTEGER NOT NULL,
-    fk_detalle_transferencia    INTEGER,
-    fk_detalle_transferencia2   INTEGER,
+    fk_transferencia_pieza_material    INTEGER,
     fk_equipo_empleado          INTEGER NOT NULL,
     fk_equipo_empleado2   	INTEGER NOT NULL,
     fk_detalle_compra           INTEGER,
-    fk_detalle_compra2          INTEGER
+    fk_detalle_compra2          INTEGER,
+    fk_detalle_compra3 		INTEGER
 );
 CREATE TABLE transporte_configuracion_avion (
     fk_plan_transporte                  INTEGER NOT NULL,
-    fk_configuracion_avion              INTEGER NOT NULL,
-    fk_configuracion_avion2             INTEGER NOT NULL,
-    cantidad_transportes_tca 		INTEGER NOT NULL
+    fk_modelo_avion			INTEGER NOT NULL,
+    fk_sede			 	INTEGER NOT NULL
 );
 CREATE TABLE transporte_configuracion_pieza (
-    fk_plan_transporte                INTEGER NOT NULL,
-    fk_configuracion_pieza            INTEGER NOT NULL,
-    fk_configuracion_pieza2           INTEGER NOT NULL,
-    cantidad_transportes_tcp 	      INTEGER NOT NULL
+    fk_plan_transporte                  INTEGER NOT NULL,
+    fk_tipo_pieza			INTEGER NOT NULL,
+    fk_sede			 	INTEGER NOT NULL
+);
+CREATE TABLE transporte_configuracion_materia (
+    fk_plan_transporte                  INTEGER NOT NULL,
+    fk_tipo_materia_prima			INTEGER NOT NULL,
+    fk_sede			 	INTEGER NOT NULL
 );
 CREATE TABLE turno (
     codigo_tur       INTEGER NOT NULL,
@@ -471,8 +485,7 @@ CREATE TABLE venta (
     numero_factura_ven INTEGER NOT NULL,
     fecha_hora_ven     DATE NOT NULL,
     monto_total_ven    REAL NOT NULL,
-    impuesto_total_ven REAL NOT NULL,
-    fk_persona       INTEGER NOT NULL
+    impuesto_total_ven REAL NOT NULL
 );
 CREATE TABLE zona (
     codigo_zon      INTEGER NOT NULL,
