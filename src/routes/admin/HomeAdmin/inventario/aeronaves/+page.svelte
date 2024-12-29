@@ -14,7 +14,7 @@
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	
+
 	let modelos_avion: Modelo_avion[] = new Array();
 	for (let index = 0; index < data.ma_table.length; index++) {
 		let modelo_avion:  Modelo_avion = {
@@ -29,9 +29,9 @@
         modelo_avion.descripcion_ma = data.ma_table[index].descripcion_ma;
         modelo_avion.precio_unidad_ma = data.ma_table[index].precio_unidad_ma;
         modelo_avion.fk_modelo_avion = data.ma_table[index].fk_modelo_avion;
+        modelos_avion.push(modelo_avion);
 	};
 
-    console.log(modelos_avion);
 
 
 
@@ -86,7 +86,7 @@
                 <td>{modelo_avion.precio_unidad_ma}</td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/mineral"> // Hara falta un editar aeronave?
+						<a href="/admin/HomeAdmin/editar/mineral">
 							<button on:click={() => editarRegistro(modelo_avion)}>
 								<span>✏️</span>
 								<!-- Icono de lápiz -->
