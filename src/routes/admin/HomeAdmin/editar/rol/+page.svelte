@@ -7,10 +7,4 @@
 	let codigo_rol;
 </script>
 
-<body>
-	<div class="EditarRol">
-		<b>HOLA AQUI ESOT</b>
-		<!-- <EditarRol bind:rif={codigo_rol}/> -->
 		<EditarRol id_editar={codigo_rol} />
-	</div>
-</body>
