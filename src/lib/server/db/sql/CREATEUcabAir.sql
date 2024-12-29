@@ -224,9 +224,6 @@ CREATE TABLE horario (
     fk_turno             INTEGER NOT NULL,
     fk_empleado		 INTEGER NOT NULL
 );
-CREATE TABLE inventario_avion (
-
-);
 CREATE TABLE labor (
     codigo_lab            INTEGER NOT NULL,
     nombre_lab            VARCHAR(255) NOT NULL,
