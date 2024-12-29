@@ -417,6 +417,8 @@ ALTER TABLE IF EXISTS plan_transporte DROP CONSTRAINT IF EXISTS plan_transporte_
 
 ALTER TABLE IF EXISTS privilegio DROP CONSTRAINT IF EXISTS privilegio_pk;
 
+ALTER TABLE IF EXISTS rol_privilegio DROP CONSTRAINT IF EXISTS rol_privilegio_pk;
+
 ALTER TABLE IF EXISTS profesion DROP CONSTRAINT IF EXISTS profesion_pk;
 
 ALTER TABLE IF EXISTS prueba DROP CONSTRAINT IF EXISTS arco_pru;
@@ -532,6 +534,7 @@ DROP TABLE IF EXISTS configuracion_prueba_pieza;
 DROP TABLE IF EXISTS configuracion_prueba_materia;
 DROP TABLE IF EXISTS red_social;
 DROP TABLE IF EXISTS rol;
+DROP TABLE IF EXISTS rol_privilegio;
 DROP TABLE IF EXISTS sede;
 DROP TABLE IF EXISTS solicitud_transferencia;
 DROP TABLE IF EXISTS telefono;

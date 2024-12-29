@@ -166,6 +166,8 @@ ALTER TABLE plan_transporte ADD CONSTRAINT plan_transporte_pk PRIMARY KEY ( codi
 
 ALTER TABLE privilegio ADD CONSTRAINT privilegio_pk PRIMARY KEY ( codigo_pri ) ;
 
+ALTER TABLE rol_privilegio ADD CONSTRAINT rol_privilegio_pk PRIMARY KEY ( fk_privilegio,fk_rol ) ;
+
 ALTER TABLE profesion ADD CONSTRAINT profesion_pk PRIMARY KEY ( codigo_pro ) ;
 
 ALTER TABLE prueba

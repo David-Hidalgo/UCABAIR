@@ -3065,15 +3065,15 @@ INSERT INTO estimacion_profesion_empleado (codigo_epp, fk_tipo_prueba, fk_embala
 (9, 9, 9, 9, 9, 11, 9),
 (10, 10, 10, 10, 10, 13, 10);
 
-INSERT INTO configuracion_ensamblaje_pieza (fk_plan_ensamblaje, fk_tipo_pieza)
+INSERT INTO configuracion_ensamblaje_pieza (fk_plan_ensamblaje, fk_tipo_pieza,fk_sede)
 VALUES 
-(1, 1),
-(1, 2),
-(2, 3),
-(2, 4),
-(3, 5),
-(3, 6),
-(4, 7),
-(4, 8),
-(5, 9),
-(5, 10);
+(1, 1,1),
+(1, 2,2),
+(2, 3,3),
+(2, 4,4),
+(3, 5,5),
+(3, 6,3),
+(4, 7,2),
+(4, 8,2),
+(5, 9,1),
+(5, 10,1);
