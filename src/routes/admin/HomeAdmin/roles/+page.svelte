@@ -4,7 +4,6 @@
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
-
 	import type { PageData } from './$types';
 	import type { Rol } from './+page.server.ts';
 	// const dispatch = createEventDispatcher();

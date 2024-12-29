@@ -63,3 +63,11 @@ export interface Modo_pago {
 	beneficiario_che: string;
 	denominacion_efe: string;
 }
+
+export interface Modelo_avion {
+	codigo_ma: number | undefined;
+	nombre_ma: string;
+	descripcion_ma: string;
+	precio_unidad_ma: number | undefined;
+	fk_modelo_avion: number | undefined;
+}

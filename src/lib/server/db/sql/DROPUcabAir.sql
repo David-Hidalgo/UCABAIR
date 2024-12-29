@@ -7,7 +7,9 @@ DROP PROCEDURE IF EXISTS eliminar_empleado;
 DROP PROCEDURE IF EXISTS editar_empleado;
 DROP PROCEDURE IF EXISTS insertar_persona;
 DROP PROCEDURE IF EXISTS eliminar_persona;
-DROP PROCEDURE IF EXISTS editar_persona;
+DROP PROCEDURE IF EXISTS insertar_tipo_prueba;
+DROP PROCEDURE IF EXISTS eliminar_tipo_prueba;
+
 ALTER TABLE IF EXISTS sede DROP CONSTRAINT IF EXISTS fk_lugar;
 
 ALTER TABLE IF EXISTS almacen DROP CONSTRAINT IF EXISTS fk_sede;
