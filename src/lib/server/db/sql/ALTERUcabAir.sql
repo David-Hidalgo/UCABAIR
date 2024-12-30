@@ -1,11 +1,9 @@
 ALTER TABLE almacen ADD CONSTRAINT almacen_pk PRIMARY KEY ( codigo_alm,
                                                             fk_sede );
 
-ALTER TABLE asistencia ADD CONSTRAINT asistencia_pk PRIMARY KEY ( fk_turno,
-                                                                  fk_empleado );
+ALTER TABLE asistencia ADD CONSTRAINT asistencia_pk PRIMARY KEY ( codigo_asi );
 
-ALTER TABLE avion ADD CONSTRAINT avion_pk PRIMARY KEY ( codigo_avi,
-                                                        fk_ensamblaje );
+ALTER TABLE avion ADD CONSTRAINT avion_pk PRIMARY KEY ( codigo_avi );
 
 ALTER TABLE beneficiario ADD CONSTRAINT beneficiario_pk PRIMARY KEY ( codigo_ben );
 
@@ -35,31 +33,29 @@ ALTER TABLE correo_electronico
 
 ALTER TABLE correo_electronico ADD CONSTRAINT correo_electronico_pk PRIMARY KEY ( codigo_ce ) ;
 
-ALTER TABLE detalle_compra ADD CONSTRAINT detalle_compra_pk PRIMARY KEY ( fk_compra,codigo_dc ) ;
+ALTER TABLE detalle_compra ADD CONSTRAINT detalle_compra_pk PRIMARY KEY ( fk_compra,codigo_dc, fk_persona ) ;
 
-ALTER TABLE detalle_transferencia ADD CONSTRAINT detalle_transferencia_pk PRIMARY KEY ( fk_solicitud_transferencia, codigo_dt ) ;
-
-ALTER TABLE detalle_venta ADD CONSTRAINT detalle_venta_pk PRIMARY KEY ( fk_venta,codigo_dv ) ;
+ALTER TABLE detalle_venta ADD CONSTRAINT detalle_venta_pk PRIMARY KEY ( fk_venta,codigo_dv, fk_persona ) ;
 
 ALTER TABLE embalaje
     ADD CONSTRAINT arco_emb CHECK ( ( ( fk_lote_materia_prima IS NOT NULL )
-                                   AND ( fk_pieza IS NULL )
-                                   AND ( fk_pieza2 IS NULL ) )
+                                   AND ( fk_pieza IS NULL ) )
                                  OR ( ( fk_pieza IS NOT NULL )
-                                      AND ( fk_pieza2 IS NOT NULL )
                                       AND ( fk_lote_materia_prima IS NULL ) )) ;
 
 ALTER TABLE embalaje ADD CONSTRAINT embalaje_pk PRIMARY KEY ( codigo_emb ) ;
 
 ALTER TABLE embalaje_configuracion_avion
     ADD CONSTRAINT embalaje_configuracion_avion_pk PRIMARY KEY ( fk_embalaje_plan,
-                                                                 fk_configuracion_avion,
-                                                                 fk_configuracion_avion2 ) ;
+                                                                 fk_modelo_avion ) ;
 
 ALTER TABLE embalaje_configuracion_pieza
     ADD CONSTRAINT embalaje_configuracion_pieza_pk PRIMARY KEY ( fk_embalaje_plan,
-                                                                 fk_configuracion_pieza,
-                                                                 fk_configuracion_pieza2 ) ;
+                                                                 fk_tipo_pieza ) ;
+
+ALTER TABLE embalaje_configuracion_materia
+    ADD CONSTRAINT embalaje_configuracion_materia_pk PRIMARY KEY ( fk_embalaje_plan,
+                                                                   fk_tipo_materia_prima ) ;
 
 ALTER TABLE embalaje_plan ADD CONSTRAINT embalaje_plan_pk PRIMARY KEY ( codigo_ep ) ;
 
@@ -67,10 +63,8 @@ ALTER TABLE empleado_profesion ADD CONSTRAINT empleado_profesion_pk PRIMARY KEY 
                                                                                   fk_empleado ) ;
 ALTER TABLE ensamblaje
     ADD CONSTRAINT arco_ens CHECK ( ( ( fk_lote_materia_prima IS NOT NULL )
-                                   AND ( fk_pieza IS NULL )
-                                   AND ( fk_pieza2 IS NULL ) )
+                                   AND ( fk_pieza IS NULL ) )
                                  OR ( ( fk_pieza IS NOT NULL )
-                                      AND ( fk_pieza2 IS NOT NULL )
                                       AND ( fk_lote_materia_prima IS NULL ) ) ) ;
 
 ALTER TABLE ensamblaje ADD CONSTRAINT ensamblaje_pk PRIMARY KEY ( codigo_ens ) ;
@@ -164,8 +158,7 @@ ALTER TABLE pago_venta
 
 ALTER TABLE empleado ADD CONSTRAINT empleado_pk PRIMARY KEY ( codigo_empleado_per ) ;
 
-ALTER TABLE pieza ADD CONSTRAINT pieza_pk PRIMARY KEY ( codigo_pie,
-                                                        fk_ensamblaje ) ;
+ALTER TABLE pieza ADD CONSTRAINT pieza_pk PRIMARY KEY ( codigo_pie ) ;
 
 ALTER TABLE plan_ensamblaje ADD CONSTRAINT plan_ensamblaje_pk PRIMARY KEY ( codigo_pe ) ;
 
@@ -173,36 +166,39 @@ ALTER TABLE plan_transporte ADD CONSTRAINT plan_transporte_pk PRIMARY KEY ( codi
 
 ALTER TABLE privilegio ADD CONSTRAINT privilegio_pk PRIMARY KEY ( codigo_pri ) ;
 
+ALTER TABLE rol_privilegio ADD CONSTRAINT rol_privilegio_pk PRIMARY KEY ( fk_privilegio,fk_rol ) ;
+
 ALTER TABLE profesion ADD CONSTRAINT profesion_pk PRIMARY KEY ( codigo_pro ) ;
 
 ALTER TABLE prueba
     ADD CONSTRAINT arco_pru CHECK ( ( ( fk_avion IS NOT NULL )
                                    
                                    AND ( fk_pieza IS NULL )
-                                   AND ( fk_pieza2 IS NULL )
+                                   
                                    AND ( fk_lote_materia_prima IS NULL ) )
                                  OR ( ( fk_pieza IS NOT NULL )
-                                      AND ( fk_pieza2 IS NOT NULL )
+                                      
                                       AND ( fk_avion IS NULL )
                                       
                                       AND ( fk_lote_materia_prima IS NULL ) )
                                  OR ( ( fk_lote_materia_prima IS NOT NULL )
                                       AND ( fk_avion IS NULL )
                                      
-                                      AND ( fk_pieza IS NULL )
-                                      AND ( fk_pieza2 IS NULL ) ) ) ;
+                                      AND ( fk_pieza IS NULL ) ) ) ;
 
 ALTER TABLE prueba ADD CONSTRAINT prueba_pk PRIMARY KEY ( codigo_pru ) ;
 
-ALTER TABLE prueba_configuracion_avion
-    ADD CONSTRAINT prueba_configuracion_avion_pk PRIMARY KEY ( fk_tipo_prueba,
-                                                               fk_configuracion_avion,
-                                                               fk_configuracion_avion2 ) ;
+ALTER TABLE configuracion_prueba_avion
+    ADD CONSTRAINT configuracion_prueba_avion_pk PRIMARY KEY ( fk_tipo_prueba,
+                                                               fk_modelo_avion ) ;
 
-ALTER TABLE prueba_configuracion_pieza
-    ADD CONSTRAINT prueba_configuracion_pieza_pk PRIMARY KEY ( fk_tipo_prueba,
-                                                               fk_configuracion_pieza,
-                                                               fk_configuracion_pieza2 ) ;
+ALTER TABLE configuracion_prueba_pieza
+    ADD CONSTRAINT configuracion_prueba_pieza_pk PRIMARY KEY ( fk_tipo_prueba,
+                                                               fk_tipo_pieza ) ;
+
+ALTER TABLE configuracion_prueba_materia
+    ADD CONSTRAINT configuracion_prueba_materia_pk PRIMARY KEY ( fk_tipo_prueba,
+                                                                 fk_tipo_materia_prima ) ;
 
 ALTER TABLE red_social ADD CONSTRAINT red_social_pk PRIMARY KEY ( codigo_rs ) ;
 
@@ -228,35 +224,35 @@ ALTER TABLE tipo_prueba ADD CONSTRAINT tipo_prueba_pk PRIMARY KEY ( codigo_tp ) 
 
 ALTER TABLE transferencia_pieza_material
     ADD CONSTRAINT arco_tpm CHECK ( ( ( fk_pieza IS NOT NULL )
-                                   AND ( fk_pieza2 IS NOT NULL )
                                    AND ( fk_lote_materia_prima IS NULL ) )
                                  OR ( ( fk_lote_materia_prima IS NOT NULL )
-                                      AND ( fk_pieza IS NULL )
-                                      AND ( fk_pieza2 IS NULL ) ) ) ;
+                                      AND ( fk_pieza IS NULL ) ) ) ;
 
 ALTER TABLE transferencia_pieza_material ADD CONSTRAINT transferencia_pieza_material_pk PRIMARY KEY ( codigo_tpm ) ;
 
 ALTER TABLE transporte
     ADD CONSTRAINT arco_tra CHECK ( ( ( fk_detalle_compra IS NOT NULL )
 				   AND ( fk_detalle_compra2 IS NOT NULL )
-				   AND ( fk_detalle_transferencia IS NULL )
-                                   AND ( fk_detalle_transferencia2 IS NULL ) )
-                                 OR ( ( fk_detalle_transferencia IS NOT NULL )
-				      AND (fk_detalle_transferencia2 IS NOT NULL )
+				   AND ( fk_detalle_compra3 IS NOT NULL )
+				   AND ( fk_transferencia_pieza_material IS NULL ) )
+                                 OR ( ( fk_transferencia_pieza_material IS NOT NULL )
 				      AND ( fk_detalle_compra IS NULL )
-                                      AND ( fk_detalle_compra2 IS NULL ) ) ) ;
+                                      AND ( fk_detalle_compra2 IS NULL )
+				      AND ( fk_detalle_compra3 IS NULL ) ) ) ;
 
 ALTER TABLE transporte ADD CONSTRAINT transporte_pk PRIMARY KEY ( codigo_tra ) ;
 
 ALTER TABLE transporte_configuracion_avion
     ADD CONSTRAINT transporte_configuracion_avion_pk PRIMARY KEY ( fk_plan_transporte,
-                                                                   fk_configuracion_avion,
-                                                                   fk_configuracion_avion2 ) ;
+                                                                   fk_modelo_avion) ;
 
 ALTER TABLE transporte_configuracion_pieza
     ADD CONSTRAINT transporte_configuracion_pieza_pk PRIMARY KEY ( fk_plan_transporte,
-                                                                   fk_configuracion_pieza,
-                                                                   fk_configuracion_pieza2 ) ;
+                                                                   fk_tipo_pieza ) ;
+
+ALTER TABLE transporte_configuracion_materia
+    ADD CONSTRAINT transporte_configuracion_materia_pk PRIMARY KEY ( fk_plan_transporte,
+                                                                   fk_tipo_materia_prima ) ;
 
 ALTER TABLE turno ADD CONSTRAINT turno_pk PRIMARY KEY ( codigo_tur ) ;
 
@@ -305,12 +301,12 @@ ALTER TABLE equipo
                           fk_sede ) ON DELETE CASCADE;
 
 ALTER TABLE transporte
-    ADD CONSTRAINT fk_detalle_tranferencia FOREIGN KEY ( fk_detalle_transferencia, fk_detalle_transferencia2 )
-        REFERENCES detalle_transferencia ( fk_solicitud_transferencia, codigo_dt ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_transferencia_pieza_material FOREIGN KEY ( fk_transferencia_pieza_material )
+        REFERENCES transferencia_pieza_material ( codigo_tpm ) ON DELETE CASCADE;
 
 ALTER TABLE transporte
-    ADD CONSTRAINT fk_detalle_compra FOREIGN KEY ( fk_detalle_compra, fk_detalle_compra2 )
-        REFERENCES detalle_compra ( fk_compra, codigo_dc ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_detalle_compra FOREIGN KEY ( fk_detalle_compra, fk_detalle_compra2, fk_detalle_compra3 )
+        REFERENCES detalle_compra ( fk_compra, codigo_dc, fk_persona ) ON DELETE CASCADE;
 
 ALTER TABLE pago_venta
     ADD CONSTRAINT fk_modo_pago FOREIGN KEY ( fk_modo_pago )
@@ -321,26 +317,40 @@ ALTER TABLE transporte_configuracion_pieza
         REFERENCES plan_transporte ( codigo_pt ) ON DELETE CASCADE;
 
 ALTER TABLE transporte_configuracion_pieza
-    ADD CONSTRAINT fk_configuracion_pieza FOREIGN KEY ( fk_configuracion_pieza,
-                                              fk_configuracion_pieza2 )
-        REFERENCES configuracion_pieza ( fk_tipo_materia_prima,
-                                         fk_tipo_pieza ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_tipo_pieza FOREIGN KEY ( fk_tipo_pieza )
+        REFERENCES tipo_pieza ( codigo_tp ) ON DELETE CASCADE;
+
+ALTER TABLE transporte_configuracion_pieza
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed ) ON DELETE CASCADE;
 
 ALTER TABLE transporte_configuracion_avion
     ADD CONSTRAINT fk_plan_transporte FOREIGN KEY ( fk_plan_transporte )
         REFERENCES plan_transporte ( codigo_pt ) ON DELETE CASCADE;
 
 ALTER TABLE transporte_configuracion_avion
-    ADD CONSTRAINT fk_configuracion_avion FOREIGN KEY ( fk_configuracion_avion,
-                                              fk_configuracion_avion2 )
-        REFERENCES configuracion_avion ( fk_tipo_pieza,
-                                         fk_modelo_avion ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_modelo_avion FOREIGN KEY ( fk_modelo_avion )
+        REFERENCES modelo_avion ( codigo_ma ) ON DELETE CASCADE;
+
+ALTER TABLE transporte_configuracion_avion
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed ) ON DELETE CASCADE;
+
+ALTER TABLE transporte_configuracion_materia
+    ADD CONSTRAINT fk_plan_transporte FOREIGN KEY ( fk_plan_transporte )
+        REFERENCES plan_transporte ( codigo_pt ) ON DELETE CASCADE;
+
+ALTER TABLE transporte_configuracion_materia
+    ADD CONSTRAINT fk_tipo_materia_prima FOREIGN KEY ( fk_tipo_materia_prima )
+        REFERENCES tipo_materia_prima ( codigo_tmp ) ON DELETE CASCADE;
+
+ALTER TABLE transporte_configuracion_materia
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed ) ON DELETE CASCADE;
 
 ALTER TABLE embalaje
-    ADD CONSTRAINT fk_pieza FOREIGN KEY ( fk_pieza,
-                                              fk_pieza2 )
-        REFERENCES pieza ( codigo_pie,
-                           fk_ensamblaje ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_pieza FOREIGN KEY ( fk_pieza )
+        REFERENCES pieza ( codigo_pie ) ON DELETE CASCADE;
 
 ALTER TABLE embalaje
     ADD CONSTRAINT fk_equipo_empleado FOREIGN KEY ( fk_equipo_empleado,
@@ -376,49 +386,85 @@ ALTER TABLE embalaje_configuracion_pieza
     ADD CONSTRAINT fk_embalaje_plan FOREIGN KEY ( fk_embalaje_plan )
         REFERENCES embalaje_plan ( codigo_ep ) ON DELETE CASCADE;
 
+ALTER TABLE embalaje_configuracion_materia
+    ADD CONSTRAINT fk_embalaje_plan FOREIGN KEY ( fk_embalaje_plan )
+        REFERENCES embalaje_plan ( codigo_ep ) ON DELETE CASCADE;
+
 ALTER TABLE embalaje_configuracion_avion
-    ADD CONSTRAINT fk_configuracion_avion FOREIGN KEY ( fk_configuracion_avion,
-                                              fk_configuracion_avion2 )
-        REFERENCES configuracion_avion ( fk_tipo_pieza,
-                                         fk_modelo_avion ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_modelo_avion FOREIGN KEY ( fk_modelo_avion )
+        REFERENCES modelo_avion ( codigo_ma ) ON DELETE CASCADE;
 
 ALTER TABLE embalaje_configuracion_pieza
-    ADD CONSTRAINT fk_configuracion_pieza FOREIGN KEY ( fk_configuracion_pieza,
-                                              fk_configuracion_pieza2 )
-        REFERENCES configuracion_pieza ( fk_tipo_materia_prima,
-                                         fk_tipo_pieza ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_tipo_pieza FOREIGN KEY ( fk_tipo_pieza )
+        REFERENCES tipo_pieza ( codigo_tp ) ON DELETE CASCADE;
+
+ALTER TABLE embalaje_configuracion_materia
+    ADD CONSTRAINT fk_tipo_materia_prima FOREIGN KEY ( fk_tipo_materia_prima )
+        REFERENCES tipo_materia_prima ( codigo_tmp ) ON DELETE CASCADE;
+
+ALTER TABLE embalaje_configuracion_avion
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed ) ON DELETE CASCADE;
+
+ALTER TABLE embalaje_configuracion_pieza
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed ) ON DELETE CASCADE;
+
+ALTER TABLE embalaje_configuracion_materia
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed ) ON DELETE CASCADE;
 
 ALTER TABLE usuario
     ADD CONSTRAINT fk_rol FOREIGN KEY ( fk_rol )
         REFERENCES rol ( codigo_rol ) ON DELETE CASCADE;
 
-ALTER TABLE privilegio
+ALTER TABLE rol_privilegio
     ADD CONSTRAINT fk_rol FOREIGN KEY ( fk_rol )
         REFERENCES rol ( codigo_rol ) ON DELETE CASCADE;
 
-ALTER TABLE prueba_configuracion_avion
-    ADD CONSTRAINT fk_configuracion_avion FOREIGN KEY ( fk_configuracion_avion,
-                                              fk_configuracion_avion2 )
-        REFERENCES configuracion_avion ( fk_tipo_pieza,
-                                         fk_modelo_avion ) ON DELETE CASCADE;
+ALTER TABLE rol_privilegio
+    ADD CONSTRAINT fk_privilegio FOREIGN KEY ( fk_privilegio )
+        REFERENCES privilegio ( codigo_pri ) ON DELETE CASCADE;
 
-ALTER TABLE prueba_configuracion_avion
+ALTER TABLE configuracion_prueba_avion
+    ADD CONSTRAINT fk_modelo_avion FOREIGN KEY ( fk_modelo_avion )
+        REFERENCES modelo_avion ( codigo_ma ) ON DELETE CASCADE;
+
+ALTER TABLE configuracion_prueba_avion
     ADD CONSTRAINT fk_tipo_prueba FOREIGN KEY ( fk_tipo_prueba )
         REFERENCES tipo_prueba ( codigo_tp ) ON DELETE CASCADE;
 
-ALTER TABLE prueba_configuracion_pieza
-    ADD CONSTRAINT fk_configuracion_pieza FOREIGN KEY ( fk_configuracion_pieza,
-                                              fk_configuracion_pieza2 )
-        REFERENCES configuracion_pieza ( fk_tipo_materia_prima,
-                                         fk_tipo_pieza ) ON DELETE CASCADE;
+ALTER TABLE configuracion_prueba_avion
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed ) ON DELETE CASCADE;
+
+ALTER TABLE configuracion_prueba_pieza
+    ADD CONSTRAINT fk_tipo_pieza FOREIGN KEY ( fk_tipo_pieza )
+        REFERENCES tipo_pieza ( codigo_tp ) ON DELETE CASCADE;
 
 ALTER TABLE empleado
     ADD CONSTRAINT fk_lugar FOREIGN KEY ( fk_lugar )
         REFERENCES lugar ( codigo_lug ) ON DELETE CASCADE;
 
-ALTER TABLE prueba_configuracion_pieza
+ALTER TABLE configuracion_prueba_pieza
     ADD CONSTRAINT fk_tipo_prueba FOREIGN KEY ( fk_tipo_prueba )
         REFERENCES tipo_prueba ( codigo_tp ) ON DELETE CASCADE;
+
+ALTER TABLE configuracion_prueba_pieza
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed ) ON DELETE CASCADE;
+
+ALTER TABLE configuracion_prueba_materia
+    ADD CONSTRAINT fk_tipo_materia_prima FOREIGN KEY ( fk_tipo_materia_prima )
+        REFERENCES tipo_materia_prima ( codigo_tmp ) ON DELETE CASCADE;
+
+ALTER TABLE configuracion_prueba_materia
+    ADD CONSTRAINT fk_tipo_prueba FOREIGN KEY ( fk_tipo_prueba )
+        REFERENCES tipo_prueba ( codigo_tp ) ON DELETE CASCADE;
+
+ALTER TABLE configuracion_prueba_materia
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed ) ON DELETE CASCADE;
 
 ALTER TABLE estimacion_profesion_empleado
     ADD CONSTRAINT fk_tipo_prueba FOREIGN KEY ( fk_tipo_prueba )
@@ -528,10 +574,6 @@ ALTER TABLE transferencia_pieza_material
     ADD CONSTRAINT fk_solicitud_transferencia FOREIGN KEY ( fk_solicitud_transferencia )
         REFERENCES solicitud_transferencia ( codigo_st ) ON DELETE CASCADE;
 
-ALTER TABLE detalle_transferencia
-    ADD CONSTRAINT fk_solicitud_transferencia FOREIGN KEY ( fk_solicitud_transferencia )
-        REFERENCES solicitud_transferencia ( codigo_st ) ON DELETE CASCADE;
-
 ALTER TABLE correo_electronico
     ADD CONSTRAINT fk_persona FOREIGN KEY ( fk_persona )
         REFERENCES persona ( codigo_com ) ON DELETE CASCADE;
@@ -564,9 +606,6 @@ ALTER TABLE asistencia
     ADD CONSTRAINT fk_empleado FOREIGN KEY ( fk_empleado )
         REFERENCES empleado ( codigo_empleado_per ) ON DELETE CASCADE;
 
-ALTER TABLE asistencia
-    ADD CONSTRAINT fk_turno FOREIGN KEY ( fk_turno )
-        REFERENCES turno ( codigo_tur ) ON DELETE CASCADE;
 
 ALTER TABLE equipo
     ADD CONSTRAINT fk_labor FOREIGN KEY ( fk_labor )
@@ -601,8 +640,8 @@ ALTER TABLE tipo_pieza
         REFERENCES tipo_pieza ( codigo_tp ) ON DELETE CASCADE;
 
 ALTER TABLE pieza
-    ADD CONSTRAINT fk_pieza FOREIGN KEY ( fk_pieza,fk_pieza2 )
-        REFERENCES pieza ( codigo_pie, fk_ensamblaje ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_pieza FOREIGN KEY ( fk_pieza)
+        REFERENCES pieza ( codigo_pie ) ON DELETE CASCADE;
 
 ALTER TABLE modelo_avion
     ADD CONSTRAINT fk_modelo_avion FOREIGN KEY ( fk_modelo_avion )
@@ -644,6 +683,10 @@ ALTER TABLE detalle_compra
     ADD CONSTRAINT fk_compra FOREIGN KEY ( fk_compra )
         REFERENCES compra ( codigo_compra_com ) ON DELETE CASCADE;
 
+ALTER TABLE detalle_compra
+    ADD CONSTRAINT fk_persona FOREIGN KEY ( fk_persona )
+        REFERENCES persona ( codigo_com ) ON DELETE CASCADE;
+
 ALTER TABLE prueba
     ADD CONSTRAINT fk_tipo_prueba FOREIGN KEY ( fk_tipo_prueba )
         REFERENCES tipo_prueba ( codigo_tp ) ON DELETE CASCADE;
@@ -664,6 +707,10 @@ ALTER TABLE detalle_venta
     ADD CONSTRAINT fk_venta FOREIGN KEY ( fk_venta )
         REFERENCES venta ( codigo_venta_ven ) ON DELETE CASCADE;
 
+ALTER TABLE detalle_venta
+    ADD CONSTRAINT fk_persona FOREIGN KEY ( fk_persona )
+        REFERENCES persona ( codigo_com ) ON DELETE CASCADE;
+
 ALTER TABLE historial_estatus_compra
     ADD CONSTRAINT fk_compra FOREIGN KEY ( fk_estatus )
         REFERENCES compra ( codigo_compra_com ) ON DELETE CASCADE;
@@ -673,10 +720,8 @@ ALTER TABLE transferencia_pieza_material
         REFERENCES lote_materia_prima ( codigo_lmp ) ON DELETE CASCADE;
 
 ALTER TABLE transferencia_pieza_material
-    ADD CONSTRAINT fk_pieza FOREIGN KEY ( fk_pieza,
-                                             fk_pieza2 )
-        REFERENCES pieza ( codigo_pie,
-                           fk_ensamblaje ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_pieza FOREIGN KEY ( fk_pieza )
+        REFERENCES pieza ( codigo_pie ) ON DELETE CASCADE;
 
 ALTER TABLE pago_compra
     ADD CONSTRAINT fk_modo_pago FOREIGN KEY ( fk_modo_pago )
@@ -698,14 +743,6 @@ ALTER TABLE lote_materia_prima
     ADD CONSTRAINT fk_compra FOREIGN KEY ( fk_compra )
         REFERENCES compra ( codigo_compra_com ) ON DELETE CASCADE;
 
-ALTER TABLE compra
-    ADD CONSTRAINT fk_persona FOREIGN KEY ( fk_persona )
-        REFERENCES persona ( codigo_com ) ON DELETE CASCADE;
-
-ALTER TABLE venta
-    ADD CONSTRAINT fk_persona FOREIGN KEY ( fk_persona )
-        REFERENCES persona ( codigo_com ) ON DELETE CASCADE;
-
 ALTER TABLE avion
     ADD CONSTRAINT fk_almacen FOREIGN KEY ( fk_almacen,
                                              fk_almacen2 )
@@ -729,10 +766,8 @@ ALTER TABLE pago_compra
         REFERENCES compra ( codigo_compra_com ) ON DELETE CASCADE;
 
 ALTER TABLE pieza
-    ADD CONSTRAINT fk_avion FOREIGN KEY ( fk_avion,
-                                             fk_avion2 )
-        REFERENCES avion ( codigo_avi,
-                           fk_ensamblaje ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_avion FOREIGN KEY ( fk_avion)
+        REFERENCES avion ( codigo_avi ) ON DELETE CASCADE;
 
 ALTER TABLE pago_moneda
     ADD CONSTRAINT fk_pago_venta FOREIGN KEY ( fk_pago_venta )
@@ -751,16 +786,12 @@ ALTER TABLE prueba
         REFERENCES lote_materia_prima ( codigo_lmp ) ON DELETE CASCADE;
 
 ALTER TABLE prueba
-    ADD CONSTRAINT fk_pieza FOREIGN KEY ( fk_pieza,
-                                             fk_pieza2 )
-        REFERENCES pieza ( codigo_pie,
-                           fk_ensamblaje ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_pieza FOREIGN KEY ( fk_pieza )
+        REFERENCES pieza ( codigo_pie ) ON DELETE CASCADE;
 
 ALTER TABLE prueba
-    ADD CONSTRAINT fk_avion FOREIGN KEY ( fk_avion,
-                                             fk_avion2 )
-        REFERENCES avion ( codigo_avi,
-                           fk_ensamblaje ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_avion FOREIGN KEY ( fk_avion )
+        REFERENCES avion ( codigo_avi ) ON DELETE CASCADE;
 
 ALTER TABLE empleado_profesion
     ADD CONSTRAINT fk_profesion FOREIGN KEY ( fk_profesion )
@@ -790,15 +821,21 @@ ALTER TABLE configuracion_ensamblaje_materia
     ADD CONSTRAINT fk_tipo_materia_prima FOREIGN KEY ( fk_tipo_materia_prima )
         REFERENCES tipo_materia_prima ( codigo_tmp) ON DELETE CASCADE;
 
+ALTER TABLE configuracion_ensamblaje_pieza
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed) ON DELETE CASCADE;
+
+ALTER TABLE configuracion_ensamblaje_materia
+    ADD CONSTRAINT fk_sede FOREIGN KEY ( fk_sede )
+        REFERENCES sede ( codigo_sed) ON DELETE CASCADE;
+
 ALTER TABLE ensamblaje
     ADD CONSTRAINT fk_plan_ensamblaje FOREIGN KEY ( fk_plan_ensamblaje )
         REFERENCES plan_ensamblaje ( codigo_pe ) ON DELETE CASCADE;
 
 ALTER TABLE ensamblaje
-    ADD CONSTRAINT fk_pieza FOREIGN KEY ( fk_pieza,
-                                             fk_pieza2 )
-        REFERENCES pieza ( codigo_pie,
-                           fk_ensamblaje ) ON DELETE CASCADE;
+    ADD CONSTRAINT fk_pieza FOREIGN KEY ( fk_pieza )
+        REFERENCES pieza ( codigo_pie ) ON DELETE CASCADE;
 
 ALTER TABLE ensamblaje
     ADD CONSTRAINT fk_lote_materia_prima FOREIGN KEY ( fk_lote_materia_prima )

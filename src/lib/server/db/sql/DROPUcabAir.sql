@@ -7,9 +7,10 @@ DROP PROCEDURE IF EXISTS eliminar_empleado;
 DROP PROCEDURE IF EXISTS editar_empleado;
 DROP PROCEDURE IF EXISTS insertar_persona;
 DROP PROCEDURE IF EXISTS eliminar_persona;
+DROP PROCEDURE IF EXISTS editar_persona;
 DROP PROCEDURE IF EXISTS insertar_tipo_prueba;
 DROP PROCEDURE IF EXISTS eliminar_tipo_prueba;
-
+DROP PROCEDURE IF EXISTS editar_tipo_prueba;
 ALTER TABLE IF EXISTS sede DROP CONSTRAINT IF EXISTS fk_lugar;
 
 ALTER TABLE IF EXISTS almacen DROP CONSTRAINT IF EXISTS fk_sede;
@@ -28,7 +29,7 @@ ALTER TABLE IF EXISTS transporte DROP CONSTRAINT IF EXISTS fk_plan_transporte;
 
 ALTER TABLE IF EXISTS equipo DROP CONSTRAINT IF EXISTS fk_zona;
 
-ALTER TABLE IF EXISTS transporte DROP CONSTRAINT IF EXISTS fk_detalle_tranferencia;
+ALTER TABLE IF EXISTS transporte DROP CONSTRAINT IF EXISTS fk_transferencia_pieza_material;
 
 ALTER TABLE IF EXISTS transporte DROP CONSTRAINT IF EXISTS fk_detalle_compra;
 
@@ -36,11 +37,21 @@ ALTER TABLE IF EXISTS pago_venta DROP CONSTRAINT IF EXISTS fk_modo_pago;
 
 ALTER TABLE IF EXISTS transporte_configuracion_pieza DROP CONSTRAINT IF EXISTS fk_plan_transporte;
 
-ALTER TABLE IF EXISTS transporte_configuracion_pieza DROP CONSTRAINT IF EXISTS fk_configuracion_pieza;
+ALTER TABLE IF EXISTS transporte_configuracion_pieza DROP CONSTRAINT IF EXISTS fk_tipo_pieza;
+
+ALTER TABLE IF EXISTS transporte_configuracion_pieza DROP CONSTRAINT IF EXISTS fk_sede;
 
 ALTER TABLE IF EXISTS transporte_configuracion_avion DROP CONSTRAINT IF EXISTS fk_plan_transporte;
 
-ALTER TABLE IF EXISTS transporte_configuracion_avion DROP CONSTRAINT IF EXISTS fk_configuracion_avion;
+ALTER TABLE IF EXISTS transporte_configuracion_avion DROP CONSTRAINT IF EXISTS fk_modelo_avion;
+
+ALTER TABLE IF EXISTS transporte_configuracion_avion DROP CONSTRAINT IF EXISTS fk_sede;
+
+ALTER TABLE IF EXISTS transporte_configuracion_materia DROP CONSTRAINT IF EXISTS fk_plan_transporte;
+
+ALTER TABLE IF EXISTS transporte_configuracion_materia DROP CONSTRAINT IF EXISTS fk_tipo_materia_prima;
+
+ALTER TABLE IF EXISTS transporte_configuracion_materia DROP CONSTRAINT IF EXISTS fk_sede;
 
 ALTER TABLE IF EXISTS embalaje DROP CONSTRAINT IF EXISTS fk_pieza;
 
@@ -58,21 +69,43 @@ ALTER TABLE IF EXISTS embalaje_configuracion_avion DROP CONSTRAINT IF EXISTS fk_
 
 ALTER TABLE IF EXISTS embalaje_configuracion_pieza DROP CONSTRAINT IF EXISTS fk_embalaje_plan;
 
-ALTER TABLE IF EXISTS embalaje_configuracion_avion DROP CONSTRAINT IF EXISTS fk_configuracion_avion;
+ALTER TABLE IF EXISTS embalaje_configuracion_materia DROP CONSTRAINT IF EXISTS fk_embalaje_plan;
 
-ALTER TABLE IF EXISTS embalaje_configuracion_pieza DROP CONSTRAINT IF EXISTS fk_configuracion_pieza;
+ALTER TABLE IF EXISTS embalaje_configuracion_avion DROP CONSTRAINT IF EXISTS fk_modelo_avion;
 
-ALTER TABLE IF EXISTS privilegio DROP CONSTRAINT IF EXISTS fk_rol;
+ALTER TABLE IF EXISTS embalaje_configuracion_pieza DROP CONSTRAINT IF EXISTS fk_tipo_pieza;
 
-ALTER TABLE IF EXISTS prueba_configuracion_avion DROP CONSTRAINT IF EXISTS fk_configuracion_avion;
+ALTER TABLE IF EXISTS embalaje_configuracion_materia DROP CONSTRAINT IF EXISTS fk_tipo_materia_prima;
 
-ALTER TABLE IF EXISTS prueba_configuracion_avion DROP CONSTRAINT IF EXISTS fk_tipo_prueba;
+ALTER TABLE IF EXISTS embalaje_configuracion_avion DROP CONSTRAINT IF EXISTS fk_sede;
 
-ALTER TABLE IF EXISTS prueba_configuracion_pieza DROP CONSTRAINT IF EXISTS fk_configuracion_pieza;
+ALTER TABLE IF EXISTS embalaje_configuracion_pieza DROP CONSTRAINT IF EXISTS fk_sede;
+
+ALTER TABLE IF EXISTS embalaje_configuracion_materia DROP CONSTRAINT IF EXISTS fk_sede;
+
+ALTER TABLE IF EXISTS rol_privilegio DROP CONSTRAINT IF EXISTS fk_rol;
+
+ALTER TABLE IF EXISTS rol_privilegio DROP CONSTRAINT IF EXISTS fk_privilegio;
+
+ALTER TABLE IF EXISTS configuracion_prueba_avion DROP CONSTRAINT IF EXISTS fk_modelo_avion;
+
+ALTER TABLE IF EXISTS configuracion_prueba_avion DROP CONSTRAINT IF EXISTS fk_tipo_prueba;
+
+ALTER TABLE IF EXISTS configuracion_prueba_avion DROP CONSTRAINT IF EXISTS fk_sede;
+
+ALTER TABLE IF EXISTS configuracion_prueba_pieza DROP CONSTRAINT IF EXISTS fk_tipo_pieza;
 
 ALTER TABLE IF EXISTS empleado DROP CONSTRAINT IF EXISTS fk_lugar;
 
-ALTER TABLE IF EXISTS prueba_configuracion_pieza DROP CONSTRAINT IF EXISTS fk_tipo_prueba;
+ALTER TABLE IF EXISTS configuracion_prueba_pieza DROP CONSTRAINT IF EXISTS fk_tipo_prueba;
+
+ALTER TABLE IF EXISTS configuracion_prueba_pieza DROP CONSTRAINT IF EXISTS fk_sede;
+
+ALTER TABLE IF EXISTS configuracion_prueba_materia DROP CONSTRAINT IF EXISTS fk_tipo_materia_prima;
+
+ALTER TABLE IF EXISTS configuracion_prueba_materia DROP CONSTRAINT IF EXISTS fk_tipo_prueba;
+
+ALTER TABLE IF EXISTS configuracion_prueba_materia DROP CONSTRAINT IF EXISTS fk_sede;
 
 ALTER TABLE IF EXISTS estimacion_profesion_empleado DROP CONSTRAINT IF EXISTS fk_tipo_prueba;
 
@@ -128,8 +161,6 @@ ALTER TABLE IF EXISTS solicitud_transferencia DROP CONSTRAINT IF EXISTS fk_sede;
 
 ALTER TABLE IF EXISTS transferencia_pieza_material DROP CONSTRAINT IF EXISTS fk_solicitud_transferencia;
 
-ALTER TABLE IF EXISTS detalle_transferencia DROP CONSTRAINT IF EXISTS fk_solicitud_transferencia;
-
 ALTER TABLE IF EXISTS correo_electronico DROP CONSTRAINT IF EXISTS fk_persona;
 
 ALTER TABLE IF EXISTS correo_electronico DROP CONSTRAINT IF EXISTS fk_empleado;
@@ -145,8 +176,6 @@ ALTER TABLE IF EXISTS pago_empleado DROP CONSTRAINT IF EXISTS fk_empleado;
 ALTER TABLE IF EXISTS beneficiario DROP CONSTRAINT IF EXISTS fk_empleado;
 
 ALTER TABLE IF EXISTS asistencia DROP CONSTRAINT IF EXISTS fk_empleado;
-
-ALTER TABLE IF EXISTS asistencia DROP CONSTRAINT IF EXISTS fk_turno;
 
 ALTER TABLE IF EXISTS equipo DROP CONSTRAINT IF EXISTS fk_labor;
 
@@ -184,6 +213,8 @@ ALTER TABLE IF EXISTS avion DROP CONSTRAINT IF EXISTS fk_modelo_avion;
 
 ALTER TABLE IF EXISTS detalle_compra DROP CONSTRAINT IF EXISTS fk_compra;
 
+ALTER TABLE IF EXISTS detalle_compra DROP CONSTRAINT IF EXISTS fk_persona;
+
 ALTER TABLE IF EXISTS prueba DROP CONSTRAINT IF EXISTS fk_tipo_prueba;
 
 ALTER TABLE IF EXISTS prueba DROP CONSTRAINT IF EXISTS fk_equipo_empleado;
@@ -191,6 +222,8 @@ ALTER TABLE IF EXISTS prueba DROP CONSTRAINT IF EXISTS fk_equipo_empleado;
 ALTER TABLE IF EXISTS prueba DROP CONSTRAINT IF EXISTS fk_zona;
 
 ALTER TABLE IF EXISTS detalle_venta DROP CONSTRAINT IF EXISTS fk_venta;
+
+ALTER TABLE IF EXISTS detalle_venta DROP CONSTRAINT IF EXISTS fk_persona;
 
 ALTER TABLE IF EXISTS historial_estatus_compra DROP CONSTRAINT IF EXISTS fk_compra;
 
@@ -207,10 +240,6 @@ ALTER TABLE IF EXISTS configuracion_pieza DROP CONSTRAINT IF EXISTS fk_sede;
 ALTER TABLE IF EXISTS avion DROP CONSTRAINT IF EXISTS fk_venta;
 
 ALTER TABLE IF EXISTS lote_materia_prima DROP CONSTRAINT IF EXISTS fk_compra;
-
-ALTER TABLE IF EXISTS compra DROP CONSTRAINT IF EXISTS fk_persona;
-
-ALTER TABLE IF EXISTS venta DROP CONSTRAINT IF EXISTS fk_persona;
 
 ALTER TABLE IF EXISTS avion DROP CONSTRAINT IF EXISTS fk_almacen;
 
@@ -247,6 +276,10 @@ ALTER TABLE IF EXISTS configuracion_ensamblaje_materia DROP CONSTRAINT IF EXISTS
 ALTER TABLE IF EXISTS configuracion_ensamblaje_pieza DROP CONSTRAINT IF EXISTS fk_tipo_pieza;
 
 ALTER TABLE IF EXISTS configuracion_ensamblaje_materia DROP CONSTRAINT IF EXISTS fk_tipo_materia_prima;
+
+ALTER TABLE IF EXISTS configuracion_ensamblaje_pieza DROP CONSTRAINT IF EXISTS fk_sede;
+
+ALTER TABLE IF EXISTS configuracion_ensamblaje_materia DROP CONSTRAINT IF EXISTS fk_sede;
 
 ALTER TABLE IF EXISTS ensamblaje DROP CONSTRAINT IF EXISTS fk_plan_ensamblaje;
 
@@ -292,8 +325,6 @@ ALTER TABLE IF EXISTS caracteristica_modelo DROP CONSTRAINT IF EXISTS caracteris
 
 ALTER TABLE IF EXISTS caracteristica_pieza DROP CONSTRAINT IF EXISTS caracteristica_pieza_pk;
 
-ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS empresa_pk;
-
 ALTER TABLE IF EXISTS compra DROP CONSTRAINT IF EXISTS compra_pk;
 
 ALTER TABLE IF EXISTS configuracion_avion DROP CONSTRAINT IF EXISTS configuracion_avion_pk;
@@ -306,8 +337,6 @@ ALTER TABLE IF EXISTS correo_electronico DROP CONSTRAINT IF EXISTS correo_electr
 
 ALTER TABLE IF EXISTS detalle_compra DROP CONSTRAINT IF EXISTS detalle_compra_pk;
 
-ALTER TABLE IF EXISTS detalle_transferencia DROP CONSTRAINT IF EXISTS detalle_transferencia_pk;
-
 ALTER TABLE IF EXISTS detalle_venta DROP CONSTRAINT IF EXISTS detalle_venta_pk;
 
 ALTER TABLE IF EXISTS embalaje DROP CONSTRAINT IF EXISTS arco_emb;
@@ -317,6 +346,8 @@ ALTER TABLE IF EXISTS embalaje DROP CONSTRAINT IF EXISTS embalaje_pk;
 ALTER TABLE IF EXISTS embalaje_configuracion_avion DROP CONSTRAINT IF EXISTS embalaje_configuracion_avion_pk;
 
 ALTER TABLE IF EXISTS embalaje_configuracion_pieza DROP CONSTRAINT IF EXISTS embalaje_configuracion_pieza_pk;
+
+ALTER TABLE IF EXISTS embalaje_configuracion_materia DROP CONSTRAINT IF EXISTS embalaje_configuracion_materia_pk;
 
 ALTER TABLE IF EXISTS embalaje_plan DROP CONSTRAINT IF EXISTS embalaje_plan_pk;
 
@@ -386,15 +417,19 @@ ALTER TABLE IF EXISTS plan_transporte DROP CONSTRAINT IF EXISTS plan_transporte_
 
 ALTER TABLE IF EXISTS privilegio DROP CONSTRAINT IF EXISTS privilegio_pk;
 
+ALTER TABLE IF EXISTS rol_privilegio DROP CONSTRAINT IF EXISTS rol_privilegio_pk;
+
 ALTER TABLE IF EXISTS profesion DROP CONSTRAINT IF EXISTS profesion_pk;
 
 ALTER TABLE IF EXISTS prueba DROP CONSTRAINT IF EXISTS arco_pru;
 
 ALTER TABLE IF EXISTS prueba DROP CONSTRAINT IF EXISTS prueba_pk;
 
-ALTER TABLE IF EXISTS prueba_configuracion_avion DROP CONSTRAINT IF EXISTS prueba_configuracion_avion_pk;
+ALTER TABLE IF EXISTS configuracion_prueba_avion DROP CONSTRAINT IF EXISTS configuracion_prueba_avion_pk;
 
-ALTER TABLE IF EXISTS prueba_configuracion_pieza DROP CONSTRAINT IF EXISTS prueba_configuracion_pieza_pk;
+ALTER TABLE IF EXISTS configuracion_prueba_pieza DROP CONSTRAINT IF EXISTS configuracion_prueba_pieza_pk;
+
+ALTER TABLE IF EXISTS configuracion_prueba_materia DROP CONSTRAINT IF EXISTS configuracion_prueba_materia_pk;
 
 ALTER TABLE IF EXISTS red_social DROP CONSTRAINT IF EXISTS red_social_pk;
 
@@ -426,6 +461,8 @@ ALTER TABLE IF EXISTS transporte_configuracion_avion DROP CONSTRAINT IF EXISTS t
 
 ALTER TABLE IF EXISTS transporte_configuracion_pieza DROP CONSTRAINT IF EXISTS transporte_configuracion_pieza_pk;
 
+ALTER TABLE IF EXISTS transporte_configuracion_materia DROP CONSTRAINT IF EXISTS transporte_configuracion_materia_pk;
+
 ALTER TABLE IF EXISTS turno DROP CONSTRAINT IF EXISTS turno_pk;
 
 ALTER TABLE IF EXISTS sesion DROP CONSTRAINT IF EXISTS usuario_fk;
@@ -435,6 +472,8 @@ ALTER TABLE IF EXISTS usuario DROP CONSTRAINT IF EXISTS usuario_pk;
 ALTER TABLE IF EXISTS venta DROP CONSTRAINT IF EXISTS venta_pk;
 
 ALTER TABLE IF EXISTS zona DROP CONSTRAINT IF EXISTS zona_pk;
+
+ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS empresa_pk;
 
 
 
@@ -451,11 +490,11 @@ DROP TABLE IF EXISTS configuracion_avion;
 DROP TABLE IF EXISTS configuracion_pieza;
 DROP TABLE IF EXISTS correo_electronico;
 DROP TABLE IF EXISTS detalle_compra;
-DROP TABLE IF EXISTS detalle_transferencia;
 DROP TABLE IF EXISTS detalle_venta;
 DROP TABLE IF EXISTS embalaje;
 DROP TABLE IF EXISTS embalaje_configuracion_avion;
 DROP TABLE IF EXISTS embalaje_configuracion_pieza;
+DROP TABLE IF EXISTS embalaje_configuracion_materia;
 DROP TABLE IF EXISTS embalaje_plan;
 DROP TABLE IF EXISTS empleado_profesion;
 DROP TABLE IF EXISTS ensamblaje;
@@ -490,10 +529,12 @@ DROP TABLE IF EXISTS plan_transporte;
 DROP TABLE IF EXISTS privilegio;
 DROP TABLE IF EXISTS profesion;
 DROP TABLE IF EXISTS prueba;
-DROP TABLE IF EXISTS prueba_configuracion_avion;
-DROP TABLE IF EXISTS prueba_configuracion_pieza;
+DROP TABLE IF EXISTS configuracion_prueba_avion;
+DROP TABLE IF EXISTS configuracion_prueba_pieza;
+DROP TABLE IF EXISTS configuracion_prueba_materia;
 DROP TABLE IF EXISTS red_social;
 DROP TABLE IF EXISTS rol;
+DROP TABLE IF EXISTS rol_privilegio;
 DROP TABLE IF EXISTS sede;
 DROP TABLE IF EXISTS solicitud_transferencia;
 DROP TABLE IF EXISTS telefono;
@@ -504,6 +545,7 @@ DROP TABLE IF EXISTS transferencia_pieza_material;
 DROP TABLE IF EXISTS transporte;
 DROP TABLE IF EXISTS transporte_configuracion_avion;
 DROP TABLE IF EXISTS transporte_configuracion_pieza;
+DROP TABLE IF EXISTS transporte_configuracion_materia;
 DROP TABLE IF EXISTS turno;
 DROP TABLE IF EXISTS usuario;
 DROP TABLE IF EXISTS venta;
