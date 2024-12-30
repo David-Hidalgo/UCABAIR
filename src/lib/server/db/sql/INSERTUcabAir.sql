@@ -3401,3 +3401,147 @@ INSERT INTO avion (codigo_avi, color_avi, fk_modelo_avion, fk_venta, fk_almacen,
 (8, 'Gris', 8, 8, 8, 3, 8, 'Coral King', 'MAT008'),
 (9, 'Blanco con azul', 9, 9, 9, 4, 9, 'Sunset Voyager', 'MAT009'),
 (10, 'Rojo con blanco', 10, 10, 10, 5, 10, 'Tidal Wave', 'MAT010');
+
+INSERT INTO estatus (codigo_est, nombre_est) VALUES 
+(1, 'En Producción'),
+(2, 'En Inspección'),
+(3, 'Aprobado'),
+(4, 'Rechazado'),
+(5, 'En Almacenamiento'),
+(6, 'En Ensamblaje'),
+(7, 'En Pruebas'),
+(8, 'Listo para Envío'),
+(9, 'En Reparación'),
+(10, 'Desmantelado');
+
+INSERT INTO historial_estatus_compra (fk_compra, fk_estatus, fecha_hec) VALUES 
+(1, 1, '2024-01-01'),
+(2, 2, '2024-01-02'),
+(3, 3, '2024-01-03'),
+(4, 4, '2024-01-04'),
+(5, 5, '2024-01-05'),
+(6, 6, '2024-01-06'),
+(7, 7, '2024-01-07'),
+(8, 8, '2024-01-08'),
+(9, 9, '2024-01-09'),
+(10, 10, '2024-01-10');
+
+INSERT INTO historial_estatus_embalaje (fecha_hee, fk_estatus, fk_embalaje) VALUES 
+('2024-01-01', 1, 1),
+('2024-01-02', 2, 2),
+('2024-01-03', 3, 3),
+('2024-01-04', 4, 4),
+('2024-01-05', 5, 5),
+('2024-01-06', 6, 6),
+('2024-01-07', 7, 7),
+('2024-01-08', 8, 8),
+('2024-01-09', 9, 9),
+('2024-01-10', 10, 10);
+
+INSERT INTO historial_estatus_prueba (fk_estatus, fk_prueba, fecha_hep) VALUES 
+(1, 1, '2024-01-01'),
+(2, 2, '2024-01-02'),
+(3, 3, '2024-01-03'),
+(4, 4, '2024-01-04'),
+(5, 5, '2024-01-05'),
+(6, 6, '2024-01-06'),
+(7, 7, '2024-01-07'),
+(8, 8, '2024-01-08'),
+(9, 9, '2024-01-09'),
+(10, 10, '2024-01-10');
+
+INSERT INTO historial_estatus_solicitud_transferencia (fecha_hest, fk_solicitud_transferencia, fk_estatus) VALUES 
+('2024-01-01', 1, 1),
+('2024-01-02', 2, 2),
+('2024-01-03', 3, 3),
+('2024-01-04', 4, 4),
+('2024-01-05', 5, 5),
+('2024-01-06', 6, 6),
+('2024-01-07', 7, 7),
+('2024-01-08', 8, 8),
+('2024-01-09', 9, 9),
+('2024-01-10', 10, 10);
+
+INSERT INTO historial_estatus_transporte (fecha_het, fk_estatus, fk_transporte) VALUES 
+('2024-01-01', 1, 1),
+('2024-01-02', 2, 2),
+('2024-01-03', 3, 3),
+('2024-01-04', 4, 4),
+('2024-01-05', 5, 5),
+('2024-01-06', 6, 6),
+('2024-01-07', 7, 7),
+('2024-01-08', 8, 8),
+('2024-01-09', 9, 9),
+('2024-01-10', 10, 10);
+
+INSERT INTO historial_estatus_venta (fecha_hev, fk_venta, fk_estatus) VALUES 
+('2024-01-01', 1, 1),
+('2024-01-02', 2, 2),
+('2024-01-03', 3, 3),
+('2024-01-04', 4, 4),
+('2024-01-05', 5, 5),
+('2024-01-06', 6, 6),
+('2024-01-07', 7, 7),
+('2024-01-08', 8, 8),
+('2024-01-09', 9, 9),
+('2024-01-10', 10, 10);
+
+INSERT INTO moneda (codigo_mon, nombre_mon, tasa_cambio_mon, fecha_inicio_mon, fecha_fin_mon) VALUES 
+(1, 'Dólar Estadounidense', 1.00, '2024-01-01', NULL),
+(2, 'Euro', 0.85, '2024-01-01', NULL),
+(3, 'Libra Esterlina', 0.75, '2024-01-01', NULL),
+(4, 'Yen Japonés', 110.00, '2024-01-01', NULL),
+(5, 'Franco Suizo', 0.92, '2024-01-01', NULL),
+(6, 'Dólar Canadiense', 1.25, '2024-01-01', NULL),
+(7, 'Dólar Australiano', 1.35, '2024-01-01', NULL),
+(8, 'Yuan Chino', 6.50, '2024-01-01', NULL),
+(9, 'Peso Mexicano', 20.00, '2024-01-01', NULL),
+(10, 'Real Brasileño', 5.00, '2024-01-01', NULL);
+
+INSERT INTO pago_compra (codigo_pago_pc, fecha_pago_pc, fk_modo_pago, fk_compra) VALUES 
+(1, '2024-01-01', 1, 1),
+(2, '2024-01-02', 2, 2),
+(3, '2024-01-03', 3, 3),
+(4, '2024-01-04', 4, 4),
+(5, '2024-01-05', 5, 5),
+(6, '2024-01-06', 6, 6),
+(7, '2024-01-07', 7, 7),
+(8, '2024-01-08', 8, 8),
+(9, '2024-01-09', 9, 9),
+(10, '2024-01-10', 10, 10);
+
+INSERT INTO pago_moneda (fk_pago_venta, fk_moneda, fk_pago_compra, cantidad_dinero_pm, codigo_pm) VALUES 
+(1, 1, 1, 100.00, 1),
+(2, 2, 2, 200.00, 2),
+(3, 3, 3, 300.00, 3),
+(4, 4, 4, 400.00, 4),
+(5, 5, 5, 500.00, 5),
+(6, 6, 6, 600.00, 6),
+(7, 7, 7, 700.00, 7),
+(8, 8, 8, 800.00, 8),
+(9, 9, 9, 900.00, 9),
+(10, 10, 10, 1000.00, 10);
+
+INSERT INTO pago_empleado (codigo_pp, fecha_pago_pp, monto_pago_sueldo_pp, monto_pago_extra_pp, fk_empleado, fk_modo_pago) VALUES 
+(1, '2024-01-01', 1000.00, 100.00, 1, 1),
+(2, '2024-01-02', 1100.00, 110.00, 5, 2),
+(3, '2024-01-03', 1200.00, 120.00, 10, 3),
+(4, '2024-01-04', 1300.00, 130.00, 15, 4),
+(5, '2024-01-05', 1400.00, 140.00, 20, 5),
+(6, '2024-01-06', 1500.00, 150.00, 25, 6),
+(7, '2024-01-07', 1600.00, 160.00, 30, 7),
+(8, '2024-01-08', 1700.00, 170.00, 35, 8),
+(9, '2024-01-09', 1800.00, 180.00, 40, 9),
+(10, '2024-01-10', 1900.00, 190.00, 12, 10);
+
+INSERT INTO pago_venta (codigo_pago_pv, fecha_pago_pv, fk_venta, fk_modo_pago) VALUES 
+(1, '2024-01-01', 1, 1),
+(2, '2024-01-02', 2, 2),
+(3, '2024-01-03', 3, 3),
+(4, '2024-01-04', 4, 4),
+(5, '2024-01-05', 5, 5),
+(6, '2024-01-06', 6, 6),
+(7, '2024-01-07', 7, 7),
+(8, '2024-01-08', 8, 8),
+(9, '2024-01-09', 9, 9),
+(10, '2024-01-10', 10, 10);
