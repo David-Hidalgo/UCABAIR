@@ -39,9 +39,14 @@ ALTER TABLE detalle_venta ADD CONSTRAINT detalle_venta_pk PRIMARY KEY ( fk_venta
 
 ALTER TABLE embalaje
     ADD CONSTRAINT arco_emb CHECK ( ( ( fk_lote_materia_prima IS NOT NULL )
-                                   AND ( fk_pieza IS NULL ) )
+                                   AND ( fk_pieza IS NULL ) 
+                                   AND ( fk_avion IS NULL ) )
                                  OR ( ( fk_pieza IS NOT NULL )
-                                      AND ( fk_lote_materia_prima IS NULL ) )) ;
+                                      AND ( fk_lote_materia_prima IS NULL )
+                                      AND ( fk_avion IS NULL ) )
+                                 OR ( ( fk_avion IS NOT NULL )
+                                      AND ( fk_lote_materia_prima IS NULL )
+                                      AND ( fk_pieza IS NULL ) )) ;
 
 ALTER TABLE embalaje ADD CONSTRAINT embalaje_pk PRIMARY KEY ( codigo_emb ) ;
 

@@ -3330,6 +3330,66 @@ INSERT INTO pago_venta (codigo_pago_pv, fecha_pago_pv, fk_venta, fk_modo_pago) V
 (9, '2024-12-09', 9, 9),
 (10, '2024-12-10', 10, 10);
 
+INSERT INTO embalaje_plan (codigo_ep, duracion_estimada_ep) VALUES
+(1, '1 día'),
+(2, '2 días'),
+(3, '3 días'),
+(4, '1 día'),
+(5, '2 días'),
+(6, '3 días'),
+(7, '1 día'),
+(8, '2 días'),
+(9, '3 días'),
+(10, '1 día');
+
+INSERT INTO embalaje_configuracion_avion (fk_embalaje_plan, fk_modelo_avion, fk_sede) VALUES
+(1, 7, 1),
+(2, 15, 4),
+(3, 3, 2),
+(4, 10, 5),
+(5, 2, 3),
+(6, 8, 2),
+(7, 5, 1),
+(8, 12, 4),
+(9, 17, 3),
+(10, 1, 5);
+
+INSERT INTO embalaje_configuracion_pieza (fk_embalaje_plan, fk_tipo_pieza, fk_sede) VALUES
+(1, 1, 2),
+(2, 5, 4),
+(3, 8, 3),
+(4, 3, 1),
+(5, 7, 5),
+(6, 2, 4),
+(7, 10, 1),
+(8, 4, 2),
+(9, 6, 3),
+(10, 9, 5);
+
+INSERT INTO embalaje_configuracion_materia (fk_embalaje_plan, fk_tipo_materia_prima, fk_sede) VALUES
+(1, 2, 1),
+(2, 4, 3),
+(3, 6, 2),
+(4, 8, 4),
+(5, 1, 5),
+(6, 3, 2),
+(7, 5, 4),
+(8, 7, 1),
+(9, 9, 5),
+(10, 10, 3);
+
+INSERT INTO embalaje (codigo_emb, fecha_hora_inicio_emb, fecha_hora_fin_emb, fk_embalaje_plan, fk_pieza, fk_equipo_empleado, fk_equipo_empleado2, fk_lote_materia_prima, fk_avion) VALUES
+(1, '2024-12-01 08:00:00', '2024-12-02 17:00:00', 1, 1, 1, 5, NULL, NULL), 
+(2, '2024-12-03 09:00:00', '2024-12-04 18:00:00', 2, NULL, 2, 14, NULL, 2),  
+(3, '2024-12-05 07:30:00', '2024-12-06 16:30:00', 3, 2, 1, 12, NULL, NULL),  
+(4, '2024-12-07 08:15:00', '2024-12-08 17:15:00', 4, NULL, 3, 19, 3, NULL),  
+(5, '2024-12-09 10:00:00', '2024-12-10 19:00:00', 5, 3, 1, 12, NULL, NULL), 
+(6, '2024-12-11 06:45:00', '2024-12-12 15:45:00', 6, NULL, 2, 8, NULL, 6),  
+(7, '2024-12-13 09:30:00', '2024-12-14 18:30:00', 7, 4, 4, 27, NULL, NULL), 
+(8, '2024-12-15 08:00:00', '2024-12-16 17:00:00', 8, NULL, 5, 35, 5, NULL),  
+(9, '2024-12-17 09:15:00', '2024-12-18 18:15:00', 9, 5, 1, 2, NULL, NULL),  
+(10, '2024-12-19 07:45:00', '2024-12-20 16:45:00', 10, NULL, 4, 31, NULL, 10);  
+
 INSERT INTO avion (codigo_avi, color_avi, fk_modelo_avion, fk_venta, fk_almacen, fk_almacen2, fk_ensamblaje, nombre_avi, matricula_avi) VALUES
 (1, 'Blanco', 1, 1, 1, 1, 1, 'Sea Breeze', 'MAT001'),
 (2, 'Azul', 2, 2, 2, 2, 2, 'Ocean Explorer', 'MAT002'),

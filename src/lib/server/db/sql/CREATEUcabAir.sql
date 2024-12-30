@@ -107,13 +107,14 @@ CREATE TABLE detalle_venta (
 );
 CREATE TABLE embalaje (
     codigo_emb            INTEGER NOT NULL,
-    fecha_hora_inicio_emb DATE NOT NULL,
-    fecha_hora_fin_emb    DATE,
+    fecha_hora_inicio_emb TIMESTAMP NOT NULL,
+    fecha_hora_fin_emb    TIMESTAMP,
     fk_embalaje_plan      INTEGER NOT NULL,
     fk_pieza              INTEGER,
     fk_equipo_empleado    INTEGER NOT NULL,
     fk_equipo_empleado2   INTEGER NOT NULL,
-    fk_lote_materia_prima INTEGER
+    fk_lote_materia_prima INTEGER,
+    fk_avion              INTEGER
 );
 CREATE TABLE embalaje_configuracion_avion (
     fk_embalaje_plan                     INTEGER NOT NULL,
