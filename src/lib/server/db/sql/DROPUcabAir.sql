@@ -143,6 +143,8 @@ ALTER TABLE IF EXISTS historial_estatus_embalaje DROP CONSTRAINT IF EXISTS fk_es
 
 ALTER TABLE IF EXISTS historial_estatus_embalaje DROP CONSTRAINT IF EXISTS fk_embalaje;
 
+ALTER TABLE IF EXISTS historial_inventario DROP CONSTRAINT IF EXISTS fk_almacen;
+
 ALTER TABLE IF EXISTS solicitud_transferencia DROP CONSTRAINT IF EXISTS fk_sede2;
 
 ALTER TABLE IF EXISTS historial_estatus_solicitud_transferencia DROP CONSTRAINT IF EXISTS fk_solicitud_transferencia;
@@ -383,6 +385,10 @@ ALTER TABLE IF EXISTS historial_estatus_transporte DROP CONSTRAINT IF EXISTS his
 
 ALTER TABLE IF EXISTS historial_estatus_venta DROP CONSTRAINT IF EXISTS historial_estatus_venta_pk;
 
+ALTER TABLE IF EXISTS historial_inventario DROP CONSTRAINT IF EXISTS arco_hi;
+
+ALTER TABLE IF EXISTS historial_inventario DROP CONSTRAINT IF EXISTS historial_inventario_pk;
+
 ALTER TABLE IF EXISTS horario DROP CONSTRAINT IF EXISTS horario_pk;
 
 ALTER TABLE IF EXISTS labor DROP CONSTRAINT IF EXISTS labor_pk;
@@ -511,6 +517,7 @@ DROP TABLE IF EXISTS historial_estatus_prueba;
 DROP TABLE IF EXISTS historial_estatus_solicitud_transferencia;
 DROP TABLE IF EXISTS historial_estatus_transporte;
 DROP TABLE IF EXISTS historial_estatus_venta;
+DROP TABLE IF EXISTS historial_inventario;
 DROP TABLE IF EXISTS horario;
 DROP TABLE IF EXISTS labor;
 DROP TABLE IF EXISTS lote_materia_prima;

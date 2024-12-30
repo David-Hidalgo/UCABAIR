@@ -6,8 +6,8 @@ CREATE TABLE almacen (
 CREATE TABLE asistencia (
     codigo_asi     	INTEGER NOT NULL,
     fecha_asi           DATE NOT NULL,
-    hora_entrada_asi    TIMESTAMP,
-    hora_salida_asi     TIMESTAMP,
+    hora_entrada_asi    TIME,
+    hora_salida_asi     TIME,
     fk_empleado         INTEGER NOT NULL
 );
 CREATE TABLE avion (
@@ -468,8 +468,8 @@ CREATE TABLE transporte_configuracion_materia (
 CREATE TABLE turno (
     codigo_tur       INTEGER NOT NULL,
     dia_tur          VARCHAR NOT NULL,
-    hora_entrada_tur TIMESTAMP NOT NULL,
-    hora_salida_tur  TIMESTAMP NOT NULL
+    hora_entrada_tur TIME NOT NULL,
+    hora_salida_tur  TIME NOT NULL
 );
 CREATE TABLE usuario (
     codigo_usu SERIAL NOT NULL,
@@ -496,6 +496,18 @@ CREATE TABLE sesion(
     id  VARCHAR(255) PRIMARY KEY,
     user_id INTEGER NOT NULL,
     expires_at timestamp with time zone NOT NULL
+
+);
+
+CREATE TABLE historial_inventario(
+    codigo_hi               INTEGER NOT NULL,
+    fecha_entrada_hi        TIMESTAMP NOT NULL,
+    fecha_salida_hi         TIMESTAMP NOT NULL,
+    fk_almacen              INTEGER NOT NULL,
+    fk_almacen2             INTEGER NOT NULL,
+    fk_avion                INTEGER,
+    fk_pieza                INTEGER,
+    fk_lote_materia_prima   INTEGER
 
 );
 

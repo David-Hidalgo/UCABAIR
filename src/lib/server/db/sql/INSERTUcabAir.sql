@@ -2944,7 +2944,7 @@ INSERT INTO tipo_prueba (codigo_tp, nombre_tp, descripcion_tp, duracion_estimada
 (9, 'Prueba de Desempeño en Climas Fríos', 'Evaluación del rendimiento en bajas temperaturas.', '14 dias'),
 (10, 'Prueba de Calidad', 'Análisis de la calidad de materia prima', '30 dias');
 
--- Insertar datos en la tabla tipo_pieza
+
 INSERT INTO tipo_pieza (codigo_tp, nombre_tp, descripcion_tp, fk_tipo_pieza, precio_unidad_tp) VALUES 
 (1, 'Ala', 'Ala principal del avión', NULL, 5000.00),
 (2, 'Motor', 'Motor a reacción', NULL, 200000.00),
@@ -2954,7 +2954,7 @@ INSERT INTO tipo_pieza (codigo_tp, nombre_tp, descripcion_tp, fk_tipo_pieza, pre
 (6, 'Estabilizador horizontal', 'Estabilizador horizontal trasero', NULL, 8000.00),
 (7, 'Estabilizador vertical', 'Estabilizador vertical trasero', NULL, 7000.00),
 (8, 'Alerón', 'Alerón de control de vuelo', 1, 2000.00),
-(9, 'Flap', 'Flap de control de vuelo', 1, 2500.00),
+(9, 'Flap Krueger', 'Flap de control de vuelo', 1, 2500.00),
 (10, 'Spoiler', 'Spoiler de control de vuelo', 1, 2200.00),
 (11, 'Timón de dirección', 'Timón de dirección trasero', 7, 3000.00),
 (12, 'Compuerta de tren de aterrizaje', 'Compuerta del tren de aterrizaje', 3, 1200.00),
@@ -2968,7 +2968,7 @@ INSERT INTO tipo_pieza (codigo_tp, nombre_tp, descripcion_tp, fk_tipo_pieza, pre
 (20, 'Sistema de oxígeno', 'Sistema de oxígeno de emergencia', 4, 8000.00);
 
 
--- Insertar datos en la tabla plan_transporte
+
 INSERT INTO plan_transporte (codigo_pt, duracion_estimada_pt, descripcion_pt) VALUES 
 (1, '5 días', 'Transporte terrestre local'),
 (2, '10 días', 'Transporte terrestre nacional'),
@@ -3077,3 +3077,232 @@ VALUES
 (4, 8,2),
 (5, 9,1),
 (5, 10,1);
+
+INSERT INTO beneficiario (codigo_ben, primer_nombre_ben, segundo_nombre_ben, primer_apellido_ben, segundo_apellido_ben, descripcion_ben, fk_empleado) VALUES
+(1, 'Juan', 'Carlos', 'Pérez', 'González', 'Hermano del empleado', 5),
+(2, 'María', 'José', 'Rodríguez', 'Martínez', 'Hija del empleado', 10),
+(3, 'Luis', 'Fernando', 'Gómez', 'Hernández', 'Padre del empleado', 15),
+(4, 'Ana', 'Lucía', 'López', 'Díaz', 'Esposa del empleado', 20),
+(5, 'Carlos', 'Eduardo', 'Sánchez', 'Ramírez', 'Hermano del empleado', 25),
+(6, 'Laura', 'Isabel', 'Torres', 'Cruz', 'Hija del empleado', 30),
+(7, 'Miguel', 'Ángel', 'Hernández', 'Jiménez', 'Padre del empleado', 35),
+(8, 'Elena', 'Sofía', 'Pérez', 'Morales', 'Madre del empleado', 40),
+(9, 'Jorge', 'Luis', 'García', 'Fernández', 'Hijo del empleado', 1),
+(10, 'Isabel', 'Cristina', 'Martínez', 'Ortiz', 'Esposa del empleado', 2);
+
+INSERT INTO telefono (codigo_tel, numero_telefono_tel, codigo_area_tel, fk_persona, fk_empleado) VALUES
+(1, '555-1234', '0212', 1, NULL),
+(2, '555-5678', '0212', 2, NULL),
+(3, '555-9012', '0212', 3, NULL),
+(4, '555-3456', '0212', NULL, 1),
+(5, '555-7890', '0212', NULL, 2),
+(6, '555-2345', '0212', 4, NULL),
+(7, '555-6789', '0212', NULL, 3),
+(8, '555-0123', '0212', 5, NULL),
+(9, '555-4567', '0212', NULL, 4),
+(10, '555-8901', '0212', 6, NULL);
+
+INSERT INTO correo_electronico (codigo_ce, direccion_correo_ce, fk_persona, fk_empleado) VALUES
+(1, 'juan.perez@example.com', 1, NULL),
+(2, 'maria.rodriguez@example.com', 2, NULL),
+(3, 'luis.gomez@example.com', 3, NULL),
+(4, 'ana.lopez@example.com', NULL, 1),
+(5, 'carlos.sanchez@example.com', NULL, 2),
+(6, 'laura.torres@example.com', 4, NULL),
+(7, 'miguel.hernandez@example.com', NULL, 3),
+(8, 'elena.perez@example.com', 5, NULL),
+(9, 'jorge.garcia@example.com', NULL, 4),
+(10, 'isabel.martinez@example.com', 6, NULL);
+
+INSERT INTO privilegio (codigo_pri, nombre_pri) VALUES
+(1, 'Permiso para consultar horario'),
+(2, 'Permiso para eliminar modelo avion'),
+(3, 'Permiso para editar modelo avion'),
+(4, 'Permiso para registrar en tabla venta'),
+(5, 'Permiso para consultar en tabla venta'),
+(6, 'Permiso para editar estatus'),
+(7, 'Permiso para eliminar tipo de prueba'),
+(8, 'Permiso para consultar estatus'),
+(9, 'Permiso para editar rol'),
+(10, 'Permiso para registrar prueba');
+
+INSERT INTO rol_privilegio (fk_rol, fk_privilegio) VALUES
+(3, 1),  
+(1, 2),  
+(3, 3),
+(2,4),
+(2,5),
+(3,6),
+(1,7),
+(2,8),
+(1,9),
+(1,10);
+
+INSERT INTO red_social (codigo_rs, direccion_rs, dominio_rs, fk_empleado) VALUES
+(1, 'juan.perez123', 'twitter.com', 5),
+(2, 'maria_rodriguez', 'facebook.com', 12),
+(3, 'luis.gomez.official', 'instagram.com', 18),
+(4, 'ana.lopez', 'linkedin.com', 25),
+(5, 'carlos.sanchez', 'twitter.com', 8),
+(6, 'laura.torres89', 'facebook.com', 30),
+(7, 'miguel_hernandez', 'instagram.com', 21),
+(8, 'elena.perez56', 'linkedin.com', 14),
+(9, 'jorge.garcia', 'twitter.com', 33),
+(10, 'isabel_martinez', 'facebook.com', 27);
+
+INSERT INTO labor (codigo_lab, nombre_lab, nivel_importancia_lab) VALUES
+(1, 'Ensamblaje de fuselaje', 'Alta'),
+(2, 'Mantenimiento de motores', 'Alta'),
+(3, 'Inspección de calidad', 'Media'),
+(4, 'Pruebas de vuelo', 'Alta'),
+(5, 'Control de inventario', 'Media'),
+(6, 'Diseño de componentes', 'Alta'),
+(7, 'Documentación técnica', 'Baja'),
+(8, 'Logística y transporte', 'Media'),
+(9, 'Capacitación de personal', 'Media'),
+(10, 'Soporte técnico', 'Baja');
+
+INSERT INTO empleado_profesion (titulacion_ep, experiencia_profesional_ep, fk_profesion, fk_empleado) VALUES
+('Ingeniero Aeronáutico', '10 años', 1, 5),
+('Técnico en Mantenimiento', '8 años', 2, 12),
+('Especialista en Calidad', '6 años', 3, 18),
+('Piloto de Pruebas', '12 años', 4, 25),
+('Gerente de Logística', '9 años', 5, 8),
+('Diseñador de Componentes', '7 años', 6, 30),
+('Documentalista Técnico', '5 años', 7, 21),
+('Coordinador de Capacitación', '11 años', 8, 14),
+('Supervisor de Producción', '10 años', 9, 33),
+('Analista de Soporte Técnico', '6 años', 10, 27);
+
+INSERT INTO turno (codigo_tur, dia_tur, hora_entrada_tur, hora_salida_tur) VALUES
+(1, 'Lunes', '08:00', '16:00'),
+(2, 'Martes', '09:00', '17:00'),
+(3, 'Miércoles', '10:00', '18:00'),
+(4, 'Jueves', '11:00', '19:00'),
+(5, 'Viernes', '07:00', '15:00'),
+(6, 'Sábado', '06:00', '14:00'),
+(7, 'Domingo', '08:00', '16:00'),
+(8, 'Lunes', '09:00', '17:00'),
+(9, 'Martes', '10:00', '18:00'),
+(10, 'Miércoles', '11:00', '19:00');
+
+INSERT INTO equipo (codigo_equ, descripcion_equ, fk_labor, fk_zona, fk_zona2) VALUES
+(1, 'Equipo de ensamblaje de fuselaje', 1, 4, 2),
+(2, 'Equipo de mantenimiento de motores', 2, 6, 1),
+(3, 'Equipo de inspección de calidad', 3, 3, 2),
+(4, 'Equipo de pruebas de vuelo', 4, 15, 4),
+(5, 'Equipo de control de inventario', 5, 9, 1),
+(6, 'Equipo de diseño de componentes', 6, 7, 1),
+(7, 'Equipo de documentación técnica', 7, 12, 3),
+(8, 'Equipo de logística y transporte', 8, 2, 2),
+(9, 'Equipo de capacitación de personal', 9, 17, 4),
+(10, 'Equipo de soporte técnico', 10, 14, 3);
+
+INSERT INTO equipo_empleado (lider_equipo_ep, fk_equipo, fk_empleado) VALUES
+(TRUE, 1, 5),  
+(FALSE, 1, 12),  
+(FALSE, 2, 8),  
+(TRUE, 2, 14),  
+(TRUE, 3, 19),  
+(FALSE, 3, 23),  
+(TRUE, 4, 27),  
+(FALSE, 4, 31),  
+(TRUE, 5, 35),  
+(FALSE, 5, 2); 
+
+INSERT INTO equipo_empleado (lider_equipo_ep, fk_equipo, fk_empleado) VALUES
+(FALSE, 6, 3),  
+(TRUE, 6, 9),   
+(FALSE, 7, 15),  
+(TRUE, 7, 21),   
+(FALSE, 8, 4),   
+(TRUE, 8, 11),   
+(FALSE, 9, 29),  
+(TRUE, 9, 36),   
+(FALSE, 10, 7),  
+(TRUE, 10, 13);  
+
+INSERT INTO asistencia (codigo_asi, fecha_asi, hora_entrada_asi, hora_salida_asi, fk_empleado) VALUES
+(1, '2024-12-01', '08:00', '16:00', 5),
+(2, '2024-12-02', '09:00', '17:00', 12),
+(3, '2024-12-03', '10:00', '18:00', 13),
+(4, '2024-12-04', '07:00', '15:00', 23),
+(5, '2024-12-05', '06:00', '14:00', 9),
+(6, '2024-12-06', '11:00', '19:00', 36),
+(7, '2024-12-07', '08:00', '16:00', 7),
+(8, '2024-12-08', '09:00', '17:00', 14),
+(9, '2024-12-09', '10:00', '18:00', 35),
+(10, '2024-12-10', '07:00', '15:00', 29);
+
+INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avion, fk_sede) VALUES
+(2, 1, 2, 1),
+(2, 2, 3, 1),
+(2, 2, 4, 3),
+(1, 3, 4, 4),
+(1, 4, 5, 5),
+(1, 4, 6, 2),
+(1, 3, 7, 1),
+(4, 2, 13, 3),
+(2, 2, 2, 4),
+(4, 2, 11, 5);
+
+INSERT INTO caracteristica (codigo_car, nombre_car) VALUES
+(11, 'Resistencia al calor'),
+(12, 'Peso ligero'),
+(13, 'Alta durabilidad'),
+(14, 'Resistencia a la corrosión'),
+(15, 'Bajo mantenimiento'),
+(16, 'Alta precisión'),
+(17, 'Flexibilidad'),
+(18, 'Facilidad de ensamblaje'),
+(19, 'Tamaño'),
+(20, 'Reducción de ruido');
+
+INSERT INTO caracteristica_pieza (valor_cp, unidad_medida_cp, fk_tipo_pieza, fk_caracteristica) VALUES
+(150, 'Grados Celsius', 1, 1), 
+(500, 'Gramos', 1, 2), 
+(20, 'Años', 1, 3),  
+(30, 'Años', 2, 4),  
+(100, 'Horas', 3, 5),  
+(5, 'Micrómetros', 11, 6),  
+(45, 'Grados', 8, 7),  
+(30, 'Minutos', 15, 8), 
+(2, 'Pulgadas', 16, 9),  
+(70, 'Decibeles', 2, 10);  
+
+INSERT INTO configuracion_pieza (cantidad_materia_prima_cp, fk_tipo_materia_prima, fk_tipo_pieza, fk_sede) VALUES
+(500, 2, 1, 2), 
+(200, 9, 2, 1), 
+(300, 1, 3, 5),  
+(150, 4, 4, 3),  
+(400, 2, 5, 5),   
+(250, 9, 6, 2),   
+(180, 8, 7, 2),   
+(220, 9, 8, 2),   
+(200, 9, 9, 2),   
+(180, 9, 10, 2);  
+
+INSERT INTO configuracion_pieza (cantidad_materia_prima_cp, fk_tipo_materia_prima, fk_tipo_pieza, fk_sede) VALUES
+(120, 6, 13, 3),  
+(80, 4, 14, 3),   
+(200, 4, 15, 3),   
+(50, 4, 16, 3),    
+(300, 8, 17, 3),   
+(250, 8, 18, 4),  
+(220, 9, 19, 4),   
+(180, 7, 20, 4),  
+(200, 2, 10, 4),   
+(500, 2, 11, 4);   
+
+
+INSERT INTO avion (codigo_avi, color_avi, fk_modelo_avion, fk_venta, fk_almacen, fk_almacen2, fk_ensamblaje, nombre_avi, matricula_avi) VALUES
+(1, 'Blanco', 1, 1, 1, 1, 1, 'Sea Breeze', 'MAT001'),
+(2, 'Azul', 2, 2, 2, 2, 2, 'Ocean Explorer', 'MAT002'),
+(3, 'Rojo', 3, 3, 3, 3, 3, 'Wave Rider', 'MAT003'),
+(4, 'Negro', 4, 4, 4, 4, 4, 'Wind Dancer', 'MAT004'),
+(5, 'Verde', 5, 5, 5, 5, 5, 'Marina Star', 'MAT005'),
+(6, 'Amarillo', 6, 6, 6, 1, 6, 'Harbor Queen', 'MAT006'),
+(7, 'Plateado', 7, 7, 7, 2, 7, 'Bay Cruiser', 'MAT007'),
+(8, 'Gris', 8, 8, 8, 3, 8, 'Coral King', 'MAT008'),
+(9, 'Blanco con azul', 9, 9, 9, 4, 9, 'Sunset Voyager', 'MAT009'),
+(10, 'Rojo con blanco', 10, 10, 10, 5, 10, 'Tidal Wave', 'MAT010');

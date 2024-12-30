@@ -122,6 +122,19 @@ ALTER TABLE historial_estatus_venta
                                                             fk_venta,
                                                             fk_estatus ) ;
 
+ALTER TABLE historial_inventario
+    ADD CONSTRAINT arco_hi CHECK ( ( ( fk_pieza IS NOT NULL )
+                                   AND ( fk_avion IS NULL ) 
+                                   AND (fk_lote_materia_prima IS NULL ) )
+                                 OR ( ( fk_avion IS NOT NULL )
+                                      AND (fk_pieza IS NULL)
+                                      AND ( fk_lote_materia_prima IS NULL ) )
+                                 OR ( (fk_lote_materia_prima IS NOT NULL)
+                                      AND (fk_pieza IS NULL)
+                                      AND (fk_avion IS NULL)) ) ;
+
+ALTER TABLE historial_inventario ADD CONSTRAINT historial_inventario_pk PRIMARY KEY (codigo_hi);
+
 ALTER TABLE horario ADD CONSTRAINT horario_pk PRIMARY KEY ( fk_turno,
                                                             fk_empleado ) ;
 
@@ -537,6 +550,10 @@ ALTER TABLE historial_estatus_embalaje
 ALTER TABLE historial_estatus_embalaje
     ADD CONSTRAINT fk_embalaje FOREIGN KEY ( fk_embalaje )
         REFERENCES embalaje ( codigo_emb ) ON DELETE CASCADE;
+
+ALTER TABLE historial_inventario
+    ADD CONSTRAINT fk_almacen FOREIGN KEY ( fk_almacen,fk_almacen2 )
+        REFERENCES almacen ( codigo_alm,fk_sede ) ON DELETE CASCADE;
 
 ALTER TABLE solicitud_transferencia
     ADD CONSTRAINT fk_sede2 FOREIGN KEY ( fk_sede )
