@@ -2944,6 +2944,17 @@ INSERT INTO tipo_prueba (codigo_tp, nombre_tp, descripcion_tp, duracion_estimada
 (9, 'Prueba de Desempeño en Climas Fríos', 'Evaluación del rendimiento en bajas temperaturas.', '14 dias'),
 (10, 'Prueba de Calidad', 'Análisis de la calidad de materia prima', '30 dias');
 
+INSERT INTO tipo_prueba (codigo_tp, nombre_tp, descripcion_tp, duracion_estimada_tp) VALUES
+(11, 'Prueba de resistencia', 'Prueba para evaluar la resistencia estructural del avión.', '30 días'),
+(12, 'Prueba de vibración', 'Prueba para evaluar los efectos de la vibración en componentes.', '28 días'),
+(13, 'Prueba de rendimiento', 'Evaluación del rendimiento general del avión bajo diferentes condiciones.', '35 días'),
+(14, 'Prueba de compatibilidad', 'Prueba para verificar la compatibilidad de sistemas y componentes.', '32 días'),
+(15, 'Prueba de seguridad', 'Evaluación de los sistemas de seguridad del avión.', '27 días'),
+(16, 'Prueba de durabilidad', 'Prueba para determinar la durabilidad y vida útil de materiales.', '37 días'),
+(17, 'Prueba aerodinámica', 'Evaluación del comportamiento aerodinámico del avión.', '31 días'),
+(18, 'Prueba de ruido', 'Prueba para medir los niveles de ruido generados por el avión.', '26 días'),
+(19, 'Prueba de eficiencia', 'Evaluación de la eficiencia energética y de combustible del avión.', '29 días'),
+(20, 'Prueba de impacto', 'Prueba para evaluar la resistencia del avión a impactos externos.', '40 días');
 
 INSERT INTO tipo_pieza (codigo_tp, nombre_tp, descripcion_tp, fk_tipo_pieza, precio_unidad_tp) VALUES 
 (1, 'Ala', 'Ala principal del avión', NULL, 5000.00),
@@ -3041,17 +3052,17 @@ INSERT INTO configuracion_pieza (cantidad_materia_prima_cp, fk_tipo_materia_prim
 (130, 9, 9, 1),
 (140, 10, 10, 1);
 
-INSERT INTO plan_ensamblaje (codigo_pe, descripcion_pe, duracion_estimada_pe) VALUES 
-(1, 'Ensamblaje inicial', '30 días'),
-(2, 'Ensamblaje intermedio', '45 días'),
-(3, 'Ensamblaje final', '60 días'),
-(4, 'Pruebas de calidad', '15 días'),
-(5, 'Ajustes finales', '10 días'),
-(6, 'Inspección final', '5 días'),
-(7, 'Preparación para entrega', '7 días'),
-(8, 'Entrega al cliente', '3 días'),
-(9, 'Mantenimiento preventivo', '20 días'),
-(10, 'Revisión post-entrega', '10 días');
+INSERT INTO plan_ensamblaje (codigo_pe, descripcion_pe, duracion_estimada_pe) VALUES
+(1, 'Ensamblaje de alas', '30 días'),
+(2, 'Montaje de motores', '34 días'),
+(3, 'Instalación del tren de aterrizaje', '31 días'),
+(4, 'Montaje de la cabina', '32 días'),
+(5, 'Ensamblaje del fuselaje', '35 días'),
+(6, 'Instalación de estabilizadores', '38 días'),
+(7, 'Montaje de alerones', '36 días'),
+(8, 'Ensamblaje de flaps y spoilers', '29 días'),
+(9, 'Instalación de sistemas de navegación', '31 días'),
+(10, 'Ensamblaje final del avión', '40 días');
 
 INSERT INTO estimacion_profesion_empleado (codigo_epp, fk_tipo_prueba, fk_embalaje_plan, fk_plan_transporte, fk_plan_ensamblaje, cantidad_empleado_epp, fk_profesion) VALUES 
 (1, 1, 1, 1, 1, 10, 1),
@@ -3390,18 +3401,6 @@ INSERT INTO embalaje (codigo_emb, fecha_hora_inicio_emb, fecha_hora_fin_emb, fk_
 (9, '2024-12-17 09:15:00', '2024-12-18 18:15:00', 9, 5, 1, 2, NULL, NULL),  
 (10, '2024-12-19 07:45:00', '2024-12-20 16:45:00', 10, NULL, 4, 31, NULL, 10);  
 
-INSERT INTO avion (codigo_avi, color_avi, fk_modelo_avion, fk_venta, fk_almacen, fk_almacen2, fk_ensamblaje, nombre_avi, matricula_avi) VALUES
-(1, 'Blanco', 1, 1, 1, 1, 1, 'Sea Breeze', 'MAT001'),
-(2, 'Azul', 2, 2, 2, 2, 2, 'Ocean Explorer', 'MAT002'),
-(3, 'Rojo', 3, 3, 3, 3, 3, 'Wave Rider', 'MAT003'),
-(4, 'Negro', 4, 4, 4, 4, 4, 'Wind Dancer', 'MAT004'),
-(5, 'Verde', 5, 5, 5, 5, 5, 'Marina Star', 'MAT005'),
-(6, 'Amarillo', 6, 6, 6, 1, 6, 'Harbor Queen', 'MAT006'),
-(7, 'Plateado', 7, 7, 7, 2, 7, 'Bay Cruiser', 'MAT007'),
-(8, 'Gris', 8, 8, 8, 3, 8, 'Coral King', 'MAT008'),
-(9, 'Blanco con azul', 9, 9, 9, 4, 9, 'Sunset Voyager', 'MAT009'),
-(10, 'Rojo con blanco', 10, 10, 10, 5, 10, 'Tidal Wave', 'MAT010');
-
 INSERT INTO estatus (codigo_est, nombre_est) VALUES 
 (1, 'En Producción'),
 (2, 'En Inspección'),
@@ -3545,3 +3544,197 @@ INSERT INTO pago_venta (codigo_pago_pv, fecha_pago_pv, fk_venta, fk_modo_pago) V
 (8, '2024-01-08', 8, 8),
 (9, '2024-01-09', 9, 9),
 (10, '2024-01-10', 10, 10);
+
+INSERT INTO configuracion_ensamblaje_pieza (fk_plan_ensamblaje, fk_tipo_pieza, fk_sede) VALUES
+(1, 1, 2),
+(2, 3, 5),
+(3, 4, 3),
+(4, 7, 1),
+(5, 9, 4),
+(6, 2, 2),
+(7, 5, 5),
+(8, 8, 3),
+(9, 6, 1),
+(10, 10, 4);
+
+INSERT INTO configuracion_ensamblaje_materia (fk_plan_ensamblaje, fk_tipo_materia_prima, fk_sede) VALUES
+(1, 1, 2),
+(2, 3, 5),
+(3, 4, 3),
+(4, 7, 1),
+(5, 9, 4),
+(6, 2, 2),
+(7, 5, 5),
+(8, 8, 3),
+(9, 6, 1),
+(10, 10, 4);
+
+INSERT INTO ensamblaje (codigo_ens, fecha_inicio_ens, fecha_fin_ens, fk_plan_ensamblaje, fk_pieza, fk_lote_materia_prima, fk_equipo_empleado, fk_equipo_empleado2) VALUES
+(1, '2024-11-01', '2024-12-02', 1, 1, NULL, 6, 9), 
+(2, '2024-11-03', '2024-12-04', 2, NULL, 2, 7, 21), 
+(3, '2024-11-05', '2024-12-06', 3, 2, NULL, 6, 3),  
+(4, '2024-11-07', '2024-12-08', 4, NULL, 3, 8, 11),  
+(5, '2024-11-09', '2024-12-10', 5, 3, NULL, 6, 9), 
+(6, '2024-11-11', '2024-12-12', 6, NULL, 4, 7, 15), 
+(7, '2024-11-13', '2024-12-14', 7, 4, NULL, 9, 36), 
+(8, '2024-11-15', '2024-12-16', 8, NULL, 5, 8, 4),  
+(9, '2024-11-17', '2024-12-18', 9, 5, NULL, 7, 21),  
+(10, '2024-11-19', '2024-12-20', 10, NULL, 6, 10, 13);  
+
+INSERT INTO lote_materia_prima (codigo_lmp, fk_configuracion_pieza, fk_configuracion_pieza2, fk_compra, fk_almacen, fk_almacen2, cantidad_lmp) VALUES
+(1, 1, 2, 3, 4, 1, 500),
+(2, 4, 5, 6, 7, 2, 300),
+(3, 7, 8, 9, 10, 3, 450),
+(4, 2, 3, 4, 5, 4, 350),
+(5, 5, 6, 7, 8, 5, 400),
+(6, 8, 9, 10, 1, 1, 600),
+(7, 3, 4, 5, 6, 2, 250),
+(8, 6, 7, 8, 9, 3, 550),
+(9, 9, 10, 1, 2, 4, 700),
+(10, 10, 1, 2, 3, 5, 650);
+
+INSERT INTO estatus_historial_ensamblaje (fecha_ehe, fk_estatus, fk_ensamblaje) VALUES
+('2024-12-01', 1, 1),
+('2024-12-02', 2, 2),
+('2024-12-03', 3, 3),
+('2024-12-04', 4, 4),
+('2024-12-05', 5, 5),
+('2024-12-06', 6, 6),
+('2024-12-07', 7, 7),
+('2024-12-08', 8, 8),
+('2024-12-09', 9, 9),
+('2024-12-10', 10, 10);
+
+INSERT INTO solicitud_transferencia (codigo_st, fecha_envio_estimada_st, fecha_recibo_estimada_st, fk_sede, fk_sede2) VALUES
+(1, '2024-12-01', '2024-12-02', 1, 2),
+(2, '2024-12-03', '2024-12-06', 2, 3),
+(3, '2024-12-05', '2024-12-08', 3, 4),
+(4, '2024-12-07', '2024-12-09', 4, 5),
+(5, '2024-12-09', '2024-12-13', 5, 1),
+(6, '2024-12-11', '2024-12-15', 1, 3),
+(7, '2024-12-13', '2024-12-18', 2, 4),
+(8, '2024-12-15', '2024-12-19', 3, 5),
+(9, '2024-12-17', '2024-12-22', 4, 1),
+(10, '2024-12-19', '2024-12-20', 5, 2);
+
+
+INSERT INTO plan_transporte (codigo_pt, duracion_estimada_pt, descripcion_pt) VALUES
+(1, '3 días', 'Transporte terrestre de piezas pequeñas'),
+(2, '5 días', 'Transporte aéreo de componentes críticos'),
+(3, '7 días', 'Transporte marítimo de fuselajes'),
+(4, '4 días', 'Transporte combinado de alas y estabilizadores'),
+(5, '6 días', 'Transporte ferroviario de trenes de aterrizaje'),
+(6, '2 días', 'Transporte express de sistemas de comunicación'),
+(7, '3 días', 'Transporte terrestre de cabinas'),
+(8, '5 días', 'Transporte aéreo de motores'),
+(9, '4 días', 'Transporte marítimo de sistemas de navegación'),
+(10, '7 días', 'Transporte terrestre y marítimo de flaps y alerones');
+
+INSERT INTO transporte_configuracion_avion (fk_plan_transporte, fk_modelo_avion, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO transporte_configuracion_pieza (fk_plan_transporte, fk_tipo_pieza, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO transporte_configuracion_materia (fk_plan_transporte, fk_tipo_materia_prima, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO transporte (codigo_tra, fecha_hora_inicio_tra, fecha_hora_fin_tra, fk_plan_transporte, fk_transferencia_pieza_material, fk_equipo_empleado, fk_equipo_empleado2, fk_detalle_compra, fk_detalle_compra2, fk_detalle_compra3) VALUES
+(1, '2024-12-01', '2024-12-02', 1, 1, 6, 9, NULL, NULL, NULL),  
+(2, '2024-12-03', '2024-12-04', 2, NULL, 6, 3, 2, 4, 5),        
+(3, '2024-12-05', '2024-12-06', 3, 2, 7, 21, NULL, NULL, NULL),  
+(4, '2024-12-07', '2024-12-08', 4, NULL, 8, 11, 3, 6, 7),       
+(5, '2024-12-09', '2024-12-10', 5, 3, 9, 36, NULL, NULL, NULL), 
+(6, '2024-12-11', '2024-12-12', 6, NULL, 7, 15, 4, 8, 9),       
+(7, '2024-12-13', '2024-12-14', 7, 4, 9, 36, NULL, NULL, NULL),  
+(8, '2024-12-15', '2024-12-16', 8, NULL, 8, 4, 5, 7, 10),      
+(9, '2024-12-17', '2024-12-18', 9, 5, 7, 21, NULL, NULL, NULL),  
+(10, '2024-12-19', '2024-12-20', 10, NULL, 10, 13, 6, 9, 2);  
+
+INSERT INTO configuracion_prueba_avion (fk_tipo_prueba, fk_modelo_avion, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO configuracion_prueba_pieza (fk_tipo_prueba, fk_tipo_pieza, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO configuracion_prueba_materia (fk_tipo_prueba, fk_tipo_materia_prima, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO historial_inventario (codigo_hi, fecha_entrada_hi, fecha_salida_hi, fk_almacen, fk_almacen2, fk_avion, fk_pieza, fk_lote_materia_prima) VALUES
+(1, '2024-12-01 08:00:00', '2024-12-02 17:00:00', 1, 1, NULL, NULL, 1),
+(2, '2024-12-03 09:00:00', '2024-12-04 18:00:00', 2, 2, 2, NULL, NULL),
+(3, '2024-12-05 07:30:00', '2024-12-06 16:30:00', 3, 3, NULL, 3, NULL),
+(4, '2024-12-07 08:15:00', '2024-12-08 17:15:00', 4, 4, NULL, NULL, 4),
+(5, '2024-12-09 10:00:00', '2024-12-10 19:00:00', 5, 5, 5, NULL, NULL),
+(6, '2024-12-11 06:45:00', '2024-12-12 15:45:00', 6, 1, NULL, 6, NULL),
+(7, '2024-12-13 09:30:00', '2024-12-14 18:30:00', 7, 2, NULL, NULL, 7),
+(8, '2024-12-15 08:00:00', '2024-12-16 17:00:00', 8, 3, 8, NULL, NULL),
+(9, '2024-12-17 09:15:00', '2024-12-18 18:15:00', 9, 4, NULL, 9, NULL),
+(10, '2024-12-19 07:45:00', '2024-12-20 16:45:00', 10, 5, NULL, NULL, 10);
+
+
+INSERT INTO avion (codigo_avi, color_avi, fk_modelo_avion, fk_venta, fk_almacen, fk_almacen2, fk_ensamblaje, nombre_avi, matricula_avi) VALUES
+(1, 'Blanco', 1, 1, 1, 1, 1, 'Sea Breeze', 'MAT001'),
+(2, 'Azul', 2, 2, 2, 2, 2, 'Ocean Explorer', 'MAT002'),
+(3, 'Rojo', 3, 3, 3, 3, 3, 'Wave Rider', 'MAT003'),
+(4, 'Negro', 4, 4, 4, 4, 4, 'Wind Dancer', 'MAT004'),
+(5, 'Verde', 5, 5, 5, 5, 5, 'Marina Star', 'MAT005'),
+(6, 'Amarillo', 6, 6, 6, 1, 6, 'Harbor Queen', 'MAT006'),
+(7, 'Plateado', 7, 7, 7, 2, 7, 'Bay Cruiser', 'MAT007'),
+(8, 'Gris', 8, 8, 8, 3, 8, 'Coral King', 'MAT008'),
+(9, 'Blanco con azul', 9, 9, 9, 4, 9, 'Sunset Voyager', 'MAT009'),
+(10, 'Rojo con blanco', 10, 10, 10, 5, 10, 'Tidal Wave', 'MAT010');
