@@ -38,7 +38,6 @@ export const load: PageServerLoad = async ({ params }) => {
 
 	const ma_table = 	await dbPostgre<Modelo_avion[]>`
     SELECT * FROM modelo_avion;`;
-	console.log(ma_table);
     return {ma_table};
 	
 };

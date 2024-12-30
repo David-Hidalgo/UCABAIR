@@ -87,12 +87,12 @@
 				<td>
 					<div class="botonesUD">
 						<a href="/admin/HomeAdmin/editar/mineral">
-							<button on:click={() => editarRegistro(modelo_avion)}>
+							<button onclick={() => editarRegistro(modelo_avion)}>
 								<span>✏️</span>
 								<!-- Icono de lápiz -->
 							</button>
 						</a>
-						<button on:click={() => eliminarRegistro(modelo_avion)}>
+						<button onclick={() => eliminarRegistro(modelo_avion)}>
 							<span>🗑️</span>
 							<!-- Icono de papelera -->
 						</button>
