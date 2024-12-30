@@ -480,7 +480,7 @@ CREATE TABLE usuario (
 CREATE TABLE venta (
     codigo_venta_ven   INTEGER NOT NULL,
     numero_factura_ven INTEGER NOT NULL,
-    fecha_hora_ven     DATE NOT NULL,
+    fecha_hora_ven     TIMESTAMP NOT NULL,
     monto_total_ven    REAL NOT NULL,
     impuesto_total_ven REAL NOT NULL
 );
