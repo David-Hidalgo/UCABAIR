@@ -71,3 +71,18 @@ export interface Modelo_avion {
 	precio_unidad_ma: number | undefined;
 	fk_modelo_avion: number | undefined;
 }
+
+export interface Tipo_materia_prima {
+	codigo_tmp: number | undefined;
+	nombre_tmp: string;
+	descripcion_tmp: string;
+	unidad_medida_tmp: string;
+}
+
+export interface Sede {
+	codigo_sed: number | undefined;
+	nombre_sed: string;
+	direccion_sed: string;
+	fk_lugar: number | undefined;
+	central_sed: boolean;
+}
