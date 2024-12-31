@@ -13,7 +13,7 @@ export interface Empleado {
 	primer_apellido_per: string;
 	segundo_apellido_per: string;
 	direccion_per: string;
-	fecha_inicio_servicio_per: Date | undefined;
+	fecha_inicio_servicio_per: Date ;
 	//experiencia_profesional_per: string;
 	//titulacion_per: string;
 	sueldo_per: number | undefined;

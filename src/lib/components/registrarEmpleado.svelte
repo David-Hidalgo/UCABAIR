@@ -2,7 +2,9 @@
 	import type { Empleado } from '$lib/server/db/schema';
 	export let id_editar: Empleado | undefined;
 	import { goto } from '$app/navigation';
-	
+	import { format } from 'date-fns';
+	$: empleado.fecha_inicio_servicio_per = format(new Date(empleado.fecha_inicio_servicio_per), 'yyyy-MM-dd');
+
 	let empleado: Empleado;
 	let codigo_viejo: number;
 
@@ -12,22 +14,22 @@
 		codigo_viejo=id_editar.codigo_empleado_per
 	} else {
 		empleado = {
-	codigo_empleado_per: undefined,
+	codigo_empleado_per: 817,
 	cedula_per: '',
 	primer_nombre_per: '',
 	segundo_nombre_per: '',
 	primer_apellido_per: '',
 	segundo_apellido_per: '',
 	direccion_per: '',
-	fecha_inicio_servicio_per: undefined,
+	fecha_inicio_servicio_per: new Date(),
 	//experiencia_profesional_per: '',
 	//titulacion_per: '',
-	sueldo_per: undefined,
+	sueldo_per: 0,
 	//telefono_per: '',
 	//correo_per: '',
 	//labor_per: '',
-	fk_lugar: undefined,
-	fk_usuario: undefined
+	fk_lugar: Math.floor(Math.random() * 100),
+	fk_usuario: 188
 		};
 	}
 	async function decide() {
@@ -51,6 +53,8 @@
 		goto('/admin/HomeAdmin/empleado');
 	}
 	async function registrarEmpleado() {
+		
+		console.log(empleado);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/empleado`, {
 			method: 'POST',
 			body: JSON.stringify(empleado),
@@ -59,8 +63,7 @@
 		const data = await res.json();
 
 
-		alert('Empleado agregado con exito');
-		goto('/admin/HomeAdmin/empleado');
+		//location.reload();
 	}
 </script>
 
@@ -90,6 +93,7 @@
 	
 	<label for="sueldo">Sueldo</label>
 	<input id="sueldo" bind:value={empleado.sueldo_per} />
+
 	<button type="submit">Registrar Empleado</button>
 </form>
 
