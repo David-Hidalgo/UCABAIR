@@ -133,7 +133,7 @@ export const actions: Actions = {
 				return redirect(302, '/admin/HomeAdmin');
 				break;
 			case 2:
-				return redirect(302, '/cliente/Home');
+				return redirect(302, '/cliente/registro');
 
 				break;
 			case 3:
@@ -141,7 +141,7 @@ export const actions: Actions = {
 				break;
 
 			default:
-				return redirect(302, '/cliente/Home');
+				return redirect(302, '/cliente/registro');
 				break;
 		}
 	}
