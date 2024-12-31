@@ -6,5 +6,5 @@
 
 	<div class="EditarRol">
 		<!-- <EditarRol bind:rif={codigo_rol}/> -->
-		<EditarRol id_editar={data.resultado} />
+		<EditarRol id_editar={data.resultado} privilegios={data.permisos}/>
 	</div>

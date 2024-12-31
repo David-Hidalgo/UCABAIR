@@ -569,12 +569,23 @@ CREATE OR REPLACE PROCEDURE editar_rol(
     codigo_rolN INTEGER,
     nombre_rolN VARCHAR(255),
     descripcionN VARCHAR(255),
-    viejo_codigo_rolN INTEGER
+    viejo_codigo_rolN INTEGER,
+    privilegios INTEGER[]
     ) 
     LANGUAGE plpgsql 
-    AS $$ BEGIN
+    AS $$ 
+DECLARE
+        privilege INTEGER;
+BEGIN
     UPDATE rol SET codigo_rol=codigo_rolN,nombre_rol=nombre_rolN,descripcion_rol=descripcionN
     WHERE codigo_rol=viejo_codigo_rolN;
+
+    DELETE FROM rol_privilegio WHERE fk_rol = viejo_codigo_rolN;
+
+    FOREACH privilege IN ARRAY privilegios
+    LOOP
+        INSERT INTO rol_privilegio (fk_rol, fk_privilegio) VALUES (codigo_rolN, privilege);
+    END LOOP;
 END;
 $$;
 

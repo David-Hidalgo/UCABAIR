@@ -1,8 +1,11 @@
 <script lang="ts">
-	import type { Rol } from '$lib/server/db/schema';
+	import type { Rol, Privilegio } from '$lib/server/db/schema';
 	export let id_editar: Rol | undefined;
+	export let privilegios: Privilegio[];
+
 	import { goto } from '$app/navigation';
-	
+	console.log(privilegios);
+	let privSelected: Privilegio[] = [];
 	let rol: Rol;
 	let codigo_viejo: number;
 	if (id_editar!=undefined) {
@@ -28,7 +31,7 @@
 	async function actualizarRol() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/rol`, {
 			method: 'PUT',
-			body: JSON.stringify({rol:rol , codigo_viejo:codigo_viejo}),
+			body: JSON.stringify({rol:rol , codigo_viejo:codigo_viejo, privSelected:privSelected}),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
@@ -60,6 +63,14 @@
 
 	<label for="descripcionRol">Descripción del Rol</label>
 	<input id="descripcionRol" bind:value={rol.descripcion_rol} />
+
+	<label for="privilegios">Privilegios</label>
+	<select multiple id="privilegios"  bind:value={privSelected} on:change={() => console.log(privSelected)}>
+		{#each privilegios as privilegio}
+		<option value={privilegio.codigo_pri}>{privilegio.nombre_pri}</option>
+		{/each}
+	</select>
+	<br>
 
 	<button type="submit">Registrar Rol</button>
 </form>

@@ -5,6 +5,11 @@ export interface Rol {
 	descripcion_rol: string;
 }
 
+export interface Privilegio {
+	codigo_pri: number;
+	nombre_pri: string;
+}
+
 export interface Empleado {
 	codigo_empleado_per: number | undefined;
 	cedula_per: string;
