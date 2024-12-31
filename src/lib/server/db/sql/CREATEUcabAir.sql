@@ -57,7 +57,7 @@ CREATE TABLE persona (
     fk_usuario         	       INTEGER NOT NULL,
     tipo_persona_com 	       VARCHAR(255) NOT NULL,
     rif_jur                    VARCHAR(255),
-    denominacion_persona_jur VARCHAR(255),
+    denominacion_persona_jur   VARCHAR(255),
     razon_social_jur           VARCHAR(255),
     pagina_web_jur             VARCHAR(255),
     cedula_nat                 VARCHAR(100),

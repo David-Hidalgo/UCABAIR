@@ -16,21 +16,21 @@
 	for (let index = 0; index < data.roltable.length; index++) {
 		let empleado: Empleado = {
 			codigo_empleado_per:undefined,
-	cedula_per: '',
-	primer_nombre_per: '',
-	segundo_nombre_per: '',
-	primer_apellido_per: '',
-	segundo_apellido_per: '',
-	direccion_per: '',
-	fecha_inicio_servicio_per:undefined,
-	//experiencia_profesional_per: '',
-	//titulacion_per: '',
-	sueldo_per: undefined,
-	//telefono_per: undefined,
-	//correo_per: '',
-	//labor_per: '',
-	fk_lugar: undefined,
-	fk_usuario: undefined
+			cedula_per: '',
+			primer_nombre_per: '',
+			segundo_nombre_per: '',
+			primer_apellido_per: '',
+			segundo_apellido_per: '',
+			direccion_per: '',
+			fecha_inicio_servicio_per:undefined,
+			//experiencia_profesional_per: '',
+			//titulacion_per: '',
+			sueldo_per: undefined,
+			//telefono_per: undefined,
+			//correo_per: '',
+			//labor_per: '',
+			fk_lugar: undefined,
+			fk_usuario: undefined
 		};
 		empleado.codigo_empleado_per = data.roltable[index].codigo_empleado_per;
 		empleado.cedula_per = data.roltable[index].cedula_per;

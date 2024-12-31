@@ -86,3 +86,41 @@ export interface Sede {
 	fk_lugar: number | undefined;
 	central_sed: boolean;
 }
+
+export interface Persona {
+	codigo_com: number | undefined;
+	direccion_com: string;
+	monto_acreditado_com: number | undefined;
+	fecha_inicio_operacion_com: Date | undefined;
+	tipo_com: string;
+	nacionalidad_com: string;
+	fk_lugar: number | undefined;
+	fk_usuario: number | undefined;
+	tipo_persona_com: string;
+	rif_jur: string;
+	denominacion_persona_jur: string;
+	razon_social_jur: string;
+	pagina_web_jur: string;
+	cedula_nat: string;
+	primer_nombre_nat: string;
+	segundo_nombre_nat: string;
+	primer_apellido_nat: string;
+	segundo_apellido_nat: string;
+	telefonos: Telefono[];
+	correos_electronicos: Correo_electronico[];
+}
+
+export interface Telefono {
+	codigo_tel: number | undefined;
+	numero_telefono_tel: string;
+	codigo_area_tel: string;
+	fk_persona: number | undefined;
+	fk_empleado: number | undefined;
+}
+
+export interface Correo_electronico {
+	codigo_ce: number;
+	direccion_correo_ce: string;
+	fk_persona: number | undefined;
+	fk_empleado: number | undefined;
+}
