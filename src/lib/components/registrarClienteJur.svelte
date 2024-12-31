@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	export let codigo_com ;
+	
 	// Interfaz para representar un empleado
 interface Persona {
 		codigo_com: number | undefined;
