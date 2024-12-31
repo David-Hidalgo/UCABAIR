@@ -694,8 +694,8 @@ ALTER TABLE configuracion_avion
 ALTER TABLE pieza
     ADD CONSTRAINT fk_configuracion_avion FOREIGN KEY ( fk_configuracion_avion,
                                              fk_configuracion_avion2 )
-        REFERENCES configuracion_avion ( fk_tipo_pieza,
-                                         fk_modelo_avion ) ON DELETE CASCADE;
+        REFERENCES configuracion_avion ( fk_modelo_avion,
+                                         fk_tipo_pieza ) ON DELETE CASCADE;
 
 ALTER TABLE avion
     ADD CONSTRAINT fk_modelo_avion FOREIGN KEY ( fk_modelo_avion )

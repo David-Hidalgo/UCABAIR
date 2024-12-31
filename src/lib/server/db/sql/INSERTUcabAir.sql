@@ -2978,32 +2978,6 @@ INSERT INTO tipo_pieza (codigo_tp, nombre_tp, descripcion_tp, fk_tipo_pieza, pre
 (19, 'Sistema de comunicación', 'Sistema de comunicación del avión', 4, 12000.00),
 (20, 'Sistema de oxígeno', 'Sistema de oxígeno de emergencia', 4, 8000.00);
 
-
-
-INSERT INTO plan_transporte (codigo_pt, duracion_estimada_pt, descripcion_pt) VALUES 
-(1, '5 días', 'Transporte terrestre local'),
-(2, '10 días', 'Transporte terrestre nacional'),
-(3, '15 días', 'Transporte terrestre regional'),
-(4, '20 días', 'Transporte terrestre interprovincial'),
-(5, '25 días', 'Transporte terrestre de larga distancia'),
-(6, '30 días', 'Transporte terrestre especializado'),
-(7, '35 días', 'Transporte terrestre urgente'),
-(8, '40 días', 'Transporte terrestre de carga pesada'),
-(9, '45 días', 'Transporte terrestre de productos frágiles'),
-(10, '50 días', 'Transporte terrestre de mercancías generales');
-
-INSERT INTO embalaje_plan (codigo_ep, duracion_estimada_ep) VALUES 
-(1, '5 días'),
-(2, '10 días'),
-(3, '15 días'),
-(4, '20 días'),
-(5, '25 días'),
-(6, '30 días'),
-(7, '35 días'),
-(8, '40 días'),
-(9, '45 días'),
-(10, '50 días');
-
 INSERT INTO tipo_materia_prima (codigo_tmp, nombre_tmp, descripcion_tmp, unidad_medida_tmp) VALUES 
 (1, 'Acero', 'Acero inoxidable', 'kg'),
 (2, 'Aluminio', 'Aluminio puro', 'kg'),
@@ -3028,30 +3002,6 @@ INSERT INTO profesion (codigo_pro, nombre_pro) VALUES
 (9, 'Técnico en refrigeración'),
 (10, 'Técnico en electrónica');
 
-INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avion, fk_sede) VALUES 
-(100, 1, 1, 1),
-(200, 2, 1, 1),
-(150, 3, 2, 1),
-(120, 4, 3, 1),
-(180, 5, 6, 1),
-(130, 6, 5, 1),
-(110, 7, 5, 1),
-(140, 8, 4, 1),
-(160, 9, 7, 1),
-(170, 10, 1, 1);
-
-INSERT INTO configuracion_pieza (cantidad_materia_prima_cp, fk_tipo_materia_prima, fk_tipo_pieza, fk_sede) VALUES 
-(50, 1, 1, 1),
-(60, 2, 2, 1),
-(70, 3, 3, 1),
-(80, 4, 4, 1),
-(90, 5, 5, 1),
-(100, 6, 6, 1),
-(110, 7, 7, 1),
-(120, 8, 8, 1),
-(130, 9, 9, 1),
-(140, 10, 10, 1);
-
 INSERT INTO plan_ensamblaje (codigo_pe, descripcion_pe, duracion_estimada_pe) VALUES
 (1, 'Ensamblaje de alas', '30 días'),
 (2, 'Montaje de motores', '34 días'),
@@ -3064,30 +3014,17 @@ INSERT INTO plan_ensamblaje (codigo_pe, descripcion_pe, duracion_estimada_pe) VA
 (9, 'Instalación de sistemas de navegación', '31 días'),
 (10, 'Ensamblaje final del avión', '40 días');
 
-INSERT INTO estimacion_profesion_empleado (codigo_epp, fk_tipo_prueba, fk_embalaje_plan, fk_plan_transporte, fk_plan_ensamblaje, cantidad_empleado_epp, fk_profesion) VALUES 
-(1, 1, 1, 1, 1, 10, 1),
-(2, 2, 2, 2, 2, 8, 2),
-(3, 3, 3, 3, 3, 6, 3),
-(4, 4, 4, 4, 4, 4, 4),
-(5, 5, 5, 5, 5, 12, 5),
-(6, 6, 6, 6, 6, 7, 6),
-(7, 7, 7, 7, 7, 9, 7),
-(8, 8, 8, 8, 8, 5, 8),
-(9, 9, 9, 9, 9, 11, 9),
-(10, 10, 10, 10, 10, 13, 10);
-
-INSERT INTO configuracion_ensamblaje_pieza (fk_plan_ensamblaje, fk_tipo_pieza,fk_sede)
-VALUES 
-(1, 1,1),
-(1, 2,2),
-(2, 3,3),
-(2, 4,4),
-(3, 5,5),
-(3, 6,3),
-(4, 7,2),
-(4, 8,2),
-(5, 9,1),
-(5, 10,1);
+INSERT INTO embalaje_plan (codigo_ep, duracion_estimada_ep) VALUES
+(1, '1 día'),
+(2, '2 días'),
+(3, '3 días'),
+(4, '1 día'),
+(5, '2 días'),
+(6, '3 días'),
+(7, '1 día'),
+(8, '2 días'),
+(9, '3 días'),
+(10, '1 día');
 
 INSERT INTO beneficiario (codigo_ben, primer_nombre_ben, segundo_nombre_ben, primer_apellido_ben, segundo_apellido_ben, descripcion_ben, fk_empleado) VALUES
 (1, 'Juan', 'Carlos', 'Pérez', 'González', 'Hermano del empleado', 5),
@@ -3255,6 +3192,23 @@ INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avi
 (1, 3, 7, 1),
 (4, 2, 13, 3),
 (2, 2, 2, 4),
+(1, 3, 1, 2),
+(1,5,1,1),
+(1,6,1,1),
+(1,7,1,1),
+(1,8,1,1),
+(1,9,1,1),
+(1,10,1,1),
+(1,11,1,1),
+(1,12,1,1),
+(1,13,1,1),
+(1,14,1,1),
+(1,15,1,1),
+(1,16,1,1),
+(1,17,1,1),
+(1,18,1,1),
+(1,19,1,1),
+(1,20,1,1),
 (4, 2, 11, 5);
 
 INSERT INTO caracteristica (codigo_car, nombre_car) VALUES
@@ -3282,7 +3236,7 @@ INSERT INTO caracteristica_pieza (valor_cp, unidad_medida_cp, fk_tipo_pieza, fk_
 (70, 'Decibeles', 2, 10);  
 
 INSERT INTO configuracion_pieza (cantidad_materia_prima_cp, fk_tipo_materia_prima, fk_tipo_pieza, fk_sede) VALUES
-(500, 2, 1, 2), 
+(500, 1, 2, 2), 
 (200, 9, 2, 1), 
 (300, 1, 3, 5),  
 (150, 4, 4, 3),  
@@ -3359,6 +3313,812 @@ INSERT INTO compra (codigo_compra_com, numero_factura_com, fecha_hora_com, monto
 (49, 1049, '2025-01-18', 100000, 8000),
 (50, 1050, '2025-01-19', 110000, 8800);
 
+
+INSERT INTO lote_materia_prima (codigo_lmp, fk_configuracion_pieza, fk_configuracion_pieza2, fk_compra, fk_almacen, fk_almacen2, cantidad_lmp) VALUES
+(1, 1, 2, 3, 1, 1, 500),
+(2, 4, 4, 6, 2, 2, 300),
+(3, 9, 2, 9, 3, 3, 450),
+(4, 1, 3, 4, 4, 4, 350),
+(5, 2, 5, 7, 5, 5, 400),
+(6, 9, 6, 10, 6, 1, 600),
+(7, 6, 13, 5, 7, 2, 250),
+(8, 4, 14, 8, 8, 3, 550),
+(9, 9, 10, 1, 9, 4, 700),
+(10, 9, 9, 2, 10, 5, 650);
+
+INSERT INTO embalaje_configuracion_avion (fk_embalaje_plan, fk_modelo_avion, fk_sede) VALUES
+(1, 7, 1),
+(2, 15, 4),
+(3, 3, 2),
+(4, 10, 5),
+(5, 2, 3),
+(6, 8, 2),
+(7, 5, 1),
+(8, 12, 4),
+(9, 17, 3),
+(10, 1, 5);
+
+INSERT INTO embalaje_configuracion_pieza (fk_embalaje_plan, fk_tipo_pieza, fk_sede) VALUES
+(1, 1, 2),
+(2, 5, 4),
+(3, 8, 3),
+(4, 3, 1),
+(5, 7, 5),
+(6, 2, 4),
+(7, 10, 1),
+(8, 4, 2),
+(9, 6, 3),
+(10, 9, 5);
+
+INSERT INTO embalaje_configuracion_materia (fk_embalaje_plan, fk_tipo_materia_prima, fk_sede) VALUES
+(1, 2, 1),
+(2, 4, 3),
+(3, 6, 2),
+(4, 8, 4),
+(5, 1, 5),
+(6, 3, 2),
+(7, 5, 4),
+(8, 7, 1),
+(9, 9, 5),
+(10, 10, 3);
+
+INSERT INTO estatus (codigo_est, nombre_est) VALUES 
+(1, 'En Producción'),
+(2, 'En Inspección'),
+(3, 'Aprobado'),
+(4, 'Rechazado'),
+(5, 'En Almacenamiento'),
+(6, 'En Ensamblaje'),
+(7, 'En Pruebas'),
+(8, 'Listo para Envío'),
+(9, 'En Reparación'),
+(10, 'Desmantelado');
+
+INSERT INTO moneda (codigo_mon, nombre_mon, tasa_cambio_mon, fecha_inicio_mon, fecha_fin_mon) VALUES 
+(1, 'Dólar Estadounidense', 1.00, '2024-01-01', NULL),
+(2, 'Euro', 0.85, '2024-01-01', NULL),
+(3, 'Libra Esterlina', 0.75, '2024-01-01', NULL),
+(4, 'Yen Japonés', 110.00, '2024-01-01', NULL),
+(5, 'Franco Suizo', 0.92, '2024-01-01', NULL),
+(6, 'Dólar Canadiense', 1.25, '2024-01-01', NULL),
+(7, 'Dólar Australiano', 1.35, '2024-01-01', NULL),
+(8, 'Yuan Chino', 6.50, '2024-01-01', NULL),
+(9, 'Peso Mexicano', 20.00, '2024-01-01', NULL),
+(10, 'Real Brasileño', 5.00, '2024-01-01', NULL);
+
+INSERT INTO configuracion_ensamblaje_pieza (fk_plan_ensamblaje, fk_tipo_pieza, fk_sede) VALUES
+(1, 1, 2),
+(2, 3, 5),
+(3, 4, 3),
+(4, 7, 1),
+(5, 9, 4),
+(6, 2, 2),
+(7, 5, 5),
+(8, 8, 3),
+(9, 6, 1),
+(10, 10, 4);
+
+INSERT INTO configuracion_ensamblaje_materia (fk_plan_ensamblaje, fk_tipo_materia_prima, fk_sede) VALUES
+(1, 1, 2),
+(2, 3, 5),
+(3, 4, 3),
+(4, 7, 1),
+(5, 9, 4),
+(6, 2, 2),
+(7, 5, 5),
+(8, 8, 3),
+(9, 6, 1),
+(10, 10, 4);
+
+INSERT INTO solicitud_transferencia (codigo_st, fecha_envio_estimada_st, fecha_recibo_estimada_st, fk_sede, fk_sede2) VALUES
+(1, '2024-12-01', '2024-12-02', 1, 2),
+(2, '2024-12-03', '2024-12-06', 2, 3),
+(3, '2024-12-05', '2024-12-08', 3, 4),
+(4, '2024-12-07', '2024-12-09', 4, 5),
+(5, '2024-12-09', '2024-12-13', 5, 1),
+(6, '2024-12-11', '2024-12-15', 1, 3),
+(7, '2024-12-13', '2024-12-18', 2, 4),
+(8, '2024-12-15', '2024-12-19', 3, 5),
+(9, '2024-12-17', '2024-12-22', 4, 1),
+(10, '2024-12-19', '2024-12-20', 5, 2);
+
+
+INSERT INTO plan_transporte (codigo_pt, duracion_estimada_pt, descripcion_pt) VALUES
+(1, '3 días', 'Transporte terrestre de piezas pequeñas'),
+(2, '5 días', 'Transporte aéreo de componentes críticos'),
+(3, '7 días', 'Transporte marítimo de fuselajes'),
+(4, '4 días', 'Transporte combinado de alas y estabilizadores'),
+(5, '6 días', 'Transporte ferroviario de trenes de aterrizaje'),
+(6, '2 días', 'Transporte express de sistemas de comunicación'),
+(7, '3 días', 'Transporte terrestre de cabinas'),
+(8, '5 días', 'Transporte aéreo de motores'),
+(9, '4 días', 'Transporte marítimo de sistemas de navegación'),
+(10, '7 días', 'Transporte terrestre y marítimo de flaps y alerones');
+
+INSERT INTO transporte_configuracion_avion (fk_plan_transporte, fk_modelo_avion, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO transporte_configuracion_pieza (fk_plan_transporte, fk_tipo_pieza, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO transporte_configuracion_materia (fk_plan_transporte, fk_tipo_materia_prima, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO configuracion_prueba_avion (fk_tipo_prueba, fk_modelo_avion, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO configuracion_prueba_pieza (fk_tipo_prueba, fk_tipo_pieza, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO configuracion_prueba_materia (fk_tipo_prueba, fk_tipo_materia_prima, fk_sede) VALUES
+(1, 1, 2),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 5),
+(5, 5, 1),
+(6, 6, 2),
+(7, 7, 3),
+(8, 8, 4),
+(9, 9, 5),
+(10, 10, 1);
+
+INSERT INTO horario (fk_turno, fk_empleado) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(1, 11),
+(2, 12),
+(3, 13),
+(4, 14),
+(5, 15),
+(6, 16),
+(7, 17),
+(8, 18),
+(9, 19),
+(10, 20);
+
+INSERT INTO horario (fk_turno, fk_empleado) VALUES
+(1, 21),
+(2, 22),
+(3, 23),
+(4, 24),
+(5, 25),
+(6, 26),
+(7, 27),
+(8, 28),
+(9, 29),
+(10, 30),
+(1, 31),
+(2, 32),
+(3, 33),
+(4, 34),
+(5, 35),
+(6, 36),
+(7, 37),
+(8, 38),
+(9, 39),
+(10, 40);
+
+INSERT INTO ensamblaje (codigo_ens, fecha_inicio_ens, fecha_fin_ens, fk_plan_ensamblaje, fk_pieza, fk_lote_materia_prima, fk_equipo_empleado, fk_equipo_empleado2) VALUES
+(2, '2024-11-03', '2024-12-04', 2, NULL, 2, 7, 21),
+(4, '2024-11-07', '2024-12-08', 4, NULL, 3, 8, 11),
+(6, '2024-11-11', '2024-12-12', 6, NULL, 4, 7, 15),
+(8, '2024-11-15', '2024-12-16', 8, NULL, 5, 8, 4),
+(10, '2024-11-19', '2024-12-20', 10, NULL, 6, 10, 13);
+
+INSERT INTO ensamblaje (codigo_ens, fecha_inicio_ens, fecha_fin_ens, fk_plan_ensamblaje, fk_pieza, fk_lote_materia_prima, fk_equipo_empleado, fk_equipo_empleado2) VALUES
+(1, '2024-11-21', '2024-12-22', 1, NULL, 7, 7, 21),
+(3, '2024-11-23', '2024-12-24', 2, NULL, 8, 8, 11),
+(5, '2024-11-25', '2024-12-26', 3, NULL, 9, 7, 15),
+(7, '2024-11-27', '2024-12-28', 4, NULL, 10, 8, 4),
+(9, '2024-11-29', '2024-12-30', 5, NULL, 5, 10, 13);
+
+INSERT INTO venta (codigo_venta_ven, numero_factura_ven, fecha_hora_ven, monto_total_ven, impuesto_total_ven) VALUES
+(1, 1001, '2024-02-01 10:00:00', 100500.75, 10050.08),
+(2, 1002, '2024-04-02 11:30:00', 1001200.50, 100120.05),
+(3, 1003, '2024-07-03 14:45:00', 100300.00, 10030.00),
+(4, 1004, '2024-10-04 09:15:00', 100750.25, 10075.03),
+(5, 1005, '2024-12-05 16:00:00', 1001500.00, 100150.00),
+(6, 1006, '2023-11-06 13:20:00', 100850.60, 10085.06),
+(7, 1007, '2023-08-07 08:45:00', 100400.10, 10040.01),
+(8, 1008, '2023-05-08 17:00:00', 100950.90, 10095.09),
+(9, 1009, '2023-02-09 12:30:00', 100670.40, 10067.04),
+(10, 1010, '2023-01-10 15:00:00', 1001100.80, 100110.08);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(2, NULL, 2, 1, 2, 2, NULL, 2),
+(4, NULL, 2, 1, 4, 4, NULL, 4),
+(6, NULL, 2, 1, 6, 1, NULL, 6),
+(8, NULL, 2, 1, 8, 3, NULL, 8),
+(10, NULL, 2, 1, 10, 5, NULL, 10),
+(12, NULL, 2, 1, 2, 2, NULL, 2),
+(14, NULL, 2, 1, 4, 4, NULL, 4),
+(16, NULL, 2, 1, 6, 1, NULL, 6),
+(18, NULL, 2, 1, 8, 3, NULL, 8),
+(20, NULL, 2, 1, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(22, NULL, 3, 2, 2, 2, NULL, 2),
+(24, NULL, 3, 2, 4, 4, NULL, 4),
+(26, NULL, 3, 2, 6, 1, NULL, 6),
+(28, NULL, 3, 2, 8, 3, NULL, 8),
+(30, NULL, 3, 2, 10, 5, NULL, 10),
+(32, NULL, 3, 2, 2, 2, NULL, 2),
+(34, NULL, 3, 2, 4, 4, NULL, 4),
+(36, NULL, 3, 2, 6, 1, NULL, 6),
+(38, NULL, 3, 2, 8, 3, NULL, 8),
+(40, NULL, 3, 2, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(42, NULL, 4, 3, 2, 2, NULL, 2),
+(44, NULL, 4, 3, 4, 4, NULL, 4),
+(46, NULL, 4, 3, 6, 1, NULL, 6),
+(48, NULL, 4, 3, 8, 3, NULL, 8),
+(50, NULL, 4, 3, 10, 5, NULL, 10),
+(52, NULL, 4, 3, 2, 2, NULL, 2),
+(54, NULL, 4, 3, 4, 4, NULL, 4),
+(56, NULL, 4, 3, 6, 1, NULL, 6),
+(58, NULL, 4, 3, 8, 3, NULL, 8),
+(60, NULL, 4, 3, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(62, NULL, 5, 4, 2, 2, NULL, 2),
+(64, NULL, 5, 4, 4, 4, NULL, 4),
+(66, NULL, 5, 4, 6, 1, NULL, 6),
+(68, NULL, 5, 4, 8, 3, NULL, 8),
+(70, NULL, 5, 4, 10, 5, NULL, 10),
+(72, NULL, 5, 4, 2, 2, NULL, 2),
+(74, NULL, 5, 4, 4, 4, NULL, 4),
+(76, NULL, 5, 4, 6, 1, NULL, 6),
+(78, NULL, 5, 4, 8, 3, NULL, 8),
+(80, NULL, 5, 4, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(82, NULL, 1, 5, 2, 2, NULL, 2),
+(84, NULL, 1, 5, 4, 4, NULL, 4),
+(86, NULL, 1, 5, 6, 1, NULL, 6),
+(88, NULL, 1, 5, 8, 3, NULL, 8),
+(90, NULL, 1, 5, 10, 5, NULL, 10),
+(92, NULL, 1, 5, 2, 2, NULL, 2),
+(94, NULL, 1, 5, 4, 4, NULL, 4),
+(96, NULL, 1, 5, 6, 1, NULL, 6),
+(98, NULL, 1, 5, 8, 3, NULL, 8),
+(100, NULL, 1, 5, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(102, NULL, 1, 6, 2, 2, NULL, 2),
+(104, NULL, 1, 6, 4, 4, NULL, 4),
+(106, NULL, 1, 6, 6, 1, NULL, 6),
+(108, NULL, 1, 6, 8, 3, NULL, 8),
+(110, NULL, 1, 6, 10, 5, NULL, 10),
+(112, NULL, 1, 6, 2, 2, NULL, 2),
+(114, NULL, 1, 6, 4, 4, NULL, 4),
+(116, NULL, 1, 6, 6, 1, NULL, 6),
+(118, NULL, 1, 6, 8, 3, NULL, 8),
+(120, NULL, 1, 6, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(122, NULL, 1, 7, 2, 2, NULL, 2),
+(124, NULL, 1, 7, 4, 4, NULL, 4),
+(126, NULL, 1, 7, 6, 1, NULL, 6),
+(128, NULL, 1, 7, 8, 3, NULL, 8),
+(130, NULL, 1, 7, 10, 5, NULL, 10),
+(132, NULL, 1, 7, 2, 2, NULL, 2),
+(134, NULL, 1, 7, 4, 4, NULL, 4),
+(136, NULL, 1, 7, 6, 1, NULL, 6),
+(138, NULL, 1, 7, 8, 3, NULL, 8),
+(140, NULL, 1, 7, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(142, NULL, 1, 8, 2, 2, NULL, 2),
+(144, NULL, 1, 8, 4, 4, NULL, 4),
+(146, NULL, 1, 8, 6, 1, NULL, 6),
+(148, NULL, 1, 8, 8, 3, NULL, 8),
+(150, NULL, 1, 8, 10, 5, NULL, 10),
+(152, NULL, 1, 8, 2, 2, NULL, 2),
+(154, NULL, 1, 8, 4, 4, NULL, 4),
+(156, NULL, 1, 8, 6, 1, NULL, 6),
+(158, NULL, 1, 8, 8, 3, NULL, 8),
+(160, NULL, 1, 8, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(162, NULL, 1, 9, 2, 2, NULL, 2),
+(164, NULL, 1, 9, 4, 4, NULL, 4),
+(166, NULL, 1, 9, 6, 1, NULL, 6),
+(168, NULL, 1, 9, 8, 3, NULL, 8),
+(170, NULL, 1, 9, 10, 5, NULL, 10),
+(172, NULL, 1, 9, 2, 2, NULL, 2),
+(174, NULL, 1, 9, 4, 4, NULL, 4),
+(176, NULL, 1, 9, 6, 1, NULL, 6),
+(178, NULL, 1, 9, 8, 3, NULL, 8),
+(180, NULL, 1, 9, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(182, NULL, 1, 10, 2, 2, NULL, 2),
+(184, NULL, 1, 10, 4, 4, NULL, 4),
+(186, NULL, 1, 10, 6, 1, NULL, 6),
+(188, NULL, 1, 10, 8, 3, NULL, 8),
+(190, NULL, 1, 10, 10, 5, NULL, 10),
+(192, NULL, 1, 10, 2, 2, NULL, 2),
+(194, NULL, 1, 10, 4, 4, NULL, 4),
+(196, NULL, 1, 10, 6, 1, NULL, 6),
+(198, NULL, 1, 10, 8, 3, NULL, 8),
+(200, NULL, 1, 10, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(202, NULL, 1, 11, 2, 2, NULL, 2),
+(204, NULL, 1, 11, 4, 4, NULL, 4),
+(206, NULL, 1, 11, 6, 1, NULL, 6),
+(208, NULL, 1, 11, 8, 3, NULL, 8),
+(210, NULL, 1, 11, 10, 5, NULL, 10),
+(212, NULL, 1, 11, 2, 2, NULL, 2),
+(214, NULL, 1, 11, 4, 4, NULL, 4),
+(216, NULL, 1, 11, 6, 1, NULL, 6),
+(218, NULL, 1, 11, 8, 3, NULL, 8),
+(220, NULL, 1, 11, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(222, NULL, 1, 12, 2, 2, NULL, 2),
+(224, NULL, 1, 12, 4, 4, NULL, 4),
+(226, NULL, 1, 12, 6, 1, NULL, 6),
+(228, NULL, 1, 12, 8, 3, NULL, 8),
+(230, NULL, 1, 12, 10, 5, NULL, 10),
+(232, NULL, 1, 12, 2, 2, NULL, 2),
+(234, NULL, 1, 12, 4, 4, NULL, 4),
+(236, NULL, 1, 12, 6, 1, NULL, 6),
+(238, NULL, 1, 12, 8, 3, NULL, 8),
+(240, NULL, 1, 12, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(242, NULL, 1, 13, 2, 2, NULL, 2),
+(244, NULL, 1, 13, 4, 4, NULL, 4),
+(246, NULL, 1, 13, 6, 1, NULL, 6),
+(248, NULL, 1, 13, 8, 3, NULL, 8),
+(250, NULL, 1, 13, 10, 5, NULL, 10),
+(252, NULL, 1, 13, 2, 2, NULL, 2),
+(254, NULL, 1, 13, 4, 4, NULL, 4),
+(256, NULL, 1, 13, 6, 1, NULL, 6),
+(258, NULL, 1, 13, 8, 3, NULL, 8),
+(260, NULL, 1, 13, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(262, NULL, 1, 14, 2, 2, NULL, 2),
+(264, NULL, 1, 14, 4, 4, NULL, 4),
+(266, NULL, 1, 14, 6, 1, NULL, 6),
+(268, NULL, 1, 14, 8, 3, NULL, 8),
+(270, NULL, 1, 14, 10, 5, NULL, 10),
+(272, NULL, 1, 14, 2, 2, NULL, 2),
+(274, NULL, 1, 14, 4, 4, NULL, 4),
+(276, NULL, 1, 14, 6, 1, NULL, 6),
+(278, NULL, 1, 14, 8, 3, NULL, 8),
+(280, NULL, 1, 14, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(282, NULL, 1, 15, 2, 2, NULL, 2),
+(284, NULL, 1, 15, 4, 4, NULL, 4),
+(286, NULL, 1, 15, 6, 1, NULL, 6),
+(288, NULL, 1, 15, 8, 3, NULL, 8),
+(290, NULL, 1, 15, 10, 5, NULL, 10),
+(292, NULL, 1, 15, 2, 2, NULL, 2),
+(294, NULL, 1, 15, 4, 4, NULL, 4),
+(296, NULL, 1, 15, 6, 1, NULL, 6),
+(298, NULL, 1, 15, 8, 3, NULL, 8),
+(300, NULL, 1, 15, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(302, NULL, 1, 16, 2, 2, NULL, 2),
+(304, NULL, 1, 16, 4, 4, NULL, 4),
+(306, NULL, 1, 16, 6, 1, NULL, 6),
+(308, NULL, 1, 16, 8, 3, NULL, 8),
+(310, NULL, 1, 16, 10, 5, NULL, 10),
+(312, NULL, 1, 16, 2, 2, NULL, 2),
+(314, NULL, 1, 16, 4, 4, NULL, 4),
+(316, NULL, 1, 16, 6, 1, NULL, 6),
+(318, NULL, 1, 16, 8, 3, NULL, 8),
+(320, NULL, 1, 16, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(322, NULL, 1, 17, 2, 2, NULL, 2),
+(324, NULL, 1, 17, 4, 4, NULL, 4),
+(326, NULL, 1, 17, 6, 1, NULL, 6),
+(328, NULL, 1, 17, 8, 3, NULL, 8),
+(330, NULL, 1, 17, 10, 5, NULL, 10),
+(332, NULL, 1, 17, 2, 2, NULL, 2),
+(334, NULL, 1, 17, 4, 4, NULL, 4),
+(336, NULL, 1, 17, 6, 1, NULL, 6),
+(338, NULL, 1, 17, 8, 3, NULL, 8),
+(340, NULL, 1, 17, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(342, NULL, 1, 18, 2, 2, NULL, 2),
+(344, NULL, 1, 18, 4, 4, NULL, 4),
+(346, NULL, 1, 18, 6, 1, NULL, 6),
+(348, NULL, 1, 18, 8, 3, NULL, 8),
+(350, NULL, 1, 18, 10, 5, NULL, 10),
+(352, NULL, 1, 18, 2, 2, NULL, 2),
+(354, NULL, 1, 18, 4, 4, NULL, 4),
+(356, NULL, 1, 18, 6, 1, NULL, 6),
+(358, NULL, 1, 18, 8, 3, NULL, 8),
+(360, NULL, 1, 18, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(362, NULL, 1, 19, 2, 2, NULL, 2),
+(364, NULL, 1, 19, 4, 4, NULL, 4),
+(366, NULL, 1, 19, 6, 1, NULL, 6),
+(368, NULL, 1, 19, 8, 3, NULL, 8),
+(370, NULL, 1, 19, 10, 5, NULL, 10),
+(372, NULL, 1, 19, 2, 2, NULL, 2),
+(374, NULL, 1, 19, 4, 4, NULL, 4),
+(376, NULL, 1, 19, 6, 1, NULL, 6),
+(378, NULL, 1, 19, 8, 3, NULL, 8),
+(380, NULL, 1, 19, 10, 5, NULL, 10);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(382, NULL, 1, 20, 2, 2, NULL, 2),
+(384, NULL, 1, 20, 4, 4, NULL, 4),
+(386, NULL, 1, 20, 6, 1, NULL, 6),
+(388, NULL, 1, 20, 8, 3, NULL, 8),
+(390, NULL, 1, 20, 10, 5, NULL, 10),
+(392, NULL, 1, 20, 2, 2, NULL, 2),
+(394, NULL, 1, 20, 4, 4, NULL, 4),
+(396, NULL, 1, 20, 6, 1, NULL, 6),
+(398, NULL, 1, 20, 8, 3, NULL, 8),
+(400, NULL, 1, 20, 10, 5, NULL, 10);
+
+INSERT INTO ensamblaje (codigo_ens, fecha_inicio_ens, fecha_fin_ens, fk_plan_ensamblaje, fk_pieza, fk_lote_materia_prima, fk_equipo_empleado, fk_equipo_empleado2) VALUES
+(11, '2024-11-01', '2024-12-02', 1, 2, NULL, 6, 9),
+(13, '2024-11-05', '2024-12-06', 3, 4, NULL, 6, 3),
+(15, '2024-11-09', '2024-12-10', 5, 6, NULL, 6, 9),
+(17, '2024-11-13', '2024-12-14', 7, 8, NULL, 9, 36),
+(19, '2024-11-17', '2024-12-18', 9, 10, NULL, 7, 21);
+
+INSERT INTO ensamblaje (codigo_ens, fecha_inicio_ens, fecha_fin_ens, fk_plan_ensamblaje, fk_pieza, fk_lote_materia_prima, fk_equipo_empleado, fk_equipo_empleado2) VALUES
+(12, '2024-12-01', '2025-01-02', 1, 12, NULL, 6, 9),
+(14, '2024-12-03', '2025-01-04', 3, 14, NULL, 7, 21),
+(16, '2024-12-05', '2025-01-06', 5, 16, NULL, 6, 3),
+(18, '2024-12-07', '2025-01-08', 7, 18, NULL, 8, 11),
+(20, '2024-12-09', '2025-01-10', 9, 20, NULL, 7, 15);
+
+INSERT INTO avion (codigo_avi, color_avi, fk_modelo_avion, fk_venta, fk_almacen, fk_almacen2, fk_ensamblaje, nombre_avi, matricula_avi) VALUES
+(1, 'Blanco', 1, 1, 1, 1, 1, 'Sea Breeze', 'MAT001'),
+(2, 'Azul', 2, 2, 2, 2, 2, 'Ocean Explorer', 'MAT002'),
+(3, 'Rojo', 3, 3, 3, 3, 3, 'Wave Rider', 'MAT003'),
+(4, 'Negro', 4, 4, 4, 4, 4, 'Wind Dancer', 'MAT004'),
+(5, 'Verde', 5, 5, 5, 5, 5, 'Marina Star', 'MAT005'),
+(6, 'Amarillo', 6, 6, 6, 1, 6, 'Harbor Queen', 'MAT006'),
+(7, 'Plateado', 7, 7, 7, 2, 7, 'Bay Cruiser', 'MAT007'),
+(8, 'Gris', 8, 8, 8, 3, 8, 'Coral King', 'MAT008'),
+(9, 'Blanco con azul', 9, 9, 9, 4, 9, 'Sunset Voyager', 'MAT009'),
+(10, 'Rojo con blanco', 10, 10, 10, 5, 10, 'Tidal Wave', 'MAT010');
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(1, NULL, 2, 1, 1, 1, 1, 1),
+(3, NULL, 2, 1, 3, 3, 2, 3),
+(5, NULL, 2, 1, 5, 5, 3, 5),
+(7, NULL, 2, 1, 7, 2, 4, 7),
+(9, NULL, 2, 1, 9, 4, 5, 9),
+(11, NULL, 2, 1, 1, 1, 6, 1),
+(13, NULL, 2, 1, 3, 3, 7, 3),
+(15, NULL, 2, 1, 5, 5, 8, 5),
+(17, NULL, 2, 1, 7, 2, 9, 7),
+(19, NULL, 2, 1, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(21, NULL, 3, 2, 1, 1, 1, 1),
+(23, NULL, 3, 2, 3, 3, 2, 3),
+(25, NULL, 3, 2, 5, 5, 3, 5),
+(27, NULL, 3, 2, 7, 2, 4, 7),
+(29, NULL, 3, 2, 9, 4, 5, 9),
+(31, NULL, 3, 2, 1, 1, 6, 1),
+(33, NULL, 3, 2, 3, 3, 7, 3),
+(35, NULL, 3, 2, 5, 5, 8, 5),
+(37, NULL, 3, 2, 7, 2, 9, 7),
+(39, NULL, 3, 2, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(41, NULL, 4, 3, 1, 1, 1, 1),
+(43, NULL, 4, 3, 3, 3, 2, 3),
+(45, NULL, 4, 3, 5, 5, 3, 5),
+(47, NULL, 4, 3, 7, 2, 4, 7),
+(49, NULL, 4, 3, 9, 4, 5, 9),
+(51, NULL, 4, 3, 1, 1, 6, 1),
+(53, NULL, 4, 3, 3, 3, 7, 3),
+(55, NULL, 4, 3, 5, 5, 8, 5),
+(57, NULL, 4, 3, 7, 2, 9, 7),
+(59, NULL, 4, 3, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(61, NULL, 5, 4, 1, 1, 1, 1),
+(63, NULL, 5, 4, 3, 3, 2, 3),
+(65, NULL, 5, 4, 5, 5, 3, 5),
+(67, NULL, 5, 4, 7, 2, 4, 7),
+(69, NULL, 5, 4, 9, 4, 5, 9),
+(71, NULL, 5, 4, 1, 1, 6, 1),
+(73, NULL, 5, 4, 3, 3, 7, 3),
+(75, NULL, 5, 4, 5, 5, 8, 5),
+(77, NULL, 5, 4, 7, 2, 9, 7),
+(79, NULL, 5, 4, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(81, NULL, 1, 5, 1, 1, 1, 1),
+(83, NULL, 1, 5, 3, 3, 2, 3),
+(85, NULL, 1, 5, 5, 5, 3, 5),
+(87, NULL, 1, 5, 7, 2, 4, 7),
+(89, NULL, 1, 5, 9, 4, 5, 9),
+(91, NULL, 1, 5, 1, 1, 6, 1),
+(93, NULL, 1, 5, 3, 3, 7, 3),
+(95, NULL, 1, 5, 5, 5, 8, 5),
+(97, NULL, 1, 5, 7, 2, 9, 7),
+(99, NULL, 1, 5, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(101, NULL, 1, 6, 1, 1, 1, 1),
+(103, NULL, 1, 6, 3, 3, 2, 3),
+(105, NULL, 1, 6, 5, 5, 3, 5),
+(107, NULL, 1, 6, 7, 2, 4, 7),
+(109, NULL, 1, 6, 9, 4, 5, 9),
+(111, NULL, 1, 6, 1, 1, 6, 1),
+(113, NULL, 1, 6, 3, 3, 7, 3),
+(115, NULL, 1, 6, 5, 5, 8, 5),
+(117, NULL, 1, 6, 7, 2, 9, 7),
+(119, NULL, 1, 6, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(121, NULL, 1, 7, 1, 1, 1, 1),
+(123, NULL, 1, 7, 3, 3, 2, 3),
+(125, NULL, 1, 7, 5, 5, 3, 5),
+(127, NULL, 1, 7, 7, 2, 4, 7),
+(129, NULL, 1, 7, 9, 4, 5, 9),
+(131, NULL, 1, 7, 1, 1, 6, 1),
+(133, NULL, 1, 7, 3, 3, 7, 3),
+(135, NULL, 1, 7, 5, 5, 8, 5),
+(137, NULL, 1, 7, 7, 2, 9, 7),
+(139, NULL, 1, 7, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(141, NULL, 1, 8, 1, 1, 1, 1),
+(143, NULL, 1, 8, 3, 3, 2, 3),
+(145, NULL, 1, 8, 5, 5, 3, 5),
+(147, NULL, 1, 8, 7, 2, 4, 7),
+(149, NULL, 1, 8, 9, 4, 5, 9),
+(151, NULL, 1, 8, 1, 1, 6, 1),
+(153, NULL, 1, 8, 3, 3, 7, 3),
+(155, NULL, 1, 8, 5, 5, 8, 5),
+(157, NULL, 1, 8, 7, 2, 9, 7),
+(159, NULL, 1, 8, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(161, NULL, 1, 9, 1, 1, 1, 1),
+(163, NULL, 1, 9, 3, 3, 2, 3),
+(165, NULL, 1, 9, 5, 5, 3, 5),
+(167, NULL, 1, 9, 7, 2, 4, 7),
+(169, NULL, 1, 9, 9, 4, 5, 9),
+(171, NULL, 1, 9, 1, 1, 6, 1),
+(173, NULL, 1, 9, 3, 3, 7, 3),
+(175, NULL, 1, 9, 5, 5, 8, 5),
+(177, NULL, 1, 9, 7, 2, 9, 7),
+(179, NULL, 1, 9, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(181, NULL, 1, 10, 1, 1, 1, 1),
+(183, NULL, 1, 10, 3, 3, 2, 3),
+(185, NULL, 1, 10, 5, 5, 3, 5),
+(187, NULL, 1, 10, 7, 2, 4, 7),
+(189, NULL, 1, 10, 9, 4, 5, 9),
+(191, NULL, 1, 10, 1, 1, 6, 1),
+(193, NULL, 1, 10, 3, 3, 7, 3),
+(195, NULL, 1, 10, 5, 5, 8, 5),
+(197, NULL, 1, 10, 7, 2, 9, 7),
+(199, NULL, 1, 10, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(201, NULL, 1, 11, 1, 1, 1, 1),
+(203, NULL, 1, 11, 3, 3, 2, 3),
+(205, NULL, 1, 11, 5, 5, 3, 5),
+(207, NULL, 1, 11, 7, 2, 4, 7),
+(209, NULL, 1, 11, 9, 4, 5, 9),
+(211, NULL, 1, 11, 1, 1, 6, 1),
+(213, NULL, 1, 11, 3, 3, 7, 3),
+(215, NULL, 1, 11, 5, 5, 8, 5),
+(217, NULL, 1, 11, 7, 2, 9, 7),
+(219, NULL, 1, 11, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(221, NULL, 1, 12, 1, 1, 1, 1),
+(223, NULL, 1, 12, 3, 3, 2, 3),
+(225, NULL, 1, 12, 5, 5, 3, 5),
+(227, NULL, 1, 12, 7, 2, 4, 7),
+(229, NULL, 1, 12, 9, 4, 5, 9),
+(231, NULL, 1, 12, 1, 1, 6, 1),
+(233, NULL, 1, 12, 3, 3, 7, 3),
+(235, NULL, 1, 12, 5, 5, 8, 5),
+(237, NULL, 1, 12, 7, 2, 9, 7),
+(239, NULL, 1, 12, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(241, NULL, 1, 13, 1, 1, 1, 1),
+(243, NULL, 1, 13, 3, 3, 2, 3),
+(245, NULL, 1, 13, 5, 5, 3, 5),
+(247, NULL, 1, 13, 7, 2, 4, 7),
+(249, NULL, 1, 13, 9, 4, 5, 9),
+(251, NULL, 1, 13, 1, 1, 6, 1),
+(253, NULL, 1, 13, 3, 3, 7, 3),
+(255, NULL, 1, 13, 5, 5, 8, 5),
+(257, NULL, 1, 13, 7, 2, 9, 7),
+(259, NULL, 1, 13, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(261, NULL, 1, 14, 1, 1, 1, 1),
+(263, NULL, 1, 14, 3, 3, 2, 3),
+(265, NULL, 1, 14, 5, 5, 3, 5),
+(267, NULL, 1, 14, 7, 2, 4, 7),
+(269, NULL, 1, 14, 9, 4, 5, 9),
+(271, NULL, 1, 14, 1, 1, 6, 1),
+(273, NULL, 1, 14, 3, 3, 7, 3),
+(275, NULL, 1, 14, 5, 5, 8, 5),
+(277, NULL, 1, 14, 7, 2, 9, 7),
+(279, NULL, 1, 14, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(281, NULL, 1, 15, 1, 1, 1, 1),
+(283, NULL, 1, 15, 3, 3, 2, 3),
+(285, NULL, 1, 15, 5, 5, 3, 5),
+(287, NULL, 1, 15, 7, 2, 4, 7),
+(289, NULL, 1, 15, 9, 4, 5, 9),
+(291, NULL, 1, 15, 1, 1, 6, 1),
+(293, NULL, 1, 15, 3, 3, 7, 3),
+(295, NULL, 1, 15, 5, 5, 8, 5),
+(297, NULL, 1, 15, 7, 2, 9, 7),
+(299, NULL, 1, 15, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(301, NULL, 1, 16, 1, 1, 1, 1),
+(303, NULL, 1, 16, 3, 3, 2, 3),
+(305, NULL, 1, 16, 5, 5, 3, 5),
+(307, NULL, 1, 16, 7, 2, 4, 7),
+(309, NULL, 1, 16, 9, 4, 5, 9),
+(311, NULL, 1, 16, 1, 1, 6, 1),
+(313, NULL, 1, 16, 3, 3, 7, 3),
+(315, NULL, 1, 16, 5, 5, 8, 5),
+(317, NULL, 1, 16, 7, 2, 9, 7),
+(319, NULL, 1, 16, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(321, NULL, 1, 17, 1, 1, 1, 1),
+(323, NULL, 1, 17, 3, 3, 2, 3),
+(325, NULL, 1, 17, 5, 5, 3, 5),
+(327, NULL, 1, 17, 7, 2, 4, 7),
+(329, NULL, 1, 17, 9, 4, 5, 9),
+(331, NULL, 1, 17, 1, 1, 6, 1),
+(333, NULL, 1, 17, 3, 3, 7, 3),
+(335, NULL, 1, 17, 5, 5, 8, 5),
+(337, NULL, 1, 17, 7, 2, 9, 7),
+(339, NULL, 1, 17, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(341, NULL, 1, 18, 1, 1, 1, 1),
+(343, NULL, 1, 18, 3, 3, 2, 3),
+(345, NULL, 1, 18, 5, 5, 3, 5),
+(347, NULL, 1, 18, 7, 2, 4, 7),
+(349, NULL, 1, 18, 9, 4, 5, 9),
+(351, NULL, 1, 18, 1, 1, 6, 1),
+(353, NULL, 1, 18, 3, 3, 7, 3),
+(355, NULL, 1, 18, 5, 5, 8, 5),
+(357, NULL, 1, 18, 7, 2, 9, 7),
+(359, NULL, 1, 18, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(361, NULL, 1, 19, 1, 1, 1, 1),
+(363, NULL, 1, 19, 3, 3, 2, 3),
+(365, NULL, 1, 19, 5, 5, 3, 5),
+(367, NULL, 1, 19, 7, 2, 4, 7),
+(369, NULL, 1, 19, 9, 4, 5, 9),
+(371, NULL, 1, 19, 1, 1, 6, 1),
+(373, NULL, 1, 19, 3, 3, 7, 3),
+(375, NULL, 1, 19, 5, 5, 8, 5),
+(377, NULL, 1, 19, 7, 2, 9, 7),
+(379, NULL, 1, 19, 9, 4, 10, 9);
+
+INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
+(381, NULL, 1, 20, 1, 1, 1, 1),
+(383, NULL, 1, 20, 3, 3, 2, 3),
+(385, NULL, 1, 20, 5, 5, 3, 5),
+(387, NULL, 1, 20, 7, 2, 4, 7),
+(389, NULL, 1, 20, 9, 4, 5, 9),
+(391, NULL, 1, 20, 1, 1, 6, 1),
+(393, NULL, 1, 20, 3, 3, 7, 3),
+(395, NULL, 1, 20, 5, 5, 8, 5),
+(397, NULL, 1, 20, 7, 2, 9, 7),
+(399, NULL, 1, 20, 9, 4, 10, 9);
+
+INSERT INTO estimacion_profesion_empleado (codigo_epp, fk_tipo_prueba, fk_embalaje_plan, fk_plan_transporte, fk_plan_ensamblaje, cantidad_empleado_epp, fk_profesion) VALUES 
+(1, 1, 1, 1, 1, 10, 1),
+(2, 2, 2, 2, 2, 8, 2),
+(3, 3, 3, 3, 3, 6, 3),
+(4, 4, 4, 4, 4, 4, 4),
+(5, 5, 5, 5, 5, 12, 5),
+(6, 6, 6, 6, 6, 7, 6),
+(7, 7, 7, 7, 7, 9, 7),
+(8, 8, 8, 8, 8, 5, 8),
+(9, 9, 9, 9, 9, 11, 9),
+(10, 10, 10, 10, 10, 13, 10);
+
+INSERT INTO embalaje (codigo_emb, fecha_hora_inicio_emb, fecha_hora_fin_emb, fk_embalaje_plan, fk_pieza, fk_equipo_empleado, fk_equipo_empleado2, fk_lote_materia_prima, fk_avion) VALUES
+(1, '2024-12-01 08:00:00', '2024-12-02 17:00:00', 1, 1, 1, 5, NULL, NULL), 
+(2, '2024-12-03 09:00:00', '2024-12-04 18:00:00', 2, NULL, 2, 14, NULL, 2),  
+(3, '2024-12-05 07:30:00', '2024-12-06 16:30:00', 3, 2, 1, 12, NULL, NULL),  
+(4, '2024-12-07 08:15:00', '2024-12-08 17:15:00', 4, NULL, 3, 19, 3, NULL),  
+(5, '2024-12-09 10:00:00', '2024-12-10 19:00:00', 5, 3, 1, 12, NULL, NULL), 
+(6, '2024-12-11 06:45:00', '2024-12-12 15:45:00', 6, NULL, 2, 8, NULL, 6),  
+(7, '2024-12-13 09:30:00', '2024-12-14 18:30:00', 7, 4, 4, 27, NULL, NULL), 
+(8, '2024-12-15 08:00:00', '2024-12-16 17:00:00', 8, NULL, 5, 35, 5, NULL),  
+(9, '2024-12-17 09:15:00', '2024-12-18 18:15:00', 9, 5, 1, 12, NULL, NULL),  
+(10, '2024-12-19 07:45:00', '2024-12-20 16:45:00', 10, NULL, 4, 31, NULL, 10);  
+
+INSERT INTO transferencia_pieza_material (cantidad_tpm, unidad_medida_tpm, fk_solicitud_transferencia, fk_lote_materia_prima, fk_pieza, codigo_tpm, fecha_envio_tpm, fecha_recibo_tpm) VALUES
+(1, 'unidades', 1, NULL, 1, 1, '2023-01-01', '2023-01-05'),
+(20, 'kg', 2, 2, NULL, 2, '2023-02-01', '2023-02-05'),
+(2, 'unidades', 3, NULL, 3, 3, '2023-03-01', '2023-03-05'),
+(25, 'kg', 4, 4, NULL, 4, '2023-04-01', '2023-04-05'),
+(3, 'unidades', 5, NULL, 5, 5, '2023-05-01', '2023-05-05'),
+(40, 'kg', 6, 6, NULL, 6, '2023-06-01', '2023-06-05'),
+(4, 'unidades', 7, NULL, 7, 7, '2023-07-01', '2023-07-05'),
+(45, 'kg', 8, 8, NULL, 8, '2023-08-01', '2023-08-05'),
+(1, 'unidades', 9, NULL, 9, 9, '2023-09-01', '2023-09-05'),
+(55, 'kg', 10, 10, NULL, 10, '2023-10-01', '2023-10-05');
+
 INSERT INTO detalle_compra (cantidad_dc, precio_unitario_dc, fk_compra, codigo_dc, fk_persona) VALUES
 (100, 250, 1, 1, 97),
 (120, 250, 2, 2, 98),
@@ -3413,114 +4173,61 @@ INSERT INTO detalle_compra (cantidad_dc, precio_unitario_dc, fk_compra, codigo_d
 (2000, 50, 49, 49, 97),
 (2200, 50, 50, 50, 98);
 
+INSERT INTO transporte (codigo_tra, fecha_hora_inicio_tra, fecha_hora_fin_tra, fk_plan_transporte, fk_transferencia_pieza_material, fk_equipo_empleado, fk_equipo_empleado2, fk_detalle_compra, fk_detalle_compra2, fk_detalle_compra3) VALUES
+(1, '2024-12-01', '2024-12-02', 1, 1, 6, 9, NULL, NULL, NULL),  
+(2, '2024-12-03', '2024-12-04', 2, NULL, 6, 3, 1, 1, 97),        
+(3, '2024-12-05', '2024-12-06', 3, 2, 7, 21, NULL, NULL, NULL),  
+(4, '2024-12-07', '2024-12-08', 4, NULL, 8, 11, 2, 2, 98),       
+(5, '2024-12-09', '2024-12-10', 5, 3, 9, 36, NULL, NULL, NULL), 
+(6, '2024-12-11', '2024-12-12', 6, NULL, 7, 15, 3, 3, 99),       
+(7, '2024-12-13', '2024-12-14', 7, 4, 9, 36, NULL, NULL, NULL),  
+(8, '2024-12-15', '2024-12-16', 8, NULL, 8, 4, 4, 4, 100),      
+(9, '2024-12-17', '2024-12-18', 9, 5, 7, 21, NULL, NULL, NULL),  
+(10, '2024-12-19', '2024-12-20', 10, NULL, 10, 13, 5, 5, 101);  
 
-INSERT INTO venta (codigo_venta_ven, numero_factura_ven, fecha_hora_ven, monto_total_ven, impuesto_total_ven) VALUES
-(1, 1001, '2024-02-01 10:00:00', 100500.75, 10050.08),
-(2, 1002, '2024-04-02 11:30:00', 1001200.50, 100120.05),
-(3, 1003, '2024-07-03 14:45:00', 100300.00, 10030.00),
-(4, 1004, '2024-10-04 09:15:00', 100750.25, 10075.03),
-(5, 1005, '2024-12-05 16:00:00', 1001500.00, 100150.00),
-(6, 1006, '2023-11-06 13:20:00', 100850.60, 10085.06),
-(7, 1007, '2023-08-07 08:45:00', 100400.10, 10040.01),
-(8, 1008, '2023-05-08 17:00:00', 100950.90, 10095.09),
-(9, 1009, '2023-02-09 12:30:00', 100670.40, 10067.04),
-(10, 1010, '2023-01-10 15:00:00', 1001100.80, 100110.08);
+INSERT INTO prueba (codigo_pru, fecha_inicio_pru, fecha_fin_pru, fk_tipo_prueba, fk_equipo_empleado, fk_equipo_empleado2, fk_zona, fk_zona2, fk_lote_materia_prima, fk_pieza, fk_avion) VALUES
+(1, '2024-12-01', '2024-12-10', 1, 6, 3, 1, 2, 1, NULL, NULL),
+(2, '2024-12-02', '2024-12-12', 2, 6, 9, 2, 2, NULL, 1, NULL),
+(3, '2024-12-03', '2024-12-15', 3, 7, 15, 3, 2, NULL, NULL, 1),
+(4, '2024-12-04', '2024-12-18', 4, 7, 21, 4, 2, 2, NULL, NULL),
+(5, '2024-12-05', '2024-12-20', 5, 8, 4, 5, 1, NULL, 2, NULL),
+(6, '2024-12-06', '2024-12-22', 6, 8, 11, 6, 1, NULL, NULL, 2),
+(7, '2024-12-07', '2024-12-25', 7, 9, 29, 7, 1, 3, NULL, NULL),
+(8, '2024-12-08', '2024-12-28', 8, 9, 36, 8, 1, NULL, 3, NULL),
+(9, '2024-12-09', '2024-12-30', 9, 10, 7, 9, 1, NULL, NULL, 3),
+(10, '2024-12-10', '2025-01-02', 10, 10, 13, 10, 3, 4, NULL, NULL),
+(11, '2024-12-11', '2025-01-04', 1, 5, 35, 11, 3, NULL, 4, NULL),
+(12, '2024-12-12', '2025-01-06', 2, 5, 2, 12, 3, NULL, NULL, 4),
+(13, '2024-12-13', '2025-01-08', 3, 4, 27, 13, 3, 5, NULL, NULL),
+(14, '2024-12-14', '2025-01-10', 4, 4, 31, 14, 3, NULL, 5, NULL),
+(15, '2024-12-15', '2025-01-12', 5, 3, 19, 15, 4, NULL, NULL, 5),
+(16, '2024-12-16', '2025-01-14', 6, 3, 23, 16, 4, 6, NULL, NULL),
+(17, '2024-12-17', '2025-01-16', 7, 2, 8, 17, 4, NULL, 6, NULL),
+(18, '2024-12-18', '2025-01-18', 8, 2, 14, 18, 4, NULL, NULL, 6),
+(19, '2024-12-19', '2025-01-20', 9, 1, 5, 21, 5, 7, NULL, NULL),
+(20, '2024-12-20', '2025-01-22', 10, 1, 12, 22, 5, NULL, 7, NULL);
 
-INSERT INTO detalle_venta (cantidad_dv, precio_unitario_dv, fk_venta, codigo_dv, fk_persona) VALUES
-(1, 100500.75, 1, 1, 45),
-(1, 1001200.50, 2, 2, 18),
-(1, 100300.00, 3, 3, 32),
-(1, 100750.25, 4, 4, 27),
-(2, 500750, 5, 5, 60),
-(1, 100850.60, 6, 6, 3),
-(1, 100400.10, 7, 7, 22),
-(1, 100950.90, 8, 8, 14),
-(1, 100670.40, 9, 9, 78),
-(2, 500550, 10, 10, 35);
-
-INSERT INTO pago_venta (codigo_pago_pv, fecha_pago_pv, fk_venta, fk_modo_pago) VALUES
-(1, '2024-12-01', 1, 1),
-(2, '2024-12-02', 2, 2),
-(3, '2024-12-03', 3, 3),
-(4, '2024-12-04', 4, 4),
-(5, '2024-12-05', 5, 5),
-(6, '2024-12-06', 6, 6),
-(7, '2024-12-07', 7, 7),
-(8, '2024-12-08', 8, 8),
-(9, '2024-12-09', 9, 9),
-(10, '2024-12-10', 10, 10);
-
-INSERT INTO embalaje_plan (codigo_ep, duracion_estimada_ep) VALUES
-(1, '1 día'),
-(2, '2 días'),
-(3, '3 días'),
-(4, '1 día'),
-(5, '2 días'),
-(6, '3 días'),
-(7, '1 día'),
-(8, '2 días'),
-(9, '3 días'),
-(10, '1 día');
-
-INSERT INTO embalaje_configuracion_avion (fk_embalaje_plan, fk_modelo_avion, fk_sede) VALUES
-(1, 7, 1),
-(2, 15, 4),
-(3, 3, 2),
-(4, 10, 5),
-(5, 2, 3),
-(6, 8, 2),
-(7, 5, 1),
-(8, 12, 4),
-(9, 17, 3),
-(10, 1, 5);
-
-INSERT INTO embalaje_configuracion_pieza (fk_embalaje_plan, fk_tipo_pieza, fk_sede) VALUES
-(1, 1, 2),
-(2, 5, 4),
-(3, 8, 3),
-(4, 3, 1),
-(5, 7, 5),
-(6, 2, 4),
-(7, 10, 1),
-(8, 4, 2),
-(9, 6, 3),
-(10, 9, 5);
-
-INSERT INTO embalaje_configuracion_materia (fk_embalaje_plan, fk_tipo_materia_prima, fk_sede) VALUES
-(1, 2, 1),
-(2, 4, 3),
-(3, 6, 2),
-(4, 8, 4),
-(5, 1, 5),
-(6, 3, 2),
-(7, 5, 4),
-(8, 7, 1),
-(9, 9, 5),
-(10, 10, 3);
-
-INSERT INTO embalaje (codigo_emb, fecha_hora_inicio_emb, fecha_hora_fin_emb, fk_embalaje_plan, fk_pieza, fk_equipo_empleado, fk_equipo_empleado2, fk_lote_materia_prima, fk_avion) VALUES
-(1, '2024-12-01 08:00:00', '2024-12-02 17:00:00', 1, 1, 1, 5, NULL, NULL), 
-(2, '2024-12-03 09:00:00', '2024-12-04 18:00:00', 2, NULL, 2, 14, NULL, 2),  
-(3, '2024-12-05 07:30:00', '2024-12-06 16:30:00', 3, 2, 1, 12, NULL, NULL),  
-(4, '2024-12-07 08:15:00', '2024-12-08 17:15:00', 4, NULL, 3, 19, 3, NULL),  
-(5, '2024-12-09 10:00:00', '2024-12-10 19:00:00', 5, 3, 1, 12, NULL, NULL), 
-(6, '2024-12-11 06:45:00', '2024-12-12 15:45:00', 6, NULL, 2, 8, NULL, 6),  
-(7, '2024-12-13 09:30:00', '2024-12-14 18:30:00', 7, 4, 4, 27, NULL, NULL), 
-(8, '2024-12-15 08:00:00', '2024-12-16 17:00:00', 8, NULL, 5, 35, 5, NULL),  
-(9, '2024-12-17 09:15:00', '2024-12-18 18:15:00', 9, 5, 1, 2, NULL, NULL),  
-(10, '2024-12-19 07:45:00', '2024-12-20 16:45:00', 10, NULL, 4, 31, NULL, 10);  
-
-INSERT INTO estatus (codigo_est, nombre_est) VALUES 
-(1, 'En Producción'),
-(2, 'En Inspección'),
-(3, 'Aprobado'),
-(4, 'Rechazado'),
-(5, 'En Almacenamiento'),
-(6, 'En Ensamblaje'),
-(7, 'En Pruebas'),
-(8, 'Listo para Envío'),
-(9, 'En Reparación'),
-(10, 'Desmantelado');
+INSERT INTO prueba (codigo_pru, fecha_inicio_pru, fecha_fin_pru, fk_tipo_prueba, fk_equipo_empleado, fk_equipo_empleado2, fk_zona, fk_zona2, fk_lote_materia_prima, fk_pieza, fk_avion) VALUES
+(21, '2024-12-21', '2025-01-23', 1, 6, 3, 1, 2, NULL, 8, NULL),
+(22, '2024-12-22', '2025-01-24', 2, 6, 9, 2, 2, NULL, NULL, 8),
+(23, '2024-12-23', '2025-01-25', 3, 7, 15, 3, 2, 9, NULL, NULL),
+(24, '2024-12-24', '2025-01-26', 4, 7, 21, 4, 2, NULL, 9, NULL),
+(25, '2024-12-25', '2025-01-27', 5, 8, 4, 5, 1, NULL, NULL, 9),
+(26, '2024-12-26', '2025-01-28', 6, 8, 11, 6, 1, 10, NULL, NULL),
+(27, '2024-12-27', '2025-01-29', 7, 9, 29, 7, 1, NULL, 10, NULL),
+(28, '2024-12-28', '2025-01-30', 8, 9, 36, 8, 1, NULL, NULL, 10),
+(29, '2024-12-29', '2025-01-31', 9, 10, 7, 9, 1, 10, NULL, NULL),
+(30, '2024-12-30', '2025-02-01', 10, 10, 13, 10, 3, NULL, 11, NULL),
+(31, '2024-12-31', '2025-02-02', 1, 5, 35, 11, 3, NULL, NULL, 1),
+(32, '2025-01-01', '2025-02-03', 2, 5, 2, 12, 3, 10, NULL, NULL),
+(33, '2025-01-02', '2025-02-04', 3, 4, 27, 13, 3, NULL, 12, NULL),
+(34, '2025-01-03', '2025-02-05', 4, 4, 31, 14, 3, NULL, NULL, 2),
+(35, '2025-01-04', '2025-02-06', 5, 3, 19, 15, 4, 10, NULL, NULL),
+(36, '2025-01-05', '2025-02-07', 6, 3, 23, 16, 4, NULL, 13, NULL),
+(37, '2025-01-06', '2025-02-08', 7, 2, 8, 17, 4, NULL, NULL, 3),
+(38, '2025-01-07', '2025-02-09', 8, 2, 14, 18, 4, 10, NULL, NULL),
+(39, '2025-01-08', '2025-02-10', 9, 1, 5, 19, 5, NULL, 14, NULL),
+(40, '2025-01-09', '2025-02-11', 10, 1, 12, 20, 5, NULL, NULL, 4);
 
 INSERT INTO historial_estatus_compra (fk_compra, fk_estatus, fecha_hec) VALUES 
 (1, 1, '2024-01-01'),
@@ -3594,17 +4301,54 @@ INSERT INTO historial_estatus_venta (fecha_hev, fk_venta, fk_estatus) VALUES
 ('2024-01-09', 9, 9),
 ('2024-01-10', 10, 10);
 
-INSERT INTO moneda (codigo_mon, nombre_mon, tasa_cambio_mon, fecha_inicio_mon, fecha_fin_mon) VALUES 
-(1, 'Dólar Estadounidense', 1.00, '2024-01-01', NULL),
-(2, 'Euro', 0.85, '2024-01-01', NULL),
-(3, 'Libra Esterlina', 0.75, '2024-01-01', NULL),
-(4, 'Yen Japonés', 110.00, '2024-01-01', NULL),
-(5, 'Franco Suizo', 0.92, '2024-01-01', NULL),
-(6, 'Dólar Canadiense', 1.25, '2024-01-01', NULL),
-(7, 'Dólar Australiano', 1.35, '2024-01-01', NULL),
-(8, 'Yuan Chino', 6.50, '2024-01-01', NULL),
-(9, 'Peso Mexicano', 20.00, '2024-01-01', NULL),
-(10, 'Real Brasileño', 5.00, '2024-01-01', NULL);
+INSERT INTO estatus_historial_ensamblaje (fecha_ehe, fk_estatus, fk_ensamblaje) VALUES
+('2024-12-01', 1, 1),
+('2024-12-02', 2, 2),
+('2024-12-03', 3, 3),
+('2024-12-04', 4, 4),
+('2024-12-05', 5, 5),
+('2024-12-06', 6, 6),
+('2024-12-07', 7, 7),
+('2024-12-08', 8, 8),
+('2024-12-09', 9, 9),
+('2024-12-10', 10, 10);
+
+INSERT INTO historial_inventario (codigo_hi, fecha_entrada_hi, fecha_salida_hi, fk_almacen, fk_almacen2, fk_avion, fk_pieza, fk_lote_materia_prima) VALUES
+(1, '2024-12-01 08:00:00', '2024-12-02 17:00:00', 1, 1, NULL, NULL, 1),
+(2, '2024-12-03 09:00:00', '2024-12-04 18:00:00', 2, 2, 2, NULL, NULL),
+(3, '2024-12-05 07:30:00', '2024-12-06 16:30:00', 3, 3, NULL, 3, NULL),
+(4, '2024-12-07 08:15:00', '2024-12-08 17:15:00', 4, 4, NULL, NULL, 4),
+(5, '2024-12-09 10:00:00', '2024-12-10 19:00:00', 5, 5, 5, NULL, NULL),
+(6, '2024-12-11 06:45:00', '2024-12-12 15:45:00', 6, 1, NULL, 6, NULL),
+(7, '2024-12-13 09:30:00', '2024-12-14 18:30:00', 7, 2, NULL, NULL, 7),
+(8, '2024-12-15 08:00:00', '2024-12-16 17:00:00', 8, 3, 8, NULL, NULL),
+(9, '2024-12-17 09:15:00', '2024-12-18 18:15:00', 9, 4, NULL, 9, NULL),
+(10, '2024-12-19 07:45:00', '2024-12-20 16:45:00', 10, 5, NULL, NULL, 10);
+
+INSERT INTO detalle_venta (cantidad_dv, precio_unitario_dv, fk_venta, codigo_dv, fk_persona) VALUES
+(1, 100500.75, 1, 1, 45),
+(1, 1001200.50, 2, 2, 18),
+(1, 100300.00, 3, 3, 32),
+(1, 100750.25, 4, 4, 27),
+(2, 500750, 5, 5, 60),
+(1, 100850.60, 6, 6, 3),
+(1, 100400.10, 7, 7, 22),
+(1, 100950.90, 8, 8, 14),
+(1, 100670.40, 9, 9, 78),
+(2, 500550, 10, 10, 35);
+
+INSERT INTO pago_venta (codigo_pago_pv, fecha_pago_pv, fk_venta, fk_modo_pago) VALUES
+(1, '2024-12-01', 1, 1),
+(2, '2024-12-02', 2, 2),
+(3, '2024-12-03', 3, 3),
+(4, '2024-12-04', 4, 4),
+(5, '2024-12-05', 5, 5),
+(6, '2024-12-06', 6, 6),
+(7, '2024-12-07', 7, 7),
+(8, '2024-12-08', 8, 8),
+(9, '2024-12-09', 9, 9),
+(10, '2024-12-10', 10, 10);
+
 
 INSERT INTO pago_compra (codigo_pago_pc, fecha_pago_pc, fk_modo_pago, fk_compra) VALUES
 (1, '2024-12-01', 1, 1),
@@ -3662,16 +4406,16 @@ INSERT INTO pago_compra (codigo_pago_pc, fecha_pago_pc, fk_modo_pago, fk_compra)
 
 
 INSERT INTO pago_moneda (fk_pago_venta, fk_moneda, fk_pago_compra, cantidad_dinero_pm, codigo_pm) VALUES 
-(1, 1, 1, 100.00, 1),
-(2, 2, 2, 200.00, 2),
-(3, 3, 3, 300.00, 3),
-(4, 4, 4, 400.00, 4),
-(5, 5, 5, 500.00, 5),
-(6, 6, 6, 600.00, 6),
-(7, 7, 7, 700.00, 7),
-(8, 8, 8, 800.00, 8),
-(9, 9, 9, 900.00, 9),
-(10, 10, 10, 1000.00, 10);
+(1, 1, NULL, 100.00, 1),
+(NULL, 2, 2, 200.00, 2),
+(3, 3, NULL, 300.00, 3),
+(NULL, 4, 4, 400.00, 4),
+(5, 5, NULL, 500.00, 5),
+(NULL, 6, 6, 600.00, 6),
+(7, 7, NULL, 700.00, 7),
+(NULL, 8, 8, 800.00, 8),
+(9, 9, NULL, 900.00, 9),
+(NULL, 10, 10, 1000.00, 10);
 
 INSERT INTO pago_empleado (codigo_pp, fecha_pago_pp, monto_pago_sueldo_pp, monto_pago_extra_pp, fk_empleado, fk_modo_pago) VALUES 
 (1, '2024-01-01', 1000.00, 100.00, 1, 1),
@@ -3684,692 +4428,3 @@ INSERT INTO pago_empleado (codigo_pp, fecha_pago_pp, monto_pago_sueldo_pp, monto
 (8, '2024-01-08', 1700.00, 170.00, 35, 8),
 (9, '2024-01-09', 1800.00, 180.00, 40, 9),
 (10, '2024-01-10', 1900.00, 190.00, 12, 10);
-
-INSERT INTO pago_venta (codigo_pago_pv, fecha_pago_pv, fk_venta, fk_modo_pago) VALUES 
-(1, '2024-01-01', 1, 1),
-(2, '2024-01-02', 2, 2),
-(3, '2024-01-03', 3, 3),
-(4, '2024-01-04', 4, 4),
-(5, '2024-01-05', 5, 5),
-(6, '2024-01-06', 6, 6),
-(7, '2024-01-07', 7, 7),
-(8, '2024-01-08', 8, 8),
-(9, '2024-01-09', 9, 9),
-(10, '2024-01-10', 10, 10);
-
-INSERT INTO configuracion_ensamblaje_pieza (fk_plan_ensamblaje, fk_tipo_pieza, fk_sede) VALUES
-(1, 1, 2),
-(2, 3, 5),
-(3, 4, 3),
-(4, 7, 1),
-(5, 9, 4),
-(6, 2, 2),
-(7, 5, 5),
-(8, 8, 3),
-(9, 6, 1),
-(10, 10, 4);
-
-INSERT INTO configuracion_ensamblaje_materia (fk_plan_ensamblaje, fk_tipo_materia_prima, fk_sede) VALUES
-(1, 1, 2),
-(2, 3, 5),
-(3, 4, 3),
-(4, 7, 1),
-(5, 9, 4),
-(6, 2, 2),
-(7, 5, 5),
-(8, 8, 3),
-(9, 6, 1),
-(10, 10, 4);
-
-INSERT INTO ensamblaje (codigo_ens, fecha_inicio_ens, fecha_fin_ens, fk_plan_ensamblaje, fk_pieza, fk_lote_materia_prima, fk_equipo_empleado, fk_equipo_empleado2) VALUES
-(1, '2024-11-01', '2024-12-02', 1, 1, NULL, 6, 9), 
-(2, '2024-11-03', '2024-12-04', 2, NULL, 2, 7, 21), 
-(3, '2024-11-05', '2024-12-06', 3, 2, NULL, 6, 3),  
-(4, '2024-11-07', '2024-12-08', 4, NULL, 3, 8, 11),  
-(5, '2024-11-09', '2024-12-10', 5, 3, NULL, 6, 9), 
-(6, '2024-11-11', '2024-12-12', 6, NULL, 4, 7, 15), 
-(7, '2024-11-13', '2024-12-14', 7, 4, NULL, 9, 36), 
-(8, '2024-11-15', '2024-12-16', 8, NULL, 5, 8, 4),  
-(9, '2024-11-17', '2024-12-18', 9, 5, NULL, 7, 21),  
-(10, '2024-11-19', '2024-12-20', 10, NULL, 6, 10, 13);  
-
-INSERT INTO lote_materia_prima (codigo_lmp, fk_configuracion_pieza, fk_configuracion_pieza2, fk_compra, fk_almacen, fk_almacen2, cantidad_lmp) VALUES
-(1, 1, 2, 3, 4, 1, 500),
-(2, 4, 5, 6, 7, 2, 300),
-(3, 7, 8, 9, 10, 3, 450),
-(4, 2, 3, 4, 5, 4, 350),
-(5, 5, 6, 7, 8, 5, 400),
-(6, 8, 9, 10, 1, 1, 600),
-(7, 3, 4, 5, 6, 2, 250),
-(8, 6, 7, 8, 9, 3, 550),
-(9, 9, 10, 1, 2, 4, 700),
-(10, 10, 1, 2, 3, 5, 650);
-
-INSERT INTO estatus_historial_ensamblaje (fecha_ehe, fk_estatus, fk_ensamblaje) VALUES
-('2024-12-01', 1, 1),
-('2024-12-02', 2, 2),
-('2024-12-03', 3, 3),
-('2024-12-04', 4, 4),
-('2024-12-05', 5, 5),
-('2024-12-06', 6, 6),
-('2024-12-07', 7, 7),
-('2024-12-08', 8, 8),
-('2024-12-09', 9, 9),
-('2024-12-10', 10, 10);
-
-INSERT INTO solicitud_transferencia (codigo_st, fecha_envio_estimada_st, fecha_recibo_estimada_st, fk_sede, fk_sede2) VALUES
-(1, '2024-12-01', '2024-12-02', 1, 2),
-(2, '2024-12-03', '2024-12-06', 2, 3),
-(3, '2024-12-05', '2024-12-08', 3, 4),
-(4, '2024-12-07', '2024-12-09', 4, 5),
-(5, '2024-12-09', '2024-12-13', 5, 1),
-(6, '2024-12-11', '2024-12-15', 1, 3),
-(7, '2024-12-13', '2024-12-18', 2, 4),
-(8, '2024-12-15', '2024-12-19', 3, 5),
-(9, '2024-12-17', '2024-12-22', 4, 1),
-(10, '2024-12-19', '2024-12-20', 5, 2);
-
-
-INSERT INTO plan_transporte (codigo_pt, duracion_estimada_pt, descripcion_pt) VALUES
-(1, '3 días', 'Transporte terrestre de piezas pequeñas'),
-(2, '5 días', 'Transporte aéreo de componentes críticos'),
-(3, '7 días', 'Transporte marítimo de fuselajes'),
-(4, '4 días', 'Transporte combinado de alas y estabilizadores'),
-(5, '6 días', 'Transporte ferroviario de trenes de aterrizaje'),
-(6, '2 días', 'Transporte express de sistemas de comunicación'),
-(7, '3 días', 'Transporte terrestre de cabinas'),
-(8, '5 días', 'Transporte aéreo de motores'),
-(9, '4 días', 'Transporte marítimo de sistemas de navegación'),
-(10, '7 días', 'Transporte terrestre y marítimo de flaps y alerones');
-
-INSERT INTO transporte_configuracion_avion (fk_plan_transporte, fk_modelo_avion, fk_sede) VALUES
-(1, 1, 2),
-(2, 2, 3),
-(3, 3, 4),
-(4, 4, 5),
-(5, 5, 1),
-(6, 6, 2),
-(7, 7, 3),
-(8, 8, 4),
-(9, 9, 5),
-(10, 10, 1);
-
-INSERT INTO transporte_configuracion_pieza (fk_plan_transporte, fk_tipo_pieza, fk_sede) VALUES
-(1, 1, 2),
-(2, 2, 3),
-(3, 3, 4),
-(4, 4, 5),
-(5, 5, 1),
-(6, 6, 2),
-(7, 7, 3),
-(8, 8, 4),
-(9, 9, 5),
-(10, 10, 1);
-
-INSERT INTO transporte_configuracion_materia (fk_plan_transporte, fk_tipo_materia_prima, fk_sede) VALUES
-(1, 1, 2),
-(2, 2, 3),
-(3, 3, 4),
-(4, 4, 5),
-(5, 5, 1),
-(6, 6, 2),
-(7, 7, 3),
-(8, 8, 4),
-(9, 9, 5),
-(10, 10, 1);
-
-INSERT INTO transporte (codigo_tra, fecha_hora_inicio_tra, fecha_hora_fin_tra, fk_plan_transporte, fk_transferencia_pieza_material, fk_equipo_empleado, fk_equipo_empleado2, fk_detalle_compra, fk_detalle_compra2, fk_detalle_compra3) VALUES
-(1, '2024-12-01', '2024-12-02', 1, 1, 6, 9, NULL, NULL, NULL),  
-(2, '2024-12-03', '2024-12-04', 2, NULL, 6, 3, 2, 4, 5),        
-(3, '2024-12-05', '2024-12-06', 3, 2, 7, 21, NULL, NULL, NULL),  
-(4, '2024-12-07', '2024-12-08', 4, NULL, 8, 11, 3, 6, 7),       
-(5, '2024-12-09', '2024-12-10', 5, 3, 9, 36, NULL, NULL, NULL), 
-(6, '2024-12-11', '2024-12-12', 6, NULL, 7, 15, 4, 8, 9),       
-(7, '2024-12-13', '2024-12-14', 7, 4, 9, 36, NULL, NULL, NULL),  
-(8, '2024-12-15', '2024-12-16', 8, NULL, 8, 4, 5, 7, 10),      
-(9, '2024-12-17', '2024-12-18', 9, 5, 7, 21, NULL, NULL, NULL),  
-(10, '2024-12-19', '2024-12-20', 10, NULL, 10, 13, 6, 9, 2);  
-
-INSERT INTO configuracion_prueba_avion (fk_tipo_prueba, fk_modelo_avion, fk_sede) VALUES
-(1, 1, 2),
-(2, 2, 3),
-(3, 3, 4),
-(4, 4, 5),
-(5, 5, 1),
-(6, 6, 2),
-(7, 7, 3),
-(8, 8, 4),
-(9, 9, 5),
-(10, 10, 1);
-
-INSERT INTO configuracion_prueba_pieza (fk_tipo_prueba, fk_tipo_pieza, fk_sede) VALUES
-(1, 1, 2),
-(2, 2, 3),
-(3, 3, 4),
-(4, 4, 5),
-(5, 5, 1),
-(6, 6, 2),
-(7, 7, 3),
-(8, 8, 4),
-(9, 9, 5),
-(10, 10, 1);
-
-INSERT INTO configuracion_prueba_materia (fk_tipo_prueba, fk_tipo_materia_prima, fk_sede) VALUES
-(1, 1, 2),
-(2, 2, 3),
-(3, 3, 4),
-(4, 4, 5),
-(5, 5, 1),
-(6, 6, 2),
-(7, 7, 3),
-(8, 8, 4),
-(9, 9, 5),
-(10, 10, 1);
-
-INSERT INTO historial_inventario (codigo_hi, fecha_entrada_hi, fecha_salida_hi, fk_almacen, fk_almacen2, fk_avion, fk_pieza, fk_lote_materia_prima) VALUES
-(1, '2024-12-01 08:00:00', '2024-12-02 17:00:00', 1, 1, NULL, NULL, 1),
-(2, '2024-12-03 09:00:00', '2024-12-04 18:00:00', 2, 2, 2, NULL, NULL),
-(3, '2024-12-05 07:30:00', '2024-12-06 16:30:00', 3, 3, NULL, 3, NULL),
-(4, '2024-12-07 08:15:00', '2024-12-08 17:15:00', 4, 4, NULL, NULL, 4),
-(5, '2024-12-09 10:00:00', '2024-12-10 19:00:00', 5, 5, 5, NULL, NULL),
-(6, '2024-12-11 06:45:00', '2024-12-12 15:45:00', 6, 1, NULL, 6, NULL),
-(7, '2024-12-13 09:30:00', '2024-12-14 18:30:00', 7, 2, NULL, NULL, 7),
-(8, '2024-12-15 08:00:00', '2024-12-16 17:00:00', 8, 3, 8, NULL, NULL),
-(9, '2024-12-17 09:15:00', '2024-12-18 18:15:00', 9, 4, NULL, 9, NULL),
-(10, '2024-12-19 07:45:00', '2024-12-20 16:45:00', 10, 5, NULL, NULL, 10);
-
-INSERT INTO horario (fk_turno, fk_empleado) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8),
-(9, 9),
-(10, 10),
-(1, 11),
-(2, 12),
-(3, 13),
-(4, 14),
-(5, 15),
-(6, 16),
-(7, 17),
-(8, 18),
-(9, 19),
-(10, 20);
-
-INSERT INTO horario (fk_turno, fk_empleado) VALUES
-(1, 21),
-(2, 22),
-(3, 23),
-(4, 24),
-(5, 25),
-(6, 26),
-(7, 27),
-(8, 28),
-(9, 29),
-(10, 30),
-(1, 31),
-(2, 32),
-(3, 33),
-(4, 34),
-(5, 35),
-(6, 36),
-(7, 37),
-(8, 38),
-(9, 39),
-(10, 40);
-
-INSERT INTO avion (codigo_avi, color_avi, fk_modelo_avion, fk_venta, fk_almacen, fk_almacen2, fk_ensamblaje, nombre_avi, matricula_avi) VALUES
-(1, 'Blanco', 1, 1, 1, 1, 1, 'Sea Breeze', 'MAT001'),
-(2, 'Azul', 2, 2, 2, 2, 2, 'Ocean Explorer', 'MAT002'),
-(3, 'Rojo', 3, 3, 3, 3, 3, 'Wave Rider', 'MAT003'),
-(4, 'Negro', 4, 4, 4, 4, 4, 'Wind Dancer', 'MAT004'),
-(5, 'Verde', 5, 5, 5, 5, 5, 'Marina Star', 'MAT005'),
-(6, 'Amarillo', 6, 6, 6, 1, 6, 'Harbor Queen', 'MAT006'),
-(7, 'Plateado', 7, 7, 7, 2, 7, 'Bay Cruiser', 'MAT007'),
-(8, 'Gris', 8, 8, 8, 3, 8, 'Coral King', 'MAT008'),
-(9, 'Blanco con azul', 9, 9, 9, 4, 9, 'Sunset Voyager', 'MAT009'),
-(10, 'Rojo con blanco', 10, 10, 10, 5, 10, 'Tidal Wave', 'MAT010');
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(1, NULL, 1, 1, 1, 1, 1, 1),
-(2, NULL, 2, 1, 2, 2, NULL, 2),
-(3, NULL, 3, 1, 3, 3, 2, 3),
-(4, NULL, 4, 1, 4, 4, NULL, 4),
-(5, NULL, 5, 1, 5, 5, 3, 5),
-(6, NULL, 6, 1, 6, 1, NULL, 6),
-(7, NULL, 7, 1, 7, 2, 4, 7),
-(8, NULL, 8, 1, 8, 3, NULL, 8),
-(9, NULL, 9, 1, 9, 4, 5, 9),
-(10, NULL, 10, 1, 10, 5, NULL, 10),
-(11, NULL, 11, 1, 1, 1, 6, 1),
-(12, NULL, 12, 1, 2, 2, NULL, 2),
-(13, NULL, 13, 1, 3, 3, 7, 3),
-(14, NULL, 14, 1, 4, 4, NULL, 4),
-(15, NULL, 15, 1, 5, 5, 8, 5),
-(16, NULL, 16, 1, 6, 1, NULL, 6),
-(17, NULL, 17, 1, 7, 2, 9, 7),
-(18, NULL, 1, 1, 8, 3, NULL, 8),
-(19, NULL, 2, 1, 9, 4, 10, 9),
-(20, NULL, 3, 1, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(21, NULL, 1, 2, 1, 1, 1, 1),
-(22, NULL, 2, 2, 2, 2, NULL, 2),
-(23, NULL, 3, 2, 3, 3, 2, 3),
-(24, NULL, 4, 2, 4, 4, NULL, 4),
-(25, NULL, 5, 2, 5, 5, 3, 5),
-(26, NULL, 6, 2, 6, 1, NULL, 6),
-(27, NULL, 7, 2, 7, 2, 4, 7),
-(28, NULL, 8, 2, 8, 3, NULL, 8),
-(29, NULL, 9, 2, 9, 4, 5, 9),
-(30, NULL, 10, 2, 10, 5, NULL, 10),
-(31, NULL, 11, 2, 1, 1, 6, 1),
-(32, NULL, 12, 2, 2, 2, NULL, 2),
-(33, NULL, 13, 2, 3, 3, 7, 3),
-(34, NULL, 14, 2, 4, 4, NULL, 4),
-(35, NULL, 15, 2, 5, 5, 8, 5),
-(36, NULL, 16, 2, 6, 1, NULL, 6),
-(37, NULL, 17, 2, 7, 2, 9, 7),
-(38, NULL, 1, 2, 8, 3, NULL, 8),
-(39, NULL, 2, 2, 9, 4, 10, 9),
-(40, NULL, 3, 2, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(41, NULL, 1, 3, 1, 1, 1, 1),
-(42, NULL, 2, 3, 2, 2, NULL, 2),
-(43, NULL, 3, 3, 3, 3, 2, 3),
-(44, NULL, 4, 3, 4, 4, NULL, 4),
-(45, NULL, 5, 3, 5, 5, 3, 5),
-(46, NULL, 6, 3, 6, 1, NULL, 6),
-(47, NULL, 7, 3, 7, 2, 4, 7),
-(48, NULL, 8, 3, 8, 3, NULL, 8),
-(49, NULL, 9, 3, 9, 4, 5, 9),
-(50, NULL, 10, 3, 10, 5, NULL, 10),
-(51, NULL, 11, 3, 1, 1, 6, 1),
-(52, NULL, 12, 3, 2, 2, NULL, 2),
-(53, NULL, 13, 3, 3, 3, 7, 3),
-(54, NULL, 14, 3, 4, 4, NULL, 4),
-(55, NULL, 15, 3, 5, 5, 8, 5),
-(56, NULL, 16, 3, 6, 1, NULL, 6),
-(57, NULL, 17, 3, 7, 2, 9, 7),
-(58, NULL, 1, 3, 8, 3, NULL, 8),
-(59, NULL, 2, 3, 9, 4, 10, 9),
-(60, NULL, 3, 3, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(61, NULL, 1, 4, 1, 1, 1, 1),
-(62, NULL, 2, 4, 2, 2, NULL, 2),
-(63, NULL, 3, 4, 3, 3, 2, 3),
-(64, NULL, 4, 4, 4, 4, NULL, 4),
-(65, NULL, 5, 4, 5, 5, 3, 5),
-(66, NULL, 6, 4, 6, 1, NULL, 6),
-(67, NULL, 7, 4, 7, 2, 4, 7),
-(68, NULL, 8, 4, 8, 3, NULL, 8),
-(69, NULL, 9, 4, 9, 4, 5, 9),
-(70, NULL, 10, 4, 10, 5, NULL, 10),
-(71, NULL, 11, 4, 1, 1, 6, 1),
-(72, NULL, 12, 4, 2, 2, NULL, 2),
-(73, NULL, 13, 4, 3, 3, 7, 3),
-(74, NULL, 14, 4, 4, 4, NULL, 4),
-(75, NULL, 15, 4, 5, 5, 8, 5),
-(76, NULL, 16, 4, 6, 1, NULL, 6),
-(77, NULL, 17, 4, 7, 2, 9, 7),
-(78, NULL, 1, 4, 8, 3, NULL, 8),
-(79, NULL, 2, 4, 9, 4, 10, 9),
-(80, NULL, 3, 4, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(81, NULL, 1, 5, 1, 1, 1, 1),
-(82, NULL, 2, 5, 2, 2, NULL, 2),
-(83, NULL, 3, 5, 3, 3, 2, 3),
-(84, NULL, 4, 5, 4, 4, NULL, 4),
-(85, NULL, 5, 5, 5, 5, 3, 5),
-(86, NULL, 6, 5, 6, 1, NULL, 6),
-(87, NULL, 7, 5, 7, 2, 4, 7),
-(88, NULL, 8, 5, 8, 3, NULL, 8),
-(89, NULL, 9, 5, 9, 4, 5, 9),
-(90, NULL, 10, 5, 10, 5, NULL, 10),
-(91, NULL, 11, 5, 1, 1, 6, 1),
-(92, NULL, 12, 5, 2, 2, NULL, 2),
-(93, NULL, 13, 5, 3, 3, 7, 3),
-(94, NULL, 14, 5, 4, 4, NULL, 4),
-(95, NULL, 15, 5, 5, 5, 8, 5),
-(96, NULL, 16, 5, 6, 1, NULL, 6),
-(97, NULL, 17, 5, 7, 2, 9, 7),
-(98, NULL, 1, 5, 8, 3, NULL, 8),
-(99, NULL, 2, 5, 9, 4, 10, 9),
-(100, NULL, 3, 5, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(101, NULL, 1, 6, 1, 1, 1, 1),
-(102, NULL, 2, 6, 2, 2, NULL, 2),
-(103, NULL, 3, 6, 3, 3, 2, 3),
-(104, NULL, 4, 6, 4, 4, NULL, 4),
-(105, NULL, 5, 6, 5, 5, 3, 5),
-(106, NULL, 6, 6, 6, 1, NULL, 6),
-(107, NULL, 7, 6, 7, 2, 4, 7),
-(108, NULL, 8, 6, 8, 3, NULL, 8),
-(109, NULL, 9, 6, 9, 4, 5, 9),
-(110, NULL, 10, 6, 10, 5, NULL, 10),
-(111, NULL, 11, 6, 1, 1, 6, 1),
-(112, NULL, 12, 6, 2, 2, NULL, 2),
-(113, NULL, 13, 6, 3, 3, 7, 3),
-(114, NULL, 14, 6, 4, 4, NULL, 4),
-(115, NULL, 15, 6, 5, 5, 8, 5),
-(116, NULL, 16, 6, 6, 1, NULL, 6),
-(117, NULL, 17, 6, 7, 2, 9, 7),
-(118, NULL, 1, 6, 8, 3, NULL, 8),
-(119, NULL, 2, 6, 9, 4, 10, 9),
-(120, NULL, 3, 6, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(121, NULL, 1, 7, 1, 1, 1, 1),
-(122, NULL, 2, 7, 2, 2, NULL, 2),
-(123, NULL, 3, 7, 3, 3, 2, 3),
-(124, NULL, 4, 7, 4, 4, NULL, 4),
-(125, NULL, 5, 7, 5, 5, 3, 5),
-(126, NULL, 6, 7, 6, 1, NULL, 6),
-(127, NULL, 7, 7, 7, 2, 4, 7),
-(128, NULL, 8, 7, 8, 3, NULL, 8),
-(129, NULL, 9, 7, 9, 4, 5, 9),
-(130, NULL, 10, 7, 10, 5, NULL, 10),
-(131, NULL, 11, 7, 1, 1, 6, 1),
-(132, NULL, 12, 7, 2, 2, NULL, 2),
-(133, NULL, 13, 7, 3, 3, 7, 3),
-(134, NULL, 14, 7, 4, 4, NULL, 4),
-(135, NULL, 15, 7, 5, 5, 8, 5),
-(136, NULL, 16, 7, 6, 1, NULL, 6),
-(137, NULL, 17, 7, 7, 2, 9, 7),
-(138, NULL, 1, 7, 8, 3, NULL, 8),
-(139, NULL, 2, 7, 9, 4, 10, 9),
-(140, NULL, 3, 7, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(141, NULL, 1, 8, 1, 1, 1, 1),
-(142, NULL, 2, 8, 2, 2, NULL, 2),
-(143, NULL, 3, 8, 3, 3, 2, 3),
-(144, NULL, 4, 8, 4, 4, NULL, 4),
-(145, NULL, 5, 8, 5, 5, 3, 5),
-(146, NULL, 6, 8, 6, 1, NULL, 6),
-(147, NULL, 7, 8, 7, 2, 4, 7),
-(148, NULL, 8, 8, 8, 3, NULL, 8),
-(149, NULL, 9, 8, 9, 4, 5, 9),
-(150, NULL, 10, 8, 10, 5, NULL, 10),
-(151, NULL, 11, 8, 1, 1, 6, 1),
-(152, NULL, 12, 8, 2, 2, NULL, 2),
-(153, NULL, 13, 8, 3, 3, 7, 3),
-(154, NULL, 14, 8, 4, 4, NULL, 4),
-(155, NULL, 15, 8, 5, 5, 8, 5),
-(156, NULL, 16, 8, 6, 1, NULL, 6),
-(157, NULL, 17, 8, 7, 2, 9, 7),
-(158, NULL, 1, 8, 8, 3, NULL, 8),
-(159, NULL, 2, 8, 9, 4, 10, 9),
-(160, NULL, 3, 8, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(161, NULL, 1, 9, 1, 1, 1, 1),
-(162, NULL, 2, 9, 2, 2, NULL, 2),
-(163, NULL, 3, 9, 3, 3, 2, 3),
-(164, NULL, 4, 9, 4, 4, NULL, 4),
-(165, NULL, 5, 9, 5, 5, 3, 5),
-(166, NULL, 6, 9, 6, 1, NULL, 6),
-(167, NULL, 7, 9, 7, 2, 4, 7),
-(168, NULL, 8, 9, 8, 3, NULL, 8),
-(169, NULL, 9, 9, 9, 4, 5, 9),
-(170, NULL, 10, 9, 10, 5, NULL, 10),
-(171, NULL, 11, 9, 1, 1, 6, 1),
-(172, NULL, 12, 9, 2, 2, NULL, 2),
-(173, NULL, 13, 9, 3, 3, 7, 3),
-(174, NULL, 14, 9, 4, 4, NULL, 4),
-(175, NULL, 15, 9, 5, 5, 8, 5),
-(176, NULL, 16, 9, 6, 1, NULL, 6),
-(177, NULL, 17, 9, 7, 2, 9, 7),
-(178, NULL, 1, 9, 8, 3, NULL, 8),
-(179, NULL, 2, 9, 9, 4, 10, 9),
-(180, NULL, 3, 9, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(181, NULL, 1, 10, 1, 1, 1, 1),
-(182, NULL, 2, 10, 2, 2, NULL, 2),
-(183, NULL, 3, 10, 3, 3, 2, 3),
-(184, NULL, 4, 10, 4, 4, NULL, 4),
-(185, NULL, 5, 10, 5, 5, 3, 5),
-(186, NULL, 6, 10, 6, 1, NULL, 6),
-(187, NULL, 7, 10, 7, 2, 4, 7),
-(188, NULL, 8, 10, 8, 3, NULL, 8),
-(189, NULL, 9, 10, 9, 4, 5, 9),
-(190, NULL, 10, 10, 10, 5, NULL, 10),
-(191, NULL, 11, 10, 1, 1, 6, 1),
-(192, NULL, 12, 10, 2, 2, NULL, 2),
-(193, NULL, 13, 10, 3, 3, 7, 3),
-(194, NULL, 14, 10, 4, 4, NULL, 4),
-(195, NULL, 15, 10, 5, 5, 8, 5),
-(196, NULL, 16, 10, 6, 1, NULL, 6),
-(197, NULL, 17, 10, 7, 2, 9, 7),
-(198, NULL, 1, 10, 8, 3, NULL, 8),
-(199, NULL, 2, 10, 9, 4, 10, 9),
-(200, NULL, 3, 10, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(201, NULL, 1, 11, 1, 1, 1, 1),
-(202, NULL, 2, 11, 2, 2, NULL, 2),
-(203, NULL, 3, 11, 3, 3, 2, 3),
-(204, NULL, 4, 11, 4, 4, NULL, 4),
-(205, NULL, 5, 11, 5, 5, 3, 5),
-(206, NULL, 6, 11, 6, 1, NULL, 6),
-(207, NULL, 7, 11, 7, 2, 4, 7),
-(208, NULL, 8, 11, 8, 3, NULL, 8),
-(209, NULL, 9, 11, 9, 4, 5, 9),
-(210, NULL, 10, 11, 10, 5, NULL, 10),
-(211, NULL, 11, 11, 1, 1, 6, 1),
-(212, NULL, 12, 11, 2, 2, NULL, 2),
-(213, NULL, 13, 11, 3, 3, 7, 3),
-(214, NULL, 14, 11, 4, 4, NULL, 4),
-(215, NULL, 15, 11, 5, 5, 8, 5),
-(216, NULL, 16, 11, 6, 1, NULL, 6),
-(217, NULL, 17, 11, 7, 2, 9, 7),
-(218, NULL, 1, 11, 8, 3, NULL, 8),
-(219, NULL, 2, 11, 9, 4, 10, 9),
-(220, NULL, 3, 11, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(221, NULL, 1, 12, 1, 1, 1, 1),
-(222, NULL, 2, 12, 2, 2, NULL, 2),
-(223, NULL, 3, 12, 3, 3, 2, 3),
-(224, NULL, 4, 12, 4, 4, NULL, 4),
-(225, NULL, 5, 12, 5, 5, 3, 5),
-(226, NULL, 6, 12, 6, 1, NULL, 6),
-(227, NULL, 7, 12, 7, 2, 4, 7),
-(228, NULL, 8, 12, 8, 3, NULL, 8),
-(229, NULL, 9, 12, 9, 4, 5, 9),
-(230, NULL, 10, 12, 10, 5, NULL, 10),
-(231, NULL, 11, 12, 1, 1, 6, 1),
-(232, NULL, 12, 12, 2, 2, NULL, 2),
-(233, NULL, 13, 12, 3, 3, 7, 3),
-(234, NULL, 14, 12, 4, 4, NULL, 4),
-(235, NULL, 15, 12, 5, 5, 8, 5),
-(236, NULL, 16, 12, 6, 1, NULL, 6),
-(237, NULL, 17, 12, 7, 2, 9, 7),
-(238, NULL, 1, 12, 8, 3, NULL, 8),
-(239, NULL, 2, 12, 9, 4, 10, 9),
-(240, NULL, 3, 12, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(241, NULL, 1, 13, 1, 1, 1, 1),
-(242, NULL, 2, 13, 2, 2, NULL, 2),
-(243, NULL, 3, 13, 3, 3, 2, 3),
-(244, NULL, 4, 13, 4, 4, NULL, 4),
-(245, NULL, 5, 13, 5, 5, 3, 5),
-(246, NULL, 6, 13, 6, 1, NULL, 6),
-(247, NULL, 7, 13, 7, 2, 4, 7),
-(248, NULL, 8, 13, 8, 3, NULL, 8),
-(249, NULL, 9, 13, 9, 4, 5, 9),
-(250, NULL, 10, 13, 10, 5, NULL, 10),
-(251, NULL, 11, 13, 1, 1, 6, 1),
-(252, NULL, 12, 13, 2, 2, NULL, 2),
-(253, NULL, 13, 13, 3, 3, 7, 3),
-(254, NULL, 14, 13, 4, 4, NULL, 4),
-(255, NULL, 15, 13, 5, 5, 8, 5),
-(256, NULL, 16, 13, 6, 1, NULL, 6),
-(257, NULL, 17, 13, 7, 2, 9, 7),
-(258, NULL, 1, 13, 8, 3, NULL, 8),
-(259, NULL, 2, 13, 9, 4, 10, 9),
-(260, NULL, 3, 13, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(261, NULL, 1, 14, 1, 1, 1, 1),
-(262, NULL, 2, 14, 2, 2, NULL, 2),
-(263, NULL, 3, 14, 3, 3, 2, 3),
-(264, NULL, 4, 14, 4, 4, NULL, 4),
-(265, NULL, 5, 14, 5, 5, 3, 5),
-(266, NULL, 6, 14, 6, 1, NULL, 6),
-(267, NULL, 7, 14, 7, 2, 4, 7),
-(268, NULL, 8, 14, 8, 3, NULL, 8),
-(269, NULL, 9, 14, 9, 4, 5, 9),
-(270, NULL, 10, 14, 10, 5, NULL, 10),
-(271, NULL, 11, 14, 1, 1, 6, 1),
-(272, NULL, 12, 14, 2, 2, NULL, 2),
-(273, NULL, 13, 14, 3, 3, 7, 3),
-(274, NULL, 14, 14, 4, 4, NULL, 4),
-(275, NULL, 15, 14, 5, 5, 8, 5),
-(276, NULL, 16, 14, 6, 1, NULL, 6),
-(277, NULL, 17, 14, 7, 2, 9, 7),
-(278, NULL, 1, 14, 8, 3, NULL, 8),
-(279, NULL, 2, 14, 9, 4, 10, 9),
-(280, NULL, 3, 14, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(281, NULL, 1, 15, 1, 1, 1, 1),
-(282, NULL, 2, 15, 2, 2, NULL, 2),
-(283, NULL, 3, 15, 3, 3, 2, 3),
-(284, NULL, 4, 15, 4, 4, NULL, 4),
-(285, NULL, 5, 15, 5, 5, 3, 5),
-(286, NULL, 6, 15, 6, 1, NULL, 6),
-(287, NULL, 7, 15, 7, 2, 4, 7),
-(288, NULL, 8, 15, 8, 3, NULL, 8),
-(289, NULL, 9, 15, 9, 4, 5, 9),
-(290, NULL, 10, 15, 10, 5, NULL, 10),
-(291, NULL, 11, 15, 1, 1, 6, 1),
-(292, NULL, 12, 15, 2, 2, NULL, 2),
-(293, NULL, 13, 15, 3, 3, 7, 3),
-(294, NULL, 14, 15, 4, 4, NULL, 4),
-(295, NULL, 15, 15, 5, 5, 8, 5),
-(296, NULL, 16, 15, 6, 1, NULL, 6),
-(297, NULL, 17, 15, 7, 2, 9, 7),
-(298, NULL, 1, 15, 8, 3, NULL, 8),
-(299, NULL, 2, 15, 9, 4, 10, 9),
-(300, NULL, 3, 15, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(301, NULL, 1, 16, 1, 1, 1, 1),
-(302, NULL, 2, 16, 2, 2, NULL, 2),
-(303, NULL, 3, 16, 3, 3, 2, 3),
-(304, NULL, 4, 16, 4, 4, NULL, 4),
-(305, NULL, 5, 16, 5, 5, 3, 5),
-(306, NULL, 6, 16, 6, 1, NULL, 6),
-(307, NULL, 7, 16, 7, 2, 4, 7),
-(308, NULL, 8, 16, 8, 3, NULL, 8),
-(309, NULL, 9, 16, 9, 4, 5, 9),
-(310, NULL, 10, 16, 10, 5, NULL, 10),
-(311, NULL, 11, 16, 1, 1, 6, 1),
-(312, NULL, 12, 16, 2, 2, NULL, 2),
-(313, NULL, 13, 16, 3, 3, 7, 3),
-(314, NULL, 14, 16, 4, 4, NULL, 4),
-(315, NULL, 15, 16, 5, 5, 8, 5),
-(316, NULL, 16, 16, 6, 1, NULL, 6),
-(317, NULL, 17, 16, 7, 2, 9, 7),
-(318, NULL, 1, 16, 8, 3, NULL, 8),
-(319, NULL, 2, 16, 9, 4, 10, 9),
-(320, NULL, 3, 16, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(321, NULL, 1, 17, 1, 1, 1, 1),
-(322, NULL, 2, 17, 2, 2, NULL, 2),
-(323, NULL, 3, 17, 3, 3, 2, 3),
-(324, NULL, 4, 17, 4, 4, NULL, 4),
-(325, NULL, 5, 17, 5, 5, 3, 5),
-(326, NULL, 6, 17, 6, 1, NULL, 6),
-(327, NULL, 7, 17, 7, 2, 4, 7),
-(328, NULL, 8, 17, 8, 3, NULL, 8),
-(329, NULL, 9, 17, 9, 4, 5, 9),
-(330, NULL, 10, 17, 10, 5, NULL, 10),
-(331, NULL, 11, 17, 1, 1, 6, 1),
-(332, NULL, 12, 17, 2, 2, NULL, 2),
-(333, NULL, 13, 17, 3, 3, 7, 3),
-(334, NULL, 14, 17, 4, 4, NULL, 4),
-(335, NULL, 15, 17, 5, 5, 8, 5),
-(336, NULL, 16, 17, 6, 1, NULL, 6),
-(337, NULL, 17, 17, 7, 2, 9, 7),
-(338, NULL, 1, 17, 8, 3, NULL, 8),
-(339, NULL, 2, 17, 9, 4, 10, 9),
-(340, NULL, 3, 17, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(341, NULL, 1, 18, 1, 1, 1, 1),
-(342, NULL, 2, 18, 2, 2, NULL, 2),
-(343, NULL, 3, 18, 3, 3, 2, 3),
-(344, NULL, 4, 18, 4, 4, NULL, 4),
-(345, NULL, 5, 18, 5, 5, 3, 5),
-(346, NULL, 6, 18, 6, 1, NULL, 6),
-(347, NULL, 7, 18, 7, 2, 4, 7),
-(348, NULL, 8, 18, 8, 3, NULL, 8),
-(349, NULL, 9, 18, 9, 4, 5, 9),
-(350, NULL, 10, 18, 10, 5, NULL, 10),
-(351, NULL, 11, 18, 1, 1, 6, 1),
-(352, NULL, 12, 18, 2, 2, NULL, 2),
-(353, NULL, 13, 18, 3, 3, 7, 3),
-(354, NULL, 14, 18, 4, 4, NULL, 4),
-(355, NULL, 15, 18, 5, 5, 8, 5),
-(356, NULL, 16, 18, 6, 1, NULL, 6),
-(357, NULL, 17, 18, 7, 2, 9, 7),
-(358, NULL, 1, 18, 8, 3, NULL, 8),
-(359, NULL, 2, 18, 9, 4, 10, 9),
-(360, NULL, 3, 18, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(361, NULL, 1, 19, 1, 1, 1, 1),
-(362, NULL, 2, 19, 2, 2, NULL, 2),
-(363, NULL, 3, 19, 3, 3, 2, 3),
-(364, NULL, 4, 19, 4, 4, NULL, 4),
-(365, NULL, 5, 19, 5, 5, 3, 5),
-(366, NULL, 6, 19, 6, 1, NULL, 6),
-(367, NULL, 7, 19, 7, 2, 4, 7),
-(368, NULL, 8, 19, 8, 3, NULL, 8),
-(369, NULL, 9, 19, 9, 4, 5, 9),
-(370, NULL, 10, 19, 10, 5, NULL, 10),
-(371, NULL, 11, 19, 1, 1, 6, 1),
-(372, NULL, 12, 19, 2, 2, NULL, 2),
-(373, NULL, 13, 19, 3, 3, 7, 3),
-(374, NULL, 14, 19, 4, 4, NULL, 4),
-(375, NULL, 15, 19, 5, 5, 8, 5),
-(376, NULL, 16, 19, 6, 1, NULL, 6),
-(377, NULL, 17, 19, 7, 2, 9, 7),
-(378, NULL, 1, 19, 8, 3, NULL, 8),
-(379, NULL, 2, 19, 9, 4, 10, 9),
-(380, NULL, 3, 19, 10, 5, NULL, 10);
-
-INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
-(381, NULL, 1, 20, 1, 1, 1, 1),
-(382, NULL, 2, 20, 2, 2, NULL, 2),
-(383, NULL, 3, 20, 3, 3, 2, 3),
-(384, NULL, 4, 20, 4, 4, NULL, 4),
-(385, NULL, 5, 20, 5, 5, 3, 5),
-(386, NULL, 6, 20, 6, 1, NULL, 6),
-(387, NULL, 7, 20, 7, 2, 4, 7),
-(388, NULL, 8, 20, 8, 3, NULL, 8),
-(389, NULL, 9, 20, 9, 4, 5, 9),
-(390, NULL, 10, 20, 10, 5, NULL, 10),
-(391, NULL, 11, 20, 1, 1, 6, 1),
-(392, NULL, 12, 20, 2, 2, NULL, 2),
-(393, NULL, 13, 20, 3, 3, 7, 3),
-(394, NULL, 14, 20, 4, 4, NULL, 4),
-(395, NULL, 15, 20, 5, 5, 8, 5),
-(396, NULL, 16, 20, 6, 1, NULL, 6),
-(397, NULL, 17, 20, 7, 2, 9, 7),
-(398, NULL, 1, 20, 8, 3, NULL, 8),
-(399, NULL, 2, 20, 9, 4, 10, 9),
-(400, NULL, 3, 20, 10, 5, NULL, 10);
