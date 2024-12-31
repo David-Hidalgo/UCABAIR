@@ -474,7 +474,7 @@ CREATE TABLE turno (
 );
 CREATE TABLE usuario (
     codigo_usu SERIAL NOT NULL,
-    nombre_usu VARCHAR(255) NOT NULL,
+    nombre_usu VARCHAR(255) UNIQUE NOT NULL,
     contraseña_usu VARCHAR(255) NOT NULL,
     fk_rol INTEGER NOT NULL DEFAULT 2
 );
