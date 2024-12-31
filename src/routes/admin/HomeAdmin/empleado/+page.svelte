@@ -128,8 +128,6 @@ for (let index = 0; index < data.email_table.length; index++) {
         empleado.sueldo_per = data.roltable[index].sueldo_per;
        // empleado.fk_lugar = data.roltable[index].fk_lugar;
        // empleado.fk_usuario = data.roltable[index].fk_usuario;
-	   
-	   console.log(empleado);
 		empleados.push(empleado);
 	};
 
@@ -160,7 +158,7 @@ for (let index = 0; index < data.email_table.length; index++) {
 			body: JSON.stringify(empleado.codigo_empleado_per)
 			
 		});
-		// goto('/admin/HomeAdmin/empleado')
+		location.reload();
 	}
 </script>
 

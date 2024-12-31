@@ -8,7 +8,7 @@ export async function DELETE({ request }) {
 	const codigo_com = await request.json();
 	
     
-	const respuesta = await dbPostgre`CALL eliminar_cliente(${codigo_com})`;
+	const respuesta = await dbPostgre`CALL eliminar_persona(${codigo_com})`;
 
 	return json({ respuesta }, { status: 201 });
 }

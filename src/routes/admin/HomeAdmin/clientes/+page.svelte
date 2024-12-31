@@ -143,13 +143,13 @@ async function editarRegistro(persona: Persona) {
 }
 
 async function eliminarRegistro(persona: Persona) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/empleado`, {
+		await fetch(`http://localhost:5173/admin/HomeAdmin/clientes`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(persona.codigo_com)
 			
 		});
-		// goto('/admin/HomeAdmin/empleado')
+		location.reload();
 	}
 </script>
 
