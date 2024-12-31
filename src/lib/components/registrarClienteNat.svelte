@@ -42,14 +42,14 @@ interface Correo_electronico {
 }
 
 let cliente_nat: Persona = {
-	codigo_com: undefined,
+	codigo_com: Math.floor(Math.random() * 5670) + 1,
 	direccion_com: '',
 	monto_acreditado_com: 0,
 	fecha_inicio_operacion_com: new Date(),
 	tipo_com: 'cliente',
 	nacionalidad_com: '',
-	fk_lugar: undefined,
-	fk_usuario: undefined,
+	fk_lugar: Math.floor(Math.random() * 360) + 1,
+	fk_usuario: 185,
 	tipo_persona_com: 'natural',
 	rif_jur: '',
 	denominacion_persona_jur: '',
@@ -64,9 +64,15 @@ let cliente_nat: Persona = {
 	correos_electronicos: []
 };
 	// Función para manejar el envío del formulario
-	function registrarCliente() {
-		// Aquí iría la lógica para procesar los datos del formulario
-		console.log('Registrando cliente:', cliente_nat);
+	async function registrarCliente() {
+		console.log(cliente_nat);
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/cliente`, {
+			method: 'POST',
+			body: JSON.stringify(cliente_nat),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+		goto('/admin/HomeAdmin/clientes');
 	}
 </script>
 
