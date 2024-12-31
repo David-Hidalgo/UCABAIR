@@ -1,5 +1,5 @@
 <script>
-	import RegistrarUsuario from '$lib/components/registrarUsuario.svelte';
+	import RegistrarUsuario from '$lib/components/registrarClienteJur.svelte';
 </script>
 
 <h2>Registrar</h2>

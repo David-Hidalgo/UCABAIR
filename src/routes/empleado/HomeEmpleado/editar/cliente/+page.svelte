@@ -1,5 +1,5 @@
 <script>
-	import Modificar from '$lib/components/registrarCliente.svelte';
+	import Modificar from '$lib/components/registrarClienteNat.svelte';
 	/**
 	 * @type {any}
 	 */

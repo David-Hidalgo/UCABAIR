@@ -24,6 +24,9 @@ for (let index = 0; index < data.tel_table.length; index++) {
     telefono.numero_telefono_tel = data.tel_table[index].numero_telefono_tel;
     telefono.codigo_area_tel = data.tel_table[index].codigo_area_tel;
     telefono.fk_persona = data.tel_table[index].fk_persona;
+    if (telefono.fk_persona === undefined) {
+            telefono.numero_telefono_tel = 'No hay telefonos asociados';
+        }
     telefono.fk_empleado = data.tel_table[index].fk_empleado;
     telefonos.push(telefono);
 };
@@ -39,6 +42,9 @@ for (let index = 0; index < data.email_table.length; index++) {
     correo.codigo_ce = data.email_table[index].codigo_ce;
     correo.direccion_correo_ce = data.email_table[index].direccion_correo_ce;
     correo.fk_persona = data.email_table[index].fk_persona;
+        if (correo.fk_persona === undefined) {
+            correo.direccion_correo_ce = 'No hay correos asociados';
+        }
     correo.fk_empleado = data.email_table[index].fk_empleado;
     correos.push(correo);
 };
@@ -152,7 +158,6 @@ async function eliminarRegistro(persona: Persona) {
 <table>
 	<thead>
 		<tr>
-            <th>Código</th>
             <th>Cédula</th>
             <th>Nombre</th>
             <th>Apellido</th>
@@ -166,7 +171,6 @@ async function eliminarRegistro(persona: Persona) {
 	<tbody>
 		{#each clientes_nat as dato}
 			<tr>
-                <td>{dato.codigo_com}</td>
 				<td>{dato.cedula_nat}</td>
 				<td>{dato.primer_nombre_nat} {' '} {dato.segundo_nombre_nat}</td>
 				<td>{dato.primer_apellido_nat} {' '} {dato.segundo_apellido_nat}</td>
@@ -198,7 +202,6 @@ async function eliminarRegistro(persona: Persona) {
 <table>
 	<thead>
 		<tr>
-            <th>Código</th>
             <th>Rif</th>
             <th>Razon Social</th>
             <th>Denominacion Social</th>
@@ -213,7 +216,6 @@ async function eliminarRegistro(persona: Persona) {
 	<tbody>
 		{#each clientes_jur as dato}
 			<tr>
-                <td>{dato.codigo_com}</td>
                 <td>{dato.rif_jur}</td>
 				<td>{dato.razon_social_jur}</td>
 				<td>{dato.denominacion_persona_jur}</td>
@@ -247,6 +249,7 @@ async function eliminarRegistro(persona: Persona) {
 
 <style>
     .clientesNaturales, .clientesJuridicos {
+        border: 1px solid gray;
         max-height: 400px;
         overflow-y: auto;
     }

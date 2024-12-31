@@ -93,7 +93,6 @@
                 <td>{proveedor.direccion_com}</td>
                 <td>{proveedor.monto_acreditado_com}</td>
                 <td>{proveedor.fecha_inicio_operaciones_com}</td>
-                
 				<td>
 					<div class="botonesUD">
 						<a href='/admin/HomeAdmin/editar/aliado/{proveedor.codigo_com}'>

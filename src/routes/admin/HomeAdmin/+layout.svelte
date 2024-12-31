@@ -1,12 +1,7 @@
 <script>
 	import icono from '$lib/images/icono.png';
 	import flecha from '$lib/images/flecha.png';
-	let searchTerm = '';
-	function search() {
-		// Lógica de búsqueda
-		console.log(`Buscando: ${searchTerm}`);
-	}
-	let opcionSeleccionada = '';
+
 	let categories = [
 		{ id: 'admin/HomeAdmin/clientes', name: 'Clientes' },
 		{ id: 'admin/HomeAdmin/empleado', name: 'Empleados' },
@@ -41,11 +36,6 @@
 			</nav>
 		</div>
 		<div class="Contenido">
-			<div class="title">{opcionSeleccionada}</div>
-			<div class="search-bar">
-				<input class="search-input" type="text" placeholder="Escribe aquí..." bind:value={searchTerm}/>
-				<button class="search-button" on:click={search}>Buscar</button>
-			</div>
 			<slot />
 		</div>
 	</div>
