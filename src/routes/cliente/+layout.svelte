@@ -105,34 +105,8 @@
 		align-items: center;
 	}
 
-	.IngresarCrearCuenta {
-		display: grid;
-	}
-	.palabras {
-		border-radius: 5px;
-		font-style: bold;
-		border-color: gainsboro;
-	}
-
-	.Buscar {
-		justify-content: center;
-		display: flex;
-	}
-
-	.Ingresar {
-		border-radius: 5px;
-		font-style: bold;
-		color: gainsboro;
-		background-color: black;
-	}
-
 	header {
 		position: static;
-	}
-
-	.Caja1 {
-		border-bottom: solid gainsboro 2px;
-		margin: 0 200px 0 170px;
 	}
 
 	.Caja2 {
@@ -148,17 +122,6 @@
 		width: 100%;
 		height: 45px;
 		font-style: bold;
-	}
-
-	.Usuario {
-		font-size: 12px;
-		justify-content: right;
-		display: flex;
-		align-items: center;
-	}
-
-	.Usuario img {
-		height: 30px;
 	}
 
 	.carrito {
