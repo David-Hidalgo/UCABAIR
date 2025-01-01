@@ -10,7 +10,7 @@ export const load: PageServerLoad=async({ params}) =>{
 
     if (Number.isInteger(n)) {
         
-        const [resultado] =await dbPostgre<Tipo_prueba[]>`select * from rol where codigo_tp=${n}`
+        const [resultado] =await dbPostgre<Tipo_prueba[]>`select * from tipo_prueba where codigo_tp=${n}`
         
         return {
             resultado

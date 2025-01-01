@@ -109,7 +109,7 @@
                 <td>{dato.duracion_estimada_tp}</td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/prueba">
+						<a href="/admin/HomeAdmin/editar/prueba/{dato.codigo_tp}">
 							<button onclick={() => editarRegistro(dato)}>
 								<span>✏️</span>
 								<!-- Icono de lápiz -->

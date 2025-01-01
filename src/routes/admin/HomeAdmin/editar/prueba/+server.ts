@@ -8,7 +8,7 @@ export async function PUT({ request }) {
 	console.log(tipo_prueba.codigo_tp, tipo_prueba.nombre_tp, tipo_prueba.descripcion_tp,tipo_prueba.duracion_estimada_tp, codigo_viejo);
 
 	const respuesta =
-		await dbPostgre`CALL editar_prueba(${tipo_prueba.codigo_tp}, ${tipo_prueba.nombre_tp}, ${tipo_prueba.descripcion_tp},${tipo_prueba.duracion_estimada_tp}, ${codigo_viejo})`;
+		await dbPostgre`CALL editar_tipo_prueba(${tipo_prueba.codigo_tp}, ${tipo_prueba.nombre_tp}, ${tipo_prueba.descripcion_tp},${tipo_prueba.duracion_estimada_tp}, ${codigo_viejo})`;
 
 	return json({ respuesta }, { status: 201 });
 }

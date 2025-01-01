@@ -4,7 +4,6 @@
 	let { data }: { data: PageData }=$props();
 </script>
 
-	<div class="EditarRol">
-		<!-- <EditarRol bind:rif={codigo_rol}/> -->
+	<div class="EditarTipoPrueba">
 		<EditarTipoPrueba id_editar={data.resultado} />
 	</div>

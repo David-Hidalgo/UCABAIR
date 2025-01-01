@@ -26,6 +26,7 @@
 	}
 	// Función para manejar el envío del formulario
 	async function actualizarTipoPrueba() {
+		console.log(tipo_prueba);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/prueba`, {
 			method: 'PUT',
 			body: JSON.stringify({tipo_prueba:tipo_prueba , codigo_viejo:codigo_viejo}),
@@ -49,7 +50,11 @@
 	<h2>Registrar Tipo de Prueba</h2>
 
 	<label for="codigo_tp">Codigo Tipo de Prueba</label>
-	<input id="codigo_tp" bind:value={tipo_prueba.codigo_tp} />
+	{#if id_editar}
+		<input id="codigo_tp" bind:value={tipo_prueba.codigo_tp} readonly />
+	{:else}
+		<input id="codigo_tp" bind:value={tipo_prueba.codigo_tp} />
+	{/if}
 
 	<label for="nombre_tp">Nombre Tipo Prueba</label>
 	<input id="nombre_tp" bind:value={tipo_prueba.nombre_tp} />

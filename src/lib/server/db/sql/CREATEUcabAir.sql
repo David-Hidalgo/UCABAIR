@@ -556,6 +556,20 @@ CREATE OR REPLACE PROCEDURE insertar_tipo_prueba(
 END;
 $$;
 
+CREATE OR REPLACE PROCEDURE editar_tipo_prueba( 
+    codigo_tp2            INTEGER,
+    nombre_tp2            VARCHAR(255),
+    descripcion_tp2       VARCHAR(512),
+    duracion_estimada_tp2 VARCHAR(255),
+    codigo_tpN            INTEGER
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    UPDATE tipo_prueba SET codigo_tp=codigo_tp2,nombre_tp=nombre_tp2,descripcion_tp=descripcion_tp2,duracion_estimada_tp=duracion_estimada_tp2
+    WHERE codigo_tp=codigo_tpN;
+END;
+$$;
+
 CREATE OR REPLACE PROCEDURE eliminar_tipo_prueba(
     codigo_tpN INTEGER
     ) 
