@@ -76,7 +76,6 @@ for (let index = 0; index < data.email_table.length; index++) {
         proveedor.fecha_inicio_operaciones_com = data.roltable[index].fecha_inicio_operaciones_com;
 		proveedores.push(proveedor);
 	};
-	console.log(proveedores);
 
     async function editarRegistro(proveedores: Proveedor) {
 		/*try {
@@ -99,13 +98,13 @@ for (let index = 0; index < data.email_table.length; index++) {
 	}
 
 	async function eliminarRegistro(proveedor: Proveedor) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/aliado`, {
+		await fetch(`http://localhost:5173/admin/HomeAdmin/aliados`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(proveedor.codigo_com)
 			
 		});
-		// goto('/admin/HomeAdmin/aliado')
+		location.reload();
 	}
 </script>
 

@@ -11,35 +11,44 @@ export interface Privilegio {
 }
 
 export interface Empleado {
-	codigo_empleado_per: number | undefined;
-	cedula_per: string;
-	primer_nombre_per: string;
-	segundo_nombre_per: string;
-	primer_apellido_per: string;
-	segundo_apellido_per: string;
-	direccion_per: string;
-	fecha_inicio_servicio_per: Date ;
-	//experiencia_profesional_per: string;
-	//titulacion_per: string;
-	sueldo_per: number | undefined;
-	//telefono_per: number| undefined;
-	//correo_per: string;
-	//labor_per: string;
-	fk_lugar: number | undefined;
-	fk_usuario: number | undefined;
+		codigo_empleado_per: number | undefined;
+		cedula_per: string;
+		primer_nombre_per: string;
+		segundo_nombre_per: string;
+		primer_apellido_per: string;
+		segundo_apellido_per: string;
+		direccion_per: string;
+		fecha_inicio_servicio_per: Date | undefined;
+		empleado_profesion: Empleado_profesion[];
+		sueldo_per: number | undefined;
+		telefono_per: Telefono[];
+		correo_per: Correo_electronico[];
+		//labor_per: string;
+		fk_lugar: number | undefined;
+		usuario: Usuario;
 }
 
 export interface Proveedor {
 	codigo_com: number | undefined;
-	rif_jur: string;
-	denominacion_persona_jur: string;
-	razon_social_jur: string;
-	pagina_web_jur: string;
-	//telefono_com: number[];
-	//correo_com: string[];
-	direccion_com: string;
-	monto_acreditado_com: number | undefined;
-	fecha_inicio_operaciones_com: Date | undefined;
+		direccion_com: string;
+		monto_acreditado_com: number | undefined;
+		fecha_inicio_operaciones_com: Date | undefined;
+		tipo_com: string;
+		nacionalidad_com: string;
+		fk_lugar: number | undefined;
+		fk_usuario: number | undefined;
+		tipo_persona_com: string;
+		rif_jur: string;
+		denominacion_persona_jur: string;
+		razon_social_jur: string;
+		pagina_web_jur: string;
+		cedula_nat: string;
+		primer_nombre_nat: string;
+		segundo_nombre_nat: string;
+		primer_apellido_nat: string;
+		segundo_apellido_nat: string;
+		telefonos: Telefono[];
+		correos_electronicos: Correo_electronico[];
 }
 
 export interface Tipo_prueba {
@@ -124,8 +133,22 @@ export interface Telefono {
 }
 
 export interface Correo_electronico {
-	codigo_ce: number;
+	codigo_ce: number | undefined;
 	direccion_correo_ce: string;
 	fk_persona: number | undefined;
 	fk_empleado: number | undefined;
+}
+
+export interface Usuario {
+    codigo_usu: number | undefined;
+    nombre_usu: string;
+    contrasena_usu: string;
+    fk_rol: number | undefined;
+}
+
+export interface Empleado_profesion {
+    titulacion_ep: string;
+    experiencia_profesional_ep: string;
+    fk_profesion: number | undefined;
+    fk_empleado: number | undefined;
 }

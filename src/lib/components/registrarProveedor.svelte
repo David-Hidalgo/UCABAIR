@@ -1,9 +1,11 @@
 <script lang="ts">
-	import type { Proveedor } from '$lib/server/db/schema';
-	export let id_editar: Proveedor | undefined;
+	import type { Proveedor, Telefono,Correo_electronico} from '$lib/server/db/schema';
+	export let id_editar: Proveedor;
 	import { goto } from '$app/navigation';
 	
 	let proveedor: Proveedor;
+	let telefonos: Telefono[];
+	let correos: Correo_electronico[];
 	let codigo_viejo: number;
 
 	if (id_editar!=undefined) {
@@ -12,22 +14,59 @@
 		codigo_viejo=id_editar.codigo_com
 	} else {
 		proveedor = {
-	codigo_com: undefined,
-	rif_jur: '',
-	denominacion_persona_jur: '',
-	razon_social_jur: '',
-	pagina_web_jur: '',
-	//telefono_com: undefined,
-	//correo_com: '',
-	direccion_com: '',
-	monto_acreditado_com:undefined,
-	fecha_inicio_operaciones_com:undefined
+			codigo_com: Math.floor(Math.random() * 5670) + 1,
+			direccion_com: '',
+			monto_acreditado_com: 0,
+			fecha_inicio_operaciones_com: new Date(),
+			tipo_com: 'proveedor',
+			nacionalidad_com: '',
+			fk_lugar: Math.floor(Math.random() * 360) + 1,
+			fk_usuario: 185,
+			tipo_persona_com: 'juridico',
+			rif_jur: '',
+			denominacion_persona_jur: '',
+			razon_social_jur: '',
+			pagina_web_jur: '',
+			cedula_nat: '',
+			primer_nombre_nat: '',
+			segundo_nombre_nat: '',
+			primer_apellido_nat: '',
+			segundo_apellido_nat: '',
+			telefonos: [{
+				codigo_tel: 0,
+				numero_telefono_tel: '0212',
+				codigo_area_tel: '555',
+				fk_persona: 0,
+				fk_empleado: undefined
+			}, {
+				codigo_tel: 0,
+				numero_telefono_tel: '0412',
+				codigo_area_tel: '555',
+				fk_persona: 0,
+				fk_empleado: undefined
+		}],
+			correos_electronicos: [{
+			codigo_ce: 0,
+			direccion_correo_ce: '',
+			fk_persona: 0,
+			fk_empleado: undefined
+		}, {
+			codigo_ce: 0,
+			direccion_correo_ce: '',
+			fk_persona: 0,
+			fk_empleado: undefined
+		}]
 		};
+		proveedor.telefonos[0].fk_persona = proveedor.codigo_com;
+		proveedor.telefonos[1].fk_persona = proveedor.codigo_com;
+		proveedor.correos_electronicos[0].fk_persona = proveedor.codigo_com;
+		proveedor.correos_electronicos[1].fk_persona = proveedor.codigo_com;
 	}
 	async function decide() {
 		
 		if (id_editar==undefined) {
 			registrarProveedor();
+
 		} else {
 			actualizarProveedor()
 		}
@@ -44,6 +83,7 @@
 		alert('Proveedor modificado con exito');
 		goto('/admin/HomeAdmin/aliado');
 	}
+
 	async function registrarProveedor() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aliado`, {
 			method: 'POST',
@@ -52,14 +92,15 @@
 		});
 		const data = await res.json();
 
-
-		alert('Proveedor agregado con exito');
-		goto('/admin/HomeAdmin/aliado');
+		goto('/admin/HomeAdmin/aliados');
 	}
 </script>
 
 <form on:submit|preventDefault={registrarProveedor}>
 	<h2>Registrar Proveedor</h2>
+
+	<label for="codigo">Codigo</label>
+	<input id="codigo" bind:value={proveedor.codigo_com} />
 
 	<label for="rif">RIF</label>
 	<input id="rif" bind:value={proveedor.rif_jur} />
@@ -73,6 +114,30 @@
 	<label for="paginaweb">Pagina web</label>
 	<input id="paginaweb" bind:value={proveedor.pagina_web_jur} />
 
+	<label for="cod_telefono1">Codigo Telefono</label>
+	<input id="cod_telefono1" bind:value={proveedor.telefonos[0].codigo_tel} />
+
+	<label for="telefono1">Telefono</label>
+	<input id="telefono1" bind:value={proveedor.telefonos[0].numero_telefono_tel} />
+
+	<label for="cod_telefono2">Codigo Telefono 2</label>
+	<input id="cod_telefono2" bind:value={proveedor.telefonos[1].codigo_tel} />
+
+	<label for="telefono2">Telefono secundario</label>
+	<input id="telefono2" bind:value={proveedor.telefonos[1].numero_telefono_tel} />
+
+	<label for="cod_correo1">Codigo Correo</label>
+	<input id="cod_correo1" bind:value={proveedor.correos_electronicos[0].codigo_ce} />
+
+	<label for="correo">Correo</label>
+	<input id="correo" bind:value={proveedor.correos_electronicos[0].direccion_correo_ce} />
+
+	<label for="cod_correo2">Codigo Correo2</label>
+	<input id="cod_correo2" bind:value={proveedor.correos_electronicos[1].codigo_ce} />
+
+	<label for="correo">Correo secundario</label>
+	<input id="correo" bind:value={proveedor.correos_electronicos[1].direccion_correo_ce} />
+
 	<label for="direccion">Direccion</label>
 	<input id="direccion" bind:value={proveedor.direccion_com} />
 
@@ -81,6 +146,8 @@
 
 	<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
 	<input id="fechaInicio" type="date" bind:value={proveedor.fecha_inicio_operaciones_com} />
+
+	<button type="submit">Registrar Proveedor</button>
 	
 </form>
 
