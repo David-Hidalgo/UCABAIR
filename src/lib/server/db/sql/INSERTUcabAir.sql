@@ -3048,7 +3048,17 @@ INSERT INTO telefono (codigo_tel, numero_telefono_tel, codigo_area_tel, fk_perso
 (7, '555-6789', '0212', NULL, 3),
 (8, '555-0123', '0212', 5, NULL),
 (9, '555-4567', '0212', NULL, 4),
-(10, '555-8901', '0212', 6, NULL);
+(10, '556-2901', '0212', 98, NULL),
+(11, '556-2789', '0212', NULL, 5),
+(12, '556-2123', '0212', 99, NULL),
+(13, '556-2567', '0212', NULL, 6),
+(14, '556-4901', '0212', 100, NULL),
+(15, '556-2345', '0212', NULL, 7),
+(16, '556-2780', '0212', 101, NULL),
+(17, '556-2153', '0212', NULL, 8),
+(18, '556-2067', '0212', 102, NULL),
+(19, '556-3901', '0212', NULL, 9),
+(20, '556-2340', '0212', 104, NULL);
 
 INSERT INTO correo_electronico (codigo_ce, direccion_correo_ce, fk_persona, fk_empleado) VALUES
 (1, 'juan.perez@example.com', 1, NULL),
@@ -3060,7 +3070,17 @@ INSERT INTO correo_electronico (codigo_ce, direccion_correo_ce, fk_persona, fk_e
 (7, 'miguel.hernandez@example.com', NULL, 3),
 (8, 'elena.perez@example.com', 5, NULL),
 (9, 'jorge.garcia@example.com', NULL, 4),
-(10, 'isabel.martinez@example.com', 6, NULL);
+(10, 'isabel.martinez@example.com', 6, NULL),
+(11, 'carlos.martinez@example.com', NULL, 5),
+(12, 'ana.hernandez@example.com', 98, NULL),
+(13, 'carlos.ramirez@example.com', NULL, 6),
+(14, 'elena.fernandez@example.com', 100, NULL),
+(15, 'jorge.moreno@example.com', NULL, 7),
+(16, 'patricia.munoz@example.com', 105, NULL),
+(17, 'ricardo.rojas@example.com', NULL, 8),
+(18, 'sofia.diaz@example.com', 106, NULL),
+(19, 'daniela.acosta@example.com', NULL, 9),
+(20, 'manuel.soto@example.com', 107, NULL);
 
 INSERT INTO privilegio (codigo_pri, nombre_pri) VALUES
 (1, 'Permiso para consultar horario'),

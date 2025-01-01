@@ -7,11 +7,26 @@ export interface Proveedor {
 	denominacion_persona_jur: string;
 	razon_social_jur: string;
 	pagina_web_jur: string;
-	//telefono_com: number[];
-	//correo_com: string[];
 	direccion_com: string;
+    telefono_com: Telefono[];
+    correo_com: Correo_electronico[];
 	monto_acreditado_com: number | undefined;
-	fecha_inicio_operaciones_com: Date | undefined;
+	fecha_inicio_operaciones_com: string;
+}
+
+export interface Telefono {
+    codigo_tel: number | undefined;
+    numero_telefono_tel: string;
+    codigo_area_tel: string;
+    fk_persona: number | undefined;
+    fk_empleado: number | undefined;
+}
+
+export interface Correo_electronico {
+	codigo_ce: number | undefined;
+	direccion_correo_ce: string;
+	fk_persona: number | undefined;
+	fk_empleado: number | undefined;
 }
 
 
@@ -44,13 +59,10 @@ export interface Proveedor {
 
 export const load: PageServerLoad = async ({ params }) => {
 
-    const roltable = await dbPostgre<Proveedor[]>`
-    select per.direccion_com,per.monto_acreditado_com,per.fecha_inicio_operacion_com,per.nacionalidad_com,
-u.nombre_usu,l.nombre_lug,per.rif_jur,per.denominacion_persona_jur,per.razon_social_jur,per.pagina_web_jur
-    from persona per inner join usuario u on per.fk_usuario=u.codigo_usu inner join lugar l on per.fk_lugar=l.codigo_lug
-	where tipo_com='proveedor' and tipo_persona_com='juridico';
-`;
+    const roltable = await dbPostgre<Proveedor[]>`SELECT * FROM persona WHERE tipo_com ='proveedor';`;
+    const tel_table = await dbPostgre<Telefono[]>`SELECT * FROM telefono;`;
+    const email_table = await dbPostgre<Correo_electronico[]>`SELECT * FROM correo_electronico;`;
 
-    return {roltable};
+    return {roltable,tel_table,email_table};
 };
 

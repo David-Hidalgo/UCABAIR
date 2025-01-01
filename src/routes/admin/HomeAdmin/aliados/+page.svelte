@@ -2,7 +2,7 @@
 	
 	import type { ActionData } from './$types';
 	import type { PageData } from './$types';
-	import type { Proveedor } from './+page.server.ts';
+	import type { Proveedor, Telefono, Correo_electronico } from './+page.server.ts';
 	import { goto } from '$app/navigation';
 	let { data }: { data: PageData } = $props();
 
@@ -11,31 +11,72 @@
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
+	let telefonos: Telefono[] = new Array();
+for (let index = 0; index < data.tel_table.length; index++) {
+    let telefono: Telefono = {
+        codigo_tel: undefined,
+	    numero_telefono_tel: '',
+	    codigo_area_tel: '',
+	    fk_persona: undefined,
+	    fk_empleado: undefined
+    }
+    telefono.codigo_tel = data.tel_table[index].codigo_tel;
+    telefono.numero_telefono_tel = data.tel_table[index].numero_telefono_tel;
+    telefono.codigo_area_tel = data.tel_table[index].codigo_area_tel;
+    telefono.fk_persona = data.tel_table[index].fk_persona;
+    if (telefono.fk_persona === undefined) {
+            telefono.numero_telefono_tel = 'No hay telefonos asociados';
+        }
+    telefono.fk_empleado = data.tel_table[index].fk_empleado;
+    telefonos.push(telefono);
+};
+
+
+let correos: Correo_electronico[] = new Array();
+for (let index = 0; index < data.email_table.length; index++) {
+    let correo: Correo_electronico = {
+        codigo_ce: undefined,
+        direccion_correo_ce: '',
+        fk_persona: undefined,
+        fk_empleado: undefined
+    }
+    correo.codigo_ce = data.email_table[index].codigo_ce;
+    correo.direccion_correo_ce = data.email_table[index].direccion_correo_ce;
+    correo.fk_persona = data.email_table[index].fk_persona;
+        if (correo.fk_persona === undefined) {
+            correo.direccion_correo_ce = 'No hay correos asociados';
+        }
+    correo.fk_empleado = data.email_table[index].fk_empleado;
+    correos.push(correo);
+};
 
 	let proveedores: Proveedor[] = new Array();
 	for (let index = 0; index < data.roltable.length; index++) {
 		let proveedor: Proveedor = {
 			codigo_com:undefined,
-	rif_jur: '',
-	denominacion_persona_jur: '',
-	razon_social_jur: '',
-	pagina_web_jur: '',
-	//telefono_com: undefined,
-	//correo_com: '',
-	direccion_com: '',
-	monto_acreditado_com:undefined,
-	fecha_inicio_operaciones_com:undefined
+			rif_jur: '',
+			denominacion_persona_jur: '',
+			razon_social_jur: '',
+			pagina_web_jur: '',
+			telefono_com: [],
+			correo_com: [],
+			direccion_com: '',
+			monto_acreditado_com:undefined,
+			fecha_inicio_operaciones_com: 'hola'
 		};
 		proveedor.codigo_com = data.roltable[index].codigo_com;
 		proveedor.rif_jur = data.roltable[index].rif_jur;
 		proveedor.denominacion_persona_jur = data.roltable[index].denominacion_persona_jur;
         proveedor.razon_social_jur = data.roltable[index].razon_social_jur;
         proveedor.pagina_web_jur = data.roltable[index].pagina_web_jur;
+		proveedor.telefono_com = telefonos.filter(telefono => telefono.fk_persona === proveedor.codigo_com);
+		proveedor.correo_com = correos.filter(correo => correo.fk_persona === proveedor.codigo_com);
         proveedor.direccion_com = data.roltable[index].direccion_com;
         proveedor.monto_acreditado_com = data.roltable[index].monto_acreditado_com;
         proveedor.fecha_inicio_operaciones_com = data.roltable[index].fecha_inicio_operaciones_com;
 		proveedores.push(proveedor);
 	};
+	console.log(proveedores);
 
     async function editarRegistro(proveedores: Proveedor) {
 		/*try {
@@ -72,9 +113,12 @@
 <table>
 	<thead>
 		<tr>
+			<th>Codigo</th>
 			<th>RIF</th>
 			<th>Denominacion comercial</th>
             <th>Razon social</th>
+			<th>Telefono</th>
+			<th>Correo</th>
             <th>Pagina web</th>
             <th>Direccion</th>
             <th>Monto acreditado</th>
@@ -86,9 +130,12 @@
 	<tbody>
 		{#each proveedores as proveedor}
 			<tr>
+				<td>{proveedor.codigo_com}</td>
 				<td>{proveedor.rif_jur}</td>
 				<td>{proveedor.denominacion_persona_jur}</td>
                 <td>{proveedor.razon_social_jur}</td>
+				<td>{proveedor.telefono_com.map(tel => tel.numero_telefono_tel).join(', ')}</td>
+				<td>{proveedor.correo_com.map(correo => correo.direccion_correo_ce).join(', ')}</td>
                 <td>{proveedor.pagina_web_jur}</td>
                 <td>{proveedor.direccion_com}</td>
                 <td>{proveedor.monto_acreditado_com}</td>
