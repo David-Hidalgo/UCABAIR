@@ -32,35 +32,23 @@
 			segundo_nombre_nat: '',
 			primer_apellido_nat: '',
 			segundo_apellido_nat: '',
-			telefonos: [{
-				codigo_tel: 0,
-				numero_telefono_tel: '0212',
-				codigo_area_tel: '555',
-				fk_persona: 0,
-				fk_empleado: undefined
-			}, {
-				codigo_tel: 0,
-				numero_telefono_tel: '0412',
-				codigo_area_tel: '555',
-				fk_persona: 0,
-				fk_empleado: undefined
-		}],
-			correos_electronicos: [{
-			codigo_ce: 0,
-			direccion_correo_ce: '',
-			fk_persona: 0,
-			fk_empleado: undefined
-		}, {
-			codigo_ce: 0,
-			direccion_correo_ce: '',
-			fk_persona: 0,
-			fk_empleado: undefined
-		}]
+			telefonos: [],
+			correos_electronicos: []
 		};
-		proveedor.telefonos[0].fk_persona = proveedor.codigo_com;
-		proveedor.telefonos[1].fk_persona = proveedor.codigo_com;
-		proveedor.correos_electronicos[0].fk_persona = proveedor.codigo_com;
-		proveedor.correos_electronicos[1].fk_persona = proveedor.codigo_com;
+		let telefono: Telefono = {
+			codigo_tel: 0,
+			numero_telefono_tel: '',
+			codigo_area_tel: '',
+			fk_persona: 0,
+			fk_empleado: 0
+		};
+
+		let correo: Correo_electronico = {
+			codigo_ce: 0,
+			direccion_correo_ce: '',
+			fk_persona: 0,
+			fk_empleado: 0
+		};
 	}
 	async function decide() {
 		
@@ -94,6 +82,13 @@
 
 		goto('/admin/HomeAdmin/aliados');
 	}
+
+	function agregarTelefono() {
+			proveedor.telefonos.push(telefono);
+		}
+	function agregarCorreo() {
+			proveedor.correos_electronicos.push(correo);
+		}
 </script>
 
 <form on:submit|preventDefault={registrarProveedor}>
@@ -114,29 +109,15 @@
 	<label for="paginaweb">Pagina web</label>
 	<input id="paginaweb" bind:value={proveedor.pagina_web_jur} />
 
-	<label for="cod_telefono1">Codigo Telefono</label>
-	<input id="cod_telefono1" bind:value={proveedor.telefonos[0].codigo_tel} />
+	<label for="CodigoArea">Codigo De Area</label>
+	<input id="telefono1" bind:value={telefono.} />
 
 	<label for="telefono1">Telefono</label>
-	<input id="telefono1" bind:value={proveedor.telefonos[0].numero_telefono_tel} />
-
-	<label for="cod_telefono2">Codigo Telefono 2</label>
-	<input id="cod_telefono2" bind:value={proveedor.telefonos[1].codigo_tel} />
-
-	<label for="telefono2">Telefono secundario</label>
-	<input id="telefono2" bind:value={proveedor.telefonos[1].numero_telefono_tel} />
-
-	<label for="cod_correo1">Codigo Correo</label>
-	<input id="cod_correo1" bind:value={proveedor.correos_electronicos[0].codigo_ce} />
+	<input id="telefono1" bind:value={proveedor.telefonos[i].numero_telefono_tel} />
+	<button type="button" on:click={agregarTelefono}>Agregar Telefono</button>
 
 	<label for="correo">Correo</label>
-	<input id="correo" bind:value={proveedor.correos_electronicos[0].direccion_correo_ce} />
-
-	<label for="cod_correo2">Codigo Correo2</label>
-	<input id="cod_correo2" bind:value={proveedor.correos_electronicos[1].codigo_ce} />
-
-	<label for="correo">Correo secundario</label>
-	<input id="correo" bind:value={proveedor.correos_electronicos[1].direccion_correo_ce} />
+	<input id="correo" bind:value={proveedor.correos_electronicos[j].direccion_correo_ce} />
 
 	<label for="direccion">Direccion</label>
 	<input id="direccion" bind:value={proveedor.direccion_com} />

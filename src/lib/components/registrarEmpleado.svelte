@@ -53,16 +53,12 @@
 		goto('/admin/HomeAdmin/empleado');
 	}
 	async function registrarEmpleado() {
-		
-		console.log(empleado);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/empleado`, {
 			method: 'POST',
 			body: JSON.stringify(empleado),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-
-
 		//location.reload();
 	}
 </script>
