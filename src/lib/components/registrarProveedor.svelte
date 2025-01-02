@@ -35,7 +35,8 @@
 			telefonos: [],
 			correos_electronicos: []
 		};
-		let telefono: Telefono = {
+	}
+	let telefono: Telefono = {
 			codigo_tel: 0,
 			numero_telefono_tel: '',
 			codigo_area_tel: '',
@@ -49,7 +50,7 @@
 			fk_persona: 0,
 			fk_empleado: 0
 		};
-	}
+
 	async function decide() {
 		
 		if (id_editar==undefined) {
@@ -73,6 +74,8 @@
 	}
 
 	async function registrarProveedor() {
+		console.log(correo);
+		console.log(telefono);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aliado`, {
 			method: 'POST',
 			body: JSON.stringify(proveedor),
@@ -83,12 +86,27 @@
 		goto('/admin/HomeAdmin/aliados');
 	}
 
-	function agregarTelefono() {
-			proveedor.telefonos.push(telefono);
-		}
-	function agregarCorreo() {
-			proveedor.correos_electronicos.push(correo);
-		}
+	async function registrarTelefono() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+			method: 'POST',
+			body: JSON.stringify(telefono),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+
+		goto('/admin/HomeAdmin/aliados');
+	}
+
+	async function registrarCorreo() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+			method: 'POST',
+			body: JSON.stringify(correo),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+
+		goto('/admin/HomeAdmin/aliados');
+	}
 </script>
 
 <form on:submit|preventDefault={registrarProveedor}>
@@ -109,15 +127,20 @@
 	<label for="paginaweb">Pagina web</label>
 	<input id="paginaweb" bind:value={proveedor.pagina_web_jur} />
 
-	<label for="CodigoArea">Codigo De Area</label>
-	<input id="telefono1" bind:value={telefono.} />
+	<div class="telefono-container">
+		<label for="CodigoArea">Codigo De Area</label>
+		<input id="telefono1" bind:value={telefono.codigo_area_tel} />
 
-	<label for="telefono1">Telefono</label>
-	<input id="telefono1" bind:value={proveedor.telefonos[i].numero_telefono_tel} />
-	<button type="button" on:click={agregarTelefono}>Agregar Telefono</button>
+		<label for="telefono1">Telefono</label>
+		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
+		<button type="button" on:click={() => telefonos.push(telefono)} class="agregar-telefono">Agregar Telefono</button>
+	</div>
 
+	<div class="correo-container">
 	<label for="correo">Correo</label>
-	<input id="correo" bind:value={proveedor.correos_electronicos[j].direccion_correo_ce} />
+	<input id="correo" bind:value={correo.direccion_correo_ce} />
+	<button type="button" on:click={() => correos.push(correo)} class="agregar-correo">Agregar Correo</button>
+	</div>
 
 	<label for="direccion">Direccion</label>
 	<input id="direccion" bind:value={proveedor.direccion_com} />
@@ -134,6 +157,16 @@
 
 <style>
 	/* Estilos generales para el formulario */
+
+	.telefono-container {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.correo-container {
+		display: flex;
+		flex-direction: row;
+	}
 	form {
 		max-width: 100%;
 		margin: 0 auto;

@@ -3,7 +3,6 @@
 	export let id_editar: Empleado | undefined;
 	import { goto } from '$app/navigation';
 	import { format } from 'date-fns';
-	$: empleado.fecha_inicio_servicio_per = format(new Date(empleado.fecha_inicio_servicio_per), 'yyyy-MM-dd');
 
 	let empleado: Empleado;
 	let codigo_viejo: number;
