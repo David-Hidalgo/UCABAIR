@@ -1,11 +1,13 @@
 <script lang="ts">
-	import type { Empleado } from '$lib/server/db/schema';
+	import type { Empleado,Telefono,Correo_electronico } from '$lib/server/db/schema';
 	export let id_editar: Empleado | undefined;
 	import { goto } from '$app/navigation';
 	import { format } from 'date-fns';
 
 	let empleado: Empleado;
 	let codigo_viejo: number;
+	let telefonos: Telefono[] = [];
+	let correos: Correo_electronico[] = [];
 
 	if (id_editar!=undefined) {
 		empleado = id_editar;
@@ -13,24 +15,42 @@
 		codigo_viejo=id_editar.codigo_empleado_per
 	} else {
 		empleado = {
-	codigo_empleado_per: 817,
-	cedula_per: '',
-	primer_nombre_per: '',
-	segundo_nombre_per: '',
-	primer_apellido_per: '',
-	segundo_apellido_per: '',
-	direccion_per: '',
-	fecha_inicio_servicio_per: new Date(),
-	//experiencia_profesional_per: '',
-	//titulacion_per: '',
-	sueldo_per: 0,
-	//telefono_per: '',
-	//correo_per: '',
-	//labor_per: '',
-	fk_lugar: Math.floor(Math.random() * 100),
-	fk_usuario: 188
-		};
+			codigo_empleado_per: 0,
+			cedula_per: '',
+			primer_nombre_per: '',
+			segundo_nombre_per: '',
+			primer_apellido_per: '',
+			segundo_apellido_per: '',
+			direccion_per: '',
+			fecha_inicio_servicio_per: undefined,
+			empleado_profesion: [],
+			sueldo_per: 0,
+			telefono_per: [],
+			correo_per: [],
+			fk_lugar: 0,
+			usuario: {
+				codigo_usu: 0,
+				nombre_usu: '',
+				contrasena_usu: '',
+				fk_rol: 0}
+	};
 	}
+
+	let telefono: Telefono = {
+			codigo_tel: 0,
+			numero_telefono_tel: '',
+			codigo_area_tel: '',
+			fk_persona: 0,
+			fk_empleado: empleado.codigo_empleado_per
+		};
+
+		let correo: Correo_electronico = {
+			codigo_ce: 0,
+			direccion_correo_ce: '',
+			fk_persona: 0,
+			fk_empleado: empleado.codigo_empleado_per
+		};
+
 	async function decide() {
 		
 		if (id_editar==undefined) {
@@ -57,6 +77,25 @@
 			body: JSON.stringify(empleado),
 			headers: { 'Content-Type': 'application/json' }
 		});
+
+		for (let tel of telefonos) {
+			console.log(tel);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+				method: 'POST',
+				body: JSON.stringify(tel),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
+		for (let cor of correos) {
+			console.log(cor);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+				method: 'POST',
+				body: JSON.stringify(cor),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
 		const data = await res.json();
 		//location.reload();
 	}
@@ -79,6 +118,25 @@
 
 	<label for="segundoApellido">Segundo Apellido</label>
 	<input id="segundoApellido" bind:value={empleado.segundo_apellido_per} />
+
+	<p style="display: block; font-weight: bold;">Telefono</p>
+	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
+	<div class="telefono-container">
+		<label for="CodigoArea">Codigo De Area</label>
+		<input id="codigoArea" bind:value={telefono.codigo_area_tel} />
+
+		<label for="telefono1">Numero de Telefono</label>
+		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
+		<button type="button" on:click={() => telefonos.push({ ...telefono })}>Agregar Teléfono</button>
+	</div>
+
+	<p style="display: block; font-weight: bold;">Correo</p>
+	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
+	<div class="correo-container">
+		<label for="correo">Direccion de correo</label>
+		<input id="correo" bind:value={correo.direccion_correo_ce} />
+		<button type="button" on:click={() => correos.push({ ...correo })}>Agregar Correo</button>
+	</div>
 
 	<label for="direccion">Dirección</label>
 	<input id="direccion" bind:value={empleado.direccion_per} />

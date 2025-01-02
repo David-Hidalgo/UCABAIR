@@ -91,6 +91,15 @@ CREATE TABLE correo_electronico (
     fk_persona        INTEGER,
     fk_empleado 	INTEGER
 );
+
+CREATE SEQUENCE correo_electronico_seq
+    INCREMENT BY 1;
+
+SELECT setval('correo_electronico_seq', COALESCE(MAX(codigo_ce), 0) + 1) FROM correo_electronico;
+
+ALTER TABLE correo_electronico
+    ALTER COLUMN codigo_ce SET DEFAULT nextval('correo_electronico_seq');
+
 CREATE TABLE detalle_compra (
     cantidad_dc        INTEGER NOT NULL,
     precio_unitario_dc REAL NOT NULL,
@@ -410,6 +419,15 @@ CREATE TABLE telefono (
     fk_persona          INTEGER,
     fk_empleado 	  INTEGER
 );
+
+CREATE SEQUENCE telefono_seq
+    INCREMENT BY 1;
+
+SELECT setval('telefono_seq', COALESCE(MAX(codigo_tel), 0) + 1) FROM telefono;
+
+ALTER TABLE telefono
+    ALTER COLUMN codigo_tel SET DEFAULT nextval('correo_electronico_seq');
+
 CREATE TABLE tipo_materia_prima (
     codigo_tmp        INTEGER NOT NULL,
     nombre_tmp        VARCHAR(255) NOT NULL,

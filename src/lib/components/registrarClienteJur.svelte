@@ -41,6 +41,9 @@ interface Correo_electronico {
 	fk_empleado: number | undefined;
 }
 
+let telefonos: Telefono[] = [];
+let correos: Correo_electronico[] = [];
+let codigo_viejo: number;
 let cliente_jur: Persona = {
 	codigo_com: 0,
 	direccion_com: '',
@@ -64,6 +67,21 @@ let cliente_jur: Persona = {
 	correos_electronicos: []
 };
 
+let telefono: Telefono = {
+			codigo_tel: 0,
+			numero_telefono_tel: '',
+			codigo_area_tel: '',
+			fk_persona: cliente_jur.codigo_com,
+			fk_empleado: 0
+		};
+
+		let correo: Correo_electronico = {
+			codigo_ce: 0,
+			direccion_correo_ce: '',
+			fk_persona: cliente_jur.codigo_com,
+			fk_empleado: 0
+		};
+
 	// Función para manejar el envío del formulario
 	async function registrarCliente() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/cliente`, {
@@ -71,6 +89,24 @@ let cliente_jur: Persona = {
 			body: JSON.stringify(cliente_jur),
 			headers: { 'Content-Type': 'application/json' }
 		});
+
+		for (let tel of telefonos) {
+			console.log(tel);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+				method: 'POST',
+				body: JSON.stringify(tel),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
+		for (let cor of correos) {
+			console.log(cor);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+				method: 'POST',
+				body: JSON.stringify(cor),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
 		const data = await res.json();
 
 
@@ -96,11 +132,24 @@ let cliente_jur: Persona = {
 	<label for="direccion">Direccion</label>
 	<input id="direccion" bind:value={cliente_jur.direccion_com} />
 
-	<label for="telefono">Teléfono</label>
-	<input id="telefono" bind:value={cliente_jur.telefonos} />
+	<p style="display: block; font-weight: bold;">Telefono</p>
+	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
+	<div class="telefono-container">
+		<label for="CodigoArea">Codigo De Area</label>
+		<input id="codigoArea" bind:value={telefono.codigo_area_tel} />
 
-	<label for="correo">Correo</label>
-	<input id="correo" bind:value={cliente_jur.correos_electronicos} />
+		<label for="telefono1">Numero de Telefono</label>
+		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
+		<button type="button" on:click={() => telefonos.push({ ...telefono })}>Agregar Teléfono</button>
+	</div>
+
+	<p style="display: block; font-weight: bold;">Correo</p>
+	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
+	<div class="correo-container">
+		<label for="correo">Direccion de correo</label>
+		<input id="correo" bind:value={correo.direccion_correo_ce} />
+		<button type="button" on:click={() => correos.push({ ...correo })}>Agregar Correo</button>
+	</div>
 
 	<label for="nacionalidad">Nacionalidad</label>
 	<input id="nacionalidad" bind:value={cliente_jur.nacionalidad_com} />
