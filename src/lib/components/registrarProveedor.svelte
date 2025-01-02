@@ -36,8 +36,9 @@
 			correos_electronicos: []
 		};
 	}
+	let i=21;
 	let telefono: Telefono = {
-			codigo_tel: 21,
+			codigo_tel: i,
 			numero_telefono_tel: '',
 			codigo_area_tel: '',
 			fk_persona: proveedor.codigo_com,
@@ -45,7 +46,7 @@
 		};
 
 		let correo: Correo_electronico = {
-			codigo_ce: 21,
+			codigo_ce: i,
 			direccion_correo_ce: '',
 			fk_persona: proveedor.codigo_com,
 			fk_empleado: 0
