@@ -603,6 +603,33 @@ BEGIN
 END;
 $$;
 
+CREATE OR REPLACE PROCEDURE insertar_telefono(
+    codigo_tel2            INTEGER,
+    numero_telefono_tel2   VARCHAR,
+    codigo_area_tel2       VARCHAR(30),
+    fk_persona2          INTEGER,
+    fk_empleado2 	  INTEGER
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO telefono (codigo_tel, numero_telefono_tel,codigo_area_tel,fk_persona,fk_empleado) 
+    VALUES (codigo_tel2,numero_telefono_tel2,codigo_area_tel2,fk_persona2,fk_empleado2);
+END;
+$$;	
+
+CREATE OR REPLACE PROCEDURE insertar_correo(
+    codigo_ce2           INTEGER ,
+    direccion_correo_ce2 VARCHAR(255),
+    fk_persona2        INTEGER,
+    fk_empleado2 	INTEGER
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO correo_electronico (codigo_ce, direccion_correo_ce,fk_persona,fk_empleado) 
+    VALUES (codigo_ce2,direccion_correo_ce2,fk_persona2,fk_empleado2);
+END;
+$$;
+
 CREATE OR REPLACE PROCEDURE insertar_empleado( 
     codigo       INTEGER,
     primer_nombre         VARCHAR(255),

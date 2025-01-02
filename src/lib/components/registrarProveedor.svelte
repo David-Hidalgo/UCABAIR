@@ -4,8 +4,8 @@
 	import { goto } from '$app/navigation';
 	
 	let proveedor: Proveedor;
-	let telefonos: Telefono[];
-	let correos: Correo_electronico[];
+	let telefonos: Telefono[] = [];
+	let correos: Correo_electronico[] = [];
 	let codigo_viejo: number;
 
 	if (id_editar!=undefined) {
@@ -37,17 +37,17 @@
 		};
 	}
 	let telefono: Telefono = {
-			codigo_tel: 0,
+			codigo_tel: 21,
 			numero_telefono_tel: '',
 			codigo_area_tel: '',
-			fk_persona: 0,
+			fk_persona: proveedor.codigo_com,
 			fk_empleado: 0
 		};
 
 		let correo: Correo_electronico = {
-			codigo_ce: 0,
+			codigo_ce: 21,
 			direccion_correo_ce: '',
-			fk_persona: 0,
+			fk_persona: proveedor.codigo_com,
 			fk_empleado: 0
 		};
 
@@ -74,39 +74,35 @@
 	}
 
 	async function registrarProveedor() {
-		console.log(correo);
-		console.log(telefono);
+	
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aliado`, {
 			method: 'POST',
 			body: JSON.stringify(proveedor),
 			headers: { 'Content-Type': 'application/json' }
 		});
+
+		for (let tel of telefonos) {
+			console.log(tel);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+				method: 'POST',
+				body: JSON.stringify(tel),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
+		for (let cor of correos) {
+			console.log(cor);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+				method: 'POST',
+				body: JSON.stringify(cor),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
 		const data = await res.json();
 
 		goto('/admin/HomeAdmin/aliados');
 	}
 
-	async function registrarTelefono() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
-			method: 'POST',
-			body: JSON.stringify(telefono),
-			headers: { 'Content-Type': 'application/json' }
-		});
-		const data = await res.json();
-
-		goto('/admin/HomeAdmin/aliados');
-	}
-
-	async function registrarCorreo() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
-			method: 'POST',
-			body: JSON.stringify(correo),
-			headers: { 'Content-Type': 'application/json' }
-		});
-		const data = await res.json();
-
-		goto('/admin/HomeAdmin/aliados');
-	}
 </script>
 
 <form on:submit|preventDefault={registrarProveedor}>
@@ -133,13 +129,13 @@
 
 		<label for="telefono1">Telefono</label>
 		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
-		<button type="button" on:click={() => telefonos.push(telefono)} class="agregar-telefono">Agregar Telefono</button>
+		<button type="button" on:click={() => telefonos.push({ ...telefono })}>Agregar Teléfono</button>
 	</div>
 
 	<div class="correo-container">
 	<label for="correo">Correo</label>
 	<input id="correo" bind:value={correo.direccion_correo_ce} />
-	<button type="button" on:click={() => correos.push(correo)} class="agregar-correo">Agregar Correo</button>
+	<button type="button" on:click={() => correos.push({ ...correo })}>Agregar Correo</button>
 	</div>
 
 	<label for="direccion">Direccion</label>
