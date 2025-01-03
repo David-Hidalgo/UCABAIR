@@ -36,7 +36,7 @@
 			correos_electronicos: []
 		};
 	}
-	let telefono: Telefono = {
+		let telefono: Telefono = {
 			codigo_tel: 0,
 			numero_telefono_tel: '',
 			codigo_area_tel: '',
@@ -74,8 +74,6 @@
 	}
 
 	async function registrarProveedor() {
-		console.log(telefonos);
-		console.log(correos);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aliado`, {
 			method: 'POST',
 			body: JSON.stringify(proveedor),
@@ -107,6 +105,8 @@
 
 <form on:submit|preventDefault={registrarProveedor}>
 	<h2>Registrar Proveedor</h2>
+	<label for="usuario">Numero Usuario</label>
+	<input id="usuario" bind:value={proveedor.fk_usuario} />
 
 	<label for="codigo">Codigo</label>
 	<input id="codigo" bind:value={proveedor.codigo_com} />
@@ -126,20 +126,27 @@
 	<p style="display: block; font-weight: bold;">Telefono</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="telefono-container">
-		<label for="CodigoArea">Codigo De Area</label>
+		<label for="codigotlf">Codigo</label>
+		<input id="codigotlf" bind:value={telefono.codigo_tel} />
+
+		<label for="codigoArea">Codigo De Area</label>
 		<input id="codigoArea" bind:value={telefono.codigo_area_tel} />
 
 		<label for="telefono1">Numero de Telefono</label>
 		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
-		<button type="button" on:click={() => telefonos.push({ ...telefono })}>Agregar Teléfono</button>
+		<button type="button" on:click={() => {telefonos.push({ ...telefono });console.log(telefonos);} }>Agregar Teléfono</button>
 	</div>
 
 	<p style="display: block; font-weight: bold;">Correo</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="correo-container">
+
+		<label for="codigoCor">Codigo</label>
+		<input id="codigoCor" bind:value={correo.codigo_ce} />
+
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
-		<button type="button" on:click={() => correos.push({ ...correo })}>Agregar Correo</button>
+		<button type="button" on:click={() => {correos.push({ ...correo });console.log(correos)}}>Agregar Correo</button>
 	</div>
 
 	<label for="direccion">Direccion</label>

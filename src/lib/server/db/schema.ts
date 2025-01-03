@@ -25,7 +25,7 @@ export interface Empleado {
 		correo_per: Correo_electronico[];
 		//labor_per: string;
 		fk_lugar: number | undefined;
-		usuario: Usuario;
+		fk_usuario: number | undefined;
 }
 
 export interface Proveedor {

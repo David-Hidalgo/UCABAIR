@@ -15,24 +15,20 @@
 		codigo_viejo=id_editar.codigo_empleado_per
 	} else {
 		empleado = {
-			codigo_empleado_per: 0,
+			codigo_empleado_per: Math.floor(Math.random() * 1000)+200,
 			cedula_per: '',
 			primer_nombre_per: '',
 			segundo_nombre_per: '',
 			primer_apellido_per: '',
 			segundo_apellido_per: '',
 			direccion_per: '',
-			fecha_inicio_servicio_per: undefined,
+			fecha_inicio_servicio_per: new Date(),
 			empleado_profesion: [],
 			sueldo_per: 0,
 			telefono_per: [],
 			correo_per: [],
-			fk_lugar: 0,
-			usuario: {
-				codigo_usu: 0,
-				nombre_usu: '',
-				contrasena_usu: '',
-				fk_rol: 0}
+			fk_lugar: Math.floor(Math.random() * 300)+1,
+			fk_usuario: 0
 	};
 	}
 
@@ -97,12 +93,18 @@
 		}
 
 		const data = await res.json();
-		//location.reload();
+		goto('/admin/HomeAdmin/empleado');
 	}
 </script>
 
 <form on:submit|preventDefault={registrarEmpleado}>
 	<h2>Registrar Empleado</h2>
+
+	<label for="usuario">Numero Usuario</label>
+	<input id="usuario" bind:value={empleado.fk_usuario} />
+
+	<label for="codigo">Codigo Empleado</label>
+	<input id="codigo" bind:value={empleado.codigo_empleado_per} />
 
 	<label for="cedula">Cédula</label>
 	<input id="cedula" bind:value={empleado.cedula_per} />
@@ -122,6 +124,10 @@
 	<p style="display: block; font-weight: bold;">Telefono</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="telefono-container">
+
+		<label for="codigotlf">Codigo</label>
+		<input id="codigotlf" bind:value={telefono.codigo_tel} />
+
 		<label for="CodigoArea">Codigo De Area</label>
 		<input id="codigoArea" bind:value={telefono.codigo_area_tel} />
 
@@ -133,6 +139,10 @@
 	<p style="display: block; font-weight: bold;">Correo</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="correo-container">
+
+		<label for="codigoCor">Codigo</label>
+		<input id="codigoCor" bind:value={correo.codigo_ce} />
+
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
 		<button type="button" on:click={() => correos.push({ ...correo })}>Agregar Correo</button>

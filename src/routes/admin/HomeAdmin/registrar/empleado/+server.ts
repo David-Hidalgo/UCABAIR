@@ -2,12 +2,15 @@ import { json } from '@sveltejs/kit';
 import {dbPostgre } from '$lib/server/db';
 
 export async function POST({ request }) {
-    const {codigo,primer_nombre,segundo_nombre,primer_apellido,
-    segundo_apellido,direccion,fecha_inicio_servicio,fk_lugar,sueldo,fk_usuario,cedula} = await request.json();
+    const {codigo_empleado_per,cedula_per,primer_nombre_per,segundo_nombre_per,primer_apellido_per,
+            segundo_apellido_per,direccion_per,fecha_inicio_servicio_per,
+            sueldo_per, fk_usuario, fk_lugar} = await request.json();
     
     const respuesta =
-			await dbPostgre`CALL insertar_empleado(${codigo}, ${primer_nombre}, ${segundo_nombre},${primer_apellido},
-            ${segundo_apellido},${direccion},${fecha_inicio_servicio},${fk_lugar},${sueldo},${fk_usuario},${cedula})`;
+			await dbPostgre`CALL insertar_empleado(${codigo_empleado_per},${primer_nombre_per},
+                            ${segundo_nombre_per},${primer_apellido_per},${segundo_apellido_per},
+                            ${direccion_per},${fecha_inicio_servicio_per}, ${fk_lugar},
+                            ${sueldo_per},${fk_usuario},${cedula_per})`;
 
     return json({ respuesta }, { status: 201 });
 }
