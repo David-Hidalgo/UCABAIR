@@ -1,5 +1,8 @@
-<script>
-	import Registro from '$lib/components/registrarAeronave.svelte';
+<script lang="ts">
+	import type { PageData } from './$types';
+	import RegistrarAeronave from '$lib/components/registrarAeronave.svelte';
+	let { data }: { data: PageData }=$props();
 </script>
 
-		<Registro />
+
+		<RegistrarAeronave id_editar={undefined} modelos_avion={data.modelos_avion} />

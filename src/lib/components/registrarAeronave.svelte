@@ -1,34 +1,26 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-
-	interface Modelo_Avion {
-		codigo_ma: string;
-		nombre_ma: string;
-		descripcion_ma: string;
-		precio_unidad_ma:number;
-		fk_modelo_avion: string;
-	}
-
-	let aeronave: Modelo_Avion = {
+	import type { Modelo_avion } from '$lib/server/db/schema';
+	export let modelos_avion: Modelo_avion[];
+	export let id_editar: Modelo_avion | undefined;
+	let aeronave = {
 		codigo_ma: '',
 		nombre_ma: '',
 		descripcion_ma: '',
-		precio_unidad_ma:0,
+		precio_unidad_ma: 0,
 		fk_modelo_avion: ''
 	};
 
 	// Función para manejar el envío del formulario
 	async function registrarAeronave() {
-		console.log('Se agregará:',aeronave);
-		const res = await fetch(`http://localhost:4000/mineral`, {
+		console.log(aeronave);
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave`, {
 			method: 'POST',
 			body: JSON.stringify(aeronave),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-		console.log(data);
-		goto('/admin/HomeAdmin/mineral');
-		alert('Se agregó exitosamente el mineral');
+		goto('/admin/HomeAdmin/inventario/aeronaves');
 	}
 </script>
 
@@ -46,6 +38,13 @@
 
 	<label for="precio_unidad_ma">Precio Unidad Aeronave</label>
 	<input id="precio_unidad_ma" bind:value={aeronave.precio_unidad_ma} />
+
+	<label for="fk_modelo_avion">Modelo Aeronave</label>
+	<select id="fk_modelo_avion" bind:value={aeronave.fk_modelo_avion}>
+		{#each modelos_avion as modelo}
+			<option value={modelo.codigo_ma}>{modelo.nombre_ma}</option>
+		{/each}
+	</select>
 
 	<button type="submit">Registrar Aeronave</button>
 </form>

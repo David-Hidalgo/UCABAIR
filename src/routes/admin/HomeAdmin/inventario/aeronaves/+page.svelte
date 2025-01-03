@@ -5,15 +5,13 @@
 	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
 	import type { PageData } from './$types';
-	import type { Modelo_avion } from './+page.server.ts';
+	import type { Modelo_avion, Caracteristica, Caracteristica_modelo } from './+page.server.ts';
+    import { writable } from 'svelte/store';
 	// const dispatch = createEventDispatcher();
+	import MostrarCaracteristicas from '$lib/components/mostrarCaracteristicas.svelte';
 
 	let { data }: { data: PageData } = $props();
 	let searchTerm = '';
-	function search() {
-		// Lógica de búsqueda
-		console.log(`Buscando: ${searchTerm}`);
-	}
 
 	let modelos_avion: Modelo_avion[] = new Array();
 	for (let index = 0; index < data.ma_table.length; index++) {
@@ -22,7 +20,7 @@
             nombre_ma: '',
             descripcion_ma: '',
             precio_unidad_ma: 0,
-            fk_modelo_avion: undefined
+            fk_modelo_avion: 0
 		};
         modelo_avion.codigo_ma = data.ma_table[index].codigo_ma;
         modelo_avion.nombre_ma = data.ma_table[index].nombre_ma;
@@ -32,10 +30,43 @@
         modelos_avion.push(modelo_avion);
 	};
 
+	let caracteristicas: Caracteristica[] = new Array();
+	for (let index = 0; index < data.car_table.length; index++) {
+		let caracteristica:  Caracteristica = {
+			codigo_car: 0,
+			nombre_car: ''
+		};
+		caracteristica.codigo_car = data.car_table[index].codigo_car;
+		caracteristica.nombre_car = data.car_table[index].nombre_car;
+		caracteristicas.push(caracteristica);
+	};
 
+	let caracteristicas_modelo: Caracteristica_modelo[] = new Array();
+	for (let index = 0; index < data.cm_table.length; index++) {
+		let caracteristica_modelo:  Caracteristica_modelo = {
+			valor_cm: 0,
+			unidad_medida_cm: '',
+			fk_caracteristica: 0,
+			fk_modelo_avion: 0
+		};
+		caracteristica_modelo.valor_cm = data.cm_table[index].valor_cm;
+		caracteristica_modelo.unidad_medida_cm = data.cm_table[index].unidad_medida_cm;
+		caracteristica_modelo.fk_caracteristica = data.cm_table[index].fk_caracteristica;
+		caracteristica_modelo.fk_modelo_avion = data.cm_table[index].fk_modelo_avion;
+		caracteristicas_modelo.push(caracteristica_modelo);
+	};
 
+	let caracteristicasPorAvion = modelos_avion.map(modelo => {
+		return {
+			modelo,
+			caracteristicas: caracteristicas_modelo.filter(cm => cm.fk_modelo_avion === modelo.codigo_ma)
+				.map(cm => {return {...cm,
+						caracteristica: caracteristicas.find(car => car.codigo_car === cm.fk_caracteristica)
+					};
+				})
+		};
+	});
 
-	
 	// Función para editar un registro
 	async function editarRegistro(modelo_avion: Modelo_avion) {
 		/*try {
@@ -58,12 +89,12 @@
 	}
 
     async function eliminarRegistro(modelo_avion: Modelo_avion) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/roles`, {
+		await fetch(`http://localhost:5173/admin/HomeAdmin/aeronaves`, {
 			method: 'DELETE',
-
 			body: JSON.stringify(modelo_avion.codigo_ma)
 		});
 	}
+
 
 </script>
 
@@ -75,6 +106,7 @@
 			<th>Nombre</th>
 			<th>Descripcion</th>
 			<th>Precio Unidad</th>
+			<th>Detalles</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -84,6 +116,12 @@
                 <td>{modelo_avion.nombre_ma}</td>
                 <td>{modelo_avion.descripcion_ma}</td>
                 <td>{modelo_avion.precio_unidad_ma}</td>
+				<td>{#each caracteristicasPorAvion.find(cpa => cpa.modelo.codigo_ma === modelo_avion.codigo_ma)?.caracteristicas as caracteristica}
+					<div>
+						<strong>{caracteristica.caracteristica.nombre_car}:</strong> {caracteristica.valor_cm} {caracteristica.unidad_medida_cm}
+					</div>
+					{/each}
+				</td>
 				<td>
 					<div class="botonesUD">
 						<a href="/admin/HomeAdmin/editar/mineral">

@@ -760,3 +760,25 @@ CREATE OR REPLACE PROCEDURE editar_persona(
     WHERE codigo_com=viejo_codigo;
 END;
 $$;
+
+CREATE OR REPLACE PROCEDURE insertar_aeronave(
+    codigo_ma2        INTEGER ,
+    nombre_ma2       VARCHAR(255),
+    descripcion_ma2   VARCHAR(255),
+    precio_unidad_ma2 REAL,
+    fk_modelo_avion2  INTEGER)
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO modelo_avion (codigo_ma,nombre_ma,descripcion_ma,precio_unidad_ma,fk_modelo_avion)
+    VALUES (codigo_ma2,nombre_ma2,descripcion_ma2,precio_unidad_ma2,fk_modelo_avion2);
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE eliminar_modelo_avion(
+    codigo INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    DELETE FROM modelo_avion WHERE codigo_ma=codigo;
+END;
+$$;

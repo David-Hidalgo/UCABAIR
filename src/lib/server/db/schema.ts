@@ -152,3 +152,15 @@ export interface Empleado_profesion {
     fk_profesion: number | undefined;
     fk_empleado: number | undefined;
 }
+
+export interface Caracteristica {
+	codigo_car: number | undefined;
+	nombre_car: string;
+}
+
+export interface Caracteristica_modelo {
+	valor_cm: number | undefined;
+	unidad_medida_cm: string;
+	fk_caracteristica: number | undefined;
+	fk_modelo_avion: number | undefined;
+}

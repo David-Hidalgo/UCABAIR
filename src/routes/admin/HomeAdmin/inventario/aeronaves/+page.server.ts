@@ -9,6 +9,18 @@ export interface Modelo_avion {
 	fk_modelo_avion: number | undefined;
 	}
 
+export interface Caracteristica {
+		codigo_car: number | undefined;
+		nombre_car: string;
+}
+	
+export interface Caracteristica_modelo {
+		valor_cm: number | undefined;
+		unidad_medida_cm: string;
+		fk_caracteristica: number | undefined;
+		fk_modelo_avion: number | undefined;
+}
+
 export const actions: Actions = {
 			delete: async (event) => {
 			const formData = await event.request.formData();
@@ -36,9 +48,10 @@ export const actions: Actions = {
 
 export const load: PageServerLoad = async ({ params }) => {
 
-	const ma_table = 	await dbPostgre<Modelo_avion[]>`
-    SELECT * FROM modelo_avion;`;
-    return {ma_table};
+	const ma_table = 	await dbPostgre<Modelo_avion[]>`SELECT * FROM modelo_avion;`;
+	const car_table = 	await dbPostgre<Caracteristica[]>`SELECT * FROM caracteristica;`;
+	const cm_table = 	await dbPostgre<Caracteristica_modelo[]>`SELECT * FROM caracteristica_modelo;`;
+    return {ma_table, car_table, cm_table};
 	
 };
 
