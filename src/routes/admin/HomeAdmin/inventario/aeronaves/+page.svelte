@@ -89,10 +89,11 @@
 	}
 
     async function eliminarRegistro(modelo_avion: Modelo_avion) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/aeronaves`, {
+		await fetch(`http://localhost:5173/admin/HomeAdmin/inventario/aeronaves`, {
 			method: 'DELETE',
 			body: JSON.stringify(modelo_avion.codigo_ma)
 		});
+		location.reload();
 	}
 
 

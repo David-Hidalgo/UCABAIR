@@ -766,7 +766,8 @@ CREATE OR REPLACE PROCEDURE insertar_aeronave(
     nombre_ma2       VARCHAR(255),
     descripcion_ma2   VARCHAR(255),
     precio_unidad_ma2 REAL,
-    fk_modelo_avion2  INTEGER)
+    fk_modelo_avion2  INTEGER
+    )
     LANGUAGE plpgsql
     AS $$ BEGIN
     INSERT INTO modelo_avion (codigo_ma,nombre_ma,descripcion_ma,precio_unidad_ma,fk_modelo_avion)
@@ -780,5 +781,29 @@ CREATE OR REPLACE PROCEDURE eliminar_modelo_avion(
     LANGUAGE plpgsql 
     AS $$ BEGIN
     DELETE FROM modelo_avion WHERE codigo_ma=codigo;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE insertar_caracteristica(
+    codigo_car2 INTEGER,
+    nombre_car2 VARCHAR(255)
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO caracteristica (codigo_car,nombre_car) 
+    VALUES (codigo_car2,nombre_car2);
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE insertar_caracteristica_modelo(
+    valor_cm2           INTEGER,
+    unidad_medida_cm2   VARCHAR(255),
+    fk_caracteristica2  INTEGER,
+    fk_modelo_avion2    INTEGER
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO caracteristica_modelo (valor_cm,unidad_medida_cm,fk_caracteristica,fk_modelo_avion) 
+    VALUES (valor_cm2,unidad_medida_cm2,fk_caracteristica2,fk_modelo_avion2);
 END;
 $$;

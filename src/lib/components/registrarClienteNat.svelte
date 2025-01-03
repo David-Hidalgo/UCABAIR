@@ -147,7 +147,7 @@ let telefono: Telefono = {
 
 		<label for="telefono1">Numero de Telefono</label>
 		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
-		<button type="button" on:click={() => telefonos.push({ ...telefono })}>Agregar Teléfono</button>
+		<button type="button" on:click={() => { telefonos.push({ ...telefono }); telefono = { codigo_tel: telefono.codigo_tel+1, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: cliente_nat.codigo_com, fk_empleado: 0 };alert('Telefono añadido') }}>Agregar Teléfono</button>
 	</div>
 
 	<p style="display: block; font-weight: bold;">Correo</p>
@@ -159,7 +159,7 @@ let telefono: Telefono = {
 
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
-		<button type="button" on:click={() => correos.push({ ...correo })}>Agregar Correo</button>
+		<button type="button" on:click={() => {correos.push({ ...correo }); correo ={ codigo_ce: correo.codigo_ce + 1, direccion_correo_ce: '', fk_persona: cliente_nat.codigo_com, fk_empleado: 0 };alert('Correo añadido')}}>Agregar Correo</button>
 	</div>
 
 	<label for="direccion">Dirección</label>
