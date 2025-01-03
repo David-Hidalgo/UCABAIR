@@ -4200,8 +4200,8 @@ INSERT INTO detalle_compra (cantidad_dc, precio_unitario_dc, fk_compra, codigo_d
 (1400, 50, 46, 46, 142),
 (1600, 50, 47, 47, 143),
 (1800, 50, 48, 48, 144),
-(2000, 50, 49, 49, 97),
-(2200, 50, 50, 50, 98);
+(2000, 50, 49, 49, 100),
+(2200, 50, 50, 50, 115);
 
 INSERT INTO transporte (codigo_tra, fecha_hora_inicio_tra, fecha_hora_fin_tra, fk_plan_transporte, fk_transferencia_pieza_material, fk_equipo_empleado, fk_equipo_empleado2, fk_detalle_compra, fk_detalle_compra2, fk_detalle_compra3) VALUES
 (1, '2024-12-01', '2024-12-02', 1, 1, 6, 9, NULL, NULL, NULL),  
