@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	export let codigo_com;
+	export let codigo_com,fk_usuario
 	// Interfaz para representar un empleado
 	
 	interface Persona {
@@ -52,7 +52,7 @@ let cliente_nat: Persona = {
 	tipo_com: 'cliente',
 	nacionalidad_com: '',
 	fk_lugar: Math.floor(Math.random() * 360) + 1,
-	fk_usuario: 185,
+	fk_usuario: fk_usuario,
 	tipo_persona_com: 'natural',
 	rif_jur: '',
 	denominacion_persona_jur: '',
@@ -84,7 +84,6 @@ let telefono: Telefono = {
 
 	// Función para manejar el envío del formulario
 	async function registrarCliente() {
-		console.log(cliente_nat);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/cliente`, {
 			method: 'POST',
 			body: JSON.stringify(cliente_nat),
@@ -115,7 +114,7 @@ let telefono: Telefono = {
 </script>
 
 <form on:submit|preventDefault={registrarCliente}>
-	<h2>Registrar Cliente</h2>
+	<h2>Registrar Cliente natural</h2>
 
 	<label for="usuario">Numero Usuario</label>
 	<input id="usuario" bind:value={cliente_nat.fk_usuario} />

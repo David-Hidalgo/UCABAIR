@@ -1,12 +1,15 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import RegistroNat from '$lib/components/registrarClienteNat.svelte';
 	import RegistroJur from '$lib/components/registrarClienteJur.svelte';
-	let selectedComponent= RegistroNat;
-
+	let selectedComponent= $state(RegistroNat);
+	let codigo_usu = $state(-1);;
     function seleccionarComponente(tipoCliente: string) {
         switch (tipoCliente) {
             case 'Natural':
                 selectedComponent = RegistroNat;
+				console.log("natural");
+				
                 break;
             case 'Juridico':
                 selectedComponent = RegistroJur;
@@ -15,18 +18,65 @@
                 selectedComponent = RegistroNat;
         }
     }
-</script>
-		<div>
-			<button on:click={() => seleccionarComponente('Natural')}>Persona Natural</button>
-			<button on:click={() => seleccionarComponente('Juridico')}>Persona Jurídica</button>
-		</div>
-		
-		{#if selectedComponent}
-			<svelte:component this={selectedComponent}  codigo_com={null}/>
-		{/if}
+	async function handleSubmit(event: Event) {
+        event.preventDefault();
+        const form = event.target as HTMLFormElement;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+		console.log(data);
+        try {
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-		<style>
+            if (!response.ok) {
+				console.log(response);
+                throw new Error('Network response was not ok');
+
+            }
+
+            const result = await response.json();
+            codigo_usu = result;
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+	let registrado:boolean=$state(false);
+</script>
+		
+		<!-- {#if }-->
+		<form onsubmit="{handleSubmit}">
+			<label>Usuario<input name="username" /></label>
+			<label>Contraseña<input type="password" name="password" /></label>
+			<button type="submit" onclick={() => {codigo_usu=codigo_usu} }>Asignar usuario</button>
+		</form>
+
+		<!-- {/if }-->
+		{#if codigo_usu!=-1}
+		<div class="botonesForm">
+			<button onclick={() => seleccionarComponente('Natural')}>Persona Natural</button>
+			<button onclick={() => seleccionarComponente('Juridico')}>Persona Jurídica</button>
+		</div>
+			{#if selectedComponent}
+				<!-- svelte-ignore svelte_component_deprecated -->
+				<svelte:component this={selectedComponent} fk_usuario={	codigo_usu } codigo_com={null}/>
+			{/if}
+		{/if }
+		
+<style>
 			/* Estilos generales para el formulario */
+
+			.botonesForm{
+				display: flex;
+				justify-content: center;
+				margin-top: 20px;
+				gap: 10px;
+			}
 			form {
 				max-width: 100%;
 				margin: 0 auto;

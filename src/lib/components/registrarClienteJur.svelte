@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	export let codigo_com ;
+	export let codigo_com,fk_usuario;
 	
 	// Interfaz para representar un empleado
 interface Persona {
@@ -52,7 +52,7 @@ let cliente_jur: Persona = {
 	tipo_com: 'cliente',
 	nacionalidad_com: '',
 	fk_lugar: Math.floor(Math.random() * 360) + 1,
-	fk_usuario: 186,
+	fk_usuario: fk_usuario,
 	tipo_persona_com: 'juridico',
 	rif_jur: '',
 	denominacion_persona_jur: '',
@@ -115,7 +115,7 @@ let telefono: Telefono = {
 </script>
 
 <form on:submit|preventDefault={registrarCliente}>
-	<h2>Registrar Usuario</h2>
+	<h2>Registrar Cliente Juridico</h2>
 
 	<label for="usuario">Numero Usuario</label>
 	<input id="usuario" bind:value={cliente_jur.fk_usuario} />

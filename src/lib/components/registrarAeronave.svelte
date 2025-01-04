@@ -49,7 +49,7 @@
 		fk_modelo_avion: aeronave.codigo_ma
 	};
 
-	async function actualizarRol() {
+	async function actualizarAeronave() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/rol`, {
 			method: 'PUT',
 			body: JSON.stringify({aeronave:aeronave , codigo_viejo:codigo_viejo, caracteristicas:caracteristicas, caracteristicas_modelo:caracteristicas_modelo}),

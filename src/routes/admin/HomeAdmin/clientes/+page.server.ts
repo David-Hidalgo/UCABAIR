@@ -39,6 +39,13 @@ export interface Correo_electronico {
 	fk_empleado: number | undefined;
 }
 
+export interface Usuario {
+    codigo_usu: number | undefined;
+    nombre_usu: string;
+    contrasena_usu: string;
+    fk_rol: number | undefined;
+}
+
 /*export const actions: Actions = {
             delete: async (event) => {
             const formData = await event.request.formData();
@@ -70,6 +77,7 @@ export const load: PageServerLoad = async ({ params }) => {
     const jur_table = await dbPostgre<Persona[]>`SELECT * FROM persona WHERE tipo_persona_com = 'juridico' and tipo_com ='cliente';`;
     const tel_table = await dbPostgre<Telefono[]>`SELECT * FROM telefono;`;
     const email_table = await dbPostgre<Correo_electronico[]>`SELECT * FROM correo_electronico;`;
-    return {nat_table,jur_table,tel_table,email_table};
+	const user_table = await dbPostgre<Usuario[]>`SELECT * FROM usuario;`;
+    return {nat_table,jur_table,tel_table,email_table, user_table};
 };
 

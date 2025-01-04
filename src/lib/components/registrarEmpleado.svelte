@@ -4,6 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { format } from 'date-fns';
 
+
 	let empleado: Empleado;
 	let codigo_viejo: number;
 	let telefonos: Telefono[] = [];
@@ -68,6 +69,7 @@
 		goto('/admin/HomeAdmin/empleado');
 	}
 	async function registrarEmpleado() {
+		console.log(empleado);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/empleado`, {
 			method: 'POST',
 			body: JSON.stringify(empleado),
@@ -97,7 +99,7 @@
 	}
 </script>
 
-<form on:submit|preventDefault={registrarEmpleado}>
+<form onsubmit={registrarEmpleado}>
 	<h2>Registrar Empleado</h2>
 
 	<label for="usuario">Numero Usuario</label>
@@ -133,7 +135,7 @@
 
 		<label for="telefono1">Numero de Telefono</label>
 		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
-		<button type="button" on:click={() => { telefonos.push({ ...telefono }); telefono = { codigo_tel: telefono.codigo_tel+1, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: 0, fk_empleado: empleado.codigo_empleado_per };alert('Telefono añadido') }}>Agregar Teléfono</button>
+		<button type="button" onclick={() => { telefonos.push({ ...telefono }); telefono = { codigo_tel: telefono.codigo_tel+1, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: 0, fk_empleado: empleado.codigo_empleado_per };alert('Telefono añadido') }}>Agregar Teléfono</button>
 	
 	</div>
 
@@ -147,14 +149,16 @@
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
 
-		<button type="button" on:click={() => {correos.push({ ...correo }); correo ={ codigo_ce: correo.codigo_ce + 1, direccion_correo_ce: '', fk_persona: 0, fk_empleado:empleado.codigo_empleado_per };alert('Correo añadido')}}>Agregar Correo</button>
+		<button type="button" onclick={() => {correos.push({ ...correo }); correo ={ codigo_ce: correo.codigo_ce + 1, direccion_correo_ce: '', fk_persona: 0, fk_empleado:empleado.codigo_empleado_per };alert('Correo añadido')}}>Agregar Correo</button>
 	</div>
 
 	<label for="direccion">Dirección</label>
 	<input id="direccion" bind:value={empleado.direccion_per} />
 
 	<label for="fechaInicio">Fecha de Inicio de Servicio</label>
-	<input id="fechaInicio" type="date" bind:value={empleado.fecha_inicio_servicio_per} />
+	<input id="fechaInicio" type="date" bind:value={empleado.fecha_inicio_servicio_per} onchange="{
+	()=>{console.log(empleado.fecha_inicio_servicio_per);}
+	}" />
 	
 	<label for="sueldo">Sueldo</label>
 	<input id="sueldo" bind:value={empleado.sueldo_per} />

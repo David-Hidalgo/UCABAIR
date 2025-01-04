@@ -16,7 +16,7 @@ export interface Empleado {
 	correo_per: Correo_electronico[];
 	//labor_per: string;
 	fk_lugar: number | undefined;
-    usuario: Usuario;
+    fk_usuario: number | undefined;
 }
 
 export interface Usuario {
@@ -83,7 +83,6 @@ export interface Correo_electronico {
 export const load: PageServerLoad = async ({ params }) => {
 
     const roltable = await dbPostgre<Empleado[]>`SELECT * FROM empleado;`;
-    
     const tel_table = await dbPostgre<Telefono[]>`SELECT * FROM telefono;`;
     const email_table = await dbPostgre<Correo_electronico[]>`SELECT * FROM correo_electronico;`;
     const profesion_table = await dbPostgre<Profesion[]>`SELECT * FROM profesion;`;

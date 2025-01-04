@@ -4,6 +4,7 @@
 	import type { PageData } from './$types';
 	import type { Empleado, Profesion,Empleado_profesion, Telefono, Correo_electronico, Usuario} from './+page.server.ts';
 	import { goto } from '$app/navigation';
+	import { toDate } from 'date-fns';
 	let { data }: { data: PageData } = $props();
 
 	let searchTerm = '';
@@ -110,7 +111,7 @@ for (let index = 0; index < data.email_table.length; index++) {
 			correo_per: [],
 			//labor_per: '',
 			fk_lugar: undefined,
-			usuario: {codigo_usu: undefined,nombre_usu: '',contrasena_usu: '',fk_rol: undefined}
+			fk_usuario: undefined,
 		};
 
 		empleado.codigo_empleado_per = data.roltable[index].codigo_empleado_per;
@@ -122,12 +123,11 @@ for (let index = 0; index < data.email_table.length; index++) {
         empleado.direccion_per = data.roltable[index].direccion_per;
 		empleado.telefono_per = telefonos.filter(telefono => telefono.fk_empleado === empleado.codigo_empleado_per);
 		empleado.correo_per = correos.filter(correo => correo.fk_empleado === empleado.codigo_empleado_per);
+		empleado.fk_usuario = data.roltable[index].fk_usuario;
 		empleado.empleado_profesion = empleados_profesiones.filter(empleado_profesion => empleado_profesion.fk_empleado === empleado.codigo_empleado_per);
-		// empleado.usuario = usuarios.find(usuario => usuario.codigo_usu === data.roltable[index].fk_usuario);
-        empleado.fecha_inicio_servicio_per = data.roltable[index].fecha_inicio_servicio_per;
+		empleado.fecha_inicio_servicio_per = data.roltable[index].fecha_inicio_servicio_per;
         empleado.sueldo_per = data.roltable[index].sueldo_per;
        // empleado.fk_lugar = data.roltable[index].fk_lugar;
-       // empleado.fk_usuario = data.roltable[index].fk_usuario;
 		empleados.push(empleado);
 	};
 
@@ -173,6 +173,7 @@ for (let index = 0; index < data.email_table.length; index++) {
             <th>Direccion</th>
 			<th>Telefono</th>
 			<th>Correo</th>
+			<th>Usuario</th>
 			<th>Profesion</th>
 			<th>Experiencia</th>
             <th>Fecha inicio servicio</th>
@@ -189,9 +190,10 @@ for (let index = 0; index < data.email_table.length; index++) {
                 <td>{empleado.direccion_per}</td>
 				<td>{empleado.telefono_per.map(tel => tel.numero_telefono_tel).join(', ')}</td>
 				<td>{empleado.correo_per.map(correo => correo.direccion_correo_ce).join(', ')}</td>
+				<td>{usuarios.find(usuario => usuario.codigo_usu === empleado.fk_usuario)?.nombre_usu}</td>
 				<td>{empleado.empleado_profesion.map(profesion => profesiones.find(prof => prof.codigo_pro === profesion.fk_profesion)?.nombre_pro).join(', ')}</td>
 				<td>{empleado.empleado_profesion.map(profesion => profesion.experiencia_profesional_ep).join(', ')}</td>
-				<td>{empleado.fecha_inicio_servicio_per}</td>
+				<td>{empleado.fecha_inicio_servicio_per ? empleado.fecha_inicio_servicio_per.toLocaleString() : 'N/A'}</td>
                 <td>{empleado.sueldo_per}</td>
 				<td>
 					<div class="botonesUD">

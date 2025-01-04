@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { ActionData } from './$types';
 import type { PageData } from './$types';
-import type { Persona, Telefono, Correo_electronico } from './+page.server.ts';
+import type { Persona, Telefono, Correo_electronico, Usuario } from './+page.server.ts';
 import { goto } from '$app/navigation';
 let { data }: { data: PageData } = $props();
 
@@ -9,6 +9,21 @@ let searchTerm = '';
 function search() {
     // Lógica de búsqueda
     console.log(`Buscando: ${searchTerm}`);
+}
+
+let usuarios: Usuario[] = new Array();
+for (let index = 0; index < data.user_table.length; index++) {
+	let usuario: Usuario = {
+		codigo_usu: undefined,
+		nombre_usu: '',
+		contrasena_usu: '',
+		fk_rol: undefined
+	}
+	usuario.codigo_usu = data.user_table[index].codigo_usu;
+	usuario.nombre_usu = data.user_table[index].nombre_usu;
+	usuario.contrasena_usu = data.user_table[index].contrasena_usu;
+	usuario.fk_rol = data.user_table[index].fk_rol;
+	usuarios.push(usuario);
 }
 
 let telefonos: Telefono[] = new Array();
@@ -163,6 +178,7 @@ async function eliminarRegistro(persona: Persona) {
             <th>Apellido</th>
             <th>Teléfono</th>
             <th>Correo</th>
+            <th>Usuario</th>
             <th>Dirección</th>
             <th>Monto Acreditado</th>
             <th>Fecha Inicio Operación</th>
@@ -176,6 +192,7 @@ async function eliminarRegistro(persona: Persona) {
 				<td>{dato.primer_apellido_nat} {' '} {dato.segundo_apellido_nat}</td>
                 <td>{dato.telefonos.map(tel => tel.numero_telefono_tel).join(', ')}</td>
 				<td>{dato.correos_electronicos.map(correo => correo.direccion_correo_ce).join(', ')}</td>
+                <td>{usuarios.find(usuario => usuario.codigo_usu === dato.fk_usuario)?.nombre_usu}</td>
 				<td>{dato.direccion_com}</td>
 				<td>{dato.monto_acreditado_com}</td>
 				<td>{dato.fecha_inicio_operacion_com}</td>
@@ -208,6 +225,7 @@ async function eliminarRegistro(persona: Persona) {
             <th>Nacionalidad</th>
             <th>Teléfono</th>
             <th>Correo</th>
+            <th>Usuario</th>
             <th>Dirección</th>
             <th>Monto Acreditado</th>
             <th>Fecha Inicio Operación</th>
@@ -222,6 +240,7 @@ async function eliminarRegistro(persona: Persona) {
 				<td>{dato.nacionalidad_com}</td>
                 <td>{dato.telefonos.map(tel => tel.numero_telefono_tel).join(', ')}</td>
 				<td>{dato.correos_electronicos.map(correo => correo.direccion_correo_ce).join(', ')}</td>
+                <td>{usuarios.find(usuario => usuario.codigo_usu === dato.fk_usuario)?.nombre_usu}</td>
 				<td>{dato.direccion_com}</td>
 				<td>{dato.monto_acreditado_com}</td>
 				<td>{dato.fecha_inicio_operacion_com}</td>
