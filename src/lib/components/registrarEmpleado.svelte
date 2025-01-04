@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Empleado,Telefono,Correo_electronico } from '$lib/server/db/schema';
-	export let id_editar: Empleado | undefined;
+	export let id_editar: Empleado | undefined, fk_usuario: number;
 	import { goto } from '$app/navigation';
 	import { format } from 'date-fns';
 
@@ -29,7 +29,7 @@
 			telefono_per: [],
 			correo_per: [],
 			fk_lugar: Math.floor(Math.random() * 300)+1,
-			fk_usuario: 0
+			fk_usuario: fk_usuario
 	};
 	}
 
@@ -135,7 +135,9 @@
 
 		<label for="telefono1">Numero de Telefono</label>
 		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
-		<button type="button" onclick={() => { telefonos.push({ ...telefono }); telefono = { codigo_tel: telefono.codigo_tel+1, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: 0, fk_empleado: empleado.codigo_empleado_per };alert('Telefono añadido') }}>Agregar Teléfono</button>
+		<button type="button" onclick={() => { telefonos.push({ ...telefono });
+		 telefono = { codigo_tel: telefono.codigo_tel, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: 0, fk_empleado: empleado.codigo_empleado_per };
+		 alert('Telefono añadido') }}>Agregar Teléfono</button>
 	
 	</div>
 

@@ -22,7 +22,7 @@
 		</div>
 		
 		{#if selectedComponent}
-			<svelte:component this={selectedComponent}  codigo_com={null}/>
+			<svelte:component this={selectedComponent}  codigo_com={null}, fk_usuario={null}/>
 		{/if}
 
 		<style>

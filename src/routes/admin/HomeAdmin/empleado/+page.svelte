@@ -166,7 +166,6 @@ for (let index = 0; index < data.email_table.length; index++) {
 <table>
 	<thead>
 		<tr>
-			<th>Codigo</th>
 			<th>Nombres</th>
             <th>Apellidos</th>
             <th>Cedula</th>
@@ -183,7 +182,6 @@ for (let index = 0; index < data.email_table.length; index++) {
 	<tbody>
 		{#each empleados as empleado}
 			<tr>
-				<td>{empleado.codigo_empleado_per}</td>
 				<td>{empleado.primer_nombre_per}{' '} {empleado.segundo_nombre_per}</td>
                 <td>{empleado.primer_apellido_per}{' '}{empleado.segundo_apellido_per}</td>
                 <td>{empleado.cedula_per}</td>

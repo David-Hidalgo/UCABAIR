@@ -123,7 +123,6 @@ export interface Persona {
 	telefonos: Telefono[];
 	correos_electronicos: Correo_electronico[];
 }
-
 export interface Telefono {
 	codigo_tel: number | undefined;
 	numero_telefono_tel: string;

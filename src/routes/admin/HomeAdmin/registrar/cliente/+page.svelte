@@ -48,7 +48,7 @@
 
 	let registrado:boolean=$state(false);
 </script>
-		
+		<h1>Registrar Cliente</h1>
 		<!-- {#if }-->
 		<form onsubmit="{handleSubmit}">
 			<label>Usuario<input name="username" /></label>

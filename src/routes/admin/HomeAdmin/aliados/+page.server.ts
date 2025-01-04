@@ -11,7 +11,7 @@ export interface Proveedor {
     telefono_com: Telefono[];
     correo_com: Correo_electronico[];
 	monto_acreditado_com: number | undefined;
-	fecha_inicio_operaciones_com: string;
+	fecha_inicio_operacion_com: Date;
 }
 
 export interface Telefono {

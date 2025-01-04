@@ -47,7 +47,7 @@ CREATE TABLE caracteristica_pieza (
     fk_caracteristica    INTEGER NOT NULL
 );
 CREATE TABLE persona (
-    codigo_com                 INTEGER NOT NULL,
+    codigo_com                 SERIAL NOT NULL,
     direccion_com              VARCHAR(516) NOT NULL,
     monto_acreditado_com       REAL NOT NULL,
     fecha_inicio_operacion_com DATE NOT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE configuracion_pieza (
     fk_sede                       INTEGER NOT NULL
 );
 CREATE TABLE correo_electronico (
-    codigo_ce           INTEGER NOT NULL,
+    codigo_ce           serial NOT NULL,
     direccion_correo_ce VARCHAR(255) NOT NULL,
     fk_persona        INTEGER,
     fk_empleado 	INTEGER
@@ -407,7 +407,7 @@ CREATE TABLE solicitud_transferencia (
     fk_sede2		     INTEGER NOT NULL
 );
 CREATE TABLE telefono (
-    codigo_tel            INTEGER NOT NULL,
+    codigo_tel            SERIAL NOT NULL,
     numero_telefono_tel   VARCHAR NOT NULL,
     codigo_area_tel       VARCHAR(30) NOT NULL,
     fk_persona          INTEGER,
@@ -607,7 +607,6 @@ END;
 $$;
 
 CREATE OR REPLACE PROCEDURE insertar_telefono(
-    codigo_tel2            INTEGER,
     numero_telefono_tel2   VARCHAR,
     codigo_area_tel2       VARCHAR(30),
     fk_persona2          INTEGER,
@@ -615,20 +614,19 @@ CREATE OR REPLACE PROCEDURE insertar_telefono(
     ) 
     LANGUAGE plpgsql
     AS $$ BEGIN
-    INSERT INTO telefono (codigo_tel, numero_telefono_tel,codigo_area_tel,fk_persona,fk_empleado) 
-    VALUES (codigo_tel2,numero_telefono_tel2,codigo_area_tel2,fk_persona2,fk_empleado2);
+    INSERT INTO telefono (numero_telefono_tel,codigo_area_tel,fk_persona,fk_empleado) 
+    VALUES (numero_telefono_tel2,codigo_area_tel2,fk_persona2,fk_empleado2);
 END;
 $$;	
 
 CREATE OR REPLACE PROCEDURE insertar_correo(
-    codigo_ce2           INTEGER ,
     direccion_correo_ce2 VARCHAR(255),
     fk_persona2        INTEGER,
     fk_empleado2 	INTEGER
     ) 
     LANGUAGE plpgsql
     AS $$ BEGIN
-    INSERT INTO correo_electronico (codigo_ce, direccion_correo_ce,fk_persona,fk_empleado) 
+    INSERT INTO correo_electronico (direccion_correo_ce,fk_persona,fk_empleado) 
     VALUES (codigo_ce2,direccion_correo_ce2,fk_persona2,fk_empleado2);
 END;
 $$;
@@ -689,7 +687,6 @@ END;
 $$;
 
 CREATE OR REPLACE PROCEDURE insertar_persona( 
-    codigo                 INTEGER,
     direccion             VARCHAR(516),
     monto_acreditado       REAL,
     fecha_inicio_operacion DATE,

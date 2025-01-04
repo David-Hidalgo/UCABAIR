@@ -198,10 +198,12 @@ async function eliminarRegistro(persona: Persona) {
 				<td>{dato.fecha_inicio_operacion_com}</td>
 				<td>
 					<div class="botonesUD">
-						<button onclick={() => editarRegistro(dato)}>
-							<span>✏️</span>
-							<!-- Icono de lápiz -->
-						</button>
+						<a href='/admin/HomeAdmin/editar/cliente/{dato.codigo_com}?tipo=natural '>
+							<button onclick={() => editarRegistro(dato)}>
+                                <span>✏️</span>
+								<!-- Icono de lápiz -->
+							</button>
+						</a>
 						<button onclick={() => eliminarRegistro(dato)}>
 							<span>🗑️</span>
 							<!-- Icono de papelera -->
@@ -232,21 +234,22 @@ async function eliminarRegistro(persona: Persona) {
 		</tr>
 	</thead>
 	<tbody>
-		{#each clientes_jur as dato}
-			<tr>
-                <td>{dato.rif_jur}</td>
-				<td>{dato.razon_social_jur}</td>
-				<td>{dato.denominacion_persona_jur}</td>
-				<td>{dato.nacionalidad_com}</td>
-                <td>{dato.telefonos.map(tel => tel.numero_telefono_tel).join(', ')}</td>
-				<td>{dato.correos_electronicos.map(correo => correo.direccion_correo_ce).join(', ')}</td>
-                <td>{usuarios.find(usuario => usuario.codigo_usu === dato.fk_usuario)?.nombre_usu}</td>
-				<td>{dato.direccion_com}</td>
-				<td>{dato.monto_acreditado_com}</td>
-				<td>{dato.fecha_inicio_operacion_com}</td>
-				<td>
-					<div class="botonesUD">
-						<button onclick={() => editarRegistro(dato)}>
+        {#each clientes_jur as dato}
+        <tr>
+            <td>{dato.rif_jur}</td>
+            <td>{dato.razon_social_jur}</td>
+            <td>{dato.denominacion_persona_jur}</td>
+            <td>{dato.nacionalidad_com}</td>
+            <td>{dato.telefonos.map(tel => tel.numero_telefono_tel).join(', ')}</td>
+            <td>{dato.correos_electronicos.map(correo => correo.direccion_correo_ce).join(', ')}</td>
+            <td>{usuarios.find(usuario => usuario.codigo_usu === dato.fk_usuario)?.nombre_usu}</td>
+            <td>{dato.direccion_com}</td>
+            <td>{dato.monto_acreditado_com}</td>
+            <td>{dato.fecha_inicio_operacion_com}</td>
+            <td>
+                <div class="botonesUD">
+                    <a href='/admin/HomeAdmin/editar/cliente/{dato.codigo_com}?tipo=juridico'>
+                    <button onclick={() => editarRegistro(dato)}>
 							<span>✏️</span>
 							<!-- Icono de lápiz -->
 						</button>

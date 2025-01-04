@@ -62,7 +62,7 @@ for (let index = 0; index < data.email_table.length; index++) {
 			correo_com: [],
 			direccion_com: '',
 			monto_acreditado_com:undefined,
-			fecha_inicio_operaciones_com: 'hola'
+			fecha_inicio_operacion_com: new Date()
 		};
 		proveedor.codigo_com = data.roltable[index].codigo_com;
 		proveedor.rif_jur = data.roltable[index].rif_jur;
@@ -73,7 +73,7 @@ for (let index = 0; index < data.email_table.length; index++) {
 		proveedor.correo_com = correos.filter(correo => correo.fk_persona === proveedor.codigo_com);
         proveedor.direccion_com = data.roltable[index].direccion_com;
         proveedor.monto_acreditado_com = data.roltable[index].monto_acreditado_com;
-        proveedor.fecha_inicio_operaciones_com = data.roltable[index].fecha_inicio_operaciones_com;
+        proveedor.fecha_inicio_operacion_com = data.roltable[index].fecha_inicio_operacion_com;
 		proveedores.push(proveedor);
 	};
 
@@ -123,7 +123,6 @@ for (let index = 0; index < data.email_table.length; index++) {
             <th>Monto acreditado</th>
             <th>Fecha inicio operaciones</th>
 			<th>Estado</th>
-			<th>Usuario</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -138,7 +137,7 @@ for (let index = 0; index < data.email_table.length; index++) {
                 <td>{proveedor.pagina_web_jur}</td>
                 <td>{proveedor.direccion_com}</td>
                 <td>{proveedor.monto_acreditado_com}</td>
-                <td>{proveedor.fecha_inicio_operaciones_com}</td>
+                <td>{proveedor.fecha_inicio_operacion_com.toLocaleDateString()}</td>
 				<td>
 					<div class="botonesUD">
 						<a href='/admin/HomeAdmin/editar/aliado/{proveedor.codigo_com}'>
