@@ -1,16 +1,24 @@
 <script lang="ts">
     
-	import type { ActionData } from './$types';
-    
-
-    async function Descargar() {
-        
-        window.location.href = 'http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&ParentFolderUri=%2Freports&reportUnit=%2Freports%2FPrueba&standAlone=true';
-        
-        
-    }
 </script>
 
+<style>
+    
+    .container {
+        padding: 20px;
+        text-align: center;
+    }
 
-    <button id="downloadButton" onclick={Descargar}>Ir al Reporte Prueba</button>
+    iframe {
+        width: 80%;
+        height: 600px;
+        border: none;
+    }
+</style>
+
+<div class="container">
+    <h1>Mi Página con JasperServer</h1>
+    <iframe src='http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&ParentFolderUri=%2Freports&reportUnit=%2Freports%2FProveedoresYSusProductos&standAlone=true'></iframe>
+</div>
+
 

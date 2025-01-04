@@ -587,7 +587,7 @@ CREATE OR REPLACE PROCEDURE editar_rol(
     nombre_rolN VARCHAR(255),
     descripcionN VARCHAR(255),
     viejo_codigo_rolN INTEGER,
-    privilegios INTEGER[]
+    privilegios TEXT[]
     ) 
     LANGUAGE plpgsql 
     AS $$ 
