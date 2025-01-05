@@ -804,3 +804,63 @@ CREATE OR REPLACE PROCEDURE insertar_caracteristica_modelo(
     VALUES (valor_cm2,unidad_medida_cm2,fk_caracteristica2,fk_modelo_avion2);
 END;
 $$;
+
+CREATE OR REPLACE PROCEDURE insertar_tipo_pieza( 
+    codigo_tp2           INTEGER,
+    nombre_tp2          VARCHAR(255),
+    descripcion_tp2      VARCHAR(255),
+    fk_tipo_pieza2       INTEGER,
+    precio_unidad_tp2    REAL
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO tipo_pieza (codigo_tp,nombre_tp,descripcion_tp,fk_tipo_pieza,precio_unidad_tp) 
+    VALUES (codigo_tp2,nombre_tp2,descripcion_tp2,fk_tipo_pieza2, precio_unidad_tp2);
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE eliminar_tipo_pieza(
+    codigo INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    DELETE FROM modelo_avion WHERE codigo_tp=codigo;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE eliminar_tipo_materia_prima(
+    codigo INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    DELETE FROM tipo_materia_prima WHERE codigo_tmp=codigo;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE insertar_tipo_materia_prima(
+    codigo_tmp2        INTEGER,
+    nombre_tmp2        VARCHAR(255),
+    descripcion_tmp2   VARCHAR(255),
+    unidad_medida_tmp2 VARCHAR(255)
+    ) 
+    LANGUAGE plpgsql
+    AS $$ BEGIN
+    INSERT INTO tipo_materia_prima (codigo_tmp, nombre_tmp, descripcion_tmp, unidad_medida_tmp) 
+    VALUES (codigo_tmp2, nombre_tmp2, descripcion_tmp2, unidad_medida_tmp2);
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE editar_tipo_materia_prima(
+    codigo_tmp2        INTEGER,
+    nombre_tmp2        VARCHAR(255),
+    descripcion_tmp2   VARCHAR(255),
+    unidad_medida_tmp2 VARCHAR(255),
+    codigo_tmpN        INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    UPDATE tipo_materia_prima 
+    SET codigo_tmp = codigo_tmp2, nombre_tmp = nombre_tmp2, descripcion_tmp = descripcion_tmp2, unidad_medida_tmp = unidad_medida_tmp2
+    WHERE codigo_tmp = codigo_tmpN;
+END;
+$$;

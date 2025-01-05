@@ -1,34 +1,59 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import type {Tipo_materia_prima} from '$lib/server/db/schema'
+	export let id_editar: Tipo_materia_prima | undefined;
 	// Interfaz para representar un dato
-	interface Materia_Prima {
-		codigo_tmp: number;
-		nombre_tmp: string;
-		descripcion_tmp: string;
-		precio_tmp: number;
-		unidad_medida_tmp: string;
-		cantidad_tmp: number;
+	let materia_prima: Tipo_materia_prima;
+	let codigo_viejo: number;
+	if (id_editar!=undefined) {
+		materia_prima = id_editar;
+		if (id_editar.codigo_tmp)
+		codigo_viejo=id_editar.codigo_tmp
+	} else {
+		materia_prima = {
+			codigo_tmp: undefined,
+			nombre_tmp: '',
+			descripcion_tmp: '',
+			unidad_medida_tmp: ''
+		};
 	}
 
-	export let materia_prima: Materia_Prima = {
-		codigo_tmp: 0,
-		nombre_tmp: '',
-		descripcion_tmp: '',
-		precio_tmp: 0,
-		unidad_medida_tmp: '',
-		cantidad_tmp: 0
-	};
+	async function decide() {
+		
+		if (id_editar==undefined) {
+			registrarMateriaPrima();
+		} else {
+			actualizarMateriaPrima();
+		}
+	}
+
+	async function actualizarMateriaPrima() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/materia_prima`, {
+			method: 'PUT',
+			body: JSON.stringify({materia_prima:materia_prima , codigo_viejo:codigo_viejo}),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+		alert('Rol modificado con exito');
+		goto('/admin/HomeAdmin/inventario/materia_prima');
+	}
 
 	// Función para manejar el envío del formulario
-	function registrarDato() {
-		// Aquí iría la lógica para procesar los datos del formulario
-		console.log('Registrando dato:', materia_prima);
+	async function registrarMateriaPrima() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/materia_prima`, {
+			method: 'POST',
+			body: JSON.stringify(materia_prima),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+
+
+		alert('Rol agregado con exito');
 		goto('/admin/HomeAdmin/inventario/materia_prima');
-		alert('Se agregó exitosamente la materia prima');
 	}
 </script>
 
-<form on:submit|preventDefault={registrarDato}>
+<form on:submit|preventDefault={decide}>
 	<h2>Registrar Materia Prima</h2>
 
 	<label for="codigo_tmp">Código</label>
@@ -40,14 +65,8 @@
 	<label for="descripcion_tmp">Descripción</label>
 	<input id="descripcion_tmp" bind:value={materia_prima.descripcion_tmp} />
 
-	<label for="precio_tmp">Precio</label>
-	<input id="precio_tmp" bind:value={materia_prima.precio_tmp} />
-
 	<label for="unidad_medida_tmp">Unidad de Medida</label>
 	<input id="unidad_medida_tmp" bind:value={materia_prima.unidad_medida_tmp} />
-
-	<label for="cantidad_tmp">Cantidad a Registrar</label>
-	<input id="cantidad_tmp" bind:value={materia_prima.cantidad_tmp} />
 
 	<button type="submit">Registrar Materia Prima</button>
 </form>

@@ -1,7 +1,7 @@
 import {dbPostgre } from '$lib/server/db';
 import type { Actions,PageServerLoad } from './$types';
 
-export interface Tipo_materia_prima {
+export interface Tipo_pieza {
 	codigo_tmp: number | undefined;
 	nombre_tmp: string;
 	descripcion_tmp: string;
@@ -21,20 +21,20 @@ export const actions: Actions = {
 			const formData = await event.request.formData();
 			console.log(formData);
 			
-			const codigo_tmp  = formData.get('codigo');
+			const codigo_tp  = formData.get('codigo');
 
-			if (!codigo_tmp) {
+			if (!codigo_tp) {
 				return { status: 400, body: { message: 'Invalid data' } };
 			}
-			const palabra : string = codigo_tmp.toString();
+			const palabra : string = codigo_tp.toString();
 			console.log(palabra);
 			
-			await dbPostgre`CALL eliminar_tipo_materia_prima(${palabra});`;
+			await dbPostgre`CALL eliminar_tipo_pieza(${palabra});`;
 
 			return {
 				status: 302,
 				headers: {
-					location: '/admin/HomeAdmin/inventario/materia_prima'
+					location: '/admin/HomeAdmin/inventario/pieza'
 				}
 			};
 			}
@@ -43,7 +43,7 @@ export const actions: Actions = {
 
 export const load: PageServerLoad = async ({ params }) => {
 
-	const tmp_table = 	await dbPostgre<Tipo_materia_prima[]>`SELECT * FROM tipo_materia_prima;`;
+	const tp_table = 	await dbPostgre<Tipo_pieza[]>`SELECT * FROM tipo_materia_prima;`;
 	const sedes_table = 	await dbPostgre<Sede[]>`SELECT * FROM sede;`;
 	
 	return {tmp_table,sedes_table};

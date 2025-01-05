@@ -83,7 +83,7 @@
 	};
 
 	async function actualizarAeronave() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/rol`, {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/aeronave`, {
 			method: 'PUT',
 			body: JSON.stringify({aeronave:aeronave , codigo_viejo:codigo_viejo, caracteristicas:caracteristicas, caracteristicas_modelo:caracteristicas_modelo}),
 			headers: { 'Content-Type': 'application/json' }
@@ -93,6 +93,24 @@
 	}
 	// Función para manejar el envío del formulario
 	async function registrarAeronave() {
+		for (let pru of pruebas) {
+			console.log(pru);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/prueba`, {
+				method: 'POST',
+				body: JSON.stringify(pru),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
+		for (let pie of piezas) {
+			console.log(pie);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/pieza`, {
+				method: 'POST',
+				body: JSON.stringify(pie),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave`, {
 			method: 'POST',
 			body: JSON.stringify(aeronave),
@@ -120,10 +138,9 @@
 		goto('/admin/HomeAdmin/inventario/aeronaves');
 	}
 
-	let showExtraField1 = false;
-	let showExtraField2 = false;
-	let extraFieldValue1 = [''];
-	let extraFieldValue2 = [''];
+	let mostrarPruebas = false;
+	let mostrarPiezas = false;
+	let mostrarCaracteristicas = false;
 	let i=0
 </script>
 
@@ -162,38 +179,56 @@
 							caracteristicas_modelo.push({ ...caracteristica_modelo });
 							 caracteristica = { codigo_car: caracteristica.codigo_car+1, nombre_car: ''};
 							 caracteristica_modelo = {valor_cm: caracteristica_modelo.valor_cm + 1,unidad_medida_cm:'',fk_caracteristica: caracteristica.codigo_car,fk_modelo_avion: aeronave.codigo_ma};alert('Caracteristica añadida') }}>Agregar Caracteristica</button>
-	</div>
+	
+</div>
 	<div class="piezas">
-		<button type="button" on:click={() => showExtraField1 = true}>Agregar Piezas</button>
-		{#if showExtraField1}
-			{#each Array(extraFieldValue1.length).fill(null) as _, i}
-				<label for="pieza_field_{i}">Nombre Pieza {i + 1}</label>
+				<label for="pieza_field_{i}">Nombre Pieza </label>
 				<input id="pieza_field_{i}" bind:value={pieza.nombre_tp} />
 
-				<label for="cant_pieza_field_{i}">Descripcion Pieza {i + 1}</label>
+				<label for="cant_pieza_field_{i}">Descripcion Pieza</label>
 				<input id="cant_pieza_field_{i}" bind:value={pieza.descripcion_tp} />
 
-				<label for="precio_pieza_field_{i}">Precio Pieza {i + 1}</label>
+				<label for="precio_pieza_field_{i}">Precio Pieza</label>
 				<input id="precio_pieza_field_{i}" bind:value={pieza.precio_unidad_tp} />
-			{/each}
-			<button type="button" on:click={() => {extraFieldValue1 = [...extraFieldValue1, ''];piezas.push({ ...pieza });console.log(piezas)}}>Agregar Otro Campo Extra</button>
-			{/if}
+				<button type="button" on:click={() => {piezas.push({ ...pieza });console.log(piezas)}}>Agregar Pieza</button>
+				<button type="button" on:click={() => { mostrarPiezas = !mostrarPiezas }}>{mostrarPiezas ? 'Refrescar Piezas añadidas' : 'Mostrar Piezas añadidas'}</button>
+
+				{#if mostrarPiezas}
+					<ul>
+						{#each piezas as pieza}
+							<li>
+								<p>Nombre Pieza: {pieza.nombre_tp}</p>
+								<p>Descripción Pieza: {pieza.descripcion_tp}</p>
+								<p>Duración estimada Pieza: {pieza.precio_unidad_tp}</p>
+							</li>
+						{/each}
+					</ul>
+				{/if}
 	</div>
 	<div class="pruebas">
-		<button type="button" on:click={() => showExtraField2 = true}>Agregar Pruebas</button>
-		{#if showExtraField2}
-			{#each Array(extraFieldValue2.length).fill(null) as _, i}
-				<label for="prueba_field_{i}">Nombre Prueba {i + 1}</label>
+				<label for="prueba_field_{i}">Nombre Prueba</label>
 				<input id="prueba_field_{i}" bind:value={prueba.nombre_tp} />
 
-				<label for="desc_prueba_field_{i}">Descripcion Prueba {i + 1}</label>
+				<label for="desc_prueba_field_{i}">Descripcion Prueba</label>
 				<input id="desc_prueba_field_{i}" bind:value={prueba.descripcion_tp} />
 
-				<label for="duracion_prueba_field_{i}">Duracion estimada Prueba {i + 1}</label>
+				<label for="duracion_prueba_field_{i}">Duracion estimada Prueba </label>
 				<input id="duracion_prueba_field_{i}" bind:value={prueba.duracion_estimada_tp} />
-			{/each}
-			<button type="button" on:click={() => {extraFieldValue2 = [...extraFieldValue2, ''];pruebas.push({ ...prueba });console.log(pruebas)}}>Agregar Otro Campo Extra</button>
-			{/if}
+				<button type="button" on:click={() => {pruebas.push({ ...prueba }); console.log(pruebas); }}>Agregar Prueba</button>
+				<button type="button" on:click={() => { mostrarPruebas = !mostrarPruebas }}>{mostrarPruebas ? 'Refrescar Pruebas añadidas' : 'Mostrar Pruebas añadidas'}</button>
+
+				{#if mostrarPruebas}
+					<ul>
+						{#each pruebas as prueba}
+							<li>
+								<p>Nombre Prueba: {prueba.nombre_tp}</p>
+								<p>Descripción Prueba: {prueba.descripcion_tp}</p>
+								<p>Duración estimada Prueba: {prueba.duracion_estimada_tp}</p>
+							</li>
+						{/each}
+					</ul>
+				{/if}
+	</div>
 	<button type="submit">Registrar Aeronave</button>
 </form>
 

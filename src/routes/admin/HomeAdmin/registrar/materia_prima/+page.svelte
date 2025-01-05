@@ -1,5 +1,8 @@
-<script>
-	import Registro from '$lib/components/registrarMateriaPrima.svelte';
+<script lang="ts">
+	import type { PageData } from './$types';
+	import RegistrarTipoMateriaPrima from '$lib/components/registrarMateriaPrima.svelte';
+	let { data }: { data: PageData }=$props();
 </script>
 
-		<Registro />
+
+		<RegistrarTipoMateriaPrima id_editar={undefined}/>

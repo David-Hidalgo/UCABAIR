@@ -46,33 +46,18 @@
     };
 
     async function editarRegistro(materia_prima: Tipo_materia_prima) {
-		/*try {
-			const res = await fetch(`http://localhost:4000/mineral/${roles.id}`, {
-				method: 'PUT',
-				body: JSON.stringify(roles),
-				headers: { 'Content-Type': 'application/json' }
-			});
 
-			if (res.ok) {
-				// Si la solicitud fue exitosa, redirige al usuario
-			} else {
-				console.error('Error al actualizar el mineral:', res.status);
-				// Maneja el error (por ejemplo, muestra un mensaje de error al usuario)
-			}
-		} catch (error) {
-			console.error('Error en la solicitud:', error);
-			// Maneja el error (por ejemplo, muestra un mensaje de error al usuario)
-		}*/
 	}
 
 	// Función para eliminar un registro
 
 	async function eliminarRegistro(materia_prima: Tipo_materia_prima) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/roles`, {
+		await fetch(`http://localhost:5173/admin/HomeAdmin/inventario/materia_prima`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(materia_prima.codigo_tmp)
 		});
+		location.reload();
 	}
    
 let sede_a_mostrar: number = 0;
@@ -116,7 +101,7 @@ function mostrarSede(cod_sed: number) {
                 <td>{dato.unidad_medida_tmp}</td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/Materia_Prima">
+						<a href="/admin/HomeAdmin/editar/materia_prima/{dato.codigo_tmp}">
 							<button onclick={() => editarRegistro(dato)}>
 								<span>✏️</span>
 							</button>
