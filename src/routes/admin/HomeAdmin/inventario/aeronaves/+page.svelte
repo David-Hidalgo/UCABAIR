@@ -5,13 +5,74 @@
 	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
 	import type { PageData } from './$types';
-	import type { Modelo_avion, Caracteristica, Caracteristica_modelo } from './+page.server.ts';
+	import type { Modelo_avion, Caracteristica, Caracteristica_modelo,
+				 Configuracion_avion, Tipo_pieza, Tipo_prueba, Configuracion_prueba_avion } from './+page.server.ts';
     import { writable } from 'svelte/store';
 	// const dispatch = createEventDispatcher();
 	import MostrarCaracteristicas from '$lib/components/mostrarCaracteristicas.svelte';
 
 	let { data }: { data: PageData } = $props();
 	let searchTerm = '';
+
+	let pruebas: Tipo_prueba[] = new Array();
+	for (let index = 0; index < data.tp_table.length; index++) {
+		let prueba:  Tipo_prueba = {
+			codigo_tp: 0,
+			nombre_tp: '',
+			descripcion_tp: '',
+			duracion_estimada_tp: ''
+		};
+		prueba.codigo_tp = data.tp_table[index].codigo_tp;
+		prueba.nombre_tp = data.tp_table[index].nombre_tp;
+		prueba.descripcion_tp = data.tp_table[index].descripcion_tp;
+		prueba.duracion_estimada_tp = data.tp_table[index].duracion_estimada_tp;
+		pruebas.push(prueba);
+	};
+
+	let configuraciones_p: Configuracion_prueba_avion[] = new Array();
+	for (let index = 0; index < data.cpa_table.length; index++) {
+		let configuracion:  Configuracion_prueba_avion = {
+			fk_tipo_prueba: 0,
+			fk_modelo_avion: 0,
+			fk_sede: 0
+		};
+		configuracion.fk_tipo_prueba = data.cpa_table[index].fk_tipo_prueba;
+		configuracion.fk_modelo_avion = data.cpa_table[index].fk_modelo_avion;
+		configuracion.fk_sede = data.cpa_table[index].fk_sede;
+		configuraciones_p.push(configuracion);
+	};
+
+	let piezas: Tipo_pieza[] = new Array();
+	for (let index = 0; index < data.p_table.length; index++) {
+		let pieza:  Tipo_pieza = {
+			codigo_tp: 0,
+			nombre_tp: '',
+			descripcion_tp: '',
+			precio_unidad_tp: 0,
+			fk_tipo_pieza: 0
+		};
+		pieza.codigo_tp = data.p_table[index].codigo_tp;
+		pieza.nombre_tp = data.p_table[index].nombre_tp;
+		pieza.descripcion_tp = data.p_table[index].descripcion_tp;
+		pieza.precio_unidad_tp = data.p_table[index].precio_unidad_tp;
+		pieza.fk_tipo_pieza = data.p_table[index].fk_tipo_pieza;
+		piezas.push(pieza);
+	};
+
+	let configuraciones_a: Configuracion_avion[] = new Array();
+	for (let index = 0; index < data.ca_table.length; index++) {
+		let configuracion:  Configuracion_avion = {
+			cantidad_pieza_ca: 0,
+			fk_tipo_pieza: 0,
+			fk_modelo_avion: 0,
+			fk_sede: 0
+		};
+		configuracion.cantidad_pieza_ca = data.ca_table[index].cantidad_pieza_ca;
+		configuracion.fk_tipo_pieza = data.ca_table[index].fk_tipo_pieza;
+		configuracion.fk_modelo_avion = data.ca_table[index].fk_modelo_avion;
+		configuracion.fk_sede = data.ca_table[index].fk_sede;
+		configuraciones_a.push(configuracion);
+	};
 
 	let modelos_avion: Modelo_avion[] = new Array();
 	for (let index = 0; index < data.ma_table.length; index++) {
@@ -107,7 +168,9 @@
 			<th>Nombre</th>
 			<th>Descripcion</th>
 			<th>Precio Unidad</th>
-			<th>Detalles</th>
+			<th>Especificaciones</th>
+			<th>Piezas</th>
+			<th>Pruebas</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -117,15 +180,49 @@
                 <td>{modelo_avion.nombre_ma}</td>
                 <td>{modelo_avion.descripcion_ma}</td>
                 <td>{modelo_avion.precio_unidad_ma}</td>
-				<td>{#each caracteristicasPorAvion.find(cpa => cpa.modelo.codigo_ma === modelo_avion.codigo_ma)?.caracteristicas as caracteristica}
-					<div>
-						<strong>{caracteristica.caracteristica.nombre_car}:</strong> {caracteristica.valor_cm} {caracteristica.unidad_medida_cm}
-					</div>
-					{/each}
+				<td>
+						<table>
+							<tbody>
+								{#each (caracteristicasPorAvion.find(cpa => cpa.modelo.codigo_ma === modelo_avion.codigo_ma)?.caracteristicas ?? []) as caracteristica}
+									<tr>
+										<td style="margin: 0; padding: 0; text-align: left;"><strong>{caracteristica.caracteristica.nombre_car.charAt(0).toUpperCase() + caracteristica.caracteristica.nombre_car.slice(1)} :</strong>
+											{caracteristica.valor_cm}
+											{caracteristica.unidad_medida_cm}
+										</td>
+									</tr>
+								{/each}
+							</tbody>
+						</table>
 				</td>
 				<td>
+						<table>
+							<tbody>
+								{#each (configuraciones_a.filter(c => c.fk_modelo_avion === modelo_avion.codigo_ma) ?? []) as configuracion}
+									<tr>
+										<td style="margin: 0; padding: 0; text-align: left;"><strong>{piezas.find(p => p.codigo_tp === configuracion.fk_tipo_pieza)?.nombre_tp} :</strong>
+											{configuracion.cantidad_pieza_ca}
+										</td>
+									</tr>
+								{/each}
+							</tbody>
+						</table>
+				</td>
+				<td>
+					<table>
+						<tbody>
+							{#each (configuraciones_p.filter(c => c.fk_modelo_avion === modelo_avion.codigo_ma) ?? []) as configuracion}
+								<tr>
+									<td style="margin: 0; padding: 0; text-align: left;"><strong>{pruebas.find(p => p.codigo_tp === configuracion.fk_tipo_prueba)?.nombre_tp} :</strong>
+										{configuracion.fk_sede}
+									</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+			</td>
+				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/mineral">
+						<a href="/admin/HomeAdmin/editar/aeronave/{modelo_avion.codigo_ma}">
 							<button onclick={() => editarRegistro(modelo_avion)}>
 								<span>✏️</span>
 								<!-- Icono de lápiz -->
@@ -164,7 +261,7 @@
 	th,
 	td {
 		border: 1px solid #adadad;
-		padding: 8px;
+		padding: 0px;
 		text-align: left;
 		font-family: 'Baskervville';
 		font-style: light;

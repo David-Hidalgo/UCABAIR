@@ -1,9 +1,14 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import type { Modelo_avion, Caracteristica, Caracteristica_modelo } from '$lib/server/db/schema';
+	import type { Modelo_avion, Caracteristica, Caracteristica_modelo,Tipo_pieza,Tipo_prueba,
+				 Configuracion_avion, Configuracion_prueba_avion } from '$lib/server/db/schema';
 	export let modelos_avion: Modelo_avion[];
 	export let id_editar: Modelo_avion | undefined;
 
+	let piezas: Tipo_pieza[] = [];
+	let pruebas: Tipo_prueba[] = [];
+	let configuraciones_p: Configuracion_prueba_avion[] = [];
+	let configuraciones_a: Configuracion_avion[] = [];
 	let caracteristicas: Caracteristica[] = [];
 	let caracteristicas_modelo: Caracteristica_modelo[] = [];
 
@@ -49,6 +54,34 @@
 		fk_modelo_avion: aeronave.codigo_ma
 	};
 
+	let prueba: Tipo_prueba = {
+		codigo_tp: 0,
+		nombre_tp: '',
+		descripcion_tp: '',
+		duracion_estimada_tp: ''
+	};
+
+	let pieza: Tipo_pieza = {
+		codigo_tp: 0,
+		nombre_tp: '',
+		descripcion_tp: '',
+		precio_unidad_tp: 0,
+		fk_tipo_pieza: 0
+	};
+
+	let configuracion_p: Configuracion_prueba_avion = {
+		fk_tipo_prueba: 0,
+		fk_modelo_avion: 0,
+		fk_sede: 0
+	};
+
+	let configuracion_a: Configuracion_avion = {
+		cantidad_pieza_ca: 0,
+		fk_tipo_pieza: 0,
+		fk_modelo_avion: 0,
+		fk_sede: 0
+	};
+
 	async function actualizarAeronave() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/rol`, {
 			method: 'PUT',
@@ -60,9 +93,6 @@
 	}
 	// Función para manejar el envío del formulario
 	async function registrarAeronave() {
-		console.log(aeronave);
-		console.log(caracteristicas);
-		console.log(caracteristicas_modelo);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave`, {
 			method: 'POST',
 			body: JSON.stringify(aeronave),
@@ -90,6 +120,11 @@
 		goto('/admin/HomeAdmin/inventario/aeronaves');
 	}
 
+	let showExtraField1 = false;
+	let showExtraField2 = false;
+	let extraFieldValue1 = [''];
+	let extraFieldValue2 = [''];
+	let i=0
 </script>
 
 <form on:submit|preventDefault={registrarAeronave}>
@@ -128,6 +163,37 @@
 							 caracteristica = { codigo_car: caracteristica.codigo_car+1, nombre_car: ''};
 							 caracteristica_modelo = {valor_cm: caracteristica_modelo.valor_cm + 1,unidad_medida_cm:'',fk_caracteristica: caracteristica.codigo_car,fk_modelo_avion: aeronave.codigo_ma};alert('Caracteristica añadida') }}>Agregar Caracteristica</button>
 	</div>
+	<div class="piezas">
+		<button type="button" on:click={() => showExtraField1 = true}>Agregar Piezas</button>
+		{#if showExtraField1}
+			{#each Array(extraFieldValue1.length).fill(null) as _, i}
+				<label for="pieza_field_{i}">Nombre Pieza {i + 1}</label>
+				<input id="pieza_field_{i}" bind:value={pieza.nombre_tp} />
+
+				<label for="cant_pieza_field_{i}">Descripcion Pieza {i + 1}</label>
+				<input id="cant_pieza_field_{i}" bind:value={pieza.descripcion_tp} />
+
+				<label for="precio_pieza_field_{i}">Precio Pieza {i + 1}</label>
+				<input id="precio_pieza_field_{i}" bind:value={pieza.precio_unidad_tp} />
+			{/each}
+			<button type="button" on:click={() => {extraFieldValue1 = [...extraFieldValue1, ''];piezas.push({ ...pieza });console.log(piezas)}}>Agregar Otro Campo Extra</button>
+			{/if}
+	</div>
+	<div class="pruebas">
+		<button type="button" on:click={() => showExtraField2 = true}>Agregar Pruebas</button>
+		{#if showExtraField2}
+			{#each Array(extraFieldValue2.length).fill(null) as _, i}
+				<label for="prueba_field_{i}">Nombre Prueba {i + 1}</label>
+				<input id="prueba_field_{i}" bind:value={prueba.nombre_tp} />
+
+				<label for="desc_prueba_field_{i}">Descripcion Prueba {i + 1}</label>
+				<input id="desc_prueba_field_{i}" bind:value={prueba.descripcion_tp} />
+
+				<label for="duracion_prueba_field_{i}">Duracion estimada Prueba {i + 1}</label>
+				<input id="duracion_prueba_field_{i}" bind:value={prueba.duracion_estimada_tp} />
+			{/each}
+			<button type="button" on:click={() => {extraFieldValue2 = [...extraFieldValue2, ''];pruebas.push({ ...prueba });console.log(pruebas)}}>Agregar Otro Campo Extra</button>
+			{/if}
 	<button type="submit">Registrar Aeronave</button>
 </form>
 

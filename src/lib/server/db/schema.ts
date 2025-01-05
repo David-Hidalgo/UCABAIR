@@ -163,3 +163,32 @@ export interface Caracteristica_modelo {
 	fk_caracteristica: number | undefined;
 	fk_modelo_avion: number | undefined;
 }
+
+export interface Tipo_pieza {
+	codigo_tp: number | undefined;
+	nombre_tp: string;
+	descripcion_tp: string;
+	fk_tipo_pieza: number | undefined;
+	precio_unidad_tp: number;
+}
+
+export interface Configuracion_avion {
+	cantidad_pieza_ca: number;
+	fk_tipo_pieza: number;
+	fk_modelo_avion: number;
+	fk_sede: number;
+}
+
+export interface Tipo_prueba {
+	codigo_tp: number | undefined;
+	nombre_tp: string;
+	descripcion_tp: string;
+	duracion_estimada_tp: string;
+}
+
+export interface Configuracion_prueba_avion {
+	fk_tipo_prueba: number;
+	fk_modelo_avion: number;
+	fk_sede: number;
+}
+

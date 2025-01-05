@@ -1,9 +1,9 @@
 <script lang="ts">
     import type { PageData } from './$types';
-	import EditarRol from '$lib/components/registrarRol.svelte';
+	import EditarAeronave from '$lib/components/registrarAeronave.svelte';
 	let { data }: { data: PageData }=$props();
 </script>
 
 	<div class="EditarRol">
-		<EditarRol id_editar={data.resultado} privilegios={data.permisos}/>
+		<EditarAeronave id_editar={data.resultado} caracteristicas={data.caracteristicas} modelos_avion={data.modelos_avion}/>
 	</div>
