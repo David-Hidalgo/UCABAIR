@@ -4,6 +4,7 @@
    import { goto } from '$app/navigation';
    export let id_editar: Tipo_pieza | undefined;
    export let piezas_fk: Tipo_pieza[];
+   console.log(id_editar);
 
 
 let pieza_fk_selected: Tipo_pieza = piezas_fk[0];
@@ -11,6 +12,7 @@ let pieza: Tipo_pieza;
    let codigo_viejo:number;
 	if (id_editar!=undefined) {
 		pieza = id_editar;
+		console.log(pieza);
 		if (id_editar.codigo_tp)
 		codigo_viejo=id_editar.codigo_tp
 	} else {
