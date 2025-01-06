@@ -1,14 +1,15 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import type {Persona, Telefono, Correo_electronico} from '$lib/server/db/schema';
-	export let codigo_com,fk_usuario,id_editar:Persona | undefined;
-
-	let cliente_nat:Persona;
-	let codigo_viejo:number;
-	if (id_editar!=undefined) {
+	import type { Persona, Telefono, Correo_electronico } from '$lib/server/db/schema';
+	// import { redirect } from '@sveltejs/kit';
+	// import * as Bun  from 'bun';
+	export let codigo_com: boolean | undefined, fk_usuario, id_editar: Persona | undefined;
+	// let editar = $state(false);
+	let cliente_nat: Persona;
+	let codigo_viejo: number;
+	if (id_editar != undefined) {
 		cliente_nat = id_editar;
-		if (id_editar.codigo_com)
-		codigo_viejo=id_editar.codigo_com
+		if (id_editar.codigo_com) codigo_viejo = id_editar.codigo_com;
 	} else {
 		cliente_nat = {
 			codigo_com: 0,
@@ -31,33 +32,31 @@
 			segundo_apellido_nat: '',
 			telefonos: [],
 			correos_electronicos: []
-		}
-	};
-	
+		};
+	}
+
 	// Interfaz para representar un empleado
 
-let telefonos: Telefono[] = [];
-let correos: Correo_electronico[] = [];
+	let telefonos: Telefono[] = [];
+	let correos: Correo_electronico[] = [];
 
-let telefono: Telefono = {
-			codigo_tel: 0,
-			numero_telefono_tel: '',
-			codigo_area_tel: '',
-			fk_persona: cliente_nat.codigo_com,
-			fk_empleado: 0
-		};
+	let telefono: Telefono = {
+		codigo_tel: 0,
+		numero_telefono_tel: '',
+		codigo_area_tel: '',
+		fk_persona: cliente_nat.codigo_com,
+		fk_empleado: 0
+	};
 
-		let correo: Correo_electronico = {
-			codigo_ce: 0,
-			direccion_correo_ce: '',
-			fk_persona: cliente_nat.codigo_com,
-			fk_empleado: 0
-		};
+	let correo: Correo_electronico = {
+		codigo_ce: 0,
+		direccion_correo_ce: '',
+		fk_persona: cliente_nat.codigo_com,
+		fk_empleado: 0
+	};
 
-
-		async function decide() {
-		
-		if (id_editar==undefined) {
+	async function decide() {
+		if (id_editar == undefined) {
 			registrarCliente();
 		} else {
 			actualizarCliente();
@@ -67,7 +66,7 @@ let telefono: Telefono = {
 	async function actualizarCliente() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/cliente`, {
 			method: 'PUT',
-			body: JSON.stringify({cliente_nat:cliente_nat , codigo_viejo:codigo_viejo}), //Hay que enviar correos y telefonos tambien
+			body: JSON.stringify({ cliente_nat: cliente_nat, codigo_viejo: codigo_viejo }), //Hay que enviar correos y telefonos tambien
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
@@ -76,22 +75,25 @@ let telefono: Telefono = {
 
 	// Función para manejar el envío del formulario
 	async function registrarCliente() {
-		
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/cliente`, {
 			method: 'POST',
 			body: JSON.stringify(cliente_nat),
 			headers: { 'Content-Type': 'application/json' }
 		});
-		console.log(cliente_nat);
-		const argumento =await res.json();
+		const argumento = await res.json();
+		console.log('este es el argumento \n');
+		console.log(argumento);
+
+		// codigo_com = argumento.respuesta.id_persona;
+
 		cliente_nat.codigo_com = argumento.id_persona;
-	
+
 		console.log(cliente_nat);
-		
-		telefonos.forEach(tel => {
+
+		telefonos.forEach((tel) => {
 			tel.fk_persona = cliente_nat.codigo_com;
 		});
-		correos.forEach(cor => {
+		correos.forEach((cor) => {
 			cor.fk_persona = cliente_nat.codigo_com;
 		});
 
@@ -113,12 +115,15 @@ let telefono: Telefono = {
 			});
 		}
 
-		const data = await res.json();
-		goto('/admin/HomeAdmin/clientes');
+		if (codigo_com) {
+			goto('/cliente/productos');
+		} else {
+			goto(`/admin/HomeAdmin/clientes/`);
+		}
 	}
 </script>
 
-<form on:submit|preventDefault={registrarCliente}>
+<form on:submit|preventDefault={decide}>
 	<h2>Registrar Cliente natural</h2>
 
 	<!-- <label for="usuario">Numero Usuario</label>
@@ -142,7 +147,6 @@ let telefono: Telefono = {
 	<p style="display: block; font-weight: bold;">Telefono</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="telefono-container">
-
 		<!-- <label for="codigotlf">Codigo</label>
 		<input id="codigotlf" bind:value={telefono.codigo_tel} /> -->
 
@@ -151,19 +155,43 @@ let telefono: Telefono = {
 
 		<label for="telefono1">Numero de Telefono</label>
 		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
-		<button type="button" on:click={() => { telefonos.push({ ...telefono }); telefono = { codigo_tel: telefono.codigo_tel+1, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: cliente_nat.codigo_com, fk_empleado: 0 };alert('Telefono añadido') }}>Agregar Teléfono</button>
+		<button
+			type="button"
+			on:click={() => {
+				telefonos.push({ ...telefono });
+				telefono = {
+					codigo_tel: telefono.codigo_tel,
+					numero_telefono_tel: '',
+					codigo_area_tel: '',
+					fk_persona: cliente_nat.codigo_com,
+					fk_empleado: 0
+				};
+				alert('Telefono añadido');
+			}}>Agregar Teléfono</button
+		>
 	</div>
 
 	<p style="display: block; font-weight: bold;">Correo</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="correo-container">
-
 		<!-- <label for="codigoCor">Codigo</label>
 		<input id="codigoCor" bind:value={correo.codigo_ce} /> -->
 
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
-		<button type="button" on:click={() => {correos.push({ ...correo }); correo ={ codigo_ce: correo.codigo_ce + 1, direccion_correo_ce: '', fk_persona: cliente_nat.codigo_com, fk_empleado: 0 };alert('Correo añadido')}}>Agregar Correo</button>
+		<button
+			type="button"
+			on:click={() => {
+				correos.push({ ...correo });
+				correo = {
+					codigo_ce: correo.codigo_ce,
+					direccion_correo_ce: '',
+					fk_persona: cliente_nat.codigo_com,
+					fk_empleado: 0
+				};
+				alert('Correo añadido');
+			}}>Agregar Correo</button
+		>
 	</div>
 
 	<label for="direccion">Dirección</label>
@@ -172,7 +200,7 @@ let telefono: Telefono = {
 	<label for="nacionalidad">Nacionalidad</label>
 	<input id="nacionalidad" bind:value={cliente_nat.nacionalidad_com} />
 
-	<button type="submit">Registrar Cliente</button>	
+	<button type="submit">Registrar Cliente</button>
 </form>
 
 <style>

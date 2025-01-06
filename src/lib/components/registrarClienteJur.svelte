@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import type {Persona, Telefono, Correo_electronico} from '$lib/server/db/schema';
-	export let codigo_com,fk_usuario,id_editar:Persona | undefined;
+	import { redirect } from '@sveltejs/kit';
+	export let codigo_com:boolean|undefined,fk_usuario,id_editar:Persona | undefined;
 
 	let cliente_jur:Persona;
 	let codigo_viejo:number;
@@ -107,10 +108,13 @@ let telefono: Telefono = {
 				headers: { 'Content-Type': 'application/json' }
 			});
 		}
-		const data = await res.json();
-
-
-		goto('/admin/HomeAdmin/clientes');
+		console.log(codigo_com);
+		
+		if (codigo_com){
+			goto('/cliente/productos');
+		}else{
+			goto(`/admin/HomeAdmin/clientes/`);
+		}
 	}
 </script>
 
@@ -149,7 +153,7 @@ let telefono: Telefono = {
 
 		<label for="telefono1">Numero de Telefono</label>
 		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
-		<button type="button" on:click={() => { telefonos.push({ ...telefono }); telefono = { codigo_tel: telefono.codigo_tel+1, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: cliente_jur.codigo_com, fk_empleado: 0 };alert('Telefono añadido') }}>Agregar Teléfono</button>
+		<button type="button" on:click={() => { telefonos.push({ ...telefono }); telefono = { codigo_tel: telefono.codigo_tel, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: cliente_jur.codigo_com, fk_empleado: 0 };alert('Telefono añadido') }}>Agregar Teléfono</button>
 	</div>
 
 	<p style="display: block; font-weight: bold;">Correo</p>
@@ -161,7 +165,7 @@ let telefono: Telefono = {
 
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
-		<button type="button" on:click={() => {correos.push({ ...correo }); correo ={ codigo_ce: correo.codigo_ce + 1, direccion_correo_ce: '', fk_persona: cliente_jur.codigo_com, fk_empleado: 0 };alert('Correo añadido')}}>Agregar Correo</button>
+		<button type="button" on:click={() => {correos.push({ ...correo }); correo ={ codigo_ce: correo.codigo_ce , direccion_correo_ce: '', fk_persona: cliente_jur.codigo_com, fk_empleado: 0 };alert('Correo añadido')}}>Agregar Correo</button>
 	</div>
 
 	<label for="nacionalidad">Nacionalidad</label>

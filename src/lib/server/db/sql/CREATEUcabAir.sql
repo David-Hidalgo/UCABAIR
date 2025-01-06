@@ -627,7 +627,7 @@ CREATE OR REPLACE PROCEDURE insertar_correo(
     LANGUAGE plpgsql
     AS $$ BEGIN
     INSERT INTO correo_electronico (direccion_correo_ce,fk_persona,fk_empleado) 
-    VALUES (codigo_ce2,direccion_correo_ce2,fk_persona2,fk_empleado2);
+    VALUES (direccion_correo_ce2,fk_persona2,fk_empleado2);
 END;
 $$;
 
