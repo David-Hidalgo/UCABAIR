@@ -108,8 +108,8 @@ let telefono: Telefono = {
 <form on:submit|preventDefault={registrarCliente}>
 	<h2>Registrar Cliente natural</h2>
 
-	<label for="usuario">Numero Usuario</label>
-	<input id="usuario" bind:value={cliente_nat.fk_usuario} />
+	<!-- <label for="usuario">Numero Usuario</label>
+	<input id="usuario" bind:value={cliente_nat.fk_usuario} /> -->
 
 	<label for="cedula">Cédula</label>
 	<input id="cedula" bind:value={cliente_nat.cedula_nat} />
@@ -130,8 +130,8 @@ let telefono: Telefono = {
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="telefono-container">
 
-		<label for="codigotlf">Codigo</label>
-		<input id="codigotlf" bind:value={telefono.codigo_tel} />
+		<!-- <label for="codigotlf">Codigo</label>
+		<input id="codigotlf" bind:value={telefono.codigo_tel} /> -->
 
 		<label for="CodigoArea">Codigo De Area</label>
 		<input id="codigoArea" bind:value={telefono.codigo_area_tel} />
@@ -145,8 +145,8 @@ let telefono: Telefono = {
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="correo-container">
 
-		<label for="codigoCor">Codigo</label>
-		<input id="codigoCor" bind:value={correo.codigo_ce} />
+		<!-- <label for="codigoCor">Codigo</label>
+		<input id="codigoCor" bind:value={correo.codigo_ce} /> -->
 
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />

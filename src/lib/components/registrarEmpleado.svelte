@@ -102,8 +102,8 @@
 <form onsubmit={registrarEmpleado}>
 	<h2>Registrar Empleado</h2>
 
-	<label for="usuario">Numero Usuario</label>
-	<input id="usuario" bind:value={empleado.fk_usuario} />
+	<!-- <label for="usuario">Numero Usuario</label>
+	<input id="usuario" bind:value={empleado.fk_usuario} /> -->
 
 	<label for="codigo">Codigo Empleado</label>
 	<input id="codigo" bind:value={empleado.codigo_empleado_per} />
@@ -127,8 +127,9 @@
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="telefono-container">
 
-		<label for="codigotlf">Codigo</label>
-		<input id="codigotlf" bind:value={telefono.codigo_tel} />
+				<!-- <label for="codigotlf">Codigo</label>
+		<input id="codigotlf" bind:value={telefono.codigo_tel} /> -->
+
 
 		<label for="CodigoArea">Codigo De Area</label>
 		<input id="codigoArea" bind:value={telefono.codigo_area_tel} />
@@ -145,8 +146,8 @@
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="correo-container">
 
-		<label for="codigoCor">Codigo</label>
-		<input id="codigoCor" bind:value={correo.codigo_ce} />
+		<!-- <label for="codigoCor">Codigo</label>
+		<input id="codigoCor" bind:value={correo.codigo_ce} /> -->
 
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
