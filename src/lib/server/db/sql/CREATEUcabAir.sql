@@ -686,6 +686,7 @@ CREATE OR REPLACE PROCEDURE editar_empleado(
 END;
 $$;
 
+-- Modificación del procedimiento para devolver el id de la persona insertada
 CREATE OR REPLACE PROCEDURE insertar_persona( 
     direccion             VARCHAR(516),
     monto_acreditado       REAL,
@@ -703,17 +704,20 @@ CREATE OR REPLACE PROCEDURE insertar_persona(
     primer_nombre          VARCHAR(255),
     segundo_nombre         VARCHAR(255),
     primer_apellido        VARCHAR(255),
-    segundo_apellido       VARCHAR(255)
-    ) 
-    LANGUAGE plpgsql
-    AS $$ BEGIN
+    segundo_apellido       VARCHAR(255),
+    OUT id_persona         INTEGER
+) 
+LANGUAGE plpgsql
+AS $$
+BEGIN
     INSERT INTO persona (direccion_com,monto_acreditado_com,fecha_inicio_operacion_com,
     tipo_com,nacionalidad_com,fk_lugar,fk_usuario,tipo_persona_com,rif_jur,
     denominacion_persona_jur,razon_social_jur,pagina_web_jur,cedula_nat,
     primer_nombre_nat,segundo_nombre_nat,primer_apellido_nat,segundo_apellido_nat) 
     VALUES (direccion,monto_acreditado,fecha_inicio_operacion,tipo,nacionalidad,
     fk_lugar2,fk_usuario2,tipo_persona,rif,denominacion_persona,razon_social,pagina_web,cedula,
-    primer_nombre,segundo_nombre,primer_apellido,segundo_apellido);
+    primer_nombre,segundo_nombre,primer_apellido,segundo_apellido)
+    RETURNING codigo_com INTO id_persona;
 END;
 $$;
 

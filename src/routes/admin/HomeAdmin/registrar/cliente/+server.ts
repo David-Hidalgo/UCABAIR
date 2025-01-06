@@ -30,7 +30,7 @@ export async function POST({ request }) {
 	const respuesta = await dbPostgre`CALL insertar_persona(${direccion_com},${monto_acreditado_com},
         ${fecha_inicio_operacion_com},${tipo_com},${nacionalidad_com},${fk_lugar}, ${fk_usuario},
         ${tipo_persona_com},${rif_jur}, ${denominacion_persona_jur},${razon_social_jur}, ${pagina_web_jur}, 
-        ${cedula_nat},${primer_nombre_nat}, ${segundo_nombre_nat}, ${primer_apellido_nat}, ${segundo_apellido_nat});`;
+        ${cedula_nat},${primer_nombre_nat}, ${segundo_nombre_nat}, ${primer_apellido_nat}, ${segundo_apellido_nat},1);`;
 
 	return json({ respuesta }, { status: 201 });
 }

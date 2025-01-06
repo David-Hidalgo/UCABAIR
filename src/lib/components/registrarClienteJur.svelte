@@ -81,7 +81,17 @@ let telefono: Telefono = {
 			body: JSON.stringify(cliente_jur),
 			headers: { 'Content-Type': 'application/json' }
 		});
-
+		const argumento =await res.json();
+		cliente_jur.codigo_com = argumento.id_persona;
+	
+		console.log(cliente_jur);
+		
+		telefonos.forEach(tel => {
+			tel.fk_persona = cliente_jur.codigo_com;
+		});
+		correos.forEach(cor => {
+			cor.fk_persona = cliente_jur.codigo_com;
+		});
 		for (let tel of telefonos) {
 			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
 				method: 'POST',

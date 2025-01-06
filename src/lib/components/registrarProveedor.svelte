@@ -15,14 +15,14 @@
 		codigo_viejo=id_editar.codigo_com
 	} else {
 		proveedor = {
-			codigo_com: undefined,
+			codigo_com: 0,
 			direccion_com: '',
-			monto_acreditado_com: undefined,
+			monto_acreditado_com: 0,
 			fecha_inicio_operaciones_com: new Date(),
 			tipo_com: 'proveedor',
 			nacionalidad_com: '',
-			fk_lugar: undefined,
-			fk_usuario: undefined,
+			fk_lugar: 1,
+			fk_usuario: fk_usuario,
 			tipo_persona_com: 'juridico',
 			rif_jur: '',
 			denominacion_persona_jur: '',
@@ -80,7 +80,18 @@
 			body: JSON.stringify(proveedor),
 			headers: { 'Content-Type': 'application/json' }
 		});
-
+		const argumento =await res.json();
+		proveedor.codigo_com = argumento.id_persona;
+	
+		console.log(proveedor);
+		
+		telefonos.forEach(tel => {
+			tel.fk_persona = proveedor.codigo_com;
+		});
+		correos.forEach(cor => {
+			cor.fk_persona = proveedor.codigo_com;
+		});
+		//
 		for (let tel of telefonos) {
 			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
 				method: 'POST',
@@ -88,7 +99,6 @@
 				headers: { 'Content-Type': 'application/json' }
 			});
 		}
-
 		for (let cor of correos) {
 			console.log(cor);
 			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
@@ -154,8 +164,6 @@
 	<label for="monto">Monto acreditado</label>
 	<input id="monto" bind:value={proveedor.monto_acreditado_com} />
 
-
-	<input id="monto" bind:value={proveedor.monto_acreditado_com} />
 
 	<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
 	<input id="fechaInicio" type="date" bind:value={proveedor.fecha_inicio_operaciones_com} />

@@ -76,13 +76,23 @@ let telefono: Telefono = {
 
 	// Función para manejar el envío del formulario
 	async function registrarCliente() {
-		console.log(cliente_nat);
 		
-
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/cliente`, {
 			method: 'POST',
 			body: JSON.stringify(cliente_nat),
 			headers: { 'Content-Type': 'application/json' }
+		});
+		console.log(cliente_nat);
+		const argumento =await res.json();
+		cliente_nat.codigo_com = argumento.id_persona;
+	
+		console.log(cliente_nat);
+		
+		telefonos.forEach(tel => {
+			tel.fk_persona = cliente_nat.codigo_com;
+		});
+		correos.forEach(cor => {
+			cor.fk_persona = cliente_nat.codigo_com;
 		});
 
 		for (let tel of telefonos) {
