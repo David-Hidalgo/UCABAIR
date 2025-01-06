@@ -33,7 +33,7 @@
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-		goto('/admin/HomeAdmin/pruebas');
+		goto('/admin/HomeAdmin/pruebas/pruebas_catalogo');
 	}
 	async function registrarTipoPrueba() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/prueba`, {
