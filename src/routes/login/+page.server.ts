@@ -97,7 +97,7 @@ export const actions: Actions = {
 		}
 
 		console.log(' validé todo');
-		const userId = generateUserId();
+		let userId = generateUserId();
 		const passwordHash = await hash(password, {
 			// recommended minimum parameters
 			memoryCost: 19456,
@@ -121,7 +121,7 @@ export const actions: Actions = {
 			// const b = a[0].codigo_usu;
 			// console.log('lo que me regresó fué: \n ', a, '\n');
 			console.log('el codigo del usuario es: ', a.codigo_usu);
-			
+			userId=a.codigo_usu;
 			/*  */
 			const session = await auth.createSession(sessionToken, a.codigo_usu);
 			auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
@@ -134,15 +134,15 @@ export const actions: Actions = {
 				return redirect(302, '/admin/HomeAdmin');
 				break;
 			case 2:
-				return redirect(302, '/cliente/registro');
-
+				return redirect(302, `/cliente/registro?codigo=${userId}`);
+	
 				break;
 			case 3:
 				return redirect(302, '/empleado/HomeEmpleado');
 				break;
-
+	
 			default:
-				return redirect(302, '/cliente/registro');
+				return redirect(302, `/cliente/registro?codigo=${userId}`);
 				break;
 		}
 	}

@@ -3,7 +3,19 @@
 	import RegistroNat from '$lib/components/registrarClienteNat.svelte';
 	import RegistroJur from '$lib/components/registrarClienteJur.svelte';
 	let selectedComponent= $state(RegistroNat);
-	let codigo_usu = $state(-1);;
+	import { page } from '$app/stores';
+	
+	const urlParams = new URLSearchParams($page.url.search);
+	const codigo = urlParams.get('codigo');
+	let codigo_usu = -1;
+	console.log("dime " + codigo_usu);
+		if (codigo) {
+			console.log(codigo_usu);
+			codigo_usu = parseInt(codigo);
+		}
+		else{
+			
+		}
     function seleccionarComponente(tipoCliente: string) {
         switch (tipoCliente) {
             case 'Natural':
@@ -64,7 +76,7 @@
 		</div>
 			{#if selectedComponent}
 				<!-- svelte-ignore svelte_component_deprecated -->
-				<svelte:component this={selectedComponent} fk_usuario={	codigo_usu } codigo_com={null}/>
+				<svelte:component this={selectedComponent} fk_usuario={	codigo_usu } codigo_com={null} id_editar={undefined}/>
 			{/if}
 		{/if }
 		

@@ -25,7 +25,7 @@ export async function POST({ request }) {
 
 	
     console.log("ajá aquí se guarda");
-    console.log(request.json);
+    console.log(fk_usuario);
 
 	const respuesta = await dbPostgre`CALL insertar_persona(${direccion_com},${monto_acreditado_com},
         ${fecha_inicio_operacion_com},${tipo_com},${nacionalidad_com},${fk_lugar}, ${fk_usuario},

@@ -76,6 +76,9 @@ let telefono: Telefono = {
 
 	// Función para manejar el envío del formulario
 	async function registrarCliente() {
+		console.log(cliente_nat);
+		
+
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/cliente`, {
 			method: 'POST',
 			body: JSON.stringify(cliente_nat),
