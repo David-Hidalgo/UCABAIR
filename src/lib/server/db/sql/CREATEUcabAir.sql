@@ -727,7 +727,6 @@ END;
 $$;
 
 CREATE OR REPLACE PROCEDURE editar_persona(
-    codigo                 INTEGER,
     direccion             VARCHAR(516),
     monto_acreditado       REAL,
     fecha_inicio_operacion DATE,
@@ -749,7 +748,7 @@ CREATE OR REPLACE PROCEDURE editar_persona(
     ) 
     LANGUAGE plpgsql 
     AS $$ BEGIN
-    UPDATE persona SET codigo_com=codigo,direccion_com=direccion,monto_acreditado_com=monto_acreditado,fecha_inicio_operacion_com=fecha_inicio_operacion,
+    UPDATE persona SET direccion_com=direccion,monto_acreditado_com=monto_acreditado,fecha_inicio_operacion_com=fecha_inicio_operacion,
     tipo_com=tipo,nacionalidad_com=nacionalidad,fk_lugar=fk_lugar2,fk_usuario=fk_usuario2,tipo_persona_com=tipo_persona,
     rif_jur=rif,denominacion_persona_jur=denominacion_persona,razon_social_jur=razon_social,pagina_web_jur=pagina_web,
     cedula_nat=cedula,primer_nombre_nat=primer_nombre,segundo_nombre_nat=segundo_nombre,primer_apellido_nat=primer_apellido,

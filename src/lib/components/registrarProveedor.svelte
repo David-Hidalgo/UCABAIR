@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Proveedor, Telefono,Correo_electronico} from '$lib/server/db/schema';
-	export let id_editar: Proveedor;
+	export let id_editar: Proveedor|undefined;
+	export let fk_usuario: number|undefined;
 	import { goto } from '$app/navigation';
 	
 	let proveedor: Proveedor;
@@ -108,9 +109,6 @@
 	<!-- <label for="usuario">Numero Usuario</label>
 	<input id="usuario" bind:value={proveedor.fk_usuario} /> -->
 
-	<label for="codigo">Codigo</label>
-	<input id="codigo" bind:value={proveedor.codigo_com} />
-
 	<label for="rif">RIF</label>
 	<input id="rif" bind:value={proveedor.rif_jur} />
 
@@ -154,6 +152,9 @@
 	<input id="direccion" bind:value={proveedor.direccion_com} />
 
 	<label for="monto">Monto acreditado</label>
+	<input id="monto" bind:value={proveedor.monto_acreditado_com} />
+
+
 	<input id="monto" bind:value={proveedor.monto_acreditado_com} />
 
 	<label for="fechaInicio">Fecha de Inicio de Operaciones</label>

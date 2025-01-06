@@ -11,6 +11,17 @@ DROP PROCEDURE IF EXISTS editar_persona;
 DROP PROCEDURE IF EXISTS insertar_tipo_prueba;
 DROP PROCEDURE IF EXISTS eliminar_tipo_prueba;
 DROP PROCEDURE IF EXISTS editar_tipo_prueba;
+DROP PROCEDURE IF EXISTS insertar_telefono;
+DROP PROCEDURE IF EXISTS insertar_correo;
+DROP PROCEDURE IF EXISTS insertar_aeronave;
+DROP PROCEDURE IF EXISTS eliminar_modelo_avion;
+DROP PROCEDURE IF EXISTS insertar_caracteristica;
+DROP PROCEDURE IF EXISTS insertar_caracteristica_modelo;
+DROP PROCEDURE IF EXISTS insertar_tipo_pieza;
+DROP PROCEDURE IF EXISTS eliminar_tipo_pieza;
+DROP PROCEDURE IF EXISTS eliminar_tipo_materia_prima;
+DROP PROCEDURE IF EXISTS insertar_tipo_materia_prima;
+DROP PROCEDURE IF EXISTS editar_tipo_materia_prima;
 ALTER TABLE IF EXISTS sede DROP CONSTRAINT IF EXISTS fk_lugar;
 
 ALTER TABLE IF EXISTS almacen DROP CONSTRAINT IF EXISTS fk_sede;

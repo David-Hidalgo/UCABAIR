@@ -3,19 +3,14 @@
 	import RegistroNat from '$lib/components/registrarClienteNat.svelte';
 	import RegistroJur from '$lib/components/registrarClienteJur.svelte';
 	let selectedComponent= $state(RegistroNat);
+	let codigo_usu = $state(-1);
 	import { page } from '$app/stores';
-	
-	const urlParams = new URLSearchParams($page.url.search);
-	const codigo = urlParams.get('codigo');
-	let codigo_usu = -1;
-	console.log("dime " + codigo_usu);
-		if (codigo) {
-			console.log(codigo_usu);
-			codigo_usu = parseInt(codigo);
-		}
-		else{
-			
-		}
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		const urlParams = new URLSearchParams(page.url.search);
+		codigo_usu = parseInt(urlParams.get('codigo') || '-1', 10);
+	});
     function seleccionarComponente(tipoCliente: string) {
         switch (tipoCliente) {
             case 'Natural':
