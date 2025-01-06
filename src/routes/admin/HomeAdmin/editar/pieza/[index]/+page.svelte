@@ -1,9 +1,9 @@
 <script lang="ts">
     import type { PageData } from './$types';
-	import EditarTipoPrueba from '$lib/components/registrarTipoPrueba.svelte';
+	import EditarTipoPieza from '$lib/components/registrarTipoPieza.svelte';
 	let { data }: { data: PageData }=$props();
 </script>
 
 	<div class="EditarTipoPrueba">
-		<EditarTipoPrueba id_editar={data.resultado} />
+		<EditarTipoPieza id_editar={data.resultado} piezas_fk={data.piezas_fk}/>
 	</div>

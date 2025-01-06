@@ -2,10 +2,11 @@ import {dbPostgre } from '$lib/server/db';
 import type { Actions,PageServerLoad } from './$types';
 
 export interface Tipo_pieza {
-	codigo_tmp: number | undefined;
-	nombre_tmp: string;
-	descripcion_tmp: string;
-	unidad_medida_tmp: string;
+	codigo_tp: number | undefined;
+	nombre_tp: string;
+	descripcion_tp: string;
+	fk_tipo_pieza: number | undefined;
+	precio_unidad_tp: number;
 }
 
 export interface Sede {
@@ -43,10 +44,10 @@ export const actions: Actions = {
 
 export const load: PageServerLoad = async ({ params }) => {
 
-	const tp_table = 	await dbPostgre<Tipo_pieza[]>`SELECT * FROM tipo_materia_prima;`;
-	const sedes_table = 	await dbPostgre<Sede[]>`SELECT * FROM sede;`;
+	const tp_table = await dbPostgre<Tipo_pieza[]>`SELECT * FROM tipo_pieza;`;
+	const sedes_table = await dbPostgre<Sede[]>`SELECT * FROM sede;`;
 	
-	return {tmp_table,sedes_table};
+	return {tp_table,sedes_table};
 	
 };
 

@@ -11,10 +11,8 @@ export const load: PageServerLoad=async({ params}) =>{
     if (Number.isInteger(n)) {
         
         const [resultado] =await dbPostgre<Tipo_pieza[]>`select * from tipo_pieza where codigo_tp=${n}`
-        
-        return {
-            resultado
-        };
+        const piezas_fk =await dbPostgre<Tipo_pieza[]>`select * from tipo_pieza`
+        return {resultado, piezas_fk};
     }
     error(400)
 }

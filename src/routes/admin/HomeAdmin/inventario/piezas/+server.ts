@@ -6,7 +6,7 @@ import {dbPostgre } from '$lib/server/db';
 
 export async function DELETE({ request }) {
 	const codigo_tmp = await request.json();
-	const respuesta = await dbPostgre`CALL eliminar_modelo_avion(${codigo_tmp})`;
+	const respuesta = await dbPostgre`CALL eliminar_tipo_pieza(${codigo_tp})`;
 
 	return json({ respuesta }, { status: 201 });
 }

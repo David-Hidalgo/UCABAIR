@@ -5,4 +5,4 @@
 </script>
 
 
-		<RegistrarTipoPieza id_editar={undefined} />
+		<RegistrarTipoPieza id_editar={undefined} piezas_fk={data.piezas_fk}/>

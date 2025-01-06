@@ -12,9 +12,8 @@ export async function POST({ request }) {
 	return json({ respuesta }, { status: 201 });
 
 	} else {
-	const { codigo_tp,nombre_tp,descripcion_tp,precio_unidad_tp,fk_tipo_pieza} = await request.json();
 	const respuesta = await dbPostgre`CALL insertar_tipo_pieza(${codigo_tp}, ${nombre_tp},
 									 ${descripcion_tp}, ${fk_tipo_pieza}, ${precio_unidad_tp})`;
 	return json({ respuesta }, { status: 201 });
-}
+	}
 }
