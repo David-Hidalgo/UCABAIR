@@ -6,11 +6,7 @@
 	import { goto } from '$app/navigation';
 	let { data }: { data: PageData } = $props();
 
-	let searchTerm = '';
-	function search() {
-		// Lógica de búsqueda
-		console.log(`Buscando: ${searchTerm}`);
-	}
+
 	let telefonos: Telefono[] = new Array();
 for (let index = 0; index < data.tel_table.length; index++) {
     let telefono: Telefono = {
@@ -112,7 +108,6 @@ for (let index = 0; index < data.email_table.length; index++) {
 <table>
 	<thead>
 		<tr>
-			<th>Codigo</th>
 			<th>RIF</th>
 			<th>Denominacion comercial</th>
             <th>Razon social</th>
@@ -122,13 +117,11 @@ for (let index = 0; index < data.email_table.length; index++) {
             <th>Direccion</th>
             <th>Monto acreditado</th>
             <th>Fecha inicio operaciones</th>
-			<th>Estado</th>
 		</tr>
 	</thead>
 	<tbody>
 		{#each proveedores as proveedor}
 			<tr>
-				<td>{proveedor.codigo_com}</td>
 				<td>{proveedor.rif_jur}</td>
 				<td>{proveedor.denominacion_persona_jur}</td>
                 <td>{proveedor.razon_social_jur}</td>

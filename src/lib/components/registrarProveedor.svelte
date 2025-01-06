@@ -14,14 +14,14 @@
 		codigo_viejo=id_editar.codigo_com
 	} else {
 		proveedor = {
-			codigo_com: Math.floor(Math.random() * 5670) + 1,
+			codigo_com: undefined,
 			direccion_com: '',
-			monto_acreditado_com: 0,
+			monto_acreditado_com: undefined,
 			fecha_inicio_operaciones_com: new Date(),
 			tipo_com: 'proveedor',
 			nacionalidad_com: '',
-			fk_lugar: Math.floor(Math.random() * 360) + 1,
-			fk_usuario: 188,
+			fk_lugar: undefined,
+			fk_usuario: undefined,
 			tipo_persona_com: 'juridico',
 			rif_jur: '',
 			denominacion_persona_jur: '',
@@ -135,7 +135,7 @@
 
 		<label for="telefono1">Numero de Telefono</label>
 		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
-		<button type="button" on:click={() => { telefonos.push({ ...telefono }); telefono = { codigo_tel: telefono.codigo_tel+1, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: proveedor.codigo_com, fk_empleado: 0 };alert('Telefono añadido') }}>Agregar Teléfono</button>
+		<button type="button" on:click={() => { telefonos.push({ ...telefono }); telefono = { codigo_tel: telefono.codigo_tel, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: proveedor.codigo_com, fk_empleado: 0 };alert('Telefono añadido') }}>Agregar Teléfono</button>
 	</div>
 
 	<p style="display: block; font-weight: bold;">Correo</p>
@@ -147,7 +147,7 @@
 
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
-		<button type="button" on:click={() => {correos.push({ ...correo }); correo ={ codigo_ce: correo.codigo_ce + 1, direccion_correo_ce: '', fk_persona: proveedor.codigo_com, fk_empleado: 0 };alert('Correo añadido')}}>Agregar Correo</button>
+		<button type="button" on:click={() => {correos.push({ ...correo }); correo ={ codigo_ce: correo.codigo_ce, direccion_correo_ce: '', fk_persona: proveedor.codigo_com, fk_empleado: 0 };alert('Correo añadido')}}>Agregar Correo</button>
 	</div>
 
 	<label for="direccion">Direccion</label>

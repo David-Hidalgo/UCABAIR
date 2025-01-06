@@ -558,6 +558,3 @@ DROP TABLE IF EXISTS usuario;
 DROP TABLE IF EXISTS venta;
 DROP TABLE IF EXISTS zona;
 DROP TABLE IF EXISTS sesion;
-
-/*DROP SEQUENCE IF EXISTS lugar_codigo_lug_seq;
-DROP SEQUENCE IF EXISTS usuario_codigo_usu_seq;*/
