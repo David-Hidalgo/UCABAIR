@@ -120,7 +120,8 @@ export const actions: Actions = {
 			where nombre_usu = ${username};`;
 			// const b = a[0].codigo_usu;
 			// console.log('lo que me regresó fué: \n ', a, '\n');
-
+			console.log('el codigo del usuario es: ', a.codigo_usu);
+			
 			/*  */
 			const session = await auth.createSession(sessionToken, a.codigo_usu);
 			auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
