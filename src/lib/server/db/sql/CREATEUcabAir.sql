@@ -309,7 +309,7 @@ CREATE TABLE pago_venta (
     fk_modo_pago        INTEGER NOT NULL
 );
 CREATE TABLE empleado (
-    codigo_empleado_per       INTEGER NOT NULL,
+    codigo_empleado_per       SERIAL NOT NULL,
     primer_nombre_per         VARCHAR(255) NOT NULL,
     segundo_nombre_per        VARCHAR(255),
     primer_apellido_per       VARCHAR(255) NOT NULL,
