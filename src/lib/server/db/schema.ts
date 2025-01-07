@@ -192,3 +192,10 @@ export interface Configuracion_prueba_avion {
 	fk_sede: number;
 }
 
+export interface Compra {
+	codigo_compra_com: number | undefined;
+	numero_factura_com: number | undefined;
+	fecha_hora_com: Date;
+	monto_total_com: number;
+	impuesto_total_com: number;
+}

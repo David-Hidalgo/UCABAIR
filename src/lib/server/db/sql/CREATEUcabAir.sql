@@ -67,7 +67,7 @@ CREATE TABLE persona (
     segundo_apellido_nat       VARCHAR(255)
 );
 CREATE TABLE compra (
-    codigo_compra_com  INTEGER NOT NULL,
+    codigo_compra_com  SERIAL NOT NULL,
     numero_factura_com INTEGER NOT NULL,
     fecha_hora_com     DATE NOT NULL,
     monto_total_com    REAL NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE detalle_compra (
     cantidad_dc        INTEGER NOT NULL,
     precio_unitario_dc REAL NOT NULL,
     fk_compra  	       INTEGER NOT NULL,
-    codigo_dc          INTEGER NOT NULL,
+    codigo_dc          SERIAL NOT NULL,
     fk_persona	       INTEGER NOT NULL
 );
 CREATE TABLE detalle_venta (
@@ -282,7 +282,7 @@ CREATE TABLE moneda (
     fecha_fin_mon    DATE
 );
 CREATE TABLE pago_compra (
-    codigo_pago_pc    	 INTEGER NOT NULL,
+    codigo_pago_pc    	 SERIAL NOT NULL,
     fecha_pago_pc     	 DATE NOT NULL,
     fk_modo_pago         INTEGER NOT NULL,
     fk_compra		 INTEGER NOT NULL

@@ -14,7 +14,7 @@
 </script>
 
 {#if tipo === 'natural'}
-	<EditarClienteNat fk_usuario={data.fk_usuario} codigo_com={data.resultado.codigo_com} id_editar={data.resultado} />
+	<EditarClienteNat fk_usuario={data.fk_usuario} codigo_com={false} id_editar={data.resultado} />
 {:else if tipo === 'juridico'}
-	<EditarClienteJur fk_usuario={data.fk_usuario} codigo_com={data.resultado.codigo_com} id_editar={data.resultado} />
+	<EditarClienteJur fk_usuario={data.fk_usuario} codigo_com={false} id_editar={data.resultado} />
 {/if}

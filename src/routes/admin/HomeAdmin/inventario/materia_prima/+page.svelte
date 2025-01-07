@@ -108,6 +108,11 @@ function mostrarSede(cod_sed: number) {
 						<button onclick={() => eliminarRegistro(dato)}>
 							<span>🗑️</span>
 						</button>
+						<a href="/admin/HomeAdmin/registrar/solicitud/{dato.codigo_tmp}">
+							<button onclick={() => editarRegistro(dato)}>
+								<span>Reponer Existencia</span>
+							</button>
+						</a>
 					</div>
 				</td>
 			</tr>

@@ -66,12 +66,52 @@
 	async function actualizarCliente() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/cliente`, {
 			method: 'PUT',
-			body: JSON.stringify({ cliente_nat: cliente_nat, codigo_viejo: codigo_viejo }), //Hay que enviar correos y telefonos tambien
+			body: JSON.stringify({ direccion: cliente_nat.direccion_com,
+                monto_acreditado: cliente_nat.monto_acreditado_com,
+                fecha_inicio_operacion: cliente_nat.fecha_inicio_operacion_com,
+                tipo: cliente_nat.tipo_com,
+                nacionalidad: cliente_nat.nacionalidad_com,
+                fk_lugar: cliente_nat.fk_lugar,
+                fk_usuario: cliente_nat.fk_usuario,
+                tipo_persona: cliente_nat.tipo_persona_com,
+                cedula: cliente_nat.cedula_nat,
+                primer_nombre: cliente_nat.primer_nombre_nat,
+                segundo_nombre: cliente_nat.segundo_nombre_nat,
+                primer_apellido: cliente_nat.primer_apellido_nat,
+                segundo_apellido: cliente_nat.segundo_apellido_nat,
+                viejo_codigo: codigo_viejo }), //Hay que enviar correos y telefonos tambien
 			headers: { 'Content-Type': 'application/json' }
 		});
+		console.log(cliente_nat);
+	
+		telefonos.forEach((tel) => {
+			tel.fk_persona = cliente_nat.codigo_com;
+		});
+		correos.forEach((cor) => {
+			cor.fk_persona = cliente_nat.codigo_com;
+		});
+	
+		for (let tel of telefonos) {
+			console.log(tel);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+				method: 'POST',
+				body: JSON.stringify(tel),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+	
+		for (let cor of correos) {
+			console.log(cor);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+				method: 'POST',
+				body: JSON.stringify(cor),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
 		const data = await res.json();
 		goto('/admin/HomeAdmin/clientes');
-	}
+	}	
 
 	// Función para manejar el envío del formulario
 	async function registrarCliente() {
@@ -79,7 +119,7 @@
 			method: 'POST',
 			body: JSON.stringify(cliente_nat),
 			headers: { 'Content-Type': 'application/json' }
-		});
+		});	
 		const argumento = await res.json();
 		console.log('este es el argumento \n');
 		console.log(argumento);

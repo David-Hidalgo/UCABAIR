@@ -66,11 +66,49 @@ let telefono: Telefono = {
 	}
 
 	async function actualizarCliente() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/cliente`, {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/aliado`, {
 			method: 'PUT',
-			body: JSON.stringify({cliente_jur:cliente_jur , codigo_viejo:codigo_viejo}), //Hay que enviar correos y telefonos tambien
+			body: JSON.stringify({direccion: cliente_jur.direccion_com,
+                monto_acreditado: cliente_jur.monto_acreditado_com,
+                fecha_inicio_operacion: cliente_jur.fecha_inicio_operacion_com,
+                tipo: cliente_jur.tipo_com,
+                nacionalidad: cliente_jur.nacionalidad_com,
+                fk_lugar: cliente_jur.fk_lugar,
+                fk_usuario: cliente_jur.fk_usuario,
+                tipo_persona: cliente_jur.tipo_persona_com,
+                rif: cliente_jur.rif_jur,
+                denominacion_persona: cliente_jur.denominacion_persona_jur,
+                razon_social: cliente_jur.razon_social_jur,
+                pagina_web: cliente_jur.pagina_web_jur,
+                viejo_codigo: codigo_viejo}),
 			headers: { 'Content-Type': 'application/json' }
 		});
+
+		
+		telefonos.forEach((tel) => {
+			tel.fk_persona = cliente_jur.codigo_com;
+		});
+		correos.forEach((cor) => {
+			cor.fk_persona = cliente_jur.codigo_com;
+		});
+	
+		for (let tel of telefonos) {
+			console.log(tel);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+				method: 'POST',
+				body: JSON.stringify(tel),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+	
+		for (let cor of correos) {
+			console.log(cor);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+				method: 'POST',
+				body: JSON.stringify(cor),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
 		const data = await res.json();
 		goto('/admin/HomeAdmin/clientes');
 	}

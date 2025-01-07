@@ -10,7 +10,8 @@
 		{ id: 'admin/HomeAdmin/aliados', name: 'Proveedores' },
 		{ id: 'admin/HomeAdmin/pruebas', name: 'Pruebas' },
 		{ id: 'admin/HomeAdmin/roles', name: 'Roles' },
-		{ id: 'admin/HomeAdmin/reportes', name: 'Reportes' }
+		{ id: 'admin/HomeAdmin/reportes', name: 'Reportes' },
+		{ id: 'admin/HomeAdmin/solicitudes', name: 'Solicitudes' }
 	];
 </script>
 

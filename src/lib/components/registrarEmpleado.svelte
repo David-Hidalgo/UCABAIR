@@ -6,8 +6,8 @@
 
 	let empleado: Empleado;
 	let codigo_viejo: number;
-	let telefonos: Telefono[] = [];
-	let correos: Correo_electronico[] = [];
+	export let telefonos: Telefono[] = [];
+	export let correos: Correo_electronico[] = [];
 
 	if (id_editar != undefined) {
 		empleado = id_editar;
@@ -56,6 +56,9 @@
 
 	// Función para manejar el envío del formulario
 	async function actualizarEmpleado() {
+		console.log(empleado);
+		console.log(codigo_viejo);
+		
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/empleado`, {
 			method: 'PUT',
 			body: JSON.stringify({ empleado: empleado, codigo_viejo: codigo_viejo }),

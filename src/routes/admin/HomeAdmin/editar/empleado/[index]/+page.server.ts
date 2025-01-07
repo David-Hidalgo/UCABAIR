@@ -16,9 +16,9 @@ export const load: PageServerLoad=async({ params}) =>{
     if (Number.isInteger(n)) {
         
         const [resultado] =await dbPostgre<Empleado[]>`select * from empleado where codigo_empleado_per=${n}`
-        const [telefonos] =await dbPostgre<Telefono[]>`select * from telefono where fk_empleado=${n}`
-        const [correos] =await dbPostgre<Correo_electronico[]>`select * from correo_electronico where fk_empleado=${n}`
-        const [fk_usuario]= await dbPostgre<Empleado[]> `select e.fk_usuario from empleado e, usuario u 
+        const telefonos =await dbPostgre<Telefono[]>`select * from telefono where fk_empleado=${n}`
+        const correos =await dbPostgre<Correo_electronico[]>`select * from correo_electronico where fk_empleado=${n}`
+        const [fk_usuario]= await dbPostgre<Number[]> `select e.fk_usuario from empleado e, usuario u 
                                                     where e.fk_usuario=u.codigo_usu and codigo_empleado_per=${n}  `
         return {resultado,telefonos, correos,fk_usuario};
     }

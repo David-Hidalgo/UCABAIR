@@ -1,26 +1,16 @@
-import { json } from '@sveltejs/kit';
+import { json, type RequestHandler } from '@sveltejs/kit';
 import { dbPostgre } from '$lib/server/db';
+import type { Empleado } from '$lib/server/db/schema';
 
-export async function PUT({ request }) {
-    const { codigo,
-    primer_nombre,
-    segundo_nombre,
-    primer_apellido,
-    segundo_apellido,
-    direccion,
-    fecha_inicio_servicio,
-    fk_lugar,
-    sueldo,
-    fk_usuario,
-    cedula,
-    viejo_codigo} = await request.json();
+export const PUT: RequestHandler = async ({ request }) => {
+    
+	const { empleado, codigo_viejo } = await request.json();
+	console.log(empleado, codigo_viejo);
 
-    const respuesta =
-        await dbPostgre`CALL editar_empleado(${codigo}, ${primer_nombre}, ${segundo_nombre},
-                        ${primer_apellido},${segundo_apellido},${direccion},${fecha_inicio_servicio},
-                        ${fk_lugar},${sueldo},${fk_usuario},${cedula},${viejo_codigo})`;
-                        
-                        
+	const respuesta =
+		await dbPostgre`CALL editar_empleado(${empleado.codigo_empleado_per}, ${empleado.primer_nombre_per}, ${empleado.segundo_nombre_per},
+                        ${empleado.primer_apellido_per},${empleado.segundo_apellido_per},${empleado.direccion_per},${empleado.fecha_inicio_servicio_per},
+                        ${empleado.fk_lugar},${empleado.sueldo_per},${empleado.fk_usuario},${empleado.cedula_per},${codigo_viejo})`;
 
-    return json({ respuesta }, { status: 201 });
-}
+	return json({ respuesta }, { status: 201 });
+};
