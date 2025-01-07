@@ -1,8 +1,10 @@
-<script>
-	import { page } from '$app/stores';
+
+<script lang="ts">
+	import type { PageData } from './$types';
 	import Editar from '$lib/components/registrarEmpleado.svelte';
-	let cedula_per = Number($page.params.index);
-	console.log(cedula_per);
+	let { data }: { data: PageData }=$props();
 </script>
 
-<Editar cedula_per={cedula_per} />
+<div class="Editar">
+		<Editar correos={data.correos} telefonos={data.telefonos} fk_usuario={data.fk_usuario.fk_usuario}  cedula_per={data.resultado.cedula_per} id_editar={data.resultado} />
+	</div>

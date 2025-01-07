@@ -200,6 +200,12 @@
 	<label for="nacionalidad">Nacionalidad</label>
 	<input id="nacionalidad" bind:value={cliente_nat.nacionalidad_com} />
 
+	<label for="monto">Monto acreditado</label>
+	<input id="monto" bind:value={cliente_nat.monto_acreditado_com} />
+
+	<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
+	<input id="fechaInicio" type="date" bind:value={cliente_nat.fecha_inicio_operacion_com} />
+
 	<button type="submit">Registrar Cliente</button>
 </form>
 

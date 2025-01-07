@@ -14,7 +14,7 @@
 		if (id_editar.codigo_empleado_per) codigo_viejo = id_editar.codigo_empleado_per;
 	} else {
 		empleado = {
-			codigo_empleado_per: Math.floor(Math.random() * 1000) + 200,
+			codigo_empleado_per: 0,
 			cedula_per: '',
 			primer_nombre_per: '',
 			segundo_nombre_per: '',
@@ -96,11 +96,8 @@
 	}
 </script>
 
-<form onsubmit={registrarEmpleado}>
+<form onsubmit={decide}>
 	<h2>Registrar Empleado</h2>
-
-	<!-- <label for="usuario">Numero Usuario</label>
-	<input id="usuario" bind:value={empleado.fk_usuario} /> -->
 
 	<label for="codigo">Codigo Empleado</label>
 	<input id="codigo" bind:value={empleado.codigo_empleado_per} />
@@ -123,8 +120,6 @@
 	<p style="display: block; font-weight: bold;">Telefono</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="telefono-container">
-		<!-- <label for="codigotlf">Codigo</label>
-		<input id="codigotlf" bind:value={telefono.codigo_tel} /> -->
 
 		<label for="CodigoArea">Codigo De Area</label>
 		<input id="codigoArea" bind:value={telefono.codigo_area_tel} />
@@ -150,8 +145,6 @@
 	<p style="display: block; font-weight: bold;">Correo</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="correo-container">
-		<!-- <label for="codigoCor">Codigo</label>
-		<input id="codigoCor" bind:value={correo.codigo_ce} /> -->
 
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
@@ -161,7 +154,7 @@
 			onclick={() => {
 				correos.push({ ...correo });
 				correo = {
-					codigo_ce: correo.codigo_ce + 1,
+					codigo_ce: correo.codigo_ce ,
 					direccion_correo_ce: '',
 					fk_persona: 0,
 					fk_empleado: empleado.codigo_empleado_per

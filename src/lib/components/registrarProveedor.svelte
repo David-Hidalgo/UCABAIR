@@ -71,9 +71,8 @@
 		});
 		const data = await res.json();
 		alert('Proveedor modificado con exito');
-		goto('/admin/HomeAdmin/aliado');
+		goto('/admin/HomeAdmin/aliados');
 	}
-
 	async function registrarProveedor() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aliado`, {
 			method: 'POST',
@@ -114,10 +113,9 @@
 
 </script>
 
-<form on:submit|preventDefault={registrarProveedor}>
+<form on:submit|preventDefault={decide}>
 	<h2>Registrar Proveedor</h2>
-	<!-- <label for="usuario">Numero Usuario</label>
-	<input id="usuario" bind:value={proveedor.fk_usuario} /> -->
+
 
 	<label for="rif">RIF</label>
 	<input id="rif" bind:value={proveedor.rif_jur} />
@@ -134,8 +132,6 @@
 	<p style="display: block; font-weight: bold;">Telefono</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="telefono-container">
-				<!-- <label for="codigotlf">Codigo</label>
-		<input id="codigotlf" bind:value={telefono.codigo_tel} /> -->
 
 
 		<label for="codigoArea">Codigo De Area</label>
@@ -149,9 +145,6 @@
 	<p style="display: block; font-weight: bold;">Correo</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="correo-container">
-
-		<!-- <label for="codigoCor">Codigo</label>
-		<input id="codigoCor" bind:value={correo.codigo_ce} /> -->
 
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />

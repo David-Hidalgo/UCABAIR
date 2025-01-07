@@ -164,7 +164,7 @@
 <table>
 	<thead>
 		<tr>
-			<th>Id</th>
+
 			<th>Nombre</th>
 			<th>Descripcion</th>
 			<th>Precio Unidad</th>
@@ -176,7 +176,7 @@
 	<tbody>
 		{#each modelos_avion as modelo_avion}
 			<tr>
-				<td>{modelo_avion.codigo_ma}</td>
+				
                 <td>{modelo_avion.nombre_ma}</td>
                 <td>{modelo_avion.descripcion_ma}</td>
                 <td>{modelo_avion.precio_unidad_ma}</td>

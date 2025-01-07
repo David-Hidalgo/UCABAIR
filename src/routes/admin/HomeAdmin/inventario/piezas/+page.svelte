@@ -84,17 +84,14 @@ function mostrarSede(cod_sed: number) {
 <table>
 	<thead>
 		<tr>
-			<th>ID</th>
 			<th>Pieza</th>
 			<th>Tipo de Pieza</th>
 			<th>Precio por unidad</th>
-			<th>Cantidad</th>
 		</tr>
 	</thead>
 	<tbody>
 		{#each piezas as dato}
 			<tr>
-				<td>{dato.codigo_tp}</td>
 				<td>{dato.nombre_tp}</td>
 				<td>{dato.descripcion_tp}</td>
 				<td>{dato.precio_unidad_tp}</td>

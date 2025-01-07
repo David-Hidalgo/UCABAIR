@@ -5,5 +5,5 @@
 </script>
 
 	<div class="EditarRol">
-		<EditarAeronave id_editar={data.resultado} caracteristicas={data.caracteristicas} modelos_avion={data.modelos_avion}/>
+		<EditarAeronave id_editar={data.resultado} caracteristicas_asignadas={data.caracteristicas_asignadas} modelos_avion={data.modelos_avion}/>
 	</div>

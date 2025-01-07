@@ -94,7 +94,6 @@
 <table>
 	<thead>
 		<tr>
-			<th>Id</th>
 			<th>Nombre</th>
 			<th>Descripción</th>
 			<th>Duración</th>
@@ -103,7 +102,6 @@
 	<tbody>
 		{#each tipo_pruebas as dato}
 			<tr>
-				<td>{dato.codigo_tp}</td>
                 <td>{dato.nombre_tp}</td>
                 <td>{dato.descripcion_tp}</td>
                 <td>{dato.duracion_estimada_tp}</td>

@@ -43,7 +43,7 @@
 	}
 
 	let caracteristica :Caracteristica= {
-		codigo_car: Math.floor(Math.random() * 360) + 20,
+		codigo_car: 0,
 		nombre_car: '',
 	};
 
@@ -144,7 +144,7 @@
 	let i=0
 </script>
 
-<form on:submit|preventDefault={registrarAeronave}>
+<form on:submit|preventDefault={decide}>
 	<h2>Registrar Aeronave</h2>
 
 	<label for="codigo_ma">Codigo Aeronave</label>
@@ -177,8 +177,8 @@
 		<button type="button" on:click={() => { caracteristicas.push({ ...caracteristica });
 							caracteristica_modelo = {valor_cm: caracteristica_modelo.valor_cm,unidad_medida_cm:caracteristica_modelo.unidad_medida_cm,fk_caracteristica: caracteristica.codigo_car,fk_modelo_avion: aeronave.codigo_ma};
 							caracteristicas_modelo.push({ ...caracteristica_modelo });
-							 caracteristica = { codigo_car: caracteristica.codigo_car+1, nombre_car: ''};
-							 caracteristica_modelo = {valor_cm: caracteristica_modelo.valor_cm + 1,unidad_medida_cm:'',fk_caracteristica: caracteristica.codigo_car,fk_modelo_avion: aeronave.codigo_ma};alert('Caracteristica añadida') }}>Agregar Caracteristica</button>
+							 caracteristica = { codigo_car: caracteristica.codigo_car, nombre_car: ''};
+							 caracteristica_modelo = {valor_cm: caracteristica_modelo.valor_cm,unidad_medida_cm:'',fk_caracteristica: caracteristica.codigo_car,fk_modelo_avion: aeronave.codigo_ma};alert('Caracteristica añadida') }}>Agregar Caracteristica</button>
 	
 </div>
 	<div class="piezas">

@@ -1,7 +1,12 @@
-<script>
-	import { page } from '$app/stores';
+<script lang="ts">
+	import type { PageData } from './$types';
 	import Editar from '$lib/components/registrarProveedor.svelte';
-	let codigo_com = Number($page.params.index);
+	let { data }: { data: PageData }=$props();
 </script>
 
-<Editar codigo_com={codigo_com} />
+<div class="Editar">
+		<Editar  telefonos={data.telefonos} fk_usuario={data.fk_usuario.fk_usuario} correos={data.correos} codigo_com={data.resultado.codigo_com} id_editar={data.resultado} />
+	</div>
+
+
+

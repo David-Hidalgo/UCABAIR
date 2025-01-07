@@ -873,16 +873,8 @@ ALTER TABLE persona ADD CONSTRAINT tipo_persona_com_check check(tipo_persona_com
 
 ALTER TABLE persona ADD UNIQUE (fk_usuario);
 
-ALTER TABLE persona ADD UNIQUE (cedula_nat);
-
 ALTER TABLE compra ADD UNIQUE (numero_factura_com);
 
-ALTER TABLE correo_electronico ADD UNIQUE (direccion_correo_ce);
-
 ALTER TABLE empleado ADD UNIQUE (fk_usuario);
-
-ALTER TABLE empleado ADD UNIQUE (cedula_per);
-
-ALTER TABLE telefono ADD UNIQUE (numero_telefono_tel);
 
 ALTER TABLE sesion ADD CONSTRAINT usuario_fk FOREIGN KEY(user_id) REFERENCES usuario(codigo_usu) ON DELETE CASCADE;

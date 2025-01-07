@@ -86,7 +86,6 @@ function mostrarSede(cod_sed: number) {
 <table>
 	<thead>
 		<tr>
-			<th>ID</th>
 			<th>Material</th>
 			<th>Descripcion</th>
 			<th>Unidad de medida</th>
@@ -95,7 +94,7 @@ function mostrarSede(cod_sed: number) {
 	<tbody>
 		{#each materias_prima as dato}
 			<tr>
-                <td>{dato.codigo_tmp}</td>
+
                 <td>{dato.nombre_tmp}</td>
                 <td>{dato.descripcion_tmp}</td>
                 <td>{dato.unidad_medida_tmp}</td>

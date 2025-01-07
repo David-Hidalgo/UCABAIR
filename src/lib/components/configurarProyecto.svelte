@@ -21,7 +21,7 @@
 
 	let proyecto: Proyecto = {
 		codigo_ens: 0,
-		aeronave_ens: [{ value: 1, label: 'Airbus A320' },{ value: 2, label: 'Boeing 737' },{ value: 3, label: 'Cessna 172' },{ value: 4, label: 'Embraer E190' },{ value: 5, label: 'Bombardier CRJ900' },{ value: 6, label: 'Airbus A380' },{ value: 7, label: 'Boeing 747' },{ value: 8, label: 'Cessna 182' },{ value: 9, label: 'Embraer E195' },{ value: 10, label: 'Bombardier CRJ1000' }],
+		aeronave_ens: [{ value: 1, label: 'Au-80' },{ value: 2, label: 'Au-747Plus' },{ value: 3, label: 'Au-802A' },{ value: 4, label: 'Au-747Gold' },{ value: 5, label: 'Au-802F' },{ value: 6, label: 'Au-747Platinum' },{ value: 7, label: 'Au-802B' }],
 		fecha_inicio: '',
 		fecha_fin_ens: '',
 		fk_plan_ensamblaje: 0,

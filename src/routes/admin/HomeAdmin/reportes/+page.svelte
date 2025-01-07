@@ -17,7 +17,7 @@
 </style>
 
 <div class="container">
-    <iframe src='http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&ParentFolderUri=%2Freports&reportUnit=%2Freports%2FProveedoresYSusProductos&standAlone=true'></iframe>
+    <iframe src='http://localhost:8081/jasperserver/flow.html?_flowId=searchFlow'></iframe>
 </div>
 
 

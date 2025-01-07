@@ -308,18 +308,9 @@ ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS tipo_persona_com_check;
 
 ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS persona_fk_usuario_key;
 
-ALTER TABLE IF EXISTS persona DROP CONSTRAINT IF EXISTS persona_cedula_nat_key;
-
 ALTER TABLE IF EXISTS compra DROP CONSTRAINT IF EXISTS compra_numero_factura_com_key;
 
-ALTER TABLE IF EXISTS correo_electronico DROP CONSTRAINT IF EXISTS correo_electronico_direccion_correo_ce_key;
-
 ALTER TABLE IF EXISTS empleado DROP CONSTRAINT IF EXISTS empleado_fk_usuario_key;
-
-ALTER TABLE IF EXISTS empleado DROP CONSTRAINT IF EXISTS empleado_cedula_per_key;
-
-ALTER TABLE IF EXISTS telefono DROP CONSTRAINT IF EXISTS telefono_numero_telefono_tel_key;
-
 
 
 
