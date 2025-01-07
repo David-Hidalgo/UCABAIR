@@ -35,7 +35,6 @@ INSERT INTO LUGAR ( fk_lugar,nombre_lug,tipo_lug) VALUES
 (1, 'Maroa','municipio'),
 (1, 'Río Negro','municipio'),
 
-
 (2, 'Anaco','municipio'),
 (2, 'Aragua','municipio'),
 (2, 'Manuel Ezequiel Bruzual','municipio'),
@@ -4208,7 +4207,7 @@ INSERT INTO detalle_compra (cantidad_dc, precio_unitario_dc, fk_compra, fk_perso
 (1200, 37.50, 24, 120),
 (1300, 46.15, 25, 121);
 
-INSERT INTO detalle_compra (cantidad_dc, precio_unitario_dc, fk_compra, codigo_dc, fk_persona) VALUES
+INSERT INTO detalle_compra (cantidad_dc, precio_unitario_dc, fk_compra, fk_persona) VALUES
 (1400, 50, 26, 122),
 (1500, 50, 27, 123),
 (1600, 50, 28, 124),

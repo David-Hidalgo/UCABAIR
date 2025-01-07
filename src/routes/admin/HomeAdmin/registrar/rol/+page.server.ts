@@ -5,9 +5,7 @@ import type { Privilegio } from '$lib/server/db/schema';
 
 export const load: PageServerLoad=async() =>{
     const permisos =await dbPostgre<Privilegio[]>`select * from privilegio`
-    return {
-        permisos
-        };
+    return {permisos};
 
     error(400)
 }

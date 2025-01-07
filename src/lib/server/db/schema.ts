@@ -199,3 +199,52 @@ export interface Compra {
 	monto_total_com: number;
 	impuesto_total_com: number;
 }
+export interface Estimacion_profesion_empleado {
+	codigo_epp: number | undefined;
+	fk_tipo_prueba: number | undefined;
+	fk_embalaje_plan: number | undefined;
+	fk_plan_transporte: number | undefined;
+	fk_plan_ensamblaje: number | undefined;
+	cantidad_empleado_epp: number | undefined;
+	fk_profesion: number | undefined;
+}
+
+export interface Profesion{
+    codigo_pro:number | undefined;
+    nombre_pro: string;
+
+}
+
+export interface Configuracion_def {
+	codigo_ma: number ;
+	nombre_ma: string;
+	descripcion_ma: string;
+	precio_unidad_ma: number | undefined;
+	fk_modelo_avion: number | undefined;
+	cantidad_pieza_ca: number | undefined;
+	fk_tipo_pieza: number | undefined;
+	fk_sede: number | undefined;
+	codigo_tp: number | undefined;
+	nombre_tp: string;
+	descripcion_tp: string;
+	precio_unidad_tp: number | undefined;
+	codigo_pe: number | undefined;
+	descripcion_pe: string;
+	duracion_estimada_pe: string;
+	fk_plan_ensamblaje: number | undefined;
+	fk_tipo_prueba: number | undefined;
+	fk_embalaje_plan: number | undefined;
+	fk_plan_transporte: number | undefined;
+	duracion_estimada_tp: string;
+	codigo_epp: number | undefined;
+	cantidad_empleado_epp: number | undefined;
+	fk_profesion: number | undefined;
+	codigo_pro: number | undefined;
+	nombre_pro: string;
+	codigo_ep: number | undefined;
+	duracion_estimada_ep: string;
+	codigo_pt: number | undefined;
+	duracion_estimada_pt: string;
+	descripcion_pt: string;
+}
+  

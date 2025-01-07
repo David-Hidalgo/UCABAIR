@@ -83,11 +83,20 @@
 	};
 
 	async function actualizarAeronave() {
+		console.log(codigo_viejo);
+		console.log("El modelo que paso es:");
+		console.log(aeronave);
+		console.log("caracteristicas:");
+		console.log(caracteristicas);
+		console.log("caracteristicas_modelo:");
+		console.log(caracteristicas_modelo);
+		
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/aeronave`, {
 			method: 'PUT',
 			body: JSON.stringify({aeronave:aeronave , codigo_viejo:codigo_viejo, caracteristicas:caracteristicas, caracteristicas_modelo:caracteristicas_modelo}),
 			headers: { 'Content-Type': 'application/json' }
 		});
+
 		const data = await res.json();
 		goto('/admin/HomeAdmin/inventario/aeronaves');
 	}

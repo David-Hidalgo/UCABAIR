@@ -867,3 +867,16 @@ CREATE OR REPLACE PROCEDURE editar_tipo_materia_prima(
     WHERE codigo_tmp = codigo_tmpN;
 END;
 $$;
+
+CREATE OR REPLACE PROCEDURE editar_aeronave(
+    codigo INTEGER, nombre VARCHAR(255), descripcion VARCHAR(255),
+        precio_unidad REAL,fk_modelo_avion2 INTEGER,
+    viejo_codigo INTEGER
+    ) 
+    LANGUAGE plpgsql 
+    AS $$ BEGIN
+    UPDATE modelo_avion SET codigo_ma=codigo,nombre_ma=nombre,descripcion_ma=descripcion,
+    precio_unidad_ma=precio_unidad,fk_modelo_avion=fk_modelo_avion2
+    WHERE codigo_ma=viejo_codigo;
+END;
+$$;

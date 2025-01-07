@@ -9,7 +9,6 @@
 				 Configuracion_avion, Tipo_pieza, Tipo_prueba, Configuracion_prueba_avion } from './+page.server.ts';
     import { writable } from 'svelte/store';
 	// const dispatch = createEventDispatcher();
-	import MostrarCaracteristicas from '$lib/components/mostrarCaracteristicas.svelte';
 
 	let { data }: { data: PageData } = $props();
 	let searchTerm = '';
@@ -212,8 +211,7 @@
 						<tbody>
 							{#each (configuraciones_p.filter(c => c.fk_modelo_avion === modelo_avion.codigo_ma) ?? []) as configuracion}
 								<tr>
-									<td style="margin: 0; padding: 0; text-align: left;"><strong>{pruebas.find(p => p.codigo_tp === configuracion.fk_tipo_prueba)?.nombre_tp} :</strong>
-										{configuracion.fk_sede}
+									<td style="margin: 0; padding: 0; text-align: left;"><strong>{pruebas.find(p => p.codigo_tp === configuracion.fk_tipo_prueba)?.nombre_tp} </strong>
 									</td>
 								</tr>
 							{/each}
@@ -225,13 +223,19 @@
 						<a href="/admin/HomeAdmin/editar/aeronave/{modelo_avion.codigo_ma}">
 							<button onclick={() => editarRegistro(modelo_avion)}>
 								<span>✏️</span>
-								<!-- Icono de lápiz -->
+								
 							</button>
 						</a>
 						<button onclick={() => eliminarRegistro(modelo_avion)}>
 							<span>🗑️</span>
-							<!-- Icono de papelera -->
+							
 						</button>
+						<a href="/admin/HomeAdmin/inventario/aeronaves/configuracion/{modelo_avion.codigo_ma}">
+							<button onclick={() => editarRegistro(modelo_avion)}>
+								<span>Ver la Configuracion</span>
+								
+							</button>
+						</a>
 					</div>
 				</td>
 			</tr>

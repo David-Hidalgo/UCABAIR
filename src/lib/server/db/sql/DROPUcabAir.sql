@@ -22,6 +22,7 @@ DROP PROCEDURE IF EXISTS eliminar_tipo_pieza;
 DROP PROCEDURE IF EXISTS eliminar_tipo_materia_prima;
 DROP PROCEDURE IF EXISTS insertar_tipo_materia_prima;
 DROP PROCEDURE IF EXISTS editar_tipo_materia_prima;
+DROP PROCEDURE IF EXISTS editar_aeronave;
 ALTER TABLE IF EXISTS sede DROP CONSTRAINT IF EXISTS fk_lugar;
 
 ALTER TABLE IF EXISTS almacen DROP CONSTRAINT IF EXISTS fk_sede;

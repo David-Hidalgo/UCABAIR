@@ -1,25 +1,15 @@
 <script lang="ts">
 	import type {Tipo_materia_prima, Compra } from '$lib/server/db/schema';
-	export let id_editar: Compra | undefined;
-	export let datos_solicitud: Tipo_materia_prima[];
+	export let datos_solicitud: Compra[];
 
 	import { goto } from '$app/navigation';
-	console.log(datos_solicitud);
-	let solicitud: Compra;
-	let codigo_viejo: number;
-	if (id_editar!=undefined) {
-		solicitud = id_editar;
-		if (id_editar.codigo_compra_com)
-		codigo_viejo=id_editar.codigo_compra_com;
-	} else {
-		solicitud = {
+		datos_solicitud = {
 			codigo_compra_com: undefined,
             numero_factura_com: undefined,
             fecha_hora_com: new Date(),
             monto_total_com: 0,
             impuesto_total_com: 0,
 		};
-	}
 
 	// Función para manejar el envío del formulario
 	async function registrarSolicitud() {

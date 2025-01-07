@@ -5,5 +5,5 @@
 </script>
 
 	<div class="EditarMateriaPrima">
-		<RegistrarSolicitud id_editar={data.resultado} datos_solicitud={data.resultado}/>
+		<RegistrarSolicitud datos_solicitud={data.resultado} />
 	</div>
