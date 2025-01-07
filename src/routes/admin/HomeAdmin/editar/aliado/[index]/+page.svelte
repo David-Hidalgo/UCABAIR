@@ -5,7 +5,7 @@
 </script>
 
 <div class="Editar">
-		<Editar  telefonos={data.telefonos} fk_usuario={data.fk_usuario.fk_usuario} correos={data.correos} codigo_com={data.resultado.codigo_com} id_editar={data.resultado} />
+		<Editar  telefonos={data.telefonos} fk_usuario={data.fk_usuario.fk_usuario} correos={data.correos}  id_editar={data.resultado} />
 	</div>
 
 

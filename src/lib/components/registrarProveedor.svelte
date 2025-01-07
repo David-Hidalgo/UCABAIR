@@ -4,10 +4,10 @@
 	export let fk_usuario: number|undefined;
 	import { goto } from '$app/navigation';
 	
-	let proveedor: Proveedor;
-	let telefonos: Telefono[] = [];
-	let correos: Correo_electronico[] = [];
-	let codigo_viejo: number;
+	 let proveedor: Proveedor;
+	export let telefonos: Telefono[] = [];
+	export let correos: Correo_electronico[] = [];
+	 let codigo_viejo: number;
 
 	if (id_editar!=undefined) {
 		proveedor = id_editar;
@@ -64,23 +64,41 @@
 
 	// Función para manejar el envío del formulario
 	async function actualizarProveedor() {
+		console.log("he aquí el proveedor: \n");
+		console.log(proveedor);
+		console.log("he aquí el codigo Viejo: "+ codigo_viejo);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/aliado`, {
 			method: 'PUT',
-			body: JSON.stringify({proveedor:proveedor , codigo_viejo:codigo_viejo}),
+			body: JSON.stringify({direccion: proveedor.direccion_com,
+                monto_acreditado: proveedor.monto_acreditado_com,
+                fecha_inicio_operacion: proveedor.fecha_inicio_operaciones_com,
+                tipo: proveedor.tipo_com,
+                nacionalidad: proveedor.nacionalidad_com,
+                fk_lugar: proveedor.fk_lugar,
+                fk_usuario: proveedor.fk_usuario,
+                tipo_persona: proveedor.tipo_persona_com,
+                rif: proveedor.rif_jur,
+                denominacion_persona: proveedor.denominacion_persona_jur,
+                razon_social: proveedor.razon_social_jur,
+                pagina_web: proveedor.pagina_web_jur,
+                viejo_codigo: codigo_viejo}),
 			headers: { 'Content-Type': 'application/json' }
 		});
-		const data = await res.json();
 		alert('Proveedor modificado con exito');
 		goto('/admin/HomeAdmin/aliados');
 	}
 	async function registrarProveedor() {
+		console.log("he aquí el proveedor: \n");
+		console.log(proveedor);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aliado`, {
 			method: 'POST',
 			body: JSON.stringify(proveedor),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const argumento =await res.json();
-		proveedor.codigo_com = argumento.id_persona;
+		console.log(argumento);
+		
+		proveedor.codigo_com = argumento.respuesta.id_persona;
 	
 		console.log(proveedor);
 		
@@ -106,8 +124,7 @@
 				headers: { 'Content-Type': 'application/json' }
 			});
 		}
-		const data = await res.json();
-
+		
 		goto('/admin/HomeAdmin/aliados');
 	}
 

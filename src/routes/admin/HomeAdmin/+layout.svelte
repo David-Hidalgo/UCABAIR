@@ -107,36 +107,5 @@
 		color: #333;
 	}
 
-	.search-bar {
-		display: flex;
-		align-items: center;
-		padding: 8px;
-		background-color: #f3f3f3;
-		border-radius: 8px;
-		margin-bottom: 16px;
-		width: 50%;
-		margin-left: auto;
-	}
-
-	.search-input {
-		flex-grow: 1;
-		border: none;
-		padding: 8px;
-		margin-right: 8px;
-	}
-
-	.search-button {
-		padding: 8px 16px;
-		background-color: #050505;
-		color: white;
-		border: none;
-		border-radius: 4px;
-		cursor: pointer;
-	}
-
-	.title {
-		font-size: 24px;
-		color: #333;
-		margin-bottom: 8px;
-	}
+	
 </style>
