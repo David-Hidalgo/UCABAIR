@@ -124,7 +124,6 @@
 				</td>
 				<td>{compra.fecha_hora_com}</td>
 				<td>{compra.monto_total_com}</td>
-				<td> AYUDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA </td>
 			</tr>
 		{/each}
 	</tbody>

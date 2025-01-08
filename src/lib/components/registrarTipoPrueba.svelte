@@ -87,12 +87,19 @@
 		font-weight: bold;
 	}
 
-	input,
-
+	
+	input {
+		width: 40%;
+		padding: 10px;
+		margin-bottom: 15px;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		font-size: 14px;
+	}
 	/* Estilos para el botón de envío */
 	button {
-		background-color: #050505;
-		color: #fff;
+		background-color: rgb(0, 0, 0);
+		color: #ffffff;
 		border: none;
 		border-radius: 3px;
 		padding: 10px 20px;
