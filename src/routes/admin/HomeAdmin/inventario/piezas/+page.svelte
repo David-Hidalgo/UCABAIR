@@ -3,8 +3,7 @@
 	// import { createEventDispatcher } from 'svelte';
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
-	import type { ActionData } from './$types';
-	import type { PageData } from './$types';
+	import type { PageData,ActionData } from './$types';
 	import type { Tipo_pieza, Sede } from './+page.server.ts';
 	// const dispatch = createEventDispatcher();
 
@@ -73,11 +72,7 @@
 </script>
 
 <h2>Inventario Piezas</h2>
-<select bind:value={sede_a_mostrar} onchange={() => mostrarSede(sede_a_mostrar)}>
-	{#each sedes as sede}
-		<option value={sede.codigo_sed}>{sede.nombre_sed}</option>
-	{/each}
-</select>
+
 <table>
 	<thead>
 		<tr>

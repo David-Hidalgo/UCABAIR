@@ -74,7 +74,7 @@ CREATE TABLE compra (
     impuesto_total_com REAL NOT NULL
 );
 CREATE TABLE configuracion_avion (
-    cantidad_pieza_ca     INTEGER NOT NULL,
+    cantidad_pieza_ca     INTEGER NOT NULL DEFAULT 1,
     fk_tipo_pieza         INTEGER NOT NULL,
     fk_modelo_avion       INTEGER NOT NULL,
     fk_sede       	  INTEGER NOT NULL
@@ -191,7 +191,7 @@ CREATE TABLE estimacion_profesion_empleado (
     fk_embalaje_plan             INTEGER,
     fk_plan_transporte           INTEGER,
     fk_plan_ensamblaje           INTEGER,
-    cantidad_empleado_epp 	 INTEGER NOT NULL,
+    cantidad_empleado_epp 	 INTEGER NOT NULL DEFAULT 1,
     fk_profesion            	 INTEGER NOT NULL
 );
 CREATE TABLE historial_estatus_compra (
@@ -883,14 +883,14 @@ $$;
 
 
 CREATE OR REPLACE PROCEDURE insertar_configuracion_completa( 
-cantidad_pieza INTEGER[],
+cantidad_pieza INTEGER,
 fk_tipo_pieza2 INTEGER[],
 fk_modelo_avion2 INTEGER,
 fk_sede2 INTEGER,
 fk_embalaje_plan2 INTEGER,
 fk_plan_transporte2 INTEGER,
 fk_tipo_prueba2 INTEGER,
-cantidad_empleado_epp2 INTEGER[],
+cantidad_empleado_epp2 INTEGER,
 fk_profesion2 INTEGER[]
 )
 LANGUAGE plpgsql AS $$ BEGIN
@@ -934,4 +934,32 @@ AFTER UPDATE ON lote_materia_prima
 FOR EACH ROW
 WHEN (NEW.cantidad_lmp <= 150)
 EXECUTE FUNCTION reponer_materia_prima_150(1000,100);
+
+
+
+CREATE OR REPLACE FUNCTION insertar_en_lote_materia_prima() RETURNS TRIGGER AS $$
+BEGIN
+    
+    IF (SELECT nombre_est FROM estatus WHERE codigo_est = NEW.fk_estatus) LIKE '%Listo%' THEN --cambiar la consulta
+        
+        INSERT INTO lote_materia_prima (codigo_lmp, fk_configuracion_pieza, fk_configuracion_pieza2, fk_compra, fk_almacen, fk_almacen2, cantidad_lmp)
+        VALUES (
+            99, --cambiar
+            2,
+            5,
+            NEW.fk_compra,
+            8,
+            3,
+			170
+
+        );
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER trigger_insertar_en_lote_materia_prima AFTER
+INSERT ON historial_estatus_compra
+FOR EACH ROW EXECUTE FUNCTION insertar_en_lote_materia_prima();
 
