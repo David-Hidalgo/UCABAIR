@@ -3433,7 +3433,17 @@ INSERT INTO estatus (codigo_est, nombre_est) VALUES
 (7, 'En Pruebas'),
 (8, 'Listo para Envío'),
 (9, 'En Reparación'),
-(10, 'Desmantelado');
+(10, 'Desmantelado'),
+(11,'Por pagar'),
+(12,'Pagado'),
+(13,'Enviado'),
+(14,'Recibido'),
+(15,'En Tránsito'),
+(16,'En Espera'),
+(17,'En Proceso'),
+(18,'En Revisión'),
+(19,'En Mantenimiento'),
+(20,'En Espera de Aprobación');
 
 INSERT INTO moneda (codigo_mon, nombre_mon, tasa_cambio_mon, fecha_inicio_mon, fecha_fin_mon) VALUES 
 (1, 'Dólar Estadounidense', 1.00, '2024-01-01', NULL),
