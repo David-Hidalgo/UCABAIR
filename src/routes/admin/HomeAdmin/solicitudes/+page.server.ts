@@ -67,6 +67,5 @@ export const load: PageServerLoad = async ({ params }) => {
 	const tmp = await dbPostgre<Tipo_materia_prima[]>`SELECT * FROM tipo_materia_prima;`;
 	const est_table	= await dbPostgre<Estatus[]>`SELECT * FROM estatus;`;
 	const hec_table = await dbPostgre<Historial_estatus_compra[]>`SELECT * FROM historial_estatus_compra;`;
-	// console.log(roltable);
 	return {comtable, lmp, tmp, est_table, hec_table};
 };
