@@ -6,4 +6,4 @@
 	let codigo_tp;
 </script>
 
-		<EditarTipoPrueba id_editar={codigo_tp} />
+<EditarTipoPrueba id_editar={codigo_tp} />

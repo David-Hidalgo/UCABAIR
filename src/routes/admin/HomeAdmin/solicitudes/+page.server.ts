@@ -32,8 +32,8 @@ export const actions: Actions = {
 };
 
 export const load: PageServerLoad = async ({ params }) => {
-	const roltable = await dbPostgre<Rol[]>`
-    SELECT * FROM rol;
+	const roltable = await dbPostgre<Solicitudes[]>`
+    SELECT * FROM solicitudes;
 `;
 	// console.log(roltable);
 	return { roltable };

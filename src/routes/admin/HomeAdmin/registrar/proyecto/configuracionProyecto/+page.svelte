@@ -2,12 +2,11 @@
 	import MostrarPresupuesto from '$lib/components/mostrarPresupuesto.svelte';
 </script>
 
+<MostrarPresupuesto />
 
-	<MostrarPresupuesto />
-	
-	<a href="/admin/HomeAdmin/ensamblajes">
-		<button>Registrar Ensamblaje</button>
-	</a>
+<a href="/admin/HomeAdmin/ensamblajes">
+	<button>Registrar Ensamblaje</button>
+</a>
 
 <style>
 	button {

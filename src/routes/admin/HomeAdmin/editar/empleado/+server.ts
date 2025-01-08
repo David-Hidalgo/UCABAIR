@@ -3,7 +3,6 @@ import { dbPostgre } from '$lib/server/db';
 import type { Empleado } from '$lib/server/db/schema';
 
 export const PUT: RequestHandler = async ({ request }) => {
-    
 	const { empleado, codigo_viejo } = await request.json();
 	console.log(empleado, codigo_viejo);
 

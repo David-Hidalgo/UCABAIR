@@ -1,5 +1,5 @@
 <script>
-	import Registro from "$lib/components/registrarProveedor.svelte";
+	import Registro from '$lib/components/registrarProveedor.svelte';
 </script>
 
-<Registro/>
+<Registro />

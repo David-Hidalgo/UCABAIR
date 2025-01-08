@@ -1,7 +1,14 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import type { Modelo_avion, Caracteristica, Caracteristica_modelo,Tipo_pieza,Tipo_prueba,
-				 Configuracion_avion, Configuracion_prueba_avion } from '$lib/server/db/schema';
+	import type {
+		Modelo_avion,
+		Caracteristica,
+		Caracteristica_modelo,
+		Tipo_pieza,
+		Tipo_prueba,
+		Configuracion_avion,
+		Configuracion_prueba_avion
+	} from '$lib/server/db/schema';
 	export let modelos_avion: Modelo_avion[];
 	export let id_editar: Modelo_avion | undefined;
 
@@ -13,17 +20,16 @@
 	let caracteristicas_modelo: Caracteristica_modelo[] = [];
 
 	let codigo_viejo: number;
-	let aeronave :Modelo_avion= {
+	let aeronave: Modelo_avion = {
 		codigo_ma: 0,
 		nombre_ma: '',
 		descripcion_ma: '',
 		precio_unidad_ma: 0,
 		fk_modelo_avion: 0
 	};
-	if (id_editar!=undefined) {
+	if (id_editar != undefined) {
 		aeronave = id_editar;
-		if (id_editar.codigo_ma)
-		codigo_viejo=id_editar.codigo_ma
+		if (id_editar.codigo_ma) codigo_viejo = id_editar.codigo_ma;
 	} else {
 		aeronave = {
 			codigo_ma: 0,
@@ -34,20 +40,19 @@
 		};
 	}
 	async function decide() {
-		
-		if (id_editar==undefined) {
+		if (id_editar == undefined) {
 			registrarAeronave();
 		} else {
 			actualizarAeronave();
 		}
 	}
 
-	let caracteristica :Caracteristica= {
+	let caracteristica: Caracteristica = {
 		codigo_car: 0,
-		nombre_car: '',
+		nombre_car: ''
 	};
 
-	let caracteristica_modelo:Caracteristica_modelo = {
+	let caracteristica_modelo: Caracteristica_modelo = {
 		valor_cm: 0,
 		unidad_medida_cm: '',
 		fk_caracteristica: caracteristica.codigo_car,
@@ -84,16 +89,21 @@
 
 	async function actualizarAeronave() {
 		console.log(codigo_viejo);
-		console.log("El modelo que paso es:");
+		console.log('El modelo que paso es:');
 		console.log(aeronave);
-		console.log("caracteristicas:");
+		console.log('caracteristicas:');
 		console.log(caracteristicas);
-		console.log("caracteristicas_modelo:");
+		console.log('caracteristicas_modelo:');
 		console.log(caracteristicas_modelo);
-		
+
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/aeronave`, {
 			method: 'PUT',
-			body: JSON.stringify({aeronave:aeronave , codigo_viejo:codigo_viejo, caracteristicas:caracteristicas, caracteristicas_modelo:caracteristicas_modelo}),
+			body: JSON.stringify({
+				aeronave: aeronave,
+				codigo_viejo: codigo_viejo,
+				caracteristicas: caracteristicas,
+				caracteristicas_modelo: caracteristicas_modelo
+			}),
 			headers: { 'Content-Type': 'application/json' }
 		});
 
@@ -137,11 +147,14 @@
 
 		for (let cm of caracteristicas_modelo) {
 			console.log(cm);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave/caracteristica_modelo`, {
-				method: 'POST',
-				body: JSON.stringify(cm),
-				headers: { 'Content-Type': 'application/json' }
-			});
+			await fetch(
+				`http://localhost:5173/admin/HomeAdmin/registrar/aeronave/caracteristica_modelo`,
+				{
+					method: 'POST',
+					body: JSON.stringify(cm),
+					headers: { 'Content-Type': 'application/json' }
+				}
+			);
 		}
 		const data = await res.json();
 		goto('/admin/HomeAdmin/inventario/aeronaves');
@@ -150,7 +163,7 @@
 	let mostrarPruebas = false;
 	let mostrarPiezas = false;
 	let mostrarCaracteristicas = false;
-	let i=0
+	let i = 0;
 </script>
 
 <form on:submit|preventDefault={decide}>
@@ -183,60 +196,97 @@
 
 		<label for="unidad_medida_cm">Unidad de medida de la caracteristica</label>
 		<input id="unidad_medida_cm" bind:value={caracteristica_modelo.unidad_medida_cm} />
-		<button type="button" on:click={() => { caracteristicas.push({ ...caracteristica });
-							caracteristica_modelo = {valor_cm: caracteristica_modelo.valor_cm,unidad_medida_cm:caracteristica_modelo.unidad_medida_cm,fk_caracteristica: caracteristica.codigo_car,fk_modelo_avion: aeronave.codigo_ma};
-							caracteristicas_modelo.push({ ...caracteristica_modelo });
-							 caracteristica = { codigo_car: caracteristica.codigo_car, nombre_car: ''};
-							 caracteristica_modelo = {valor_cm: caracteristica_modelo.valor_cm,unidad_medida_cm:'',fk_caracteristica: caracteristica.codigo_car,fk_modelo_avion: aeronave.codigo_ma};alert('Caracteristica añadida') }}>Agregar Caracteristica</button>
-	
-</div>
+		<button
+			type="button"
+			on:click={() => {
+				caracteristicas.push({ ...caracteristica });
+				caracteristica_modelo = {
+					valor_cm: caracteristica_modelo.valor_cm,
+					unidad_medida_cm: caracteristica_modelo.unidad_medida_cm,
+					fk_caracteristica: caracteristica.codigo_car,
+					fk_modelo_avion: aeronave.codigo_ma
+				};
+				caracteristicas_modelo.push({ ...caracteristica_modelo });
+				caracteristica = { codigo_car: caracteristica.codigo_car, nombre_car: '' };
+				caracteristica_modelo = {
+					valor_cm: caracteristica_modelo.valor_cm,
+					unidad_medida_cm: '',
+					fk_caracteristica: caracteristica.codigo_car,
+					fk_modelo_avion: aeronave.codigo_ma
+				};
+				alert('Caracteristica añadida');
+			}}>Agregar Caracteristica</button
+		>
+	</div>
 	<div class="piezas">
-				<label for="pieza_field_{i}">Nombre Pieza </label>
-				<input id="pieza_field_{i}" bind:value={pieza.nombre_tp} />
+		<label for="pieza_field_{i}">Nombre Pieza </label>
+		<input id="pieza_field_{i}" bind:value={pieza.nombre_tp} />
 
-				<label for="cant_pieza_field_{i}">Descripcion Pieza</label>
-				<input id="cant_pieza_field_{i}" bind:value={pieza.descripcion_tp} />
+		<label for="cant_pieza_field_{i}">Descripcion Pieza</label>
+		<input id="cant_pieza_field_{i}" bind:value={pieza.descripcion_tp} />
 
-				<label for="precio_pieza_field_{i}">Precio Pieza</label>
-				<input id="precio_pieza_field_{i}" bind:value={pieza.precio_unidad_tp} />
-				<button type="button" on:click={() => {piezas.push({ ...pieza });console.log(piezas)}}>Agregar Pieza</button>
-				<button type="button" on:click={() => { mostrarPiezas = !mostrarPiezas }}>{mostrarPiezas ? 'Refrescar Piezas añadidas' : 'Mostrar Piezas añadidas'}</button>
+		<label for="precio_pieza_field_{i}">Precio Pieza</label>
+		<input id="precio_pieza_field_{i}" bind:value={pieza.precio_unidad_tp} />
+		<button
+			type="button"
+			on:click={() => {
+				piezas.push({ ...pieza });
+				console.log(piezas);
+			}}>Agregar Pieza</button
+		>
+		<button
+			type="button"
+			on:click={() => {
+				mostrarPiezas = !mostrarPiezas;
+			}}>{mostrarPiezas ? 'Refrescar Piezas añadidas' : 'Mostrar Piezas añadidas'}</button
+		>
 
-				{#if mostrarPiezas}
-					<ul>
-						{#each piezas as pieza}
-							<li>
-								<p>Nombre Pieza: {pieza.nombre_tp}</p>
-								<p>Descripción Pieza: {pieza.descripcion_tp}</p>
-								<p>Duración estimada Pieza: {pieza.precio_unidad_tp}</p>
-							</li>
-						{/each}
-					</ul>
-				{/if}
+		{#if mostrarPiezas}
+			<ul>
+				{#each piezas as pieza}
+					<li>
+						<p>Nombre Pieza: {pieza.nombre_tp}</p>
+						<p>Descripción Pieza: {pieza.descripcion_tp}</p>
+						<p>Duración estimada Pieza: {pieza.precio_unidad_tp}</p>
+					</li>
+				{/each}
+			</ul>
+		{/if}
 	</div>
 	<div class="pruebas">
-				<label for="prueba_field_{i}">Nombre Prueba</label>
-				<input id="prueba_field_{i}" bind:value={prueba.nombre_tp} />
+		<label for="prueba_field_{i}">Nombre Prueba</label>
+		<input id="prueba_field_{i}" bind:value={prueba.nombre_tp} />
 
-				<label for="desc_prueba_field_{i}">Descripcion Prueba</label>
-				<input id="desc_prueba_field_{i}" bind:value={prueba.descripcion_tp} />
+		<label for="desc_prueba_field_{i}">Descripcion Prueba</label>
+		<input id="desc_prueba_field_{i}" bind:value={prueba.descripcion_tp} />
 
-				<label for="duracion_prueba_field_{i}">Duracion estimada Prueba </label>
-				<input id="duracion_prueba_field_{i}" bind:value={prueba.duracion_estimada_tp} />
-				<button type="button" on:click={() => {pruebas.push({ ...prueba }); console.log(pruebas); }}>Agregar Prueba</button>
-				<button type="button" on:click={() => { mostrarPruebas = !mostrarPruebas }}>{mostrarPruebas ? 'Refrescar Pruebas añadidas' : 'Mostrar Pruebas añadidas'}</button>
+		<label for="duracion_prueba_field_{i}">Duracion estimada Prueba </label>
+		<input id="duracion_prueba_field_{i}" bind:value={prueba.duracion_estimada_tp} />
+		<button
+			type="button"
+			on:click={() => {
+				pruebas.push({ ...prueba });
+				console.log(pruebas);
+			}}>Agregar Prueba</button
+		>
+		<button
+			type="button"
+			on:click={() => {
+				mostrarPruebas = !mostrarPruebas;
+			}}>{mostrarPruebas ? 'Refrescar Pruebas añadidas' : 'Mostrar Pruebas añadidas'}</button
+		>
 
-				{#if mostrarPruebas}
-					<ul>
-						{#each pruebas as prueba}
-							<li>
-								<p>Nombre Prueba: {prueba.nombre_tp}</p>
-								<p>Descripción Prueba: {prueba.descripcion_tp}</p>
-								<p>Duración estimada Prueba: {prueba.duracion_estimada_tp}</p>
-							</li>
-						{/each}
-					</ul>
-				{/if}
+		{#if mostrarPruebas}
+			<ul>
+				{#each pruebas as prueba}
+					<li>
+						<p>Nombre Prueba: {prueba.nombre_tp}</p>
+						<p>Descripción Prueba: {prueba.descripcion_tp}</p>
+						<p>Duración estimada Prueba: {prueba.duracion_estimada_tp}</p>
+					</li>
+				{/each}
+			</ul>
+		{/if}
 	</div>
 	<button type="submit">Registrar Aeronave</button>
 </form>

@@ -59,9 +59,9 @@ export const actions: Actions = {
 
 				const session = await auth.createSession(sessionToken, existingUser.codigo_usu);
 				auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
-				const {user}=await auth.validateSessionToken(sessionToken);
+				const { user } = await auth.validateSessionToken(sessionToken);
 				console.log(user?.rol);
-				
+
 				switch (user?.rol) {
 					case 1:
 						return redirect(302, '/admin/HomeAdmin');
@@ -121,7 +121,7 @@ export const actions: Actions = {
 			// const b = a[0].codigo_usu;
 			// console.log('lo que me regresó fué: \n ', a, '\n');
 			console.log('el codigo del usuario es: ', a.codigo_usu);
-			userId=a.codigo_usu;
+			userId = a.codigo_usu;
 			/*  */
 			const session = await auth.createSession(sessionToken, a.codigo_usu);
 			auth.setSessionTokenCookie(event, sessionToken, session.expiresAt);
@@ -135,12 +135,12 @@ export const actions: Actions = {
 				break;
 			case 2:
 				return redirect(302, `/cliente/registro?codigo=${userId}`);
-	
+
 				break;
 			case 3:
 				return redirect(302, '/empleado/HomeEmpleado');
 				break;
-	
+
 			default:
 				return redirect(302, `/cliente/registro?codigo=${userId}`);
 				break;

@@ -5,15 +5,14 @@ if (!env.DATABASE_URL) throw new Error('DATABASE_URL is not set');
 const client = postgres(env.DATABASE_URL);
 import fs from 'fs';
 
-let script =  fs.readFileSync('./src/lib/server/db/sql/DROPUcabAir.sql',{encoding: "utf-8" });
+let script = fs.readFileSync('./src/lib/server/db/sql/DROPUcabAir.sql', { encoding: 'utf-8' });
 try {
-    await client.unsafe(script);
-    console.log('dropped');
+	await client.unsafe(script);
+	console.log('dropped');
 } catch (error) {
-    console.error('error:', error);
-    
+	console.error('error:', error);
 }
-script =  fs.readFileSync('./src/lib/server/db/sql/CREATEUcabAir.sql',{encoding: "utf-8" });
+script = fs.readFileSync('./src/lib/server/db/sql/CREATEUcabAir.sql', { encoding: 'utf-8' });
 await client.unsafe(script);
 console.log('created');
 script = fs.readFileSync('./src/lib/server/db/sql/ALTERUcabAir.sql', { encoding: 'utf-8' });
@@ -23,5 +22,4 @@ script = fs.readFileSync('./src/lib/server/db/sql/INSERTUcabAir.sql', { encoding
 await client.unsafe(script);
 console.log('inserted');
 
-
-export const dbPostgre= client;
+export const dbPostgre = client;

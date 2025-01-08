@@ -1,18 +1,17 @@
 <script lang="ts">
-	import type { Proveedor, Telefono,Correo_electronico} from '$lib/server/db/schema';
-	export let id_editar: Proveedor|undefined;
-	export let fk_usuario: number|undefined;
+	import type { Proveedor, Telefono, Correo_electronico } from '$lib/server/db/schema';
+	export let id_editar: Proveedor | undefined;
+	export let fk_usuario: number | undefined;
 	import { goto } from '$app/navigation';
-	
-	 let proveedor: Proveedor;
+
+	let proveedor: Proveedor;
 	export let telefonos: Telefono[] = [];
 	export let correos: Correo_electronico[] = [];
-	 let codigo_viejo: number;
+	let codigo_viejo: number;
 
-	if (id_editar!=undefined) {
+	if (id_editar != undefined) {
 		proveedor = id_editar;
-		if (id_editar.codigo_com)
-		codigo_viejo=id_editar.codigo_com
+		if (id_editar.codigo_com) codigo_viejo = id_editar.codigo_com;
 	} else {
 		proveedor = {
 			codigo_com: 0,
@@ -37,75 +36,75 @@
 			correos_electronicos: []
 		};
 	}
-		let telefono: Telefono = {
-			codigo_tel: 0,
-			numero_telefono_tel: '',
-			codigo_area_tel: '',
-			fk_persona: proveedor.codigo_com,
-			fk_empleado: 0
-		};
+	let telefono: Telefono = {
+		codigo_tel: 0,
+		numero_telefono_tel: '',
+		codigo_area_tel: '',
+		fk_persona: proveedor.codigo_com,
+		fk_empleado: 0
+	};
 
-		let correo: Correo_electronico = {
-			codigo_ce: 0,
-			direccion_correo_ce: '',
-			fk_persona: proveedor.codigo_com,
-			fk_empleado: 0
-		};
+	let correo: Correo_electronico = {
+		codigo_ce: 0,
+		direccion_correo_ce: '',
+		fk_persona: proveedor.codigo_com,
+		fk_empleado: 0
+	};
 
 	async function decide() {
-		
-		if (id_editar==undefined) {
+		if (id_editar == undefined) {
 			registrarProveedor();
-
 		} else {
-			actualizarProveedor()
+			actualizarProveedor();
 		}
 	}
 
 	// Función para manejar el envío del formulario
 	async function actualizarProveedor() {
-		console.log("he aquí el proveedor: \n");
+		console.log('he aquí el proveedor: \n');
 		console.log(proveedor);
-		console.log("he aquí el codigo Viejo: "+ codigo_viejo);
+		console.log('he aquí el codigo Viejo: ' + codigo_viejo);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/aliado`, {
 			method: 'PUT',
-			body: JSON.stringify({direccion: proveedor.direccion_com,
-                monto_acreditado: proveedor.monto_acreditado_com,
-                fecha_inicio_operacion: proveedor.fecha_inicio_operaciones_com,
-                tipo: proveedor.tipo_com,
-                nacionalidad: proveedor.nacionalidad_com,
-                fk_lugar: proveedor.fk_lugar,
-                fk_usuario: proveedor.fk_usuario,
-                tipo_persona: proveedor.tipo_persona_com,
-                rif: proveedor.rif_jur,
-                denominacion_persona: proveedor.denominacion_persona_jur,
-                razon_social: proveedor.razon_social_jur,
-                pagina_web: proveedor.pagina_web_jur,
-                viejo_codigo: codigo_viejo}),
+			body: JSON.stringify({
+				direccion: proveedor.direccion_com,
+				monto_acreditado: proveedor.monto_acreditado_com,
+				fecha_inicio_operacion: proveedor.fecha_inicio_operaciones_com,
+				tipo: proveedor.tipo_com,
+				nacionalidad: proveedor.nacionalidad_com,
+				fk_lugar: proveedor.fk_lugar,
+				fk_usuario: proveedor.fk_usuario,
+				tipo_persona: proveedor.tipo_persona_com,
+				rif: proveedor.rif_jur,
+				denominacion_persona: proveedor.denominacion_persona_jur,
+				razon_social: proveedor.razon_social_jur,
+				pagina_web: proveedor.pagina_web_jur,
+				viejo_codigo: codigo_viejo
+			}),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		alert('Proveedor modificado con exito');
 		goto('/admin/HomeAdmin/aliados');
 	}
 	async function registrarProveedor() {
-		console.log("he aquí el proveedor: \n");
+		console.log('he aquí el proveedor: \n');
 		console.log(proveedor);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aliado`, {
 			method: 'POST',
 			body: JSON.stringify(proveedor),
 			headers: { 'Content-Type': 'application/json' }
 		});
-		const argumento =await res.json();
+		const argumento = await res.json();
 		console.log(argumento);
-		
+
 		proveedor.codigo_com = argumento.respuesta.id_persona;
-	
+
 		console.log(proveedor);
-		
-		telefonos.forEach(tel => {
+
+		telefonos.forEach((tel) => {
 			tel.fk_persona = proveedor.codigo_com;
 		});
-		correos.forEach(cor => {
+		correos.forEach((cor) => {
 			cor.fk_persona = proveedor.codigo_com;
 		});
 		//
@@ -124,15 +123,13 @@
 				headers: { 'Content-Type': 'application/json' }
 			});
 		}
-		
+
 		goto('/admin/HomeAdmin/aliados');
 	}
-
 </script>
 
 <form on:submit|preventDefault={decide}>
 	<h2>Registrar Proveedor</h2>
-
 
 	<label for="rif">RIF</label>
 	<input id="rif" bind:value={proveedor.rif_jur} />
@@ -149,23 +146,45 @@
 	<p style="display: block; font-weight: bold;">Telefono</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="telefono-container">
-
-
 		<label for="codigoArea">Codigo De Area</label>
 		<input id="codigoArea" bind:value={telefono.codigo_area_tel} />
 
 		<label for="telefono1">Numero de Telefono</label>
 		<input id="telefono1" bind:value={telefono.numero_telefono_tel} />
-		<button type="button" on:click={() => { telefonos.push({ ...telefono }); telefono = { codigo_tel: telefono.codigo_tel, numero_telefono_tel: '', codigo_area_tel: '', fk_persona: proveedor.codigo_com, fk_empleado: 0 };alert('Telefono añadido') }}>Agregar Teléfono</button>
+		<button
+			type="button"
+			on:click={() => {
+				telefonos.push({ ...telefono });
+				telefono = {
+					codigo_tel: telefono.codigo_tel,
+					numero_telefono_tel: '',
+					codigo_area_tel: '',
+					fk_persona: proveedor.codigo_com,
+					fk_empleado: 0
+				};
+				alert('Telefono añadido');
+			}}>Agregar Teléfono</button
+		>
 	</div>
 
 	<p style="display: block; font-weight: bold;">Correo</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="correo-container">
-
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
-		<button type="button" on:click={() => {correos.push({ ...correo }); correo ={ codigo_ce: correo.codigo_ce, direccion_correo_ce: '', fk_persona: proveedor.codigo_com, fk_empleado: 0 };alert('Correo añadido')}}>Agregar Correo</button>
+		<button
+			type="button"
+			on:click={() => {
+				correos.push({ ...correo });
+				correo = {
+					codigo_ce: correo.codigo_ce,
+					direccion_correo_ce: '',
+					fk_persona: proveedor.codigo_com,
+					fk_empleado: 0
+				};
+				alert('Correo añadido');
+			}}>Agregar Correo</button
+		>
 	</div>
 
 	<label for="direccion">Direccion</label>
@@ -174,12 +193,10 @@
 	<label for="monto">Monto acreditado</label>
 	<input id="monto" bind:value={proveedor.monto_acreditado_com} />
 
-
 	<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
 	<input id="fechaInicio" type="date" bind:value={proveedor.fecha_inicio_operaciones_com} />
 
 	<button type="submit">Registrar Proveedor</button>
-	
 </form>
 
 <style>

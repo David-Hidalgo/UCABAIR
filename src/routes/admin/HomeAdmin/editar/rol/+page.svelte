@@ -7,4 +7,4 @@
 	let codigo_rol;
 </script>
 
-		<EditarRol id_editar={codigo_rol} />
+<EditarRol id_editar={codigo_rol} />

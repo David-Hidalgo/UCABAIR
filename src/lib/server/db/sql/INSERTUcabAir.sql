@@ -4154,7 +4154,8 @@ INSERT INTO estimacion_profesion_empleado (codigo_epp, fk_tipo_prueba, fk_embala
 (7, 7, 7, 7, 7, 9, 7),
 (8, 8, 8, 8, 8, 5, 8),
 (9, 9, 9, 9, 9, 11, 9),
-(10, 10, 10, 10, 10, 13, 10);
+(10, 10, 10, 10, 10, 13, 10),
+(11,1,null,null,null,2,8);
 
 INSERT INTO embalaje (codigo_emb, fecha_hora_inicio_emb, fecha_hora_fin_emb, fk_embalaje_plan, fk_pieza, fk_equipo_empleado, fk_equipo_empleado2, fk_lote_materia_prima, fk_avion) VALUES
 (1, '2024-12-01 08:00:00', '2024-12-02 17:00:00', 1, 1, 1, 5, NULL, NULL), 

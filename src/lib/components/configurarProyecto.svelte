@@ -4,7 +4,6 @@
 	import Combobox from './combobox.svelte';
 	// Interfaz para representar un dato
 
-
 	interface Proyecto {
 		codigo_ens: number;
 		aeronave_ens: { value: number; label: string }[];
@@ -21,7 +20,15 @@
 
 	let proyecto: Proyecto = {
 		codigo_ens: 0,
-		aeronave_ens: [{ value: 1, label: 'Au-80' },{ value: 2, label: 'Au-747Plus' },{ value: 3, label: 'Au-802A' },{ value: 4, label: 'Au-747Gold' },{ value: 5, label: 'Au-802F' },{ value: 6, label: 'Au-747Platinum' },{ value: 7, label: 'Au-802B' }],
+		aeronave_ens: [
+			{ value: 1, label: 'Au-80' },
+			{ value: 2, label: 'Au-747Plus' },
+			{ value: 3, label: 'Au-802A' },
+			{ value: 4, label: 'Au-747Gold' },
+			{ value: 5, label: 'Au-802F' },
+			{ value: 6, label: 'Au-747Platinum' },
+			{ value: 7, label: 'Au-802B' }
+		],
 		fecha_inicio: '',
 		fecha_fin_ens: '',
 		fk_plan_ensamblaje: 0,
@@ -45,8 +52,7 @@
 		console.log(data);*/
 		alert('Se agregó exitosamente el proyecto');
 		goto('/admin/HomeAdmin/registrar/proyecto/configuracionProyecto');
-		}
-
+	}
 </script>
 
 <form on:submit|preventDefault={registrarDato}>
@@ -63,7 +69,6 @@
 	</select>
 	<button type="submit">Mostrar Presupuesto Ensamblaje</button>
 </form>
-
 
 <style>
 	/* Estilos generales para el formulario */

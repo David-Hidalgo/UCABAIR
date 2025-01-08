@@ -1,82 +1,83 @@
 <script lang="ts">
-   import type { Tipo_pieza } from '$lib/server/db/schema';
-   let piezas: Tipo_pieza[] = [];
-   import { goto } from '$app/navigation';
-   export let id_editar: Tipo_pieza | undefined;
-   export let piezas_fk: Tipo_pieza[];
-   console.log(id_editar);
+	import type { Tipo_pieza } from '$lib/server/db/schema';
+	let piezas: Tipo_pieza[] = [];
+	import { goto } from '$app/navigation';
+	export let id_editar: Tipo_pieza | undefined;
+	export let piezas_fk: Tipo_pieza[];
+	console.log(id_editar);
 
-
-let pieza_fk_selected: Tipo_pieza = piezas_fk[0];
-let pieza: Tipo_pieza;
-   let codigo_viejo:number;
-	if (id_editar!=undefined) {
+	let pieza_fk_selected: Tipo_pieza = piezas_fk[0];
+	let pieza: Tipo_pieza;
+	let codigo_viejo: number;
+	if (id_editar != undefined) {
 		pieza = id_editar;
 		console.log(pieza);
-		if (id_editar.codigo_tp)
-		codigo_viejo=id_editar.codigo_tp
+		if (id_editar.codigo_tp) codigo_viejo = id_editar.codigo_tp;
 	} else {
 		pieza = {
-         codigo_tp: 0,
-         nombre_tp: '',
-         descripcion_tp: '',
-         precio_unidad_tp: 0,
-         fk_tipo_pieza: pieza_fk_selected.codigo_tp
-		}
-	};
+			codigo_tp: 0,
+			nombre_tp: '',
+			descripcion_tp: '',
+			precio_unidad_tp: 0,
+			fk_tipo_pieza: pieza_fk_selected.codigo_tp
+		};
+	}
 
-   async function decide() {
-		
-		if (id_editar==undefined) {
+	async function decide() {
+		if (id_editar == undefined) {
 			registrarTipoPieza();
 		} else {
 			actualizarTipoPieza();
 		}
 
-      async function actualizarTipoPieza() {
-		console.log(pieza);
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/pieza`, {
-			method: 'PUT',
-			body: JSON.stringify({pieza:pieza , codigo_viejo:codigo_viejo}), //Hay que enviar correos y telefonos tambien
+		async function actualizarTipoPieza() {
+			console.log(pieza);
+			const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/pieza`, {
+				method: 'PUT',
+				body: JSON.stringify({ pieza: pieza, codigo_viejo: codigo_viejo }), //Hay que enviar correos y telefonos tambien
+				headers: { 'Content-Type': 'application/json' }
+			});
+			const data = await res.json();
+			goto('/admin/HomeAdmin/inventario/piezas');
+		}
+	}
+	async function registrarTipoPieza() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/pieza`, {
+			method: 'POST',
+			body: JSON.stringify(pieza),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
 		goto('/admin/HomeAdmin/inventario/piezas');
 	}
-
-	}
-   async function registrarTipoPieza() {
-			const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/pieza`, {
-				method: 'POST',
-				body: JSON.stringify(pieza),
-				headers: { 'Content-Type': 'application/json' }
-			});
-         const data = await res.json();
-		   goto('/admin/HomeAdmin/inventario/piezas');
-   }
 </script>
+
 <form on:submit|preventDefault={decide}>
-				<label for="codigo_pieza">Codigo Pieza</label>
-				<input id="codigo_pieza" bind:value={pieza.codigo_tp} />
+	<label for="codigo_pieza">Codigo Pieza</label>
+	<input id="codigo_pieza" bind:value={pieza.codigo_tp} />
 
-            	<label for="pieza_field">Nombre Pieza </label>
-				<input id="nombre_pieza" bind:value={pieza.nombre_tp} />
+	<label for="pieza_field">Nombre Pieza </label>
+	<input id="nombre_pieza" bind:value={pieza.nombre_tp} />
 
-				<label for="descripcion_pieza">Descripcion Pieza</label>
-				<input id="descripcion_pieza" bind:value={pieza.descripcion_tp} />
+	<label for="descripcion_pieza">Descripcion Pieza</label>
+	<input id="descripcion_pieza" bind:value={pieza.descripcion_tp} />
 
-				<label for="piezas_fk">Si esta pieza se compone de alguna otra, seleccionela</label>
-				<select multiple id="piezas_fk"  bind:value={pieza_fk_selected} on:change={() => console.log(pieza_fk_selected)}>
-					{#each piezas_fk as pieza_fk}
-					<option value={pieza_fk.codigo_tp}>{pieza_fk.nombre_tp}</option>
-					{/each}
-				</select>
+	<label for="piezas_fk">Si esta pieza se compone de alguna otra, seleccionela</label>
+	<select
+		multiple
+		id="piezas_fk"
+		bind:value={pieza_fk_selected}
+		on:change={() => console.log(pieza_fk_selected)}
+	>
+		{#each piezas_fk as pieza_fk}
+			<option value={pieza_fk.codigo_tp}>{pieza_fk.nombre_tp}</option>
+		{/each}
+	</select>
 
-				<label for="precio_pieza">Precio Pieza</label>
-				<input id="precio_pieza}" bind:value={pieza.precio_unidad_tp} />
-				<button type="submit">Registrar Pieza</button>
+	<label for="precio_pieza">Precio Pieza</label>
+	<input id="precio_pieza}" bind:value={pieza.precio_unidad_tp} />
+	<button type="submit">Registrar Pieza</button>
 </form>
-
 
 <style>
 	/* Estilos generales para el formulario */

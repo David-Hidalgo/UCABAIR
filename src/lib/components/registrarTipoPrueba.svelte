@@ -2,23 +2,22 @@
 	import type { Tipo_prueba } from '$lib/server/db/schema';
 	export let id_editar: Tipo_prueba | undefined;
 	import { goto } from '$app/navigation';
-	
+
 	let tipo_prueba: Tipo_prueba;
 	let codigo_viejo: number;
-	if (id_editar!=undefined) {
+	if (id_editar != undefined) {
 		tipo_prueba = id_editar;
-		if (id_editar.codigo_tp)
-		codigo_viejo=id_editar.codigo_tp
+		if (id_editar.codigo_tp) codigo_viejo = id_editar.codigo_tp;
 	} else {
 		tipo_prueba = {
 			codigo_tp: undefined,
 			nombre_tp: '',
 			descripcion_tp: '',
-            duracion_estimada_tp:''
+			duracion_estimada_tp: ''
 		};
 	}
 	async function decide() {
-		if (id_editar==undefined) {
+		if (id_editar == undefined) {
 			registrarTipoPrueba();
 		} else {
 			actualizarTipoPrueba();
@@ -29,7 +28,7 @@
 		console.log(tipo_prueba);
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/prueba`, {
 			method: 'PUT',
-			body: JSON.stringify({tipo_prueba:tipo_prueba , codigo_viejo:codigo_viejo}),
+			body: JSON.stringify({ tipo_prueba: tipo_prueba, codigo_viejo: codigo_viejo }),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();

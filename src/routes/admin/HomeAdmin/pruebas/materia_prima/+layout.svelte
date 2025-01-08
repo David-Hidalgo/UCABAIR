@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Combobox from "$lib/components/combobox.svelte";
+	import Combobox from '$lib/components/combobox.svelte';
 	//import navigate from 'svelte-spa-router';
 	//import { createEventDispatcher } from 'svelte';
 	//import RegistrarPieza from '$lib/components/registrarPieza.svelte';
@@ -134,16 +134,20 @@
 	<tbody>
 		{#each pruebas as dato}
 			<tr>
-				 <td><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.codigo_pru}`}>
+				<td
+					><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.codigo_pru}`}>
 						FK_tipo_prueba:{dato.fk_tipo_prueba}
-					</a>			</td>
+					</a>
+				</td>
 				<td>FK_pieza:{dato.fk_pieza}</td>
 				<td>FK_estatus:{dato.fk_estatus}</td>
 				<td>Inicio:{dato.fecha_fin_pru} Fin:{dato.fecha_fin_pru}</td>
 				<td>Inicio:{dato.fecha_fin_pru} Fin:{dato.fecha_fin_pru}</td>
-				<td><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.codigo_pru}`}>
-					Ver encargados
-								</a></td>
+				<td
+					><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.codigo_pru}`}>
+						Ver encargados
+					</a></td
+				>
 				<td>
 					<div class="botonesUD">
 						<!--ESTA COMENTADA PORQUE NO SE HA CREADO LA RUTA PARA EDITAR Y ELIMINAR

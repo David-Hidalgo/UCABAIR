@@ -1,5 +1,5 @@
 import { dbPostgre } from '$lib/server/db';
-import type { Actions,PageServerLoad } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 
 export interface Tipo_prueba {
 	codigo_tp: number | undefined;
@@ -33,9 +33,9 @@ export interface Tipo_prueba {
 };*/
 
 export const load: PageServerLoad = async ({ params }) => {
-    const tptable = await dbPostgre<Tipo_prueba[]>`
+	const tptable = await dbPostgre<Tipo_prueba[]>`
     SELECT * FROM tipo_prueba;
     `;
-    // console.log(roltable);
-    return { tptable };
+	// console.log(roltable);
+	return { tptable };
 };

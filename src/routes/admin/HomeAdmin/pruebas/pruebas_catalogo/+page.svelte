@@ -10,30 +10,28 @@
 
 	let { data }: { data: PageData } = $props();
 
-
 	let searchTerm = '';
 	function search() {
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	
-	// Define una interfaz para el tipo de datos que contiene 'datos'
 
+	// Define una interfaz para el tipo de datos que contiene 'datos'
 
 	let tipo_pruebas: Tipo_prueba[] = new Array();
 	for (let index = 0; index < data.tptable.length; index++) {
 		let tipo_prueba: Tipo_prueba = {
-            codigo_tp: undefined,
-	        nombre_tp: '',
-	        descripcion_tp: '',
-	        duracion_estimada_tp: ''
+			codigo_tp: undefined,
+			nombre_tp: '',
+			descripcion_tp: '',
+			duracion_estimada_tp: ''
 		};
 		tipo_prueba.codigo_tp = data.tptable[index].codigo_tp;
 		tipo_prueba.nombre_tp = data.tptable[index].nombre_tp;
 		tipo_prueba.descripcion_tp = data.tptable[index].descripcion_tp;
-        tipo_prueba.duracion_estimada_tp = data.tptable[index].duracion_estimada_tp;
+		tipo_prueba.duracion_estimada_tp = data.tptable[index].duracion_estimada_tp;
 		tipo_pruebas.push(tipo_prueba);
-	};
+	}
 
 	async function generarReporte(tipo_pruebas: Tipo_prueba[]) {
 		//logica para
@@ -86,8 +84,8 @@
 
 			body: JSON.stringify(tipo_pruebas.codigo_tp)
 		});
-        location.reload();
-    }
+		location.reload();
+	}
 </script>
 
 <h2>Catalogo de Pruebas</h2>
@@ -102,9 +100,9 @@
 	<tbody>
 		{#each tipo_pruebas as dato}
 			<tr>
-                <td>{dato.nombre_tp}</td>
-                <td>{dato.descripcion_tp}</td>
-                <td>{dato.duracion_estimada_tp}</td>
+				<td>{dato.nombre_tp}</td>
+				<td>{dato.descripcion_tp}</td>
+				<td>{dato.duracion_estimada_tp}</td>
 				<td>
 					<div class="botonesUD">
 						<a href="/admin/HomeAdmin/editar/prueba/{dato.codigo_tp}">

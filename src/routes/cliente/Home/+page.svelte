@@ -2,8 +2,7 @@
 	import carrito from '$lib/images/carrito_icono.png';
 </script>
 
-<div class="cuadroPublicidades">
-</div>
+<div class="cuadroPublicidades"></div>
 <div class="cajaMascomprados">
 	<div class="masCompradosHeader">
 		<p>Mas comprados</p>
@@ -12,8 +11,7 @@
 		</div>
 	</div>
 	<div class="objetosMascomprados">
-		<div class="objetos">
-		</div>
+		<div class="objetos"></div>
 	</div>
 </div>
 

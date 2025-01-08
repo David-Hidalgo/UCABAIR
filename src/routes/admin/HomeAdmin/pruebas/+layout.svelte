@@ -11,8 +11,7 @@
 <a href="/admin/HomeAdmin/pruebas/pruebas_catalogo">
 	<button>Catalogo de Pruebas</button>
 </a>
-<slot/>
-
+<slot />
 
 <style>
 	.botonesUD {

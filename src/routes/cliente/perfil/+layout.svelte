@@ -30,7 +30,6 @@
 			</nav>
 		</div>
 		<div class="Contenido">
-			
 			<slot />
 		</div>
 	</div>

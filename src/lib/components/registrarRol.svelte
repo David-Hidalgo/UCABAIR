@@ -8,10 +8,9 @@
 	let privSelected: Privilegio[] = [];
 	let rol: Rol;
 	let codigo_viejo: number;
-	if (id_editar!=undefined) {
+	if (id_editar != undefined) {
 		rol = id_editar;
-		if (id_editar.codigo_rol)
-		codigo_viejo=id_editar.codigo_rol
+		if (id_editar.codigo_rol) codigo_viejo = id_editar.codigo_rol;
 	} else {
 		rol = {
 			codigo_rol: undefined,
@@ -20,8 +19,7 @@
 		};
 	}
 	async function decide() {
-		
-		if (id_editar==undefined) {
+		if (id_editar == undefined) {
 			registrarRol();
 		} else {
 			actualizarRol();
@@ -31,7 +29,7 @@
 	async function actualizarRol() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/rol`, {
 			method: 'PUT',
-			body: JSON.stringify({rol:rol , codigo_viejo:codigo_viejo, privSelected:privSelected}),
+			body: JSON.stringify({ rol: rol, codigo_viejo: codigo_viejo, privSelected: privSelected }),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
@@ -45,7 +43,6 @@
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-
 
 		alert('Rol agregado con exito');
 		goto('/admin/HomeAdmin/roles');
@@ -65,12 +62,17 @@
 	<input id="descripcionRol" bind:value={rol.descripcion_rol} />
 
 	<label for="privilegios">Privilegios</label>
-	<select multiple id="privilegios"  bind:value={privSelected} on:change={() => console.log(privSelected)}>
+	<select
+		multiple
+		id="privilegios"
+		bind:value={privSelected}
+		on:change={() => console.log(privSelected)}
+	>
 		{#each privilegios as privilegio}
-		<option value={privilegio.codigo_pri}>{privilegio.nombre_pri}</option>
+			<option value={privilegio.codigo_pri}>{privilegio.nombre_pri}</option>
 		{/each}
 	</select>
-	<br>
+	<br />
 
 	<button type="submit">Registrar Rol</button>
 </form>

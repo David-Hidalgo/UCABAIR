@@ -2,7 +2,7 @@
 	import Login from '$lib/components/loginRegistro.svelte';
 </script>
 
-	<Login />
+<Login />
 
 <style>
 </style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Combobox from "$lib/components/combobox.svelte";
+	import Combobox from '$lib/components/combobox.svelte';
 	//import navigate from 'svelte-spa-router';
 	//import { createEventDispatcher } from 'svelte';
 	//import RegistrarPieza from '$lib/components/registrarPieza.svelte';
@@ -15,7 +15,7 @@
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 	interface Pieza {
 		id_pieza: number;
-		nombre_pie:string;
+		nombre_pie: string;
 		tipo_pieza: string;
 		precio_pieza: number;
 		cantidad: number;
@@ -88,7 +88,7 @@
 
 <h2>Inventario Piezas</h2>
 <div class="ComboboxSedes">
-	<Combobox/>
+	<Combobox />
 </div>
 <table>
 	<thead>
@@ -103,9 +103,11 @@
 	<tbody>
 		{#each piezas as dato}
 			<tr>
-				<td><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.id_pieza}`}>
+				<td
+					><a href={`/admin/HomeAdmin/editar/Materia_Prima/${dato.id_pieza}`}>
 						{dato.id_pieza}
-					</a>			</td>
+					</a>
+				</td>
 				<td>{dato.nombre_pie}</td>
 				<td>{dato.tipo_pieza}</td>
 				<td>{dato.precio_pieza}</td>

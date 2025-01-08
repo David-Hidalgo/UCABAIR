@@ -1,5 +1,5 @@
-import {dbPostgre } from '$lib/server/db';
-import type { Actions,PageServerLoad } from './$types';
+import { dbPostgre } from '$lib/server/db';
+import type { Actions, PageServerLoad } from './$types';
 
 export interface Tipo_pieza {
 	codigo_tp: number | undefined;
@@ -18,36 +18,32 @@ export interface Sede {
 }
 
 export const actions: Actions = {
-			delete: async (event) => {
-			const formData = await event.request.formData();
-			console.log(formData);
-			
-			const codigo_tp  = formData.get('codigo');
+	delete: async (event) => {
+		const formData = await event.request.formData();
+		console.log(formData);
 
-			if (!codigo_tp) {
-				return { status: 400, body: { message: 'Invalid data' } };
-			}
-			const palabra : string = codigo_tp.toString();
-			console.log(palabra);
-			
-			await dbPostgre`CALL eliminar_tipo_pieza(${palabra});`;
+		const codigo_tp = formData.get('codigo');
 
-			return {
-				status: 302,
-				headers: {
-					location: '/admin/HomeAdmin/inventario/pieza'
-				}
-			};
-			}
+		if (!codigo_tp) {
+			return { status: 400, body: { message: 'Invalid data' } };
 		}
+		const palabra: string = codigo_tp.toString();
+		console.log(palabra);
 
+		await dbPostgre`CALL eliminar_tipo_pieza(${palabra});`;
 
-export const load: PageServerLoad = async ({ params }) => {
-
-	const tp_table = await dbPostgre<Tipo_pieza[]>`SELECT * FROM tipo_pieza;`;
-	const sedes_table = await dbPostgre<Sede[]>`SELECT * FROM sede;`;
-	
-	return {tp_table,sedes_table};
-	
+		return {
+			status: 302,
+			headers: {
+				location: '/admin/HomeAdmin/inventario/pieza'
+			}
+		};
+	}
 };
 
+export const load: PageServerLoad = async ({ params }) => {
+	const tp_table = await dbPostgre<Tipo_pieza[]>`SELECT * FROM tipo_pieza;`;
+	const sedes_table = await dbPostgre<Sede[]>`SELECT * FROM sede;`;
+
+	return { tp_table, sedes_table };
+};

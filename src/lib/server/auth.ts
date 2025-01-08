@@ -4,7 +4,7 @@ import { sha256 } from '@oslojs/crypto/sha2';
 import { encodeBase32LowerCase, encodeHexLowerCase } from '@oslojs/encoding';
 import { dbPostgre } from '$lib/server/db';
 import * as table from '$lib/server/db/schema';
-import util from 'util'; 
+import util from 'util';
 const DAY_IN_MS = 1000 * 60 * 60 * 24;
 
 export const sessionCookieName = 'auth-session';
@@ -22,7 +22,7 @@ export async function createSession(token: string, userId: string) {
 		userId,
 		expiresAt: new Date(Date.now() + DAY_IN_MS * 30)
 	};
-	
+
 	await dbPostgre`INSERT INTO sesion (id, user_id, expires_at) VALUES (${sessionId}, ${userId}, ${session.expiresAt.toUTCString()})`;
 	return session;
 }
@@ -30,10 +30,9 @@ export async function createSession(token: string, userId: string) {
 export async function validateSessionToken(token: string) {
 	const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
 	const [result] =
-		
 		await dbPostgre`SELECT usuario.codigo_usu, usuario.nombre_usu, usuario.fk_rol, sesion.id, sesion.expires_at
 		FROM sesion INNER JOIN usuario ON sesion.user_id = usuario.codigo_usu WHERE sesion.id = ${sessionId}`;
-	
+
 	if (!result) {
 		return { session: null, user: null };
 	}
@@ -42,7 +41,6 @@ export async function validateSessionToken(token: string) {
 
 	const sessionExpired = Date.now() >= session.expiresAt.getTime();
 	if (sessionExpired) {
-		
 		await dbPostgre`DELETE FROM sesion WHERE id = ${session.id}`;
 		return { session: null, user: null };
 	}
@@ -50,7 +48,7 @@ export async function validateSessionToken(token: string) {
 	const renewSession = Date.now() >= session.expiresAt.getTime() - DAY_IN_MS * 15;
 	if (renewSession) {
 		session.expiresAt = new Date(Date.now() + DAY_IN_MS * 30);
-		
+
 		await dbPostgre`UPDATE sesion 
 			SET expires_at = ${session.expiresAt} 
 			WHERE id = ${session.id}`;
@@ -62,7 +60,6 @@ export async function validateSessionToken(token: string) {
 export type SessionValidationResult = Awaited<ReturnType<typeof validateSessionToken>>;
 
 export async function invalidateSession(sessionId: string) {
-	
 	await dbPostgre`DELETE FROM sesion WHERE id = ${sessionId}`;
 }
 

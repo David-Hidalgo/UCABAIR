@@ -8,8 +8,7 @@
 <a href="/admin/HomeAdmin/inventario/aeronaves">
 	<button>Aeronaves</button>
 </a>
-<slot/>
-
+<slot />
 
 <style>
 	.botonesUD {

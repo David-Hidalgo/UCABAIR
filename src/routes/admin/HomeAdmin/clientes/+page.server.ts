@@ -1,5 +1,5 @@
-import {dbPostgre } from '$lib/server/db';
-import type { Actions,PageServerLoad } from './$types';
+import { dbPostgre } from '$lib/server/db';
+import type { Actions, PageServerLoad } from './$types';
 
 export interface Persona {
 	codigo_com: number | undefined;
@@ -20,8 +20,8 @@ export interface Persona {
 	segundo_nombre_nat: string;
 	primer_apellido_nat: string;
 	segundo_apellido_nat: string;
-    telefonos: Telefono[];
-    correos_electronicos: Correo_electronico[];
+	telefonos: Telefono[];
+	correos_electronicos: Correo_electronico[];
 }
 
 export interface Telefono {
@@ -40,10 +40,10 @@ export interface Correo_electronico {
 }
 
 export interface Usuario {
-    codigo_usu: number | undefined;
-    nombre_usu: string;
-    contrasena_usu: string;
-    fk_rol: number | undefined;
+	codigo_usu: number | undefined;
+	nombre_usu: string;
+	contrasena_usu: string;
+	fk_rol: number | undefined;
 }
 
 /*export const actions: Actions = {
@@ -72,12 +72,14 @@ export interface Usuario {
 */
 
 export const load: PageServerLoad = async ({ params }) => {
-
-    const nat_table = await dbPostgre<Persona[]>`SELECT * FROM persona WHERE tipo_persona_com = 'natural' and tipo_com ='cliente';`;
-    const jur_table = await dbPostgre<Persona[]>`SELECT * FROM persona WHERE tipo_persona_com = 'juridico' and tipo_com ='cliente';`;
-    const tel_table = await dbPostgre<Telefono[]>`SELECT * FROM telefono;`;
-    const email_table = await dbPostgre<Correo_electronico[]>`SELECT * FROM correo_electronico;`;
+	const nat_table = await dbPostgre<
+		Persona[]
+	>`SELECT * FROM persona WHERE tipo_persona_com = 'natural' and tipo_com ='cliente';`;
+	const jur_table = await dbPostgre<
+		Persona[]
+	>`SELECT * FROM persona WHERE tipo_persona_com = 'juridico' and tipo_com ='cliente';`;
+	const tel_table = await dbPostgre<Telefono[]>`SELECT * FROM telefono;`;
+	const email_table = await dbPostgre<Correo_electronico[]>`SELECT * FROM correo_electronico;`;
 	const user_table = await dbPostgre<Usuario[]>`SELECT * FROM usuario;`;
-    return {nat_table,jur_table,tel_table,email_table, user_table};
+	return { nat_table, jur_table, tel_table, email_table, user_table };
 };
-

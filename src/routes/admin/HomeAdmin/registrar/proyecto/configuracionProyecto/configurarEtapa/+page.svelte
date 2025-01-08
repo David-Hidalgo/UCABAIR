@@ -3,19 +3,21 @@
 	import Etapas from '$lib/components/configurarProyecto.svelte';
 </script>
 
-	<!-- <Etapas bind:cantidad_etapas={cantidad_etapas}/> -->
-	<div class="ConfigurarEtapa">
-		<h2>Configuracion Etapa</h2>
-		<ConfigurarEtapa />
-		<div class="botones">
-			<a href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa/configurarActividad">
-				<button>Configurar Actividades</button>
-			</a>
-			<a href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa">
-				<button>Agregar Etapa</button>
-			</a>
-		</div>
+<!-- <Etapas bind:cantidad_etapas={cantidad_etapas}/> -->
+<div class="ConfigurarEtapa">
+	<h2>Configuracion Etapa</h2>
+	<ConfigurarEtapa />
+	<div class="botones">
+		<a
+			href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa/configurarActividad"
+		>
+			<button>Configurar Actividades</button>
+		</a>
+		<a href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa">
+			<button>Agregar Etapa</button>
+		</a>
 	</div>
+</div>
 
 <style>
 	.botones {

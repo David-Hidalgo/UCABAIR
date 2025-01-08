@@ -7,4 +7,4 @@
 	let codigo_tmp;
 </script>
 
-		<EditarTipoMateriaPrima id_editar={codigo_tmp} />
+<EditarTipoMateriaPrima id_editar={codigo_tmp} />

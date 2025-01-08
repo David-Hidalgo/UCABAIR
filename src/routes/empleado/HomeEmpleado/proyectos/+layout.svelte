@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
+	import { goto } from '$app/navigation';
 
 	let searchTerm = '';
 	const fecha = new Date();

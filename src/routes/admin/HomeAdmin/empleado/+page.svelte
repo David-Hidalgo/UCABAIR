@@ -1,8 +1,14 @@
 <script lang="ts">
-	
 	import type { ActionData } from './$types';
 	import type { PageData } from './$types';
-	import type { Empleado, Profesion,Empleado_profesion, Telefono, Correo_electronico, Usuario} from './+page.server.ts';
+	import type {
+		Empleado,
+		Profesion,
+		Empleado_profesion,
+		Telefono,
+		Correo_electronico,
+		Usuario
+	} from './+page.server.ts';
 	import { goto } from '$app/navigation';
 	import { toDate } from 'date-fns';
 	let { data }: { data: PageData } = $props();
@@ -12,126 +18,131 @@
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	
+
 	let empleados_profesiones: Empleado_profesion[] = new Array();
-for (let index = 0; index < data.empleado_profesion_table.length; index++) {
-    let empleado_profesion: Empleado_profesion = {
-		titulacion_ep: '',
-		experiencia_profesional_ep: '',
-		fk_profesion: undefined,
-		fk_empleado: undefined
-
-    }
-	empleado_profesion.titulacion_ep = data.empleado_profesion_table[index].titulacion_ep;
-	empleado_profesion.experiencia_profesional_ep = data.empleado_profesion_table[index].experiencia_profesional_ep;
-	empleado_profesion.fk_profesion = data.empleado_profesion_table[index].fk_profesion;
-	empleado_profesion.fk_empleado = data.empleado_profesion_table[index].fk_empleado;
-	empleados_profesiones.push(empleado_profesion);
-};
-
-let profesiones: Profesion[] = new Array();
-for (let index = 0; index < data.profesion_table.length; index++) {
-	let profesion: Profesion = {
-		codigo_pro: undefined,
-		nombre_pro: ''
+	for (let index = 0; index < data.empleado_profesion_table.length; index++) {
+		let empleado_profesion: Empleado_profesion = {
+			titulacion_ep: '',
+			experiencia_profesional_ep: '',
+			fk_profesion: undefined,
+			fk_empleado: undefined
+		};
+		empleado_profesion.titulacion_ep = data.empleado_profesion_table[index].titulacion_ep;
+		empleado_profesion.experiencia_profesional_ep =
+			data.empleado_profesion_table[index].experiencia_profesional_ep;
+		empleado_profesion.fk_profesion = data.empleado_profesion_table[index].fk_profesion;
+		empleado_profesion.fk_empleado = data.empleado_profesion_table[index].fk_empleado;
+		empleados_profesiones.push(empleado_profesion);
 	}
-	profesion.codigo_pro = data.profesion_table[index].codigo_pro;
-	profesion.nombre_pro = data.profesion_table[index].nombre_pro;
-	profesiones.push(profesion);
-}
 
-let usuarios: Usuario[] = new Array();
-for (let index = 0; index < data.usuario_table.length; index++) {
-	let usuario: Usuario = {
-		codigo_usu: undefined,
-		nombre_usu: '',
-		contrasena_usu: '',
-		fk_rol: undefined
+	let profesiones: Profesion[] = new Array();
+	for (let index = 0; index < data.profesion_table.length; index++) {
+		let profesion: Profesion = {
+			codigo_pro: undefined,
+			nombre_pro: ''
+		};
+		profesion.codigo_pro = data.profesion_table[index].codigo_pro;
+		profesion.nombre_pro = data.profesion_table[index].nombre_pro;
+		profesiones.push(profesion);
 	}
-	usuario.codigo_usu = data.usuario_table[index].codigo_usu;
-	usuario.nombre_usu = data.usuario_table[index].nombre_usu;
-	usuario.contrasena_usu = data.usuario_table[index].contrasena_usu;
-	usuario.fk_rol = data.usuario_table[index].fk_rol;
-	usuarios.push(usuario);
-}
+
+	let usuarios: Usuario[] = new Array();
+	for (let index = 0; index < data.usuario_table.length; index++) {
+		let usuario: Usuario = {
+			codigo_usu: undefined,
+			nombre_usu: '',
+			contrasena_usu: '',
+			fk_rol: undefined
+		};
+		usuario.codigo_usu = data.usuario_table[index].codigo_usu;
+		usuario.nombre_usu = data.usuario_table[index].nombre_usu;
+		usuario.contrasena_usu = data.usuario_table[index].contrasena_usu;
+		usuario.fk_rol = data.usuario_table[index].fk_rol;
+		usuarios.push(usuario);
+	}
 
 	let telefonos: Telefono[] = new Array();
-for (let index = 0; index < data.tel_table.length; index++) {
-    let telefono: Telefono = {
-        codigo_tel: undefined,
-	    numero_telefono_tel: '',
-	    codigo_area_tel: '',
-	    fk_persona: undefined,
-	    fk_empleado: undefined
-    }
-    telefono.codigo_tel = data.tel_table[index].codigo_tel;
-    telefono.numero_telefono_tel = data.tel_table[index].numero_telefono_tel;
-    telefono.codigo_area_tel = data.tel_table[index].codigo_area_tel;
-    telefono.fk_persona = data.tel_table[index].fk_persona;
-    if (telefono.fk_persona === undefined) {
-            telefono.numero_telefono_tel = 'No hay telefonos asociados';
-        }
-    telefono.fk_empleado = data.tel_table[index].fk_empleado;
-    telefonos.push(telefono);
-};
+	for (let index = 0; index < data.tel_table.length; index++) {
+		let telefono: Telefono = {
+			codigo_tel: undefined,
+			numero_telefono_tel: '',
+			codigo_area_tel: '',
+			fk_persona: undefined,
+			fk_empleado: undefined
+		};
+		telefono.codigo_tel = data.tel_table[index].codigo_tel;
+		telefono.numero_telefono_tel = data.tel_table[index].numero_telefono_tel;
+		telefono.codigo_area_tel = data.tel_table[index].codigo_area_tel;
+		telefono.fk_persona = data.tel_table[index].fk_persona;
+		if (telefono.fk_persona === undefined) {
+			telefono.numero_telefono_tel = 'No hay telefonos asociados';
+		}
+		telefono.fk_empleado = data.tel_table[index].fk_empleado;
+		telefonos.push(telefono);
+	}
 
-
-let correos: Correo_electronico[] = new Array();
-for (let index = 0; index < data.email_table.length; index++) {
-    let correo: Correo_electronico = {
-        codigo_ce: undefined,
-        direccion_correo_ce: '',
-        fk_persona: undefined,
-        fk_empleado: undefined
-    }
-    correo.codigo_ce = data.email_table[index].codigo_ce;
-    correo.direccion_correo_ce = data.email_table[index].direccion_correo_ce;
-    correo.fk_persona = data.email_table[index].fk_persona;
-        if (correo.fk_persona === undefined) {
-            correo.direccion_correo_ce = 'No hay correos asociados';
-        }
-    correo.fk_empleado = data.email_table[index].fk_empleado;
-    correos.push(correo);
-};
+	let correos: Correo_electronico[] = new Array();
+	for (let index = 0; index < data.email_table.length; index++) {
+		let correo: Correo_electronico = {
+			codigo_ce: undefined,
+			direccion_correo_ce: '',
+			fk_persona: undefined,
+			fk_empleado: undefined
+		};
+		correo.codigo_ce = data.email_table[index].codigo_ce;
+		correo.direccion_correo_ce = data.email_table[index].direccion_correo_ce;
+		correo.fk_persona = data.email_table[index].fk_persona;
+		if (correo.fk_persona === undefined) {
+			correo.direccion_correo_ce = 'No hay correos asociados';
+		}
+		correo.fk_empleado = data.email_table[index].fk_empleado;
+		correos.push(correo);
+	}
 
 	let empleados: Empleado[] = new Array();
 	for (let index = 0; index < data.roltable.length; index++) {
 		let empleado: Empleado = {
-			codigo_empleado_per:undefined,
+			codigo_empleado_per: undefined,
 			cedula_per: '',
 			primer_nombre_per: '',
 			segundo_nombre_per: '',
 			primer_apellido_per: '',
 			segundo_apellido_per: '',
 			direccion_per: '',
-			fecha_inicio_servicio_per:new Date(),
+			fecha_inicio_servicio_per: new Date(),
 			empleado_profesion: [],
 			sueldo_per: undefined,
 			telefono_per: [],
 			correo_per: [],
 			//labor_per: '',
 			fk_lugar: undefined,
-			fk_usuario: undefined,
+			fk_usuario: undefined
 		};
 
 		empleado.codigo_empleado_per = data.roltable[index].codigo_empleado_per;
 		empleado.cedula_per = data.roltable[index].cedula_per;
 		empleado.primer_nombre_per = data.roltable[index].primer_nombre_per;
-        empleado.segundo_nombre_per = data.roltable[index].segundo_nombre_per;
-        empleado.primer_apellido_per = data.roltable[index].primer_apellido_per;
-        empleado.segundo_apellido_per = data.roltable[index].segundo_apellido_per;
-        empleado.direccion_per = data.roltable[index].direccion_per;
-		empleado.telefono_per = telefonos.filter(telefono => telefono.fk_empleado === empleado.codigo_empleado_per);
-		empleado.correo_per = correos.filter(correo => correo.fk_empleado === empleado.codigo_empleado_per);
+		empleado.segundo_nombre_per = data.roltable[index].segundo_nombre_per;
+		empleado.primer_apellido_per = data.roltable[index].primer_apellido_per;
+		empleado.segundo_apellido_per = data.roltable[index].segundo_apellido_per;
+		empleado.direccion_per = data.roltable[index].direccion_per;
+		empleado.telefono_per = telefonos.filter(
+			(telefono) => telefono.fk_empleado === empleado.codigo_empleado_per
+		);
+		empleado.correo_per = correos.filter(
+			(correo) => correo.fk_empleado === empleado.codigo_empleado_per
+		);
 		empleado.fk_usuario = data.roltable[index].fk_usuario;
-		empleado.empleado_profesion = empleados_profesiones.filter(empleado_profesion => empleado_profesion.fk_empleado === empleado.codigo_empleado_per);
+		empleado.empleado_profesion = empleados_profesiones.filter(
+			(empleado_profesion) => empleado_profesion.fk_empleado === empleado.codigo_empleado_per
+		);
 		empleado.fecha_inicio_servicio_per = data.roltable[index].fecha_inicio_servicio_per;
-        empleado.sueldo_per = data.roltable[index].sueldo_per;
-       // empleado.fk_lugar = data.roltable[index].fk_lugar;
+		empleado.sueldo_per = data.roltable[index].sueldo_per;
+		// empleado.fk_lugar = data.roltable[index].fk_lugar;
 		empleados.push(empleado);
-	};
+	}
 
-    async function editarRegistro(empleados: Empleado) {
+	async function editarRegistro(empleados: Empleado) {
 		/*try {
 			const res = await fetch(`http://localhost:4000/mineral/${roles.id}`, {
 				method: 'PUT',
@@ -156,7 +167,6 @@ for (let index = 0; index < data.email_table.length; index++) {
 			method: 'DELETE',
 
 			body: JSON.stringify(empleado.codigo_empleado_per)
-			
 		});
 		location.reload();
 	}
@@ -167,35 +177,51 @@ for (let index = 0; index < data.email_table.length; index++) {
 	<thead>
 		<tr>
 			<th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Cedula</th>
-            <th>Direccion</th>
+			<th>Apellidos</th>
+			<th>Cedula</th>
+			<th>Direccion</th>
 			<th>Telefono</th>
 			<th>Correo</th>
 			<th>Usuario</th>
 			<th>Profesion</th>
 			<th>Experiencia</th>
-            <th>Fecha inicio servicio</th>
-            <th>Sueldo</th>
+			<th>Fecha inicio servicio</th>
+			<th>Sueldo</th>
 		</tr>
 	</thead>
 	<tbody>
 		{#each empleados as empleado}
 			<tr>
 				<td>{empleado.primer_nombre_per}{' '} {empleado.segundo_nombre_per}</td>
-                <td>{empleado.primer_apellido_per}{' '}{empleado.segundo_apellido_per}</td>
-                <td>{empleado.cedula_per}</td>
-                <td>{empleado.direccion_per}</td>
-				<td>{empleado.telefono_per.map(tel => tel.numero_telefono_tel).join(', ')}</td>
-				<td>{empleado.correo_per.map(correo => correo.direccion_correo_ce).join(', ')}</td>
-				<td>{usuarios.find(usuario => usuario.codigo_usu === empleado.fk_usuario)?.nombre_usu}</td>
-				<td>{empleado.empleado_profesion.map(profesion => profesiones.find(prof => prof.codigo_pro === profesion.fk_profesion)?.nombre_pro).join(', ')}</td>
-				<td>{empleado.empleado_profesion.map(profesion => profesion.experiencia_profesional_ep).join(', ')}</td>
-				<td>{empleado.fecha_inicio_servicio_per ? empleado.fecha_inicio_servicio_per.toLocaleString() : 'N/A'}</td>
-                <td>{empleado.sueldo_per}</td>
+				<td>{empleado.primer_apellido_per}{' '}{empleado.segundo_apellido_per}</td>
+				<td>{empleado.cedula_per}</td>
+				<td>{empleado.direccion_per}</td>
+				<td>{empleado.telefono_per.map((tel) => tel.numero_telefono_tel).join(', ')}</td>
+				<td>{empleado.correo_per.map((correo) => correo.direccion_correo_ce).join(', ')}</td>
+				<td>{usuarios.find((usuario) => usuario.codigo_usu === empleado.fk_usuario)?.nombre_usu}</td
+				>
+				<td
+					>{empleado.empleado_profesion
+						.map(
+							(profesion) =>
+								profesiones.find((prof) => prof.codigo_pro === profesion.fk_profesion)?.nombre_pro
+						)
+						.join(', ')}</td
+				>
+				<td
+					>{empleado.empleado_profesion
+						.map((profesion) => profesion.experiencia_profesional_ep)
+						.join(', ')}</td
+				>
+				<td
+					>{empleado.fecha_inicio_servicio_per
+						? empleado.fecha_inicio_servicio_per.toLocaleString()
+						: 'N/A'}</td
+				>
+				<td>{empleado.sueldo_per}</td>
 				<td>
 					<div class="botonesUD">
-						<a href='/admin/HomeAdmin/editar/empleado/{empleado.codigo_empleado_per}'>
+						<a href="/admin/HomeAdmin/editar/empleado/{empleado.codigo_empleado_per}">
 							<button onclick={() => editarRegistro(empleado)}>
 								<span>✏️</span>
 								<!-- Icono de lápiz -->

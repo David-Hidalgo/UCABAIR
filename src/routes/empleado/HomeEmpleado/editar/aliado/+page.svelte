@@ -7,6 +7,6 @@
 	let rif_aliado;
 </script>
 
-	<div class="RegistroAliado">
-		<Modificar />
-	</div>
+<div class="RegistroAliado">
+	<Modificar />
+</div>

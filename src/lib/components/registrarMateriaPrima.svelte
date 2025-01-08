@@ -1,14 +1,13 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import type {Tipo_materia_prima} from '$lib/server/db/schema'
+	import type { Tipo_materia_prima } from '$lib/server/db/schema';
 	export let id_editar: Tipo_materia_prima | undefined;
 	// Interfaz para representar un dato
 	let materia_prima: Tipo_materia_prima;
 	let codigo_viejo: number;
-	if (id_editar!=undefined) {
+	if (id_editar != undefined) {
 		materia_prima = id_editar;
-		if (id_editar.codigo_tmp)
-		codigo_viejo=id_editar.codigo_tmp
+		if (id_editar.codigo_tmp) codigo_viejo = id_editar.codigo_tmp;
 	} else {
 		materia_prima = {
 			codigo_tmp: undefined,
@@ -19,8 +18,7 @@
 	}
 
 	async function decide() {
-		
-		if (id_editar==undefined) {
+		if (id_editar == undefined) {
 			registrarMateriaPrima();
 		} else {
 			actualizarMateriaPrima();
@@ -30,7 +28,7 @@
 	async function actualizarMateriaPrima() {
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/materia_prima`, {
 			method: 'PUT',
-			body: JSON.stringify({materia_prima:materia_prima , codigo_viejo:codigo_viejo}),
+			body: JSON.stringify({ materia_prima: materia_prima, codigo_viejo: codigo_viejo }),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
@@ -46,7 +44,6 @@
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-
 
 		alert('Rol agregado con exito');
 		goto('/admin/HomeAdmin/inventario/materia_prima');

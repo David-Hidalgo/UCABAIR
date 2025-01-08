@@ -58,7 +58,7 @@
 	async function actualizarEmpleado() {
 		console.log(empleado);
 		console.log(codigo_viejo);
-		
+
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/empleado`, {
 			method: 'PUT',
 			body: JSON.stringify({ empleado: empleado, codigo_viejo: codigo_viejo }),
@@ -123,7 +123,6 @@
 	<p style="display: block; font-weight: bold;">Telefono</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="telefono-container">
-
 		<label for="CodigoArea">Codigo De Area</label>
 		<input id="codigoArea" bind:value={telefono.codigo_area_tel} />
 
@@ -148,7 +147,6 @@
 	<p style="display: block; font-weight: bold;">Correo</p>
 	<p>(Para insertar varios, ingrese uno y despues el otro)</p>
 	<div class="correo-container">
-
 		<label for="correo">Direccion de correo</label>
 		<input id="correo" bind:value={correo.direccion_correo_ce} />
 
@@ -157,7 +155,7 @@
 			onclick={() => {
 				correos.push({ ...correo });
 				correo = {
-					codigo_ce: correo.codigo_ce ,
+					codigo_ce: correo.codigo_ce,
 					direccion_correo_ce: '',
 					fk_persona: 0,
 					fk_empleado: empleado.codigo_empleado_per

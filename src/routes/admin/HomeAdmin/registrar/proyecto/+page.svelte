@@ -2,12 +2,12 @@
 	import Registro from '$lib/components/configurarProyecto.svelte';
 </script>
 
-	<div class="RegistrarProyecto">
-		<Registro />
-		<a href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa">
-			<button>Configurar Etapas</button>
-		</a>
-	</div>
+<div class="RegistrarProyecto">
+	<Registro />
+	<a href="/admin/HomeAdmin/registrar/proyecto/configuracionProyecto/configurarEtapa">
+		<button>Configurar Etapas</button>
+	</a>
+</div>
 
 <style>
 	button {

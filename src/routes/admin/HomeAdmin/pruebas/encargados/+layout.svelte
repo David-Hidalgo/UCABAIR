@@ -10,9 +10,9 @@
 		// Lógica de búsqueda
 		console.log(`Buscando: ${searchTerm}`);
 	}
-	
+
 	// Define una interfaz para el tipo de datos que contiene 'datos'
-	interface Prueba{
+	interface Prueba {
 		nombre_prueba: string;
 		nombre_pieza: string;
 		status_prueba: string;
@@ -89,13 +89,15 @@
 			fk_pieza: 3,
 			fk_avion: 3,
 			fk_pieza2: 4
-	}];
+		}
+	];
 
 	async function generarReporte(pruebas: Prueba[]) {
 		//logica para
 	}
 
-	async function mostrarDatos() {/*
+	async function mostrarDatos() {
+		/*
 		const response = await fetch('http://localhost:4000/aeronave');
 		const data: Aeronave[] = await response.json();
 		aeronaves = data;*/
