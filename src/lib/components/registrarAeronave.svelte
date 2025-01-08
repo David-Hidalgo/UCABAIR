@@ -169,9 +169,6 @@
 <form on:submit|preventDefault={decide}>
 	<h2>Registrar Aeronave</h2>
 
-	<label for="codigo_ma">Codigo Aeronave</label>
-	<input id="codigo_ma" bind:value={aeronave.codigo_ma} />
-
 	<label for="nombre_ma">Nombre Aeronave</label>
 	<input id="nombre_ma" bind:value={aeronave.nombre_ma} />
 

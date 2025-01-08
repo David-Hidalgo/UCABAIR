@@ -135,9 +135,6 @@
 <form onsubmit={decide}>
 	<h2>Registrar Empleado</h2>
 
-	<label for="codigo">Codigo Empleado</label>
-	<input id="codigo" bind:value={empleado.codigo_empleado_per} />
-
 	<label for="cedula">Cédula</label>
 	<input id="cedula" bind:value={empleado.cedula_per} />
 

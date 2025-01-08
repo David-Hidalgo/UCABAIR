@@ -2322,45 +2322,45 @@ INSERT INTO usuario (nombre_usu, contraseña_usu, fk_rol) VALUES
 
 
 
-INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
-(1, 'Au-80', 'Reactor para pasajeros, destinado a rutas de largo alcance', 1000000, NULL);
+INSERT INTO modelo_avion (nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+('Au-80', 'Reactor para pasajeros, destinado a rutas de largo alcance', 1000000, NULL);
 
 
-INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
-(2, 'Au-801', 'Modelo derivado de Au-80 para rutas menos largas', 900000, 1),
-(3, 'Au-802', 'Modelo derivado de Au-80 concebido para rutas medias y cortas con capacidad similar', 1300000, 1);
+INSERT INTO modelo_avion (nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+('Au-801', 'Modelo derivado de Au-80 para rutas menos largas', 900000, 1),
+('Au-802', 'Modelo derivado de Au-80 concebido para rutas medias y cortas con capacidad similar', 1300000, 1);
 
 
-INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
-(4, 'Au-802A', 'Modelo derivado de Au-802 de mayor capacidad de pasajeros', 1350000, 3),
-(5, 'Au-802B', 'Modelo derivado de Au-802 para distancias medias', 1360000, 3),
-(6, 'Au-802C', 'Modelo derivado de Au-802 para distancias largas y medias', 1370000, 3),
-(7, 'Au-802D', 'Modelo derivado de Au-802 para distancias largas', 1380000, 3),
-(8, 'Au-802E', 'El segundo modelo derivado de Au-802 mas grande', 1390000, 3),
-(9, 'Au-802F', 'Modelo derivado de Au802 con la mayor capacidad de pasajeros', 1400000, 3);
+INSERT INTO modelo_avion (nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+('Au-802A', 'Modelo derivado de Au-802 de mayor capacidad de pasajeros', 1350000, 3),
+('Au-802B', 'Modelo derivado de Au-802 para distancias medias', 1360000, 3),
+('Au-802C', 'Modelo derivado de Au-802 para distancias largas y medias', 1370000, 3),
+('Au-802D', 'Modelo derivado de Au-802 para distancias largas', 1380000, 3),
+('Au-802E', 'El segundo modelo derivado de Au-802 mas grande', 1390000, 3),
+('Au-802F', 'Modelo derivado de Au802 con la mayor capacidad de pasajeros', 1400000, 3);
 
 
-INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
-(10, 'Au-747', 'Avión persona transcontinental de fuselaje ancho', 2000000, NULL);
+INSERT INTO modelo_avion (nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+( 'Au-747', 'Avión persona transcontinental de fuselaje ancho', 2000000, NULL);
 
 
-INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
-(11, 'Au-747Plus', 'Modelo derivado de Au-747, mayor avion persona de la historia en Venezuela', 2200000, 10),
-(12, 'Au-747Platinum', 'Modelo derivado de Au-747 para recorridos medios', 2300000, 10),
-(13, 'Au-747Gold', 'Modelo derivado de Au-747 para recorridos medios y largos y con licencia para sobrevolar oceanos', 2400000, 10),
-(14, 'Au-747Silver', 'Modelo derivado de Au-747 para rutas largas con autonomia para sobrevolar oceanos', 2500000, 10);
+INSERT INTO modelo_avion (nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+('Au-747Plus', 'Modelo derivado de Au-747, mayor avion persona de la historia en Venezuela', 2200000, 10),
+('Au-747Platinum', 'Modelo derivado de Au-747 para recorridos medios', 2300000, 10),
+('Au-747Gold', 'Modelo derivado de Au-747 para recorridos medios y largos y con licencia para sobrevolar oceanos', 2400000, 10),
+('Au-747Silver', 'Modelo derivado de Au-747 para rutas largas con autonomia para sobrevolar oceanos', 2500000, 10);
 
 
-INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
-(15, 'Au-747SilverB', 'Modelo  derivado de Au-747Silver de mayor tamaño', 2600000, 14);
+INSERT INTO modelo_avion (nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+('Au-747SilverB', 'Modelo  derivado de Au-747Silver de mayor tamaño', 2600000, 14);
 
 
-INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
-(16, 'Au-87A', 'Avion para pasajeros mas vendido en la historia, birreactor para rutas cortas y medias', 2700000, NULL);
+INSERT INTO modelo_avion (nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+('Au-87A', 'Avion para pasajeros mas vendido en la historia, birreactor para rutas cortas y medias', 2700000, NULL);
 
 
-INSERT INTO modelo_avion (codigo_ma, nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
-(17, 'Au-87A de Negocios', 'Modelo derivado de Au-87A con mayor capacidad de pasajeros', 2800000, 16);
+INSERT INTO modelo_avion (nombre_ma, descripcion_ma, precio_unidad_ma, fk_modelo_avion) VALUES
+('Au-87A de Negocios', 'Modelo derivado de Au-87A con mayor capacidad de pasajeros', 2800000, 16);
 
 
 INSERT INTO persona (direccion_com, monto_acreditado_com, fecha_inicio_operacion_com, tipo_com, nacionalidad_com, fk_lugar, fk_usuario, tipo_persona_com, rif_jur, denominacion_persona_jur, razon_social_jur, pagina_web_jur, cedula_nat, primer_nombre_nat, segundo_nombre_nat, primer_apellido_nat, segundo_apellido_nat)
@@ -2786,126 +2786,125 @@ VALUES
 ('Avenida Urdaneta, Edificio Empresarial, Caracas', 5700.0, '2023-02-16', 'proveedor', 'Venezolana', 24, 183, 'juridico', 'J-242345678-24', 'Empresas Caracas', 'Corporación Industrial Distrito Capital', 'www.empresascaracas.com'),
 ( 'Calle Sucre, Centro Comercial, El Hatillo', 5800.0, '2023-02-17', 'proveedor', 'Venezolana', 24, 184, 'juridico', 'J-87654344-24', 'Comercial El Hatillo', 'Distribuidora El Hatillo', 'www.comercialelhatillo.com');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (1, 'Juan', 'Carlos', 'Perez', 'Gomez', 'Calle A, 123', '2022-01-01', 400, 1500.00, 97, 'V-12345678');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Juan', 'Carlos', 'Perez', 'Gomez', 'Calle A, 123', '2022-01-01', 400, 1500.00, 97, 'V-12345678');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (2, 'Maria', 'Fernanda', 'Rodriguez', 'Lopez', 'Calle B, 456', '2022-02-01', 762, 1600.00, 98, 'V-23456789');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Maria', 'Fernanda', 'Rodriguez', 'Lopez', 'Calle B, 456', '2022-02-01', 762, 1600.00, 98, 'V-23456789');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (3, 'Luis', 'Enrique', 'Gonzalez', 'Martinez', 'Calle C, 789', '2022-03-01', 522, 1700.00, 99, 'V-34567890');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Luis', 'Enrique', 'Gonzalez', 'Martinez', 'Calle C, 789', '2022-03-01', 522, 1700.00, 99, 'V-34567890');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (4, 'Ana', 'Isabel', 'Hernandez', 'Jimenez', 'Calle D, 101', '2022-04-01', 985, 1800.00, 100, 'V-45678901');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Ana', 'Isabel', 'Hernandez', 'Jimenez', 'Calle D, 101', '2022-04-01', 985, 1800.00, 100, 'V-45678901');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (5, 'Carlos', 'Eduardo', 'Ramirez', 'Torres', 'Calle E, 202', '2022-05-01', 1450, 1900.00, 101, 'V-56789012');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Carlos', 'Eduardo', 'Ramirez', 'Torres', 'Calle E, 202', '2022-05-01', 1450, 1900.00, 101, 'V-56789012');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (6, 'Elena', 'Maria', 'Fernandez', 'Castro', 'Calle F, 303', '2022-06-01', 1348, 2000.00, 102, 'V-67890123');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Elena', 'Maria', 'Fernandez', 'Castro', 'Calle F, 303', '2022-06-01', 1348, 2000.00, 102, 'V-67890123');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (7, 'Jorge', 'Luis', 'Moreno', 'Ruiz', 'Calle G, 404', '2022-07-01', 612, 2100.00, 103, 'V-78901234');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Jorge', 'Luis', 'Moreno', 'Ruiz', 'Calle G, 404', '2022-07-01', 612, 2100.00, 103, 'V-78901234');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (8, 'Patricia', 'Victoria', 'Munoz', 'Perez', 'Calle H, 505', '2022-08-01', 921, 2200.00, 104, 'V-89012345');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Patricia', 'Victoria', 'Munoz', 'Perez', 'Calle H, 505', '2022-08-01', 921, 2200.00, 104, 'V-89012345');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (9, 'Ricardo', 'Jose', 'Rojas', 'Gomez', 'Calle I, 606', '2022-09-01', 458, 2300.00, 105, 'V-90123456');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Ricardo', 'Jose', 'Rojas', 'Gomez', 'Calle I, 606', '2022-09-01', 458, 2300.00, 105, 'V-90123456');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (10, 'Sofia', 'Gabriela', 'Diaz', 'Lopez', 'Calle J, 707', '2022-10-01', 1167, 2400.00, 106, 'V-01234567');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Sofia', 'Gabriela', 'Diaz', 'Lopez', 'Calle J, 707', '2022-10-01', 1167, 2400.00, 106, 'V-01234567');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (11, 'Daniela', 'Rocio', 'Acosta', 'Sanchez', 'Calle K, 808', '2022-11-01', 745, 2500.00, 107, 'V-12345679');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Daniela', 'Rocio', 'Acosta', 'Sanchez', 'Calle K, 808', '2022-11-01', 745, 2500.00, 107, 'V-12345679');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (12, 'Manuel', 'Antonio', 'Soto', 'Navarro', 'Calle L, 909', '2022-12-01', 1102, 2600.00, 108, 'V-23456780');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Manuel', 'Antonio', 'Soto', 'Navarro', 'Calle L, 909', '2022-12-01', 1102, 2600.00, 108, 'V-23456780');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (13, 'Gabriela', 'Lourdes', 'Vargas', 'Pena', 'Calle M, 1010', '2023-01-01', 1322, 2700.00, 109, 'V-34567891');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Gabriela', 'Lourdes', 'Vargas', 'Pena', 'Calle M, 1010', '2023-01-01', 1322, 2700.00, 109, 'V-34567891');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (14, 'Miguel', 'Angel', 'Ortega', 'Perez', 'Calle N, 1111', '2023-02-01', 978, 2800.00, 110, 'V-45678902');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Miguel', 'Angel', 'Ortega', 'Perez', 'Calle N, 1111', '2023-02-01', 978, 2800.00, 110, 'V-45678902');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (15, 'Adriana', 'Paola', 'Reyes', 'Diaz', 'Calle O, 1212', '2023-03-01', 804, 2900.00, 111, 'V-56789013');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Adriana', 'Paola', 'Reyes', 'Diaz', 'Calle O, 1212', '2023-03-01', 804, 2900.00, 111, 'V-56789013');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (16, 'Francisco', 'Javier', 'Flores', 'Morales', 'Calle P, 1313', '2023-04-01', 503, 3000.00, 112, 'V-67890124');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Francisco', 'Javier', 'Flores', 'Morales', 'Calle P, 1313', '2023-04-01', 503, 3000.00, 112, 'V-67890124');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (17, 'Valeria', 'Nicole', 'Ramos', 'Castillo', 'Calle Q, 1414', '2023-05-01', 641, 3100.00, 113, 'V-78901235');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Valeria', 'Nicole', 'Ramos', 'Castillo', 'Calle Q, 1414', '2023-05-01', 641, 3100.00, 113, 'V-78901235');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (18, 'Fernando', 'Luis', 'Cruz', 'Romero', 'Calle R, 1515', '2023-06-01', 411, 3200.00, 114, 'V-89012346');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Fernando', 'Luis', 'Cruz', 'Romero', 'Calle R, 1515', '2023-06-01', 411, 3200.00, 114, 'V-89012346');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (19, 'Natalia', 'Andrea', 'Mendoza', 'Ortega', 'Calle S, 1616', '2023-07-01', 726, 3300.00, 115, 'V-90123457');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Natalia', 'Andrea', 'Mendoza', 'Ortega', 'Calle S, 1616', '2023-07-01', 726, 3300.00, 115, 'V-90123457');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (20, 'Julian', 'Martin', 'Mejia', 'Herrera', 'Calle T, 1717', '2023-08-01', 1253, 3400.00, 116, 'V-01234568');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Julian', 'Martin', 'Mejia', 'Herrera', 'Calle T, 1717', '2023-08-01', 1253, 3400.00, 116, 'V-01234568');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (21, 'Liliana', 'Susana', 'Silva', 'Vega', 'Calle U, 1818', '2023-09-01', 850, 3500.00, 117, 'V-12345669');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Liliana', 'Susana', 'Silva', 'Vega', 'Calle U, 1818', '2023-09-01', 850, 3500.00, 117, 'V-12345669');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (22, 'Alejandro', 'Jose', 'Rios', 'Gonzalez', 'Calle V, 1919', '2023-10-01', 417, 3600.00, 118, 'V-23456790');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Alejandro', 'Jose', 'Rios', 'Gonzalez', 'Calle V, 1919', '2023-10-01', 417, 3600.00, 118, 'V-23456790');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (23, 'Monica', 'Cristina', 'Suarez', 'Lara', 'Calle W, 2020', '2023-11-01', 1198, 3700.00, 119, 'V-34567892');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Monica', 'Cristina', 'Suarez', 'Lara', 'Calle W, 2020', '2023-11-01', 1198, 3700.00, 119, 'V-34567892');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (24, 'Roberto', 'Carlos', 'Vargas', 'Fuentes', 'Calle X, 2121', '2023-12-01', 369, 3800.00, 120, 'V-45678903');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Roberto', 'Carlos', 'Vargas', 'Fuentes', 'Calle X, 2121', '2023-12-01', 369, 3800.00, 120, 'V-45678903');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (25, 'Sandra', 'Elena', 'Navarro', 'Mendoza', 'Calle Y, 2222', '2024-01-01', 1402, 3900.00, 121, 'V-56789014');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Sandra', 'Elena', 'Navarro', 'Mendoza', 'Calle Y, 2222', '2024-01-01', 1402, 3900.00, 121, 'V-56789014');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (26, 'Diego', 'Esteban', 'Paredes', 'Guzman', 'Calle Z, 2323', '2024-02-01', 713, 4000.00, 122, 'V-67890125');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Diego', 'Esteban', 'Paredes', 'Guzman', 'Calle Z, 2323', '2024-02-01', 713, 4000.00, 122, 'V-67890125');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (27, 'Paola', 'Andrea', 'Quintero', 'Lopez', 'Calle AA, 2424', '2024-03-01', 411, 4100.00, 123, 'V-78901236');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Paola', 'Andrea', 'Quintero', 'Lopez', 'Calle AA, 2424', '2024-03-01', 411, 4100.00, 123, 'V-78901236');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (28, 'Rafael', 'David', 'Salas', 'Paz', 'Calle BB, 2525', '2024-04-01', 1203, 4200.00, 124, 'V-89012347');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Rafael', 'David', 'Salas', 'Paz', 'Calle BB, 2525', '2024-04-01', 1203, 4200.00, 124, 'V-89012347');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (29, 'Claudia', 'Juliana', 'Palacios', 'Cruz', 'Calle CC, 2626', '2024-05-01', 998, 4300.00, 125, 'V-90123458');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Claudia', 'Juliana', 'Palacios', 'Cruz', 'Calle CC, 2626', '2024-05-01', 998, 4300.00, 125, 'V-90123458');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (30, 'Emilio', 'Raul', 'Aguilar', 'Rojas', 'Calle DD, 2727', '2024-06-01', 1341, 4400.00, 126, 'V-01234569');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Emilio', 'Raul', 'Aguilar', 'Rojas', 'Calle DD, 2727', '2024-06-01', 1341, 4400.00, 126, 'V-01234569');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (31, 'Lorena', 'Patricia', 'Muñoz', 'González', 'Calle EE, 2828', '2024-07-01', 761, 4500.00, 127, 'V-12345680');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Lorena', 'Patricia', 'Muñoz', 'González', 'Calle EE, 2828', '2024-07-01', 761, 4500.00, 127, 'V-12345680');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (32, 'Eduardo', 'Andres', 'Gutierrez', 'Vera', 'Calle FF, 2929', '2024-08-01', 1199, 4600.00, 128, 'V-23456791');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Eduardo', 'Andres', 'Gutierrez', 'Vera', 'Calle FF, 2929', '2024-08-01', 1199, 4600.00, 128, 'V-23456791');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (33, 'Laura', 'Sofia', 'Ramirez', 'Fernandez', 'Calle GG, 3030', '2024-09-01', 369, 4700.00, 129, 'V-34567893');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Laura', 'Sofia', 'Ramirez', 'Fernandez', 'Calle GG, 3030', '2024-09-01', 369, 4700.00, 129, 'V-34567893');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (34, 'Alberto', 'Emilio', 'Diaz', 'Campos', 'Calle HH, 3131', '2024-10-01', 1403, 4800.00, 130, 'V-45678904');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Alberto', 'Emilio', 'Diaz', 'Campos', 'Calle HH, 3131', '2024-10-01', 1403, 4800.00, 130, 'V-45678904');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (35, 'Paula', 'Isabel', 'Mendoza', 'Lopez', 'Calle II, 3232', '2024-11-01', 714, 4900.00, 131, 'V-56789015');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Paula', 'Isabel', 'Mendoza', 'Lopez', 'Calle II, 3232', '2024-11-01', 714, 4900.00, 131, 'V-56789015');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (36, 'Victor', 'Raul', 'Paredes', 'Morales', 'Calle JJ, 3333', '2024-12-01', 1056, 5000.00, 132, 'V-67890126');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Victor', 'Raul', 'Paredes', 'Morales', 'Calle JJ, 3333', '2024-12-01', 1056, 5000.00, 132, 'V-67890126');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (37, 'Mariana', 'Beatriz', 'Castillo', 'Martinez', 'Calle KK, 3434', '2025-01-01', 409, 5100.00, 133, 'V-78901237');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Mariana', 'Beatriz', 'Castillo', 'Martinez', 'Calle KK, 3434', '2025-01-01', 409, 5100.00, 133, 'V-78901237');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (38, 'Javier', 'Tomas', 'Cruz', 'Ortiz', 'Calle LL, 3535', '2025-02-01', 622, 5200.00, 134, 'V-89012348');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Javier', 'Tomas', 'Cruz', 'Ortiz', 'Calle LL, 3535', '2025-02-01', 622, 5200.00, 134, 'V-89012348');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (39, 'Diana', 'Lorena', 'Soto', 'Perez', 'Calle MM, 3636', '2025-03-01', 1251, 5300.00, 135, 'V-90123459');
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Diana', 'Lorena', 'Soto', 'Perez', 'Calle MM, 3636', '2025-03-01', 1251, 5300.00, 135, 'V-90123459');
 
-INSERT INTO empleado (codigo_empleado_per, primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
-VALUES (40, 'Felipe', 'Ricardo', 'Chavez', 'Santos', 'Calle NN, 3737', '2025-04-01', 967, 5400.00, 136, 'V-01234570');
-
+INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
+VALUES ('Felipe', 'Ricardo', 'Chavez', 'Santos', 'Calle NN, 3737', '2025-04-01', 967, 5400.00, 136, 'V-01234570');
 
 INSERT INTO caracteristica (codigo_car,nombre_car) VALUES
 (1,'cantida tripulacion'),

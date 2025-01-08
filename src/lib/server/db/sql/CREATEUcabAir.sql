@@ -250,7 +250,7 @@ CREATE TABLE lugar (
 );
 
 CREATE TABLE modelo_avion (
-    codigo_ma        INTEGER NOT NULL,
+    codigo_ma        SERIAL NOT NULL,
     nombre_ma        VARCHAR(255) NOT NULL,
     descripcion_ma   VARCHAR(255) NOT NULL,
     precio_unidad_ma REAL NOT NULL,
@@ -632,7 +632,6 @@ END;
 $$;
 
 CREATE OR REPLACE PROCEDURE insertar_empleado( 
-    codigo       INTEGER,
     primer_nombre         VARCHAR(255),
     segundo_nombre        VARCHAR(255),
     primer_apellido       VARCHAR(255),
@@ -646,9 +645,9 @@ CREATE OR REPLACE PROCEDURE insertar_empleado(
     ) 
     LANGUAGE plpgsql
     AS $$ BEGIN
-    INSERT INTO empleado (codigo_empleado_per,primer_nombre_per,segundo_nombre_per,primer_apellido_per,
+    INSERT INTO empleado (primer_nombre_per,segundo_nombre_per,primer_apellido_per,
     segundo_apellido_per,direccion_per,fecha_inicio_servicio_per,fk_lugar,sueldo_per,fk_usuario,cedula_per) 
-    VALUES (codigo,primer_nombre,segundo_nombre,primer_apellido,
+    VALUES (primer_nombre,segundo_nombre,primer_apellido,
     segundo_apellido,direccion,fecha_inicio_servicio,fk_lugar,sueldo,fk_usuario,cedula);
 END;
 $$;
@@ -762,7 +761,6 @@ END;
 $$;
 
 CREATE OR REPLACE PROCEDURE insertar_aeronave(
-    codigo_ma2        INTEGER ,
     nombre_ma2       VARCHAR(255),
     descripcion_ma2   VARCHAR(255),
     precio_unidad_ma2 REAL,
@@ -770,8 +768,8 @@ CREATE OR REPLACE PROCEDURE insertar_aeronave(
     )
     LANGUAGE plpgsql
     AS $$ BEGIN
-    INSERT INTO modelo_avion (codigo_ma,nombre_ma,descripcion_ma,precio_unidad_ma,fk_modelo_avion)
-    VALUES (codigo_ma2,nombre_ma2,descripcion_ma2,precio_unidad_ma2,fk_modelo_avion2);
+    INSERT INTO modelo_avion (nombre_ma,descripcion_ma,precio_unidad_ma,fk_modelo_avion)
+    VALUES (nombre_ma2,descripcion_ma2,precio_unidad_ma2,fk_modelo_avion2);
 END;
 $$;
 
