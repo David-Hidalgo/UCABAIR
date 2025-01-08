@@ -64,6 +64,32 @@
 			body: JSON.stringify({ empleado: empleado, codigo_viejo: codigo_viejo }),
 			headers: { 'Content-Type': 'application/json' }
 		});
+
+		telefonos.forEach((tel) => {
+			tel.fk_empleado = empleado.codigo_empleado_per;
+		});
+		correos.forEach((cor) => {
+			cor.fk_empleado = empleado.codigo_empleado_per;
+		});
+
+		for (let tel of telefonos) {
+			console.log(tel);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+				method: 'POST',
+				body: JSON.stringify(tel),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
+		for (let cor of correos) {
+			console.log(cor);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+				method: 'POST',
+				body: JSON.stringify(cor),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
 		const data = await res.json();
 		alert('Empleado modificado con exito');
 		goto('/admin/HomeAdmin/empleado');
@@ -74,6 +100,13 @@
 			method: 'POST',
 			body: JSON.stringify(empleado),
 			headers: { 'Content-Type': 'application/json' }
+		});
+
+		telefonos.forEach((tel) => {
+			tel.fk_empleado= empleado.codigo_empleado_per;
+		});
+		correos.forEach((cor) => {
+			cor.fk_empleado = empleado.codigo_empleado_per;
 		});
 
 		for (let tel of telefonos) {

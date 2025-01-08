@@ -262,11 +262,12 @@
 									<span>✏️</span>
 									<!-- Icono de lápiz -->
 								</button>
-								<button onclick={() => eliminarRegistro(dato)}>
-									<span>🗑️</span>
-									<!-- Icono de papelera -->
-								</button>
 							</a>
+							<button onclick={() => eliminarRegistro(dato)}>
+								<span>🗑️</span>
+								<!-- Icono de papelera -->
+							</button>
+							
 						</div>
 					</td>
 				</tr>
