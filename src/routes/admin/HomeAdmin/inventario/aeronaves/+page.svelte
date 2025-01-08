@@ -250,12 +250,16 @@
 								<span>Ver la Configuracion</span>
 							</button>
 						</a>
+						<a href="/admin/HomeAdmin/registrar/planes/?cod_ma={modelo_avion.codigo_ma}">
+							<button>Crear nueva Configuracion Avion</button>
+						</a>
 					</div>
 				</td>
 			</tr>
 		{/each}
 	</tbody>
 </table>
+
 <a href="/admin/HomeAdmin/registrar/aeronave">
 	<button>Registrar Aeronave</button>
 </a>

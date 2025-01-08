@@ -68,7 +68,7 @@ CREATE TABLE persona (
 );
 CREATE TABLE compra (
     codigo_compra_com  SERIAL NOT NULL,
-    numero_factura_com INTEGER NOT NULL,
+    numero_factura_com SERIAL NOT NULL,
     fecha_hora_com     DATE NOT NULL,
     monto_total_com    REAL NOT NULL,
     impuesto_total_com REAL NOT NULL
@@ -186,7 +186,7 @@ CREATE TABLE estatus_historial_ensamblaje (
     fk_ensamblaje 	  INTEGER NOT NULL
 );
 CREATE TABLE estimacion_profesion_empleado (
-    codigo_epp            	 INTEGER NOT NULL,
+    codigo_epp            	 SERIAL NOT NULL,
     fk_tipo_prueba               INTEGER,
     fk_embalaje_plan             INTEGER,
     fk_plan_transporte           INTEGER,
@@ -880,3 +880,58 @@ CREATE OR REPLACE PROCEDURE editar_aeronave(
     WHERE codigo_ma=viejo_codigo;
 END;
 $$;
+
+
+CREATE OR REPLACE PROCEDURE insertar_configuracion_completa( 
+cantidad_pieza INTEGER[],
+fk_tipo_pieza2 INTEGER[],
+fk_modelo_avion2 INTEGER,
+fk_sede2 INTEGER,
+fk_embalaje_plan2 INTEGER,
+fk_plan_transporte2 INTEGER,
+fk_tipo_prueba2 INTEGER,
+cantidad_empleado_epp2 INTEGER[],
+fk_profesion2 INTEGER[]
+)
+LANGUAGE plpgsql AS $$ BEGIN
+INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avion, fk_sede) VALUES
+(cantidad_pieza, fk_tipo_pieza2, fk_modelo_avion2,fk_sede2 );
+
+INSERT INTO embalaje_configuracion_avion (fk_embalaje_plan, fk_modelo_avion, fk_sede) VALUES
+(fk_embalaje_plan2, fk_modelo_avion2, fk_sede2 );
+
+INSERT INTO transporte_configuracion_avion (fk_plan_transporte, fk_modelo_avion, fk_sede) VALUES
+(fk_plan_transporte2, fk_modelo_avion2, fk_sede2 );
+
+INSERT INTO configuracion_prueba_avion (fk_tipo_prueba, fk_modelo_avion, fk_sede) VALUES
+(fk_tipo_prueba2, fk_modelo_avion2, fk_sede2 ); 
+
+INSERT INTO estimacion_profesion_empleado (fk_tipo_prueba, fk_embalaje_plan, fk_plan_transporte, fk_plan_ensamblaje, cantidad_empleado_epp, fk_profesion)
+VALUES (fk_tipo_prueba2, fk_embalaje_plan2, fk_plan_transporte2, fk_plan_ensamblaje2, cantidad_empleado_epp2,fk_profesion2);
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION reponer_materia_prima_150()
+RETURNS TRIGGER AS $$
+DECLARE
+    monto REAL;
+    impuesto REAL;
+BEGIN
+    monto := TG_ARGV[0]::REAL;
+    impuesto := TG_ARGV[1]::REAL;
+
+    IF NEW.cantidad_lmp <= 150 THEN
+        INSERT INTO compra (fecha_hora_com, monto_total_com, impuesto_total_com)
+        VALUES (CURRENT_DATE, monto, impuesto);
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER trigger_reponer_materia_prima_150
+AFTER UPDATE ON lote_materia_prima
+FOR EACH ROW
+WHEN (NEW.cantidad_lmp <= 150)
+EXECUTE FUNCTION reponer_materia_prima_150(1000,100);
+

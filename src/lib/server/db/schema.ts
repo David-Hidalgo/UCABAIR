@@ -50,6 +50,24 @@ export interface Proveedor {
 	correos_electronicos: Correo_electronico[];
 }
 
+export interface Proveedor2 {
+	codigo_com: number | undefined;
+	direccion_com: string;
+	monto_acreditado_com: number | undefined;
+	fecha_inicio_operaciones_com: Date | undefined;
+	tipo_com: string;
+	nacionalidad_com: string;
+	fk_lugar: number | undefined;
+	fk_usuario: number | undefined;
+	tipo_persona_com: string;
+	rif_jur: string;
+	denominacion_comercial: string;
+	razon_social_jur: string;
+	pagina_web_jur: string;
+	telefonos: Telefono[];
+	correos_electronicos: Correo_electronico[];
+}
+
 export interface Tipo_prueba {
 	codigo_tp: number | undefined;
 	nombre_tp: string;

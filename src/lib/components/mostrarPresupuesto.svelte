@@ -12,7 +12,7 @@
 		Plan_ensamblaje
 	} from '$lib/server/db/schema';
 	let modelos_avion: Modelo_avion[] = new Array();
-	export let tipo_pieza: Tipo_pieza[];
+	export let tipo_pieza: any[];
 	export let tipo_prueba: Tipo_prueba[];
 	export let estimacion_profesion_empleado: Estimacion_profesion_empleado[];
 	export let modelo_avion_entrante: Modelo_avion;
@@ -76,51 +76,42 @@
 					<td> {profesionales.cantidad_empleado_epp}</td>
 				</tr>
 			{/each}
-			<!-- {#each costos as costo}
-				<tr>
-					<td>{personal_encargado}</td>
-					<td>{costo.empleados}</td>
-					<td
-						>{#each costo.subtrabajo as subtrabajo}
-							<tr>
-								<td>{subtrabajo.nombre}</td>
-								<td>{subtrabajo.costo}</td>
-							</tr>
-						{/each}
-					</td>
-					<td>{costo.subtrabajo.reduce((acc, curr) => acc + curr.costo, 0)}</td>
-				</tr>
-			{/each} -->
+			
 		</tbody>
 	</table>
 	
-	<!--<h2>Costos de elaboracion de piezas y ensamblaje</h2>
+	<h2>Costos de elaboracion de piezas</h2>
 	<table>
 		<thead>
 			<tr>
-				<th>A Ensamblar</th>
-				<th>Trabajos</th>
-				<th>Costo</th>
+				<th>Pieza</th>
+				<th>Precio unitario</th>
+				<th>Cantidad de piezas</th>
+				<th>Costo total de pieza</th>
+				
 			</tr>
 		</thead>
 		<tbody>
-			{#each presupuestos as presupuesto, i}
+			{#each tipo_pieza as tPieza}
 				<tr>
-					<td>{presupuesto.pieza}</td>
-					<td
-						>{#each presupuesto.subtrabajo as subtrabajo, i}
-							<tr>
-								<td>{subtrabajo.nombre}</td>
-								<td>{subtrabajo.costo}</td>
-							</tr>
-						{/each}
-					</td>
-					<td>{presupuesto.subtrabajo.reduce((acc, curr) => acc + curr.costo, 0)}</td>
+					<td>{tPieza.nombre_tp}</td>
+					<td>{tPieza.precio_unidad_tp}</td>
+					<td>{tPieza.cantidad_pieza_ca}</td>
+					<td>{tPieza.precio_total}</td>
 				</tr>
 			{/each}
 		</tbody>
+		<tfoot>
+			<tr>
+				<td>Total</td>
+				<td></td>
+				<td></td>
+				
+				<td>{tipo_pieza.reduce((acc, curr) => acc + curr.precio_total, 0)}</td>
+			</tr>
+		</tfoot>
 	</table>
-	<h2>Costos de materia prima</h2>
+	<!--<h2>Costos de materia prima</h2>
 	<table>
 		<thead>
 			<tr>

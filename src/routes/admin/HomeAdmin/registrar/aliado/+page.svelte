@@ -53,12 +53,7 @@
 <style>
 	/* Estilos generales para el formulario */
 
-	.botonesForm {
-		display: flex;
-		justify-content: center;
-		margin-top: 20px;
-		gap: 10px;
-	}
+
 	form {
 		max-width: 100%;
 		margin: 0 auto;

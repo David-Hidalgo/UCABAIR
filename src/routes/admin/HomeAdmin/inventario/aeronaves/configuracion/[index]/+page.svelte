@@ -17,7 +17,7 @@
 			descripcion_pe: plan.descripcion_pe
 		};
 	});
-	const profesionales: Profesion[] = data.profesion_table;
+	const profesionales: any[] = data.profesion_table;
 </script>
 
 <!-- id_editar={data.resultado} -->

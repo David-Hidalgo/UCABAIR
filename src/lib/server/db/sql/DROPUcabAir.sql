@@ -23,6 +23,9 @@ DROP PROCEDURE IF EXISTS eliminar_tipo_materia_prima;
 DROP PROCEDURE IF EXISTS insertar_tipo_materia_prima;
 DROP PROCEDURE IF EXISTS editar_tipo_materia_prima;
 DROP PROCEDURE IF EXISTS editar_aeronave;
+DROP TRIGGER IF EXISTS trigger_reponer_materia_prima_150 ON lote_materia_prima;
+DROP FUNCTION IF EXISTS reponer_materia_prima_150;
+
 ALTER TABLE IF EXISTS sede DROP CONSTRAINT IF EXISTS fk_lugar;
 
 ALTER TABLE IF EXISTS almacen DROP CONSTRAINT IF EXISTS fk_sede;

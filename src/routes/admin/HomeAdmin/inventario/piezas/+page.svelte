@@ -58,7 +58,6 @@
 		location.reload();
 	}
 
-	let sede_a_mostrar: number = 0;
 	let sede_mostrar: string = '';
 
 	function mostrarSede(cod_sed: number) {

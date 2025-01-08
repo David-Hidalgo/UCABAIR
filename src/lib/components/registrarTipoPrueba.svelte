@@ -88,14 +88,6 @@
 	}
 
 	input,
-	select {
-		width: 40%;
-		padding: 10px;
-		margin-bottom: 15px;
-		border: 1px solid #ccc;
-		border-radius: 3px;
-		font-size: 14px;
-	}
 
 	/* Estilos para el botón de envío */
 	button {

@@ -5,38 +5,68 @@
 	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
 	import type { PageData } from './$types';
-	import type { Rol } from './+page.server.ts';
+	import type { Tipo_materia_prima,Lote_materia_prima, Compra } from './+page.server.ts';
 	// const dispatch = createEventDispatcher();
-
 	let { data }: { data: PageData } = $props();
 
-	let searchTerm = '';
-	function search() {
-		// Lógica de búsqueda
-		console.log(`Buscando: ${searchTerm}`);
+	let compras: Compra[] =new Array();
+	for (let i = 0; i < data.comtable.length; i++) {
+		let compra:Compra = {
+			codigo_compra_com:0,
+			numero_factura_com:0,
+			fecha_hora_com:new Date(),
+			monto_total_com:0,
+			impuesto_total_com:0
+		}
+		compra.codigo_compra_com=data.comtable[i].codigo_compra_com;
+		compra.numero_factura_com=data.comtable[i].numero_factura_com;
+		compra.fecha_hora_com=data.comtable[i].fecha_hora_com;
+		compra.monto_total_com=data.comtable[i].monto_total_com;
+		compra.impuesto_total_com=data.comtable[i].impuesto_total_com;
+		compras.push(compra);
 	}
 
-	let roles: Rol[] = new Array();
-	for (let index = 0; index < data.roltable.length; index++) {
-		let rol: Rol = {
-			codigo_rol: 0,
-			nombre_rol: '',
-			descripcion_rol: ''
-		};
-		rol.codigo_rol = data.roltable[index].codigo_rol;
-		rol.nombre_rol = data.roltable[index].nombre_rol;
-		rol.descripcion_rol = data.roltable[index].descripcion_rol;
-		roles.push(rol);
+	let lotes_materia_prima: Lote_materia_prima[] =new Array();
+	for (let i = 0; i < data.lmp.length; i++) {
+		let lote_materia_prima: Lote_materia_prima = {
+			codigo_lmp:0,
+			fk_configuracion_pieza:0,
+			fk_configuracion_pieza2:0,
+			fk_compra:0,
+			fk_almacen:0,
+			fk_almacen2:0,
+			cantidad_lmp:0,
+		}
+		lote_materia_prima.codigo_lmp=data.lmp[i].codigo_lmp;
+		lote_materia_prima.fk_configuracion_pieza=data.lmp[i].fk_configuracion_pieza;
+		lote_materia_prima.fk_configuracion_pieza2=data.lmp[i].fk_configuracion_pieza2;
+		lote_materia_prima.fk_compra=data.lmp[i].fk_compra;
+		lote_materia_prima.fk_almacen=data.lmp[i].fk_almacen;
+		lote_materia_prima.fk_almacen2=data.lmp[i].fk_almacen2;
+		lote_materia_prima.cantidad_lmp=data.lmp[i].cantidad_lmp;
+		lotes_materia_prima.push(lote_materia_prima);
 	}
 
-	async function generarReporte(minerales: Rol[]) {
-		//logica para
+	let tipo_materias_prima: Tipo_materia_prima[] =new Array();
+	for (let i = 0; i < data.tmp.length; i++) {
+		let tipo_materia_prima: Tipo_materia_prima = {
+			codigo_tmp:0,
+			nombre_tmp:"",
+			descripcion_tmp:"",
+			unidad_medida_tmp:""
+		}
+	
+		tipo_materia_prima.codigo_tmp=data.tmp[i].codigo_tmp;
+		tipo_materia_prima.nombre_tmp=data.tmp[i].nombre_tmp;
+		tipo_materia_prima.descripcion_tmp=data.tmp[i].descripcion_tmp;
+		tipo_materia_prima.unidad_medida_tmp=data.tmp[i].unidad_medida_tmp;
+		tipo_materias_prima.push(tipo_materia_prima);
 	}
 
 	//mostrarDatos();
 	//
 	// Función para editar un registro
-	async function editarRegistro(roles: Rol) {
+	async function editarRegistro(compra:Compra) {
 		/*try {
 			const res = await fetch(`http://localhost:4000/mineral/${roles.id}`, {
 				method: 'PUT',
@@ -58,51 +88,49 @@
 
 	// Función para eliminar un registro
 
-	async function eliminarRegistro(rol: Rol) {
+	async function eliminarRegistro(compra: Compra) {
 		await fetch(`http://localhost:5173/admin/HomeAdmin/roles`, {
 			method: 'DELETE',
 
-			body: JSON.stringify(rol.codigo_rol)
+			body: JSON.stringify(compra.codigo_compra_com)
 		});
 	}
 </script>
 
-<h2>Roles</h2>
+<h2>Solicitudes</h2>
 <table>
 	<thead>
 		<tr>
-			<th>ID</th>
-			<th>Rol</th>
-			<th>Descripcion</th>
+			<th>Factura</th>
+			<th>Material</th>
+			<th>Fecha</th>
+			<th>Precio</th>
 		</tr>
 	</thead>
 	<tbody>
-		{#each roles as rol}
+		{#each compras as compra}
 			<tr>
-				<td>{rol.codigo_rol}</td>
-				<td>{rol.nombre_rol}</td>
-				<td>{rol.descripcion_rol}</td>
-				<td>
-					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/editar/rol/{rol.codigo_rol}">
-							<button onclick={() => editarRegistro(rol)}>
-								<span>✏️</span>
-								<!-- Icono de lápiz -->
-							</button>
-						</a>
-						<button onclick={() => eliminarRegistro(rol)}>
-							<span>🗑️</span>
-							<!-- Icono de papelera -->
-						</button>
-					</div>
+				<td>{compra.numero_factura_com}</td>
+				<td>{#each lotes_materia_prima as lote}
+						{#if lote.fk_compra==compra.codigo_compra_com}
+							{#each tipo_materias_prima as tmp}
+								{#if lote.fk_configuracion_pieza==tmp.codigo_tmp}
+									{tmp.nombre_tmp}
+								{/if}
+							{/each}
+						{/if}
+					{/each}
+				</td>
+				<td>{compra.fecha_hora_com}</td>
+				<td>{compra.monto_total_com}</td>
+					<td>
+						AYUDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+					
 				</td>
 			</tr>
 		{/each}
 	</tbody>
 </table>
-<a href="/admin/HomeAdmin/registrar/rol">
-	<button>Registrar Rol</button>
-</a>
 
 <style>
 	.botonesUD {

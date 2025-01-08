@@ -15,7 +15,6 @@ import type {
 export const load: PageServerLoad = async ({ params }) => {
 	const index = params.index;
 	const ma_table = await dbPostgre<Modelo_avion[]>`SELECT * FROM modelo_avion;`;
-	const p_table = await dbPostgre<Tipo_pieza[]>`SELECT * FROM tipo_pieza;`;
 	const ca_table = await dbPostgre<Configuracion_avion[]>`SELECT * FROM configuracion_avion;`;
 	const tp_table = await dbPostgre<Tipo_prueba[]>`SELECT * FROM tipo_prueba;`;
 	const cpa_table = await dbPostgre<
@@ -28,6 +27,10 @@ export const load: PageServerLoad = async ({ params }) => {
 	const n = Number.parseInt(index);
 
 	if (Number.isInteger(n)) {
+		const p_table = await dbPostgre
+		`SELECT tp.precio_unidad_tp,ca.cantidad_pieza_ca,tp.precio_unidad_tp*ca.cantidad_pieza_ca as precio_total,tp.nombre_tp FROM tipo_pieza tp inner join configuracion_avion ca on tp.codigo_tp=ca.fk_tipo_pieza
+		where ca.fk_modelo_avion=${n}`;
+
 		const resultado = await dbPostgre<
 			Configuracion_def[]
 		>`select * from modelo_avion ma,configuracion_avion ca,tipo_pieza tip,plan_ensamblaje pe, configuracion_ensamblaje_pieza cep,
@@ -49,8 +52,8 @@ export const load: PageServerLoad = async ({ params }) => {
 		tip.codigo_tp=cep.fk_tipo_pieza and
 		codigo_ma=${n}`;
 
-		const profesion_table = await dbPostgre
-		`SELECT * FROM profesion pro inner join estimacion_profesion_empleado epp on epp.fk_profesion=pro.codigo_pro
+		const profesion_table =
+			await dbPostgre`SELECT * FROM profesion pro inner join estimacion_profesion_empleado epp on epp.fk_profesion=pro.codigo_pro
 														 where epp.fk_tipo_prueba in (select fk_tipo_prueba from configuracion_prueba_avion where fk_modelo_avion=${n})
 														 or epp.fk_embalaje_plan in (select fk_embalaje_plan from embalaje_configuracion_avion where fk_modelo_avion=${n})
 														 or epp.fk_plan_ensamblaje in (select fk_plan_ensamblaje from configuracion_ensamblaje_pieza where fk_tipo_pieza in (select fk_tipo_pieza 

@@ -161,9 +161,4 @@
 		font-size: 16px;
 	}
 
-	.ComboboxSedes {
-		display: flex;
-		flex-direction: row;
-		align-items: left;
-	}
 </style>
