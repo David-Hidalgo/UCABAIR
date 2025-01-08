@@ -48,7 +48,7 @@
 	}
 
 	let caracteristica: Caracteristica = {
-		codigo_car: 0,
+		codigo_car: 1,
 		nombre_car: ''
 	};
 
@@ -135,18 +135,24 @@
 			body: JSON.stringify(aeronave),
 			headers: { 'Content-Type': 'application/json' }
 		});
-
+		console.log(await res.json());
+		aeronave.codigo_ma = (await res.json()).respuesta.codigo_ma;
+		console.log(aeronave.codigo_ma);
+		let indexC=0
 		for (let car of caracteristicas) {
 			console.log(car);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave/caracteristica`, {
+			const res =await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave/caracteristica`, {
 				method: 'POST',
 				body: JSON.stringify(car),
 				headers: { 'Content-Type': 'application/json' }
 			});
+			console.log("la respuesta es:");
+			console.log(await res.json());
+			car.codigo_car= (await res.json()).respuesta.salida ;
+			caracteristicas_modelo[indexC].fk_caracteristica=car.codigo_car;
 		}
-
 		for (let cm of caracteristicas_modelo) {
-			console.log(cm);
+			cm.fk_modelo_avion = aeronave.codigo_ma;
 			await fetch(
 				`http://localhost:5173/admin/HomeAdmin/registrar/aeronave/caracteristica_modelo`,
 				{
@@ -156,7 +162,6 @@
 				}
 			);
 		}
-		const data = await res.json();
 		goto('/admin/HomeAdmin/inventario/aeronaves');
 	}
 

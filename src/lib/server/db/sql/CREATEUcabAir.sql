@@ -31,7 +31,7 @@ CREATE TABLE beneficiario (
     fk_empleado            INTEGER NOT NULL
 );
 CREATE TABLE caracteristica (
-    codigo_car INTEGER NOT NULL,
+    codigo_car SERIAL NOT NULL,
     nombre_car VARCHAR(255) NOT NULL
 );
 CREATE TABLE caracteristica_modelo (
@@ -74,7 +74,7 @@ CREATE TABLE compra (
     impuesto_total_com REAL NOT NULL
 );
 CREATE TABLE configuracion_avion (
-    cantidad_pieza_ca     INTEGER NOT NULL DEFAULT 1,
+    cantidad_pieza_ca     INTEGER DEFAULT 1,
     fk_tipo_pieza         INTEGER NOT NULL,
     fk_modelo_avion       INTEGER NOT NULL,
     fk_sede       	  INTEGER NOT NULL
@@ -191,7 +191,7 @@ CREATE TABLE estimacion_profesion_empleado (
     fk_embalaje_plan             INTEGER,
     fk_plan_transporte           INTEGER,
     fk_plan_ensamblaje           INTEGER,
-    cantidad_empleado_epp 	 INTEGER NOT NULL DEFAULT 1,
+    cantidad_empleado_epp 	 INTEGER DEFAULT 1,
     fk_profesion            	 INTEGER NOT NULL
 );
 CREATE TABLE historial_estatus_compra (
@@ -420,14 +420,14 @@ CREATE TABLE tipo_materia_prima (
     unidad_medida_tmp VARCHAR(255) NOT NULL
 );
 CREATE TABLE tipo_pieza (
-    codigo_tp           INTEGER NOT NULL,
+    codigo_tp           SERIAL NOT NULL,
     nombre_tp           VARCHAR(255) NOT NULL,
     descripcion_tp      VARCHAR(255) NOT NULL,
     fk_tipo_pieza       INTEGER,
     precio_unidad_tp    REAL NOT NULL
 );
 CREATE TABLE tipo_prueba (
-    codigo_tp            INTEGER NOT NULL,
+    codigo_tp            SERIAL NOT NULL,
     nombre_tp            VARCHAR(255) NOT NULL,
     descripcion_tp       VARCHAR(512) NOT NULL,
     duracion_estimada_tp VARCHAR(255) NOT NULL
@@ -546,16 +546,15 @@ CREATE OR REPLACE PROCEDURE eliminar_rol(
 END;
 $$;
 
-CREATE OR REPLACE PROCEDURE insertar_tipo_prueba( 
-    codigo_tp2            INTEGER,
+CREATE OR REPLACE PROCEDURE insertar_tipo_prueba(
     nombre_tp2            VARCHAR(255),
     descripcion_tp2       VARCHAR(512),
     duracion_estimada_tp2 VARCHAR(255)
     ) 
     LANGUAGE plpgsql
     AS $$ BEGIN
-    INSERT INTO tipo_prueba (codigo_tp,nombre_tp,descripcion_tp,duracion_estimada_tp) 
-    VALUES (codigo_tp2,nombre_tp2,descripcion_tp2,duracion_estimada_tp2);
+    INSERT INTO tipo_prueba (nombre_tp,descripcion_tp,duracion_estimada_tp) 
+    VALUES (nombre_tp2,descripcion_tp2,duracion_estimada_tp2);
 END;
 $$;
 
@@ -568,7 +567,7 @@ CREATE OR REPLACE PROCEDURE editar_tipo_prueba(
     ) 
     LANGUAGE plpgsql
     AS $$ BEGIN
-    UPDATE tipo_prueba SET codigo_tp=codigo_tp2,nombre_tp=nombre_tp2,descripcion_tp=descripcion_tp2,duracion_estimada_tp=duracion_estimada_tp2
+    UPDATE tipo_prueba SET nombre_tp=nombre_tp2,descripcion_tp=descripcion_tp2,duracion_estimada_tp=duracion_estimada_tp2
     WHERE codigo_tp=codigo_tpN;
 END;
 $$;
@@ -685,7 +684,6 @@ CREATE OR REPLACE PROCEDURE editar_empleado(
 END;
 $$;
 
--- Modificación del procedimiento para devolver el id de la persona insertada
 CREATE OR REPLACE PROCEDURE insertar_persona( 
     direccion             VARCHAR(516),
     monto_acreditado       REAL,
@@ -764,12 +762,15 @@ CREATE OR REPLACE PROCEDURE insertar_aeronave(
     nombre_ma2       VARCHAR(255),
     descripcion_ma2   VARCHAR(255),
     precio_unidad_ma2 REAL,
-    fk_modelo_avion2  INTEGER
+    fk_modelo_avion2  INTEGER,
+    Out id_ma  INTEGER
     )
     LANGUAGE plpgsql
     AS $$ BEGIN
-    INSERT INTO modelo_avion (nombre_ma,descripcion_ma,precio_unidad_ma,fk_modelo_avion)
-    VALUES (nombre_ma2,descripcion_ma2,precio_unidad_ma2,fk_modelo_avion2);
+    INSERT INTO modelo_avion (nombre_ma,descripcion_ma,precio_unidad_ma,fk_modelo_avion) 
+    VALUES (nombre_ma2,descripcion_ma2,precio_unidad_ma2,fk_modelo_avion2)
+    RETURNING codigo_ma INTO id_ma;
+
 END;
 $$;
 
@@ -783,13 +784,14 @@ END;
 $$;
 
 CREATE OR REPLACE PROCEDURE insertar_caracteristica(
-    codigo_car2 INTEGER,
-    nombre_car2 VARCHAR(255)
+    nombre_car2 VARCHAR(255),
+    OUT salida INTEGER
     ) 
     LANGUAGE plpgsql
     AS $$ BEGIN
-    INSERT INTO caracteristica (codigo_car,nombre_car) 
-    VALUES (codigo_car2,nombre_car2);
+    INSERT INTO caracteristica (nombre_car) 
+    VALUES (nombre_car2)
+    RETURNING codigo_car into salida;
 END;
 $$;
 
@@ -806,8 +808,7 @@ CREATE OR REPLACE PROCEDURE insertar_caracteristica_modelo(
 END;
 $$;
 
-CREATE OR REPLACE PROCEDURE insertar_tipo_pieza( 
-    codigo_tp2           INTEGER,
+CREATE OR REPLACE PROCEDURE insertar_tipo_pieza(
     nombre_tp2          VARCHAR(255),
     descripcion_tp2      VARCHAR(255),
     fk_tipo_pieza2       INTEGER,
@@ -815,8 +816,8 @@ CREATE OR REPLACE PROCEDURE insertar_tipo_pieza(
     ) 
     LANGUAGE plpgsql
     AS $$ BEGIN
-    INSERT INTO tipo_pieza (codigo_tp,nombre_tp,descripcion_tp,fk_tipo_pieza,precio_unidad_tp) 
-    VALUES (codigo_tp2,nombre_tp2,descripcion_tp2,fk_tipo_pieza2, precio_unidad_tp2);
+    INSERT INTO tipo_pieza (nombre_tp,descripcion_tp,fk_tipo_pieza,precio_unidad_tp) 
+    VALUES (nombre_tp2,descripcion_tp2,fk_tipo_pieza2, precio_unidad_tp2);
 END;
 $$;
 
@@ -873,7 +874,7 @@ CREATE OR REPLACE PROCEDURE editar_aeronave(
     ) 
     LANGUAGE plpgsql 
     AS $$ BEGIN
-    UPDATE modelo_avion SET codigo_ma=codigo,nombre_ma=nombre,descripcion_ma=descripcion,
+    UPDATE modelo_avion SET nombre_ma=nombre,descripcion_ma=descripcion,
     precio_unidad_ma=precio_unidad,fk_modelo_avion=fk_modelo_avion2
     WHERE codigo_ma=viejo_codigo;
 END;
@@ -889,23 +890,121 @@ fk_embalaje_plan2 INTEGER,
 fk_plan_transporte2 INTEGER,
 fk_tipo_prueba2 INTEGER,
 cantidad_empleado_epp2 INTEGER,
-fk_profesion2 INTEGER[]
+fk_profesion_embalaje INTEGER[],
+fk_profesion_prueba INTEGER[],
+fk_profesion_transporte INTEGER[]
 )
 LANGUAGE plpgsql AS $$ BEGIN
-INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avion, fk_sede) VALUES
-(cantidad_pieza, fk_tipo_pieza2, fk_modelo_avion2,fk_sede2 );
 
-INSERT INTO embalaje_configuracion_avion (fk_embalaje_plan, fk_modelo_avion, fk_sede) VALUES
-(fk_embalaje_plan2, fk_modelo_avion2, fk_sede2 );
+CASE 
+    WHEN fk_embalaje_plan2 IS NOT NULL THEN
+        CALL insertar_configuracion_embalaje(cantidad_pieza, fk_tipo_pieza2, fk_modelo_avion2, fk_sede2, fk_embalaje_plan2, fk_profesion_embalaje, cantidad_empleado_epp2);
+    WHEN fk_plan_transporte2 IS NOT NULL THEN
+        CALL insertar_configuracion_transporte(cantidad_pieza, fk_tipo_pieza2, fk_modelo_avion2, fk_sede2, fk_plan_transporte2, fk_profesion_transporte, cantidad_empleado_epp2);
+    WHEN fk_tipo_prueba2 IS NOT NULL THEN
+        CALL insertar_configuracion_prueba(cantidad_pieza, fk_tipo_pieza2, fk_modelo_avion2, fk_sede2, fk_tipo_prueba2, fk_profesion_prueba, cantidad_empleado_epp2);
+END CASE;
 
-INSERT INTO transporte_configuracion_avion (fk_plan_transporte, fk_modelo_avion, fk_sede) VALUES
-(fk_plan_transporte2, fk_modelo_avion2, fk_sede2 );
+END;
+$$;
 
-INSERT INTO configuracion_prueba_avion (fk_tipo_prueba, fk_modelo_avion, fk_sede) VALUES
-(fk_tipo_prueba2, fk_modelo_avion2, fk_sede2 ); 
+CREATE OR REPLACE PROCEDURE insertar_configuracion_embalaje(
+    cantidad_pieza INTEGER,
+    fk_tipo_pieza2 INTEGER[],
+    fk_modelo_avion2 INTEGER,
+    fk_sede2 INTEGER,
+    fk_embalaje_plan2 INTEGER,
+    fk_profesion2 INTEGER[],
+    cantidad_empleado_epp2 INTEGER
+)
+LANGUAGE plpgsql AS $$
+DECLARE
+    tPieza INTEGER ;
+    profesion INTEGER ;
+ BEGIN
 
-INSERT INTO estimacion_profesion_empleado (fk_tipo_prueba, fk_embalaje_plan, fk_plan_transporte, fk_plan_ensamblaje, cantidad_empleado_epp, fk_profesion)
-VALUES (fk_tipo_prueba2, fk_embalaje_plan2, fk_plan_transporte2, fk_plan_ensamblaje2, cantidad_empleado_epp2,fk_profesion2);
+    FOREACH tPieza IN ARRAY fk_tipo_pieza2
+    LOOP
+        INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avion, fk_sede) VALUES
+        (cantidad_pieza, tPieza, fk_modelo_avion2, fk_sede2);
+    END LOOP;
+
+    INSERT INTO embalaje_configuracion_avion (fk_embalaje_plan, fk_modelo_avion, fk_sede) VALUES
+    (fk_embalaje_plan2, fk_modelo_avion2, fk_sede2);
+
+    FOREACH profesion IN ARRAY fk_profesion2
+    LOOP
+    INSERT INTO estimacion_profesion_empleado (fk_tipo_prueba, fk_embalaje_plan, fk_plan_transporte, fk_plan_ensamblaje, cantidad_empleado_epp, fk_profesion)
+    VALUES (NULL, fk_embalaje_plan2, NULL, NULL, cantidad_empleado_epp2, profesion);
+    END LOOP;
+END;
+$$;
+
+
+CREATE OR REPLACE PROCEDURE insertar_configuracion_transporte(
+    cantidad_pieza INTEGER,
+    fk_tipo_pieza2 INTEGER[],
+    fk_modelo_avion2 INTEGER,
+    fk_sede2 INTEGER,
+    fk_plan_transporte2 INTEGER,
+    fk_profesion2 INTEGER[],
+    cantidad_empleado_epp2 INTEGER
+)
+LANGUAGE plpgsql AS $$
+    DECLARE tPieza INTEGER ;
+    profesion INTEGER ;
+ BEGIN
+
+ 
+FOREACH tPieza IN ARRAY fk_tipo_pieza2
+LOOP
+    INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avion, fk_sede) VALUES
+    (cantidad_pieza, tPieza, fk_modelo_avion2, fk_sede2);
+END LOOP;
+
+    INSERT INTO transporte_configuracion_avion (fk_plan_transporte, fk_modelo_avion, fk_sede) VALUES
+    (fk_plan_transporte2, fk_modelo_avion2, fk_sede2);
+
+
+FOREACH profesion IN ARRAY fk_profesion2
+LOOP
+    INSERT INTO estimacion_profesion_empleado (fk_tipo_prueba, fk_embalaje_plan, fk_plan_transporte, fk_plan_ensamblaje, cantidad_empleado_epp, fk_profesion)
+    VALUES (NULL, NULL, fk_plan_transporte2, NULL, cantidad_empleado_epp2, profesion);
+END LOOP;
+END;
+$$;
+
+
+CREATE OR REPLACE PROCEDURE insertar_configuracion_prueba(
+    cantidad_pieza INTEGER,
+    fk_tipo_pieza2 INTEGER[],
+    fk_modelo_avion2 INTEGER,
+    fk_sede2 INTEGER,
+    fk_tipo_prueba2 INTEGER,
+    fk_profesion2 INTEGER[],
+    cantidad_empleado_epp2 INTEGER
+)
+LANGUAGE plpgsql AS $$
+    DECLARE tPieza INTEGER ;
+    profesion INTEGER ;
+BEGIN
+
+
+FOREACH tPieza IN ARRAY fk_tipo_pieza2 
+LOOP
+    INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avion, fk_sede) VALUES
+    (cantidad_pieza, tPieza, fk_modelo_avion2, fk_sede2);
+END LOOP;
+
+    INSERT INTO configuracion_prueba_avion (fk_tipo_prueba, fk_modelo_avion, fk_sede) VALUES
+    (fk_tipo_prueba2, fk_modelo_avion2, fk_sede2);
+
+
+FOREACH profesion IN ARRAY fk_profesion2 
+LOOP
+    INSERT INTO estimacion_profesion_empleado (fk_tipo_prueba, fk_embalaje_plan, fk_plan_transporte, fk_plan_ensamblaje, cantidad_empleado_epp, fk_profesion)
+    VALUES (fk_tipo_prueba2, NULL, NULL, NULL, cantidad_empleado_epp2, profesion);
+END LOOP;
 END;
 $$;
 
@@ -914,14 +1013,26 @@ RETURNS TRIGGER AS $$
 DECLARE
     monto REAL;
     impuesto REAL;
-	
+    nuevo_codigo_compra INTEGER;
 BEGIN
     monto := FLOOR(1000 + RANDOM() * 30000);
     impuesto := FLOOR(100 + RANDOM() * 3000);
 
     IF NEW.cantidad_lmp <= 150 THEN
         INSERT INTO compra (fecha_hora_com, monto_total_com, impuesto_total_com)
-        VALUES (CURRENT_DATE, monto, impuesto);
+        VALUES (CURRENT_DATE, monto, impuesto)
+        RETURNING codigo_compra_com INTO nuevo_codigo_compra;
+
+        INSERT INTO lote_materia_prima (codigo_lmp, fk_configuracion_pieza, fk_configuracion_pieza2, fk_compra, fk_almacen, fk_almacen2, cantidad_lmp)
+        VALUES (
+            (SELECT COALESCE(MAX(codigo_lmp), 0) + 1 FROM lote_materia_prima),
+            2,
+            5,
+            nuevo_codigo_compra,
+            8,
+            3,
+            0
+        );
     END IF;
     RETURN NEW;
 END;
@@ -933,6 +1044,7 @@ AFTER UPDATE ON lote_materia_prima
 FOR EACH ROW
 WHEN (NEW.cantidad_lmp <= 150)
 EXECUTE FUNCTION reponer_materia_prima_150();
+
 
 
 
@@ -969,4 +1081,11 @@ AFTER INSERT ON historial_estatus_compra
 FOR EACH ROW
 EXECUTE FUNCTION insertar_en_lote_materia_prima();
 
-
+CREATE OR REPLACE PROCEDURE cambiar_estatus_compra(codigo_compra INTEGER)
+LANGUAGE plpgsql AS $$
+BEGIN
+    UPDATE historial_estatus_compra 
+    set fk_estatus=12 
+    where codigo_compra=fk_compra;
+END;
+$$;

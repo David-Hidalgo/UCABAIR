@@ -1,22 +1,23 @@
 <script lang="ts">
 	import type { ActionData, PageData } from './$types';
 	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
 	let { data, form }: { data: PageData; form: ActionData } = $props();
 	let sedes = data.sedes ?? [];
-	let sedeSeleccionada: any = $state(null);
+	let sedeSeleccionada: number = $state(-1);
 	let Piezas = data.piezas ?? [];
-	let PiezasSeleccionadas: any = $state(null);
+	let PiezasSeleccionadas: number = $state(-1);
 	let plan_embalaje = data.plan_embalaje ?? [];
-	let plan_embalaje_seleccionado: any = $state(null);
+	let plan_embalaje_seleccionado: number = $state(-1);
 	let plan_transporte = data.plan_transporte ?? [];
-	let plan_transporte_seleccionado: any = $state(null);
+	let plan_transporte_seleccionado: number = $state(-1);
 	let plan_prueba = data.tiposPruebas ?? [];
-	let plan_prueba_seleccionada: any = $state(null);
+	let plan_prueba_seleccionada: number = $state(-1);
 	let profesiones = data.profesiones ?? [];
 	let profesiones_embalaje: [] = $state([]);
 	let profesiones_transporte: [] = $state([]);
 	let profesiones_tipos_pruebas: [] = $state([]);
-	let cod_ma = data.cod_ma;
+	let cod_ma :number= data.cod_ma;
 </script>
 
 <form method="POST" action="?/PlanAvion" use:enhance>
@@ -97,5 +98,66 @@
 			{/each}
 		</select>
 	</label>
-	<button type="submit">Enviar</button>
+	<button type="submit" onclick={async () => await goto('/admin/HomeAdmin/inventario/aeronaves')}>Enviar</button>
+
+<script lang="ts">
+	function handleButtonClick() {
+		// Aquí puedes agregar la lógica que deseas ejecutar cuando se presione el botón
+		console.log('Botón presionado');
+	}
+</script>
 </form>
+
+<style>
+	/* Estilos generales para el formulario */
+	form {
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		background-color: #f9f9f9;
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* Estilos para las etiquetas y campos de entrada */
+	label {
+		display: block;
+		margin-bottom: 10px;
+		font-weight: bold;
+	}
+
+	input {
+		width: 40%;
+		padding: 10px;
+		margin-bottom: 15px;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		font-size: 14px;
+	}
+
+	/* Estilos para el botón de envío */
+	button {
+		background-color: #050505;
+		color: #fff;
+		border: none;
+		border-radius: 3px;
+		padding: 10px 20px;
+		cursor: pointer;
+		font-size: 16px;
+	}
+
+	select {
+		background-color:white;
+		color:black;
+		border: none;
+		border-radius: 3px;
+		border: solid black 1px;
+		padding: 10px;
+		cursor: pointer;
+		font-size: 16px;
+		width: 40%;
+		margin-bottom: 15px;
+	} 
+</style>

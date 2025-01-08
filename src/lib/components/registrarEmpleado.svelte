@@ -30,7 +30,7 @@
 			fk_usuario: fk_usuario
 		};
 	}
-
+	
 	let telefono: Telefono = {
 		codigo_tel: 0,
 		numero_telefono_tel: '',

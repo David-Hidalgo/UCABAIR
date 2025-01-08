@@ -88,6 +88,18 @@
 		tipo_materias_prima.push(tipo_materia_prima);
 	}
 
+	async function actualizarEstatus(fk_compra: number | undefined) {
+		console.log(fk_compra);
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/solicitudes`, {
+			method: 'PUT',
+			body: JSON.stringify(fk_compra),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+		location.reload();
+		
+	}
+
 	//mostrarDatos();
 	//
 	// Función para editar un registro
@@ -150,12 +162,14 @@
 				<td>{compra.fecha_hora_com}</td>
 				<td>{compra.monto_total_com}</td>
 				<td>
-				<select>
 						{#each historiales_estatus_compra as hec}
 							{#if hec.fk_compra == compra.codigo_compra_com}
 								{#each estatuses as est}
 									{#if hec.fk_estatus == est.codigo_est}
 										<option>{est.nombre_est}</option>
+										{#if est.codigo_est==11}
+											<button onclick={() => actualizarEstatus(hec.fk_compra)}>Pagar</button>
+										{/if}
 									{/if}
 								{/each}
 							{/if}

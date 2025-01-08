@@ -2906,17 +2906,17 @@ VALUES ('Diana', 'Lorena', 'Soto', 'Perez', 'Calle MM, 3636', '2025-03-01', 1251
 INSERT INTO empleado (primer_nombre_per, segundo_nombre_per, primer_apellido_per, segundo_apellido_per, direccion_per, fecha_inicio_servicio_per, fk_lugar, sueldo_per, fk_usuario, cedula_per) 
 VALUES ('Felipe', 'Ricardo', 'Chavez', 'Santos', 'Calle NN, 3737', '2025-04-01', 967, 5400.00, 136, 'V-01234570');
 
-INSERT INTO caracteristica (codigo_car,nombre_car) VALUES
-(1,'cantida tripulacion'),
-(2,'capacidad pasajeros'),
-(3,'longitud'),
-(4,'envergadura'),
-(5,'altura'),
-(6,'peso vacio'),
-(7,'peso maximo de despegue'),
-(8,'volumen de carga'),
-(9,'velocidad maxima'),
-(10,'maxima capacidad de combustible');
+INSERT INTO caracteristica (nombre_car) VALUES
+('cantida tripulacion'),
+('capacidad pasajeros'),
+('longitud'),
+('envergadura'),
+('altura'),
+('peso vacio'),
+('peso maximo de despegue'),
+('volumen de carga'),
+('velocidad maxima'),
+('maxima capacidad de combustible');
 
 INSERT INTO caracteristica_modelo (valor_cm,unidad_medida_cm,fk_caracteristica,fk_modelo_avion) VALUES
 (6,'personas',1,3),
@@ -2930,51 +2930,51 @@ INSERT INTO caracteristica_modelo (valor_cm,unidad_medida_cm,fk_caracteristica,f
 (0.92,'March',9,14),
 (199.160,'litros',10,13);
 
-INSERT INTO tipo_prueba (codigo_tp, nombre_tp, descripcion_tp, duracion_estimada_tp) VALUES
-(1, 'Prueba de Motor', 'Evaluación completa de rendimiento y resistencia del motor.', '30 dias'),
-(2, 'Prueba de Alerones', 'Verificación de funcionalidad y ajustes de los alerones.', '18 dias'),
-(3, 'Prueba de Tren de Aterrizaje', 'Revisión del mecanismo del tren de aterrizaje en diversas condiciones.', '16 dias'),
-(4, 'Prueba de Combustible', 'Análisis de eficiencia y consumo del sistema de combustible.', '27 dias'),
-(5, 'Prueba de Presurización', 'Evaluación de la integridad del sistema de presurización en altura.', '25 dias'),
-(6, 'Prueba de Aviónica', 'Verificación de todos los sistemas electrónicos y de navegación.', '31 dias'),
-(7, 'Prueba de Vibración', 'Prueba de resistencia y comportamiento bajo vibraciones.', '12 dias'),
-(8, 'Prueba de Radar', 'Comprobación de alcance y precisión del radar.', '7 dias'),
-(9, 'Prueba de Desempeño en Climas Fríos', 'Evaluación del rendimiento en bajas temperaturas.', '14 dias'),
-(10, 'Prueba de Calidad', 'Análisis de la calidad de materia prima', '30 dias');
+INSERT INTO tipo_prueba (nombre_tp, descripcion_tp, duracion_estimada_tp) VALUES
+('Prueba de Motor', 'Evaluación completa de rendimiento y resistencia del motor.', '30 dias'),
+('Prueba de Alerones', 'Verificación de funcionalidad y ajustes de los alerones.', '18 dias'),
+('Prueba de Tren de Aterrizaje', 'Revisión del mecanismo del tren de aterrizaje en diversas condiciones.', '16 dias'),
+('Prueba de Combustible', 'Análisis de eficiencia y consumo del sistema de combustible.', '27 dias'),
+('Prueba de Presurización', 'Evaluación de la integridad del sistema de presurización en altura.', '25 dias'),
+('Prueba de Aviónica', 'Verificación de todos los sistemas electrónicos y de navegación.', '31 dias'),
+('Prueba de Vibración', 'Prueba de resistencia y comportamiento bajo vibraciones.', '12 dias'),
+('Prueba de Radar', 'Comprobación de alcance y precisión del radar.', '7 dias'),
+('Prueba de Desempeño en Climas Fríos', 'Evaluación del rendimiento en bajas temperaturas.', '14 dias'),
+('Prueba de Calidad', 'Análisis de la calidad de materia prima', '30 dias');
 
-INSERT INTO tipo_prueba (codigo_tp, nombre_tp, descripcion_tp, duracion_estimada_tp) VALUES
-(11, 'Prueba de resistencia', 'Prueba para evaluar la resistencia estructural del avión.', '30 días'),
-(12, 'Prueba de vibración', 'Prueba para evaluar los efectos de la vibración en componentes.', '28 días'),
-(13, 'Prueba de rendimiento', 'Evaluación del rendimiento general del avión bajo diferentes condiciones.', '35 días'),
-(14, 'Prueba de compatibilidad', 'Prueba para verificar la compatibilidad de sistemas y componentes.', '32 días'),
-(15, 'Prueba de seguridad', 'Evaluación de los sistemas de seguridad del avión.', '27 días'),
-(16, 'Prueba de durabilidad', 'Prueba para determinar la durabilidad y vida útil de materiales.', '37 días'),
-(17, 'Prueba aerodinámica', 'Evaluación del comportamiento aerodinámico del avión.', '31 días'),
-(18, 'Prueba de ruido', 'Prueba para medir los niveles de ruido generados por el avión.', '26 días'),
-(19, 'Prueba de eficiencia', 'Evaluación de la eficiencia energética y de combustible del avión.', '29 días'),
-(20, 'Prueba de impacto', 'Prueba para evaluar la resistencia del avión a impactos externos.', '40 días');
+INSERT INTO tipo_prueba (nombre_tp, descripcion_tp, duracion_estimada_tp) VALUES
+('Prueba de resistencia', 'Prueba para evaluar la resistencia estructural del avión.', '30 días'),
+('Prueba de vibración', 'Prueba para evaluar los efectos de la vibración en componentes.', '28 días'),
+('Prueba de rendimiento', 'Evaluación del rendimiento general del avión bajo diferentes condiciones.', '35 días'),
+('Prueba de compatibilidad', 'Prueba para verificar la compatibilidad de sistemas y componentes.', '32 días'),
+('Prueba de seguridad', 'Evaluación de los sistemas de seguridad del avión.', '27 días'),
+('Prueba de durabilidad', 'Prueba para determinar la durabilidad y vida útil de materiales.', '37 días'),
+('Prueba aerodinámica', 'Evaluación del comportamiento aerodinámico del avión.', '31 días'),
+('Prueba de ruido', 'Prueba para medir los niveles de ruido generados por el avión.', '26 días'),
+('Prueba de eficiencia', 'Evaluación de la eficiencia energética y de combustible del avión.', '29 días'),
+('Prueba de impacto', 'Prueba para evaluar la resistencia del avión a impactos externos.', '40 días');
 
-INSERT INTO tipo_pieza (codigo_tp, nombre_tp, descripcion_tp, fk_tipo_pieza, precio_unidad_tp) VALUES 
-(1, 'Ala', 'Ala principal del avión', NULL, 5000.00),
-(2, 'Motor', 'Motor a reacción', NULL, 200000.00),
-(3, 'Tren de aterrizaje', 'Tren de aterrizaje principal', NULL, 15000.00),
-(4, 'Cabina', 'Cabina de mando', NULL, 30000.00),
-(5, 'Fuselaje', 'Cuerpo principal del avión', NULL, 100000.00),
-(6, 'Estabilizador horizontal', 'Estabilizador horizontal trasero', NULL, 8000.00),
-(7, 'Estabilizador vertical', 'Estabilizador vertical trasero', NULL, 7000.00),
-(8, 'Alerón', 'Alerón de control de vuelo', 1, 2000.00),
-(9, 'Flap Krueger', 'Flap de control de vuelo', 1, 2500.00),
-(10, 'Spoiler', 'Spoiler de control de vuelo', 1, 2200.00),
-(11, 'Timón de dirección', 'Timón de dirección trasero', 7, 3000.00),
-(12, 'Compuerta de tren de aterrizaje', 'Compuerta del tren de aterrizaje', 3, 1200.00),
-(13, 'Ventana', 'Ventana de la cabina de pasajeros', 4, 500.00),
-(14, 'Puerta', 'Puerta de acceso principal', 4, 4000.00),
-(15, 'Asiento', 'Asiento de pasajero', 4, 300.00),
-(16, 'Cinturón de seguridad', 'Cinturón de seguridad de pasajero', 15, 50.00),
-(17, 'Sistema de entretenimiento', 'Sistema de entretenimiento a bordo', 4, 1000.00),
-(18, 'Sistema de navegación', 'Sistema de navegación del avión', 4, 15000.00),
-(19, 'Sistema de comunicación', 'Sistema de comunicación del avión', 4, 12000.00),
-(20, 'Sistema de oxígeno', 'Sistema de oxígeno de emergencia', 4, 8000.00);
+INSERT INTO tipo_pieza (nombre_tp, descripcion_tp, fk_tipo_pieza, precio_unidad_tp) VALUES 
+('Ala', 'Ala principal del avión', NULL, 5000.00),
+('Motor', 'Motor a reacción', NULL, 200000.00),
+('Tren de aterrizaje', 'Tren de aterrizaje principal', NULL, 15000.00),
+('Cabina', 'Cabina de mando', NULL, 30000.00),
+('Fuselaje', 'Cuerpo principal del avión', NULL, 100000.00),
+('Estabilizador horizontal', 'Estabilizador horizontal trasero', NULL, 8000.00),
+('Estabilizador vertical', 'Estabilizador vertical trasero', NULL, 7000.00),
+('Alerón', 'Alerón de control de vuelo', 1, 2000.00),
+('Flap Krueger', 'Flap de control de vuelo', 1, 2500.00),
+('Spoiler', 'Spoiler de control de vuelo', 1, 2200.00),
+('Timón de dirección', 'Timón de dirección trasero', 7, 3000.00),
+('Compuerta de tren de aterrizaje', 'Compuerta del tren de aterrizaje', 3, 1200.00),
+('Ventana', 'Ventana de la cabina de pasajeros', 4, 500.00),
+('Puerta', 'Puerta de acceso principal', 4, 4000.00),
+('Asiento', 'Asiento de pasajero', 4, 300.00),
+('Cinturón de seguridad', 'Cinturón de seguridad de pasajero', 15, 50.00),
+('Sistema de entretenimiento', 'Sistema de entretenimiento a bordo', 4, 1000.00),
+('Sistema de navegación', 'Sistema de navegación del avión', 4, 15000.00),
+('Sistema de comunicación', 'Sistema de comunicación del avión', 4, 12000.00),
+('Sistema de oxígeno', 'Sistema de oxígeno de emergencia', 4, 8000.00);
 
 INSERT INTO tipo_materia_prima (codigo_tmp, nombre_tmp, descripcion_tmp, unidad_medida_tmp) VALUES 
 (1, 'Acero', 'Acero inoxidable', 'kg'),
@@ -3229,17 +3229,17 @@ INSERT INTO configuracion_avion (cantidad_pieza_ca, fk_tipo_pieza, fk_modelo_avi
 (1,20,1,1),
 (4, 2, 11, 5);
 
-INSERT INTO caracteristica (codigo_car, nombre_car) VALUES
-(11, 'Resistencia al calor'),
-(12, 'Peso ligero'),
-(13, 'Alta durabilidad'),
-(14, 'Resistencia a la corrosión'),
-(15, 'Bajo mantenimiento'),
-(16, 'Alta precisión'),
-(17, 'Flexibilidad'),
-(18, 'Facilidad de ensamblaje'),
-(19, 'Tamaño'),
-(20, 'Reducción de ruido');
+INSERT INTO caracteristica ( nombre_car) VALUES
+( 'Resistencia al calor'),
+( 'Peso ligero'),
+( 'Alta durabilidad'),
+( 'Resistencia a la corrosión'),
+( 'Bajo mantenimiento'),
+( 'Alta precisión'),
+( 'Flexibilidad'),
+( 'Facilidad de ensamblaje'),
+( 'Tamaño'),
+( 'Reducción de ruido');
 
 INSERT INTO caracteristica_pieza (valor_cp, unidad_medida_cp, fk_tipo_pieza, fk_caracteristica) VALUES
 (150, 'Grados Celsius', 1, 1), 
@@ -4310,8 +4310,12 @@ INSERT INTO historial_estatus_compra (fk_compra, fk_estatus, fecha_hec) VALUES
 (6, 6, '2024-01-06'),
 (7, 7, '2024-01-07'),
 (8, 8, '2024-01-08'),
-(9, 9, '2024-01-09'),
-(10, 10, '2024-01-10');
+(9, 9, '2024-02-09'),
+(10, 10, '2025-06-11'),
+(11, 11, '2026-08-12'),
+(12, 11, '2001-10-13'),
+(13, 11, '2013-12-14'),
+(14, 11, '2016-04-15');
 
 INSERT INTO historial_estatus_embalaje (fecha_hee, fk_estatus, fk_embalaje) VALUES 
 ('2024-01-01', 1, 1),
