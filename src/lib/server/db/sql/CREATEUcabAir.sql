@@ -914,9 +914,10 @@ RETURNS TRIGGER AS $$
 DECLARE
     monto REAL;
     impuesto REAL;
+	
 BEGIN
-    monto := TG_ARGV[0]::REAL;
-    impuesto := TG_ARGV[1]::REAL;
+    monto := FLOOR(1000 + RANDOM() * 30000);
+    impuesto := FLOOR(100 + RANDOM() * 3000);
 
     IF NEW.cantidad_lmp <= 150 THEN
         INSERT INTO compra (fecha_hora_com, monto_total_com, impuesto_total_com)
@@ -931,25 +932,31 @@ CREATE TRIGGER trigger_reponer_materia_prima_150
 AFTER UPDATE ON lote_materia_prima
 FOR EACH ROW
 WHEN (NEW.cantidad_lmp <= 150)
-EXECUTE FUNCTION reponer_materia_prima_150(1000,100);
+EXECUTE FUNCTION reponer_materia_prima_150();
 
 
 
-CREATE OR REPLACE FUNCTION insertar_en_lote_materia_prima() RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION insertar_en_lote_materia_prima()
+RETURNS TRIGGER AS $$
+DECLARE
+    nuevo_codigo_lmp INTEGER;
 BEGIN
     
-    IF (SELECT nombre_est FROM estatus WHERE codigo_est = NEW.fk_estatus) LIKE '%Listo%' THEN --cambiar la consulta
-        
+    SELECT COALESCE(MAX(codigo_lmp), 0) + 1 INTO nuevo_codigo_lmp FROM lote_materia_prima;
+
+    
+    IF (SELECT es.nombre_est FROM estatus es inner join historial_estatus_compra hec on hec.fk_estatus=es.codigo_est
+ WHERE es.codigo_est = NEW.fk_estatus limit 1) LIKE '%Listo%' THEN
+       
         INSERT INTO lote_materia_prima (codigo_lmp, fk_configuracion_pieza, fk_configuracion_pieza2, fk_compra, fk_almacen, fk_almacen2, cantidad_lmp)
         VALUES (
-            99, --cambiar
+            nuevo_codigo_lmp,  
             2,
             5,
             NEW.fk_compra,
             8,
             3,
-			170
-
+            170
         );
     END IF;
     RETURN NEW;
@@ -957,7 +964,9 @@ END;
 $$ LANGUAGE plpgsql;
 
 
-CREATE TRIGGER trigger_insertar_en_lote_materia_prima AFTER
-INSERT ON historial_estatus_compra
-FOR EACH ROW EXECUTE FUNCTION insertar_en_lote_materia_prima();
+CREATE TRIGGER trigger_insertar_en_lote_materia_prima
+AFTER INSERT ON historial_estatus_compra
+FOR EACH ROW
+EXECUTE FUNCTION insertar_en_lote_materia_prima();
+
 

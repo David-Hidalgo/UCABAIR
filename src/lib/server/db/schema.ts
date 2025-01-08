@@ -278,3 +278,14 @@ export interface Lote_materia_prima {
 	fk_almacen2: number | undefined;
 	cantidad_lmp: number | undefined;
 }
+
+export interface Estatus {
+    codigo_est: number | undefined,
+    nombre_est: string
+};
+
+export interface Historial_estatus_compra {
+    fk_compra :	number |undefined,
+    fk_estatus : number | undefined,
+    fecha_hec :Date
+};

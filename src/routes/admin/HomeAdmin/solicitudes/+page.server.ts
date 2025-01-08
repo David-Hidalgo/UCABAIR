@@ -1,6 +1,17 @@
 import { dbPostgre } from '$lib/server/db';
 import type { Actions, PageServerLoad } from './$types';
 
+export interface Estatus {
+    codigo_est: number | undefined,
+    nombre_est: string
+};
+
+export interface Historial_estatus_compra {
+    fk_compra :	number |undefined,
+    fk_estatus : number | undefined,
+    fecha_hec :Date
+};
+
 export interface Lote_materia_prima {
 	codigo_lmp: number | undefined;
 	fk_configuracion_pieza: number | undefined;
@@ -39,12 +50,12 @@ export const actions: Actions = {
 		const palabra: string = codigo_rol.toString();
 		console.log(palabra);
 
-		await dbPostgre`CALL eliminar_rol(${palabra});`;
+		await dbPostgre`CALL eliminar_solicitud(${palabra});`;
 
 		return {
 			status: 302,
 			headers: {
-				location: '/admin/HomeAdmin/roles'
+				location: '/admin/HomeAdmin/solicitudes'
 			}
 		};
 	}
@@ -54,6 +65,8 @@ export const load: PageServerLoad = async ({ params }) => {
 	const comtable = await dbPostgre<Compra[]>`SELECT * FROM Compra;`;
 	const lmp = await dbPostgre<Lote_materia_prima[]>`SELECT * FROM lote_materia_prima;`;
 	const tmp = await dbPostgre<Tipo_materia_prima[]>`SELECT * FROM tipo_materia_prima;`;
+	const est_table	= await dbPostgre<Estatus[]>`SELECT * FROM estatus;`;
+	const hec_table = await dbPostgre<Historial_estatus_compra[]>`SELECT * FROM historial_estatus_compra;`;
 	// console.log(roltable);
-	return {comtable, lmp, tmp };
+	return {comtable, lmp, tmp, est_table, hec_table};
 };

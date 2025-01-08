@@ -5,9 +5,34 @@
 	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
 	import type { PageData } from './$types';
-	import type { Tipo_materia_prima, Lote_materia_prima, Compra } from './+page.server.ts';
+	import type { Tipo_materia_prima, Lote_materia_prima, Compra, Historial_estatus_compra, Estatus } from './+page.server.ts';
 	// const dispatch = createEventDispatcher();
 	let { data }: { data: PageData } = $props();
+
+
+	let estatuses: Estatus[] = new Array();
+	for (let i = 0; i < data.est_table.length; i++) {
+		let estatus: Estatus = {
+			codigo_est: 0,
+			nombre_est: '',
+		};
+		estatus.codigo_est = data.est_table[i].codigo_est;
+		estatus.nombre_est = data.est_table[i].nombre_est;
+		estatuses.push(estatus);
+	}
+
+	let historiales_estatus_compra: Historial_estatus_compra[] = new Array();
+	for (let i = 0; i < data.hec_table.length; i++) {
+		let historial_estatus_compra: Historial_estatus_compra = {
+			fk_compra: 0,
+			fk_estatus: 0,
+			fecha_hec: new Date()
+		};
+		historial_estatus_compra.fk_compra = data.hec_table[i].fk_compra;
+		historial_estatus_compra.fk_estatus = data.hec_table[i].fk_estatus;
+		historial_estatus_compra.fecha_hec = data.hec_table[i].fecha_hec;
+		historiales_estatus_compra.push(historial_estatus_compra);
+	}
 
 	let compras: Compra[] = new Array();
 	for (let i = 0; i < data.comtable.length; i++) {
@@ -89,11 +114,11 @@
 	// Función para eliminar un registro
 
 	async function eliminarRegistro(compra: Compra) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/roles`, {
+		/*await fetch(`http://localhost:5173/admin/HomeAdmin/roles`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(compra.codigo_compra_com)
-		});
+		});*/
 	}
 </script>
 
@@ -105,14 +130,14 @@
 			<th>Material</th>
 			<th>Fecha</th>
 			<th>Precio</th>
+			<th>Estatus</th>
 		</tr>
 	</thead>
 	<tbody>
 		{#each compras as compra}
 			<tr>
 				<td>{compra.numero_factura_com}</td>
-				<td
-					>{#each lotes_materia_prima as lote}
+				<td>{#each lotes_materia_prima as lote}
 						{#if lote.fk_compra == compra.codigo_compra_com}
 							{#each tipo_materias_prima as tmp}
 								{#if lote.fk_configuracion_pieza == tmp.codigo_tmp}
@@ -124,6 +149,17 @@
 				</td>
 				<td>{compra.fecha_hora_com}</td>
 				<td>{compra.monto_total_com}</td>
+				<td>
+				<select>
+						{#each historiales_estatus_compra as hec}
+							{#if hec.fk_compra == compra.codigo_compra_com}
+								{#each estatuses as est}
+									{#if hec.fk_estatus == est.codigo_est}
+										<option>{est.nombre_est}</option>
+									{/if}
+								{/each}
+							{/if}
+						{/each}
 			</tr>
 		{/each}
 	</tbody>
