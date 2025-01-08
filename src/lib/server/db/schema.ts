@@ -172,6 +172,13 @@ export interface Tipo_pieza {
 	precio_unidad_tp: number;
 }
 
+export interface Plan_ensamblaje
+{
+	codigo_pe: number | undefined;
+	descripcion_pe: string;
+	duracion_estimada_pe: string;
+}
+
 export interface Configuracion_avion {
 	cantidad_pieza_ca: number;
 	fk_tipo_pieza: number;
@@ -247,4 +254,4 @@ export interface Configuracion_def {
 	duracion_estimada_pt: string;
 	descripcion_pt: string;
 }
-  
+

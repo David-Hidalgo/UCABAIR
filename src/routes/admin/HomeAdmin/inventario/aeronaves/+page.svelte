@@ -184,7 +184,7 @@
 							<tbody>
 								{#each (caracteristicasPorAvion.find(cpa => cpa.modelo.codigo_ma === modelo_avion.codigo_ma)?.caracteristicas ?? []) as caracteristica}
 									<tr>
-										<td style="margin: 0; padding: 0; text-align: left;"><strong>{caracteristica.caracteristica.nombre_car.charAt(0).toUpperCase() + caracteristica.caracteristica.nombre_car.slice(1)} :</strong>
+										<td style="margin: 0; padding: 0; text-align: left;"><strong>{caracteristica.caracteristica.nombre_car.charAt(0).toUpperCase() + caracteristica.caracteristica?.nombre_car.slice(1)} :</strong>
 											{caracteristica.valor_cm}
 											{caracteristica.unidad_medida_cm}
 										</td>
