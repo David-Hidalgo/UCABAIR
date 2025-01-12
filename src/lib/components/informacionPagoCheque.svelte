@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Modo_pago } from '$lib/server/db/schema';
-
+	let export modo_pago: Modo_pago;
 
 	let modo_pago: Modo_pago;
 	modo_pago = {
@@ -26,7 +26,7 @@
 	let componenteActual = 'A';
 
 	function registrarDato() {
-		console.log('Registrando dato:', modo_pago);
+		
 	}
 </script>
 

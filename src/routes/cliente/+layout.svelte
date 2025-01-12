@@ -26,6 +26,7 @@
 </div>
 <div class="margenContenido">
 	<slot />
+	<button type="button" onclick={() => window.history.back()}>Volver</button>
 </div>
 
 <style>

@@ -14,7 +14,6 @@ import type {
 
 export const load: PageServerLoad = async ({ params }) => {
 	const index = params.index;
-	const ma_table = await dbPostgre<Modelo_avion[]>`SELECT * FROM modelo_avion;`;
 	const ca_table = await dbPostgre<Configuracion_avion[]>`SELECT * FROM configuracion_avion;`;
 	const tp_table = await dbPostgre<Tipo_prueba[]>`SELECT * FROM tipo_prueba;`;
 	const cpa_table = await dbPostgre<Configuracion_prueba_avion[]>`SELECT * FROM configuracion_prueba_avion;`;
@@ -25,6 +24,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	const n = Number.parseInt(index);
 
 	if (Number.isInteger(n)) {
+		const [modelo_avion] = await dbPostgre<Modelo_avion[]>`SELECT * FROM modelo_avion where codigo_ma=${n};`;
 		const p_table = await dbPostgre
 		`SELECT tp.precio_unidad_tp,ca.cantidad_pieza_ca,tp.precio_unidad_tp*ca.cantidad_pieza_ca as precio_total,tp.nombre_tp FROM tipo_pieza tp inner join configuracion_avion ca on tp.codigo_tp=ca.fk_tipo_pieza
 		where ca.fk_modelo_avion=${n}`;
@@ -59,7 +59,7 @@ export const load: PageServerLoad = async ({ params }) => {
 														 or epp.fk_plan_transporte in (select fk_plan_transporte from transporte_configuracion_avion where fk_modelo_avion=${n});`;
 		return {
 			resultado,
-			ma_table,
+			modelo_avion,
 			p_table,
 			ca_table,
 			tp_table,

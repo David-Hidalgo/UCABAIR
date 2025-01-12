@@ -3,13 +3,16 @@
 	import MostrarPresupuesto from '$lib/components/mostrarPresupuesto.svelte';
 	import type { Modelo_avion, Plan_ensamblaje, Profesion, Caracteristica, Caracteristica_modelo } from '$lib/server/db/schema';
 	let { data }: { data: PageData } = $props();
-	const modelo_aEditar: Modelo_avion = {
-		codigo_ma: data.resultado[0].codigo_ma,
-		nombre_ma: data.resultado[0].nombre_ma,
-		descripcion_ma: data.resultado[0].descripcion_ma,
-		fk_modelo_avion: data.resultado[0].fk_modelo_avion,
-		precio_unidad_ma: data.resultado[0].precio_unidad_ma
+	console.log(data);
+	const modelo_avion: Modelo_avion = {
+		codigo_ma: data.modelo_avion.codigo_ma,
+		nombre_ma: data.modelo_avion.nombre_ma,
+		descripcion_ma: data.modelo_avion.descripcion_ma,
+		fk_modelo_avion: data.modelo_avion.fk_modelo_avion,
+		precio_unidad_ma: data.modelo_avion.precio_unidad_ma
 	};
+
+	console.log(modelo_avion);
 	const planes_ensamblaje: Plan_ensamblaje[] = data.resultado.map((plan: any) => {
 		return {
 			codigo_pe: plan.codigo_pe,
@@ -29,10 +32,10 @@ function togglePresupuesto() {
 }
 </script>
 <div class="avion-details">
-	<h1><strong>{modelo_aEditar.nombre_ma}</strong></h1>
-	<p><strong>Descripción:</strong> {modelo_aEditar.descripcion_ma}</p>
-	<p><strong>Modelo:</strong> {modelo_aEditar.fk_modelo_avion}</p>
-	<p><strong>Precio por Unidad:</strong> {modelo_aEditar.precio_unidad_ma}</p>
+	<h1><strong>{modelo_avion.nombre_ma}</strong></h1>
+	<p><strong>Descripción:</strong> {modelo_avion.descripcion_ma}</p>
+	<p><strong>Modelo:</strong> {modelo_avion.fk_modelo_avion}</p>
+	<p><strong>Precio por Unidad:</strong> {modelo_avion.precio_unidad_ma}</p>
 	<h2><strong>Especificaciones:</strong></h2>
 	<table>
 		<thead>
@@ -46,7 +49,7 @@ function togglePresupuesto() {
 			{#each caracteristicas_modelo as caracteristica_modelo}
 				{#each caracteristicas as caracteristica}
 					{#if (caracteristica.codigo_car == caracteristica_modelo.fk_caracteristica) && 
-							(caracteristica_modelo.fk_modelo_avion == modelo_aEditar.codigo_ma)}
+							(caracteristica_modelo.fk_modelo_avion == modelo_avion.codigo_ma)}
 						<tr>
 							<td>{caracteristica.nombre_car}</td>
 							<td>{caracteristica_modelo.valor_cm}</td>
@@ -66,14 +69,14 @@ function togglePresupuesto() {
 			Mostrar Presupuesto
 		{/if}
 	</button>
-	<a href="/cliente/pago/{modelo_aEditar.codigo_ma}">
+	<a href="/cliente/pago/{modelo_avion.codigo_ma}">
 		<button>Proceder al pago</button>
 	</a>
 </div>
 {#if $mostrarPresupuesto}
 	<div class="Presupuesto">
 		<MostrarPresupuesto
-			modelo_avion_entrante={modelo_aEditar}
+			modelo_avion_entrante={modelo_avion}
 			datos_ensamblaje={planes_ensamblaje}
 			tipo_prueba={data.tp_table}
 			tipo_pieza={data.p_table}

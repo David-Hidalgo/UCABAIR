@@ -7,6 +7,7 @@
 	let { data }: { data: PageData } = $props();
 	import type { PageData } from './$types';
 	let id_editar = Number($page.params.index);
+	import { writable } from 'svelte/store';
 	const avion_a_pagar :Modelo_avion={
 		codigo_ma: data.avion.codigo_ma,
 		nombre_ma: data.avion.nombre_ma,
@@ -15,20 +16,31 @@
 		precio_unidad_ma: data.avion.precio_unidad_ma
 	}
 
-	let selectedComponent = InformacionPagoTarjeta;
-
+	const selectedComponent = writable(InformacionPagoTarjeta);
 	function seleccionarComponente(tipoPago: string) {
 		switch (tipoPago) {
 			case 'tarjeta':
-				selectedComponent = InformacionPagoTarjeta;
+				selectedComponent.set(InformacionPagoTarjeta);
 				break;
 			case 'transferencia':
-				selectedComponent = InformacionPagoTransferencia;
+				selectedComponent.set(InformacionPagoTransferencia);
 				break;
 			case 'cheque':
-				selectedComponent = InformacionPagoCheque;
+				selectedComponent.set(InformacionPagoCheque);
 				break;
 		}
+	}
+
+	async function registrarMetodoPago() {
+		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/materia_prima`, {
+			method: 'POST',
+			body: JSON.stringify(modo_pago),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+
+		alert('Rol agregado con exito');
+		goto('/admin/HomeAdmin/inventario/materia_prima');
 	}
 </script>
 <h1>Información De Pago</h1>
@@ -47,8 +59,12 @@
 	<button onclick={() => seleccionarComponente('cheque')}>Cheque</button>
 </div>
 
-{#if selectedComponent}
-	<svelte:component this={selectedComponent} />
+{#if $selectedComponent === InformacionPagoTarjeta}
+	<InformacionPagoTarjeta />
+{:else if $selectedComponent === InformacionPagoTransferencia}
+	<InformacionPagoTransferencia />
+{:else if $selectedComponent === InformacionPagoCheque}
+	<InformacionPagoCheque />
 {/if}
 
 <style>
