@@ -40,9 +40,13 @@ export const actions: Actions = {
 
 		console.log('results: \n', results);
 		let validPassword = false;
+		if (results.length == 0) {
+			console.log('No existe el usuario');
+			return fail(400, { message: 'Username does not exist' });
+		}
 		for (let index = 0; index < results.length; index++) {
 			const existingUser = results[index];
-			if (!existingUser) {
+			if (!existingUser || results.length == 0) {
 				console.log('No existe el usuario');
 				return fail(400, { message: 'Username does not exist' });
 			}
