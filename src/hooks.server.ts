@@ -19,7 +19,7 @@ const handleAuth: Handle = async ({ event, resolve }) => {
 	event.locals.user = user;
 	event.locals.session = session;
 	if (event.url.pathname.startsWith('/admin')) {
-		if (!user) {
+		if (user?.rol!=1) {
 			return new Response('Unauthorized', { status: 401 });
 		}
 	}
