@@ -2,15 +2,13 @@
 	import type { Tipo_pieza } from '$lib/server/db/schema';
 	let piezas: Tipo_pieza[] = [];
 	import { goto } from '$app/navigation';
-	const { id_editar, piezas_fk } :{id_editar: Tipo_pieza | undefined;	piezas_fk: Tipo_pieza[];}= $props<{
-		id_editar: Tipo_pieza | undefined;
-		piezas_fk: Tipo_pieza[];
-	}>();
+	const { id_editar, piezas_fk }: { id_editar: Tipo_pieza | undefined; piezas_fk: Tipo_pieza[] } =
+		$props<{
+			id_editar: Tipo_pieza | undefined;
+			piezas_fk: Tipo_pieza[];
+		}>();
 	console.log(piezas_fk);
 
-	let pieza_fk_selected: Tipo_pieza = $state(piezas_fk[0]);
-	console.log(pieza_fk_selected);
-	
 	let pieza: Tipo_pieza = $state({
 		codigo_tp: 0,
 		nombre_tp: '',
@@ -20,12 +18,14 @@
 	});
 	let codigo_viejo: number;
 	if (id_editar != undefined) {
-		pieza.codigo_tp = id_editar.codigo_tp
-		pieza.descripcion_tp = id_editar.descripcion_tp
-		pieza.fk_tipo_pieza = id_editar.fk_tipo_pieza
-		pieza.nombre_tp = id_editar.nombre_tp
-		pieza.precio_unidad_tp = id_editar.precio_unidad_tp
-		if (id_editar.codigo_tp) {codigo_viejo = id_editar.codigo_tp;}
+		pieza.codigo_tp = id_editar.codigo_tp;
+		pieza.descripcion_tp = id_editar.descripcion_tp;
+		pieza.fk_tipo_pieza = id_editar.fk_tipo_pieza;
+		pieza.nombre_tp = id_editar.nombre_tp;
+		pieza.precio_unidad_tp = id_editar.precio_unidad_tp;
+		if (id_editar.codigo_tp) {
+			codigo_viejo = id_editar.codigo_tp;
+		}
 	}
 
 	async function decide() {
@@ -68,13 +68,7 @@
 	<input id="descripcion_pieza" bind:value={pieza.descripcion_tp} />
 
 	<label for="piezas_fk">Si esta pieza se compone de alguna otra, seleccionela</label>
-	<select
-		id="piezas_fk"
-		bind:value={pieza_fk_selected}
-		onchange={() => {
-			console.log(pieza_fk_selected.codigo_tp);						
-		}}
-	>
+	<select id="piezas_fk" bind:value={pieza.fk_tipo_pieza}>
 		{#each piezas_fk as pieza_fk}
 			<option value={pieza_fk.codigo_tp}>{pieza_fk.nombre_tp}</option>
 		{/each}
