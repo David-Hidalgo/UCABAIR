@@ -120,36 +120,46 @@
 				headers: { 'Content-Type': 'application/json' }
 			});
 		}
-
-		for (let pie of piezas) {
-			console.log(pie);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/pieza`, {
-				method: 'POST',
-				body: JSON.stringify(pie),
-				headers: { 'Content-Type': 'application/json' }
-			});
-		}
-
+		
 		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave`, {
 			method: 'POST',
 			body: JSON.stringify(aeronave),
 			headers: { 'Content-Type': 'application/json' }
 		});
-		console.log(await res.json());
-		aeronave.codigo_ma = (await res.json()).respuesta.codigo_ma;
-		console.log(aeronave.codigo_ma);
-		let indexC=0
-		for (let car of caracteristicas) {
-			console.log(car);
-			const res =await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave/caracteristica`, {
+		aeronave.codigo_ma = (await res.json()).respuesta.id_ma;
+		console.log("funciona");
+		let indexC = 0;
+		
+		for (let pie of piezas) {
+			console.log(pie);
+			const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/pieza`, {
 				method: 'POST',
-				body: JSON.stringify(car),
+				body: JSON.stringify(pie),
 				headers: { 'Content-Type': 'application/json' }
 			});
-			console.log("la respuesta es:");
-			console.log(await res.json());
-			car.codigo_car= (await res.json()).respuesta.salida ;
-			caracteristicas_modelo[indexC].fk_caracteristica=car.codigo_car;
+			pie.codigo_tp=(await res.json()).respuesta.salida
+			console.log("aquí la pieza \n");
+			console.log(pie);
+			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave`, {
+				method: 'PUT',
+				body: JSON.stringify({aeronave, pie}),
+				headers: { 'Content-Type': 'application/json' }
+			});
+		}
+
+		for (let car of caracteristicas) {
+			console.log(car);
+			const res = await fetch(
+				`http://localhost:5173/admin/HomeAdmin/registrar/aeronave/caracteristica`,
+				{
+					method: 'POST',
+					body: JSON.stringify(car),
+					headers: { 'Content-Type': 'application/json' }
+				}
+			);
+			console.log('la respuesta es:');
+			car.codigo_car = (await res.json()).respuesta.salida;
+			caracteristicas_modelo[indexC].fk_caracteristica = car.codigo_car;
 		}
 		for (let cm of caracteristicas_modelo) {
 			cm.fk_modelo_avion = aeronave.codigo_ma;

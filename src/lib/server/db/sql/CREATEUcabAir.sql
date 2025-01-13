@@ -812,12 +812,14 @@ CREATE OR REPLACE PROCEDURE insertar_tipo_pieza(
     nombre_tp2          VARCHAR(255),
     descripcion_tp2      VARCHAR(255),
     fk_tipo_pieza2       INTEGER,
-    precio_unidad_tp2    REAL
+    precio_unidad_tp2    REAL,
+    OUT salida INTEGER
     ) 
     LANGUAGE plpgsql
     AS $$ BEGIN
     INSERT INTO tipo_pieza (nombre_tp,descripcion_tp,fk_tipo_pieza,precio_unidad_tp) 
-    VALUES (nombre_tp2,descripcion_tp2,fk_tipo_pieza2, precio_unidad_tp2);
+    VALUES (nombre_tp2,descripcion_tp2,fk_tipo_pieza2, precio_unidad_tp2)
+    RETURNING codigo_tp into salida;
 END;
 $$;
 
