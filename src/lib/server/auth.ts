@@ -1,10 +1,10 @@
 import type { RequestEvent } from '@sveltejs/kit';
-import { eq } from 'drizzle-orm';
+// import { eq } from 'drizzle-orm';
 import { sha256 } from '@oslojs/crypto/sha2';
 import { encodeBase32LowerCase, encodeHexLowerCase } from '@oslojs/encoding';
 import { dbPostgre } from '$lib/server/db';
-import * as table from '$lib/server/db/schema';
-import util from 'util';
+// import * as table from '$lib/server/db/schema';
+// import util from 'util';
 const DAY_IN_MS = 1000 * 60 * 60 * 24;
 
 export const sessionCookieName = 'auth-session';

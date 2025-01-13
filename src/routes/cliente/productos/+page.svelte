@@ -1,31 +1,54 @@
-<script>
-	// Supongamos que tienes un arreglo de objetos llamado `aviones`
-	let aviones = [
-		{ id: 1, nombre: 'Sky Cruiser', modelo: 'Boeing 737', capacidad: 180 },
-		{ id: 2, nombre: 'Cloud Chaser', modelo: 'Airbus A320', capacidad: 160 },
-		{ id: 3, nombre: 'Wind Rider', modelo: 'Embraer 190', capacidad: 100 },
-		{ id: 4, nombre: 'Dreamliner', modelo: 'Boeing 787', capacidad: 250 },
-		{ id: 5, nombre: 'Sky Giant', modelo: 'Airbus A380', capacidad: 500 }
-	];
+<script lang='ts'>
+		import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
+	import type { ActionData } from './$types';
+	import type { PageData } from './$types';
+	import type { Modelo_avion} from './+page.server.ts';
+	import { writable } from 'svelte/store';
+	// const dispatch = createEventDispatcher();
 
+	let { data }: { data: PageData } = $props();
+	let searchTerm = writable('');
+
+	let modelos_avion: Modelo_avion[] = new Array();
+	for (let index = 0; index < data.ma_table.length; index++) {
+		let modelo_avion: Modelo_avion = {
+			codigo_ma: 0,
+			nombre_ma: '',
+			descripcion_ma: '',
+			precio_unidad_ma: 0,
+			fk_modelo_avion: 0
+		};
+		modelo_avion.codigo_ma = data.ma_table[index].codigo_ma;
+		modelo_avion.nombre_ma = data.ma_table[index].nombre_ma;
+		modelo_avion.descripcion_ma = data.ma_table[index].descripcion_ma;
+		modelo_avion.precio_unidad_ma = data.ma_table[index].precio_unidad_ma;
+		modelo_avion.fk_modelo_avion = data.ma_table[index].fk_modelo_avion;
+		modelos_avion.push(modelo_avion);
+	}
+
+
+	// Supongamos que tienes un arreglo de objetos llamado `aviones`
 	let modeloSel = '';
 
 	function filtrarPorModelo() {
-		return aviones.filter((avion) => avion.modelo.toLowerCase().includes(modeloSel.toLowerCase()));
+	if (!searchTerm) {
+		return modelos_avion;
 	}
+	return modelos_avion.filter((avion) =>
+		avion.nombre_ma.toLowerCase().includes($searchTerm.toLowerCase())
+	);
+}
 </script>
 
-<div>
-	<label for="model">Filtrar por modelo:</label>
-	<input type="text" id="model" bind:value={modeloSel} placeholder="Ingresa el modelo" />
-</div>
+	<input type="text" placeholder="Buscar por modelo" bind:value={$searchTerm} oninput={filtrarPorModelo}/>
 
 {#each filtrarPorModelo() as avion}
 	<div class="avion-box">
-		<h2>{avion.nombre}</h2>
-		<p>Modelo: {avion.modelo}</p>
-		<p>Capacidad: {avion.capacidad}</p>
-		<a href="/cliente/productos/vistaProducto/{avion.id}">
+		<h2>{avion.nombre_ma}</h2>
+		<p>Descripcion:{avion.descripcion_ma}</p>
+		<p>Precio: {avion.precio_unidad_ma}</p>
+		<a href="/cliente/productos/vistaProducto/{avion.codigo_ma}">
 			<button>Solicitar Presupuesto</button>
 		</a>
 	</div>

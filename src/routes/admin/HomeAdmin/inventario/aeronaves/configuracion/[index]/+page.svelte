@@ -20,9 +20,7 @@
 	const profesionales: any[] = data.profesion_table;
 </script>
 
-<!-- id_editar={data.resultado} -->
-<!-- empleado_profesi	on={null} -->
-<div class="EditarRol">
+<div class="Presupuesto">
 	<MostrarPresupuesto
 		modelo_avion_entrante={modelo_aEditar}
 		datos_ensamblaje={planes_ensamblaje}

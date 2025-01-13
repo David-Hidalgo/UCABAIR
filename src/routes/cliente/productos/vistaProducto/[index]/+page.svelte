@@ -1,67 +1,124 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { desc } from 'drizzle-orm';
+	import type { PageData } from './$types';
 	import MostrarPresupuesto from '$lib/components/mostrarPresupuesto.svelte';
-	let id_editar = Number($page.params.index);
-	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
-
-	let avion = {
-		id: 1,
-		nombre: 'Sky Cruiser',
-		modelo: 'Boeing 737',
-		capacidad: 180,
-		stock: 10,
-		precio: 1000000,
-		descripcion:
-			'El Boeing 737, conocido como "Sky Cruiser", es uno de los aviones más populares y confiables en la industria de la aviación comercial. Con una capacidad para 180 pasajeros, este modelo ofrece un equilibrio perfecto entre eficiencia y comodidad. Equipado con tecnología de punta, el Boeing 737 garantiza un vuelo suave y seguro. Su diseño aerodinámico y motores potentes permiten un rendimiento excepcional, mientras que su interior espacioso y bien diseñado asegura una experiencia de viaje placentera para todos los pasajeros. Además, el "Sky Cruiser" cuenta con un historial de seguridad impecable y es altamente valorado por aerolíneas de todo el mundo por su fiabilidad y bajo costo operativo.',
-		especificaciones: [
-			{ nombre: 'Velocidad máxima', valor: '850 km/h' },
-			{ nombre: 'Alcance', valor: '5,500 km' },
-			{ nombre: 'Altitud máxima', valor: '12,500 m' },
-			{ nombre: 'Consumo de combustible', valor: '2.5 L/km' }
-		]
+	import type { Modelo_avion, Plan_ensamblaje, Profesion, Caracteristica, Caracteristica_modelo } from '$lib/server/db/schema';
+	let { data }: { data: PageData } = $props();
+	console.log(data);
+	const modelo_avion: Modelo_avion = {
+		codigo_ma: data.modelo_avion.codigo_ma,
+		nombre_ma: data.modelo_avion.nombre_ma,
+		descripcion_ma: data.modelo_avion.descripcion_ma,
+		fk_modelo_avion: data.modelo_avion.fk_modelo_avion,
+		precio_unidad_ma: data.modelo_avion.precio_unidad_ma
 	};
 
-	let mostrarPresupuesto = writable(false);
+	console.log(modelo_avion);
+	const planes_ensamblaje: Plan_ensamblaje[] = data.resultado.map((plan: any) => {
+		return {
+			codigo_pe: plan.codigo_pe,
+			duracion_estimada_pe: plan.duracion_estimada_pe,
+			descripcion_pe: plan.descripcion_pe
+		};
+	});
+	const profesionales: any[] = data.profesion_table;
 
-	function togglePresupuesto() {
-		mostrarPresupuesto.update((value) => !value);
-	}
+	const caracteristicas: Caracteristica[] = data.caracteristica_table;
+	const caracteristicas_modelo: Caracteristica_modelo[] = data.caracteristica_modelo_table;
+	import { writable } from 'svelte/store';
+	const mostrarPresupuesto = writable(false);
+
+function togglePresupuesto() {
+	mostrarPresupuesto.update(value => !value);
+}
 </script>
-
-<p>Estás viendo el producto con id {id_editar}</p>
-
-<div class="detalle_producto">
-	<h2>{avion.nombre}</h2>
-	<p>{avion.modelo}</p>
-	<p>{avion.descripcion}</p>
-	<ul>
-		{#each avion.especificaciones as especificacion}
-			<li>{especificacion.nombre}: {especificacion.valor}</li>
-		{/each}
-	</ul>
-	<p>Stock disponible: {avion.stock}</p>
+<div class="avion-details">
+	<h1><strong>{modelo_avion.nombre_ma}</strong></h1>
+	<p><strong>Descripción:</strong> {modelo_avion.descripcion_ma}</p>
+	<p><strong>Modelo:</strong> {modelo_avion.fk_modelo_avion}</p>
+	<p><strong>Precio por Unidad:</strong> {modelo_avion.precio_unidad_ma}</p>
+	<h2><strong>Especificaciones:</strong></h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Característica</th>
+				<th>Valor</th>
+				<th>Unidad de Medida</th>
+			</tr>
+		</thead>
+		<tbody>
+			{#each caracteristicas_modelo as caracteristica_modelo}
+				{#each caracteristicas as caracteristica}
+					{#if (caracteristica.codigo_car == caracteristica_modelo.fk_caracteristica) && 
+							(caracteristica_modelo.fk_modelo_avion == modelo_avion.codigo_ma)}
+						<tr>
+							<td>{caracteristica.nombre_car}</td>
+							<td>{caracteristica_modelo.valor_cm}</td>
+							<td>{caracteristica_modelo.unidad_medida_cm}</td>
+						</tr>
+					{/if}
+				{/each}
+			{/each}
+		</tbody>
+	</table>
 </div>
-
-<button on:click={togglePresupuesto}>Generar Solicitud de Compra</button>
-<br />
-<br />
-<br />
+<div class="botones">
+	<button onclick={togglePresupuesto}>
+		{#if $mostrarPresupuesto}
+			Ocultar Presupuesto
+		{:else}
+			Mostrar Presupuesto
+		{/if}
+	</button>
+	<a href="/cliente/pago/{modelo_avion.codigo_ma}">
+		<button>Proceder al pago</button>
+	</a>
+</div>
 {#if $mostrarPresupuesto}
-	<MostrarPresupuesto {id_editar} />
+	<div class="Presupuesto">
+		<MostrarPresupuesto
+			modelo_avion_entrante={modelo_avion}
+			datos_ensamblaje={planes_ensamblaje}
+			tipo_prueba={data.tp_table}
+			tipo_pieza={data.p_table}
+			configuracion_avion={data.ca_table}
+			configuracion_prueba_avion={data.cpa_table}
+			estimacion_profesion_empleado={data.epe_table}
+			profesion={profesionales}
+		/>
+	</div>
 {/if}
-<a href="/cliente/pago/{id_editar}">
-	<button>Proceder al Pago</button>
-</a>
 
 <style>
-	button {
-		background-color: black;
-		color: white;
-		padding: 8px 16px;
-		border: none;
-		border-radius: 4px;
-		cursor: pointer;
+	.botones {
+		display: flex;
+		justify-content: space-between;
+		margin: 20px;
 	}
+	.avion-details {
+		margin: 20px;
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		background-color: #f9f9f9;
+	}
+	.avion-details h2 {
+		margin-bottom: 10px;
+	}
+	.avion-details p {
+		margin: 5px 0;
+	}
+
+	button {
+		background-color: #050505;
+		color: #fff;
+		border: none;
+		border-radius: 3px;
+		padding: 10px 20px;
+		cursor: pointer;
+		font-size: 16px;
+	}
+
+	.Presupuesto {
+		margin: 0 170px 0 170px;
+	}	
 </style>

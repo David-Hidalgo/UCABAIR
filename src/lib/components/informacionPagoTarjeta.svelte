@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { Modo_pago } from '$lib/server/db/schema';
-	export let id_editar: number;
 
 	let modo_pago: Modo_pago;
 	modo_pago = {
