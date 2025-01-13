@@ -50,7 +50,7 @@
 	}
 
 	async function mostrarDatos() {
-		const response = await fetch('http://localhost:4000/piezas');
+		const response = await fetch('/piezas');
 		const data: Pieza[] = await response.json();
 		piezas = data;
 	}
@@ -60,7 +60,7 @@
 	// Función para editar un registro
 	async function editarRegistro(piezas: Pieza) {
 		try {
-			const res = await fetch(`http://localhost:4000/Pieza/${piezas.id_mineral}`, {
+			const res = await fetch(`/Pieza/${piezas.tipo_pieza}`, {
 				method: 'PUT',
 				body: JSON.stringify(piezas),
 				headers: { 'Content-Type': 'application/json' }
@@ -80,7 +80,7 @@
 
 	// Función para eliminar un registro
 	async function eliminarRegistro(piezas: Pieza) {
-		await fetch(`http://localhost:4000/Pieza/${piezas.id_pieza}`, {
+		await fetch(`/Pieza/${piezas.id_pieza}`, {
 			method: 'DELETE'
 		});
 	}

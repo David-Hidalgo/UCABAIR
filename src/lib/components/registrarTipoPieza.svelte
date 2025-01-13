@@ -2,25 +2,30 @@
 	import type { Tipo_pieza } from '$lib/server/db/schema';
 	let piezas: Tipo_pieza[] = [];
 	import { goto } from '$app/navigation';
-	export let id_editar: Tipo_pieza | undefined;
-	export let piezas_fk: Tipo_pieza[];
-	console.log(id_editar);
+	const { id_editar, piezas_fk } :{id_editar: Tipo_pieza | undefined;	piezas_fk: Tipo_pieza[];}= $props<{
+		id_editar: Tipo_pieza | undefined;
+		piezas_fk: Tipo_pieza[];
+	}>();
+	console.log(piezas_fk);
 
-	let pieza_fk_selected: Tipo_pieza = piezas_fk[0];
-	let pieza: Tipo_pieza;
+	let pieza_fk_selected: Tipo_pieza = $state(piezas_fk[0]);
+	console.log(pieza_fk_selected);
+	
+	let pieza: Tipo_pieza = $state({
+		codigo_tp: 0,
+		nombre_tp: '',
+		descripcion_tp: '',
+		precio_unidad_tp: 0,
+		fk_tipo_pieza: 0
+	});
 	let codigo_viejo: number;
 	if (id_editar != undefined) {
-		pieza = id_editar;
-		console.log(pieza);
-		if (id_editar.codigo_tp) codigo_viejo = id_editar.codigo_tp;
-	} else {
-		pieza = {
-			codigo_tp: 0,
-			nombre_tp: '',
-			descripcion_tp: '',
-			precio_unidad_tp: 0,
-			fk_tipo_pieza: pieza_fk_selected.codigo_tp
-		};
+		pieza.codigo_tp = id_editar.codigo_tp
+		pieza.descripcion_tp = id_editar.descripcion_tp
+		pieza.fk_tipo_pieza = id_editar.fk_tipo_pieza
+		pieza.nombre_tp = id_editar.nombre_tp
+		pieza.precio_unidad_tp = id_editar.precio_unidad_tp
+		if (id_editar.codigo_tp) {codigo_viejo = id_editar.codigo_tp;}
 	}
 
 	async function decide() {
@@ -32,7 +37,7 @@
 
 		async function actualizarTipoPieza() {
 			console.log(pieza);
-			const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/pieza`, {
+			const res = await fetch(`/admin/HomeAdmin/editar/pieza`, {
 				method: 'PUT',
 				body: JSON.stringify({ pieza: pieza, codigo_viejo: codigo_viejo }), //Hay que enviar correos y telefonos tambien
 				headers: { 'Content-Type': 'application/json' }
@@ -42,7 +47,7 @@
 		}
 	}
 	async function registrarTipoPieza() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/pieza`, {
+		const res = await fetch(`/admin/HomeAdmin/registrar/pieza`, {
 			method: 'POST',
 			body: JSON.stringify(pieza),
 			headers: { 'Content-Type': 'application/json' }
@@ -52,7 +57,7 @@
 	}
 </script>
 
-<form on:submit|preventDefault={decide}>
+<form onsubmit={decide}>
 	<label for="codigo_pieza">Codigo Pieza</label>
 	<input id="codigo_pieza" bind:value={pieza.codigo_tp} />
 
@@ -64,10 +69,11 @@
 
 	<label for="piezas_fk">Si esta pieza se compone de alguna otra, seleccionela</label>
 	<select
-		multiple
 		id="piezas_fk"
 		bind:value={pieza_fk_selected}
-		on:change={() => console.log(pieza_fk_selected)}
+		onchange={() => {
+			console.log(pieza_fk_selected.codigo_tp);						
+		}}
 	>
 		{#each piezas_fk as pieza_fk}
 			<option value={pieza_fk.codigo_tp}>{pieza_fk.nombre_tp}</option>

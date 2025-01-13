@@ -59,7 +59,7 @@
 		console.log(empleado);
 		console.log(codigo_viejo);
 
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/empleado`, {
+		const res = await fetch(`/admin/HomeAdmin/editar/empleado`, {
 			method: 'PUT',
 			body: JSON.stringify({ empleado: empleado, codigo_viejo: codigo_viejo }),
 			headers: { 'Content-Type': 'application/json' }
@@ -74,7 +74,7 @@
 
 		for (let tel of telefonos) {
 			console.log(tel);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+			await fetch(`/admin/HomeAdmin/registrar/telefono`, {
 				method: 'POST',
 				body: JSON.stringify(tel),
 				headers: { 'Content-Type': 'application/json' }
@@ -83,7 +83,7 @@
 
 		for (let cor of correos) {
 			console.log(cor);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+			await fetch(`/admin/HomeAdmin/registrar/correo`, {
 				method: 'POST',
 				body: JSON.stringify(cor),
 				headers: { 'Content-Type': 'application/json' }
@@ -96,7 +96,7 @@
 	}
 	async function registrarEmpleado() {
 		console.log(empleado);
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/empleado`, {
+		const res = await fetch(`/admin/HomeAdmin/registrar/empleado`, {
 			method: 'POST',
 			body: JSON.stringify(empleado),
 			headers: { 'Content-Type': 'application/json' }
@@ -111,7 +111,7 @@
 
 		for (let tel of telefonos) {
 			console.log(tel);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+			await fetch(`/admin/HomeAdmin/registrar/telefono`, {
 				method: 'POST',
 				body: JSON.stringify(tel),
 				headers: { 'Content-Type': 'application/json' }
@@ -120,7 +120,7 @@
 
 		for (let cor of correos) {
 			console.log(cor);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+			await fetch(`/admin/HomeAdmin/registrar/correo`, {
 				method: 'POST',
 				body: JSON.stringify(cor),
 				headers: { 'Content-Type': 'application/json' }

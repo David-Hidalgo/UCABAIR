@@ -3,8 +3,7 @@
 	// import { createEventDispatcher } from 'svelte';
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
-	import type { ActionData } from './$types';
-	import type { PageData } from './$types';
+	import type {ActionData, PageData } from './$types';
 	import type {
 		Modelo_avion,
 		Caracteristica,
@@ -140,7 +139,7 @@
 	// Función para editar un registro
 	async function editarRegistro(modelo_avion: Modelo_avion) {
 		/*try {
-			const res = await fetch(`http://localhost:4000/mineral/${aeronaves.id_avi}`, {//configurar la ruta
+			const res = await fetch(`/mineral/${aeronaves.id_avi}`, {//configurar la ruta
 				method: 'PUT',
 				body: JSON.stringify(aeronaves),
 				headers: { 'Content-Type': 'application/json' }
@@ -159,7 +158,7 @@
 	}
 
 	async function eliminarRegistro(modelo_avion: Modelo_avion) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/inventario/aeronaves`, {
+		await fetch(`/admin/HomeAdmin/inventario/aeronaves`, {
 			method: 'DELETE',
 			body: JSON.stringify(modelo_avion.codigo_ma)
 		});
@@ -192,8 +191,9 @@
 								<tr>
 									<td style="margin: 0; padding: 0; text-align: left;"
 										><strong
-											>{caracteristica.caracteristica.nombre_car.charAt(0).toUpperCase() +
-												caracteristica.caracteristica?.nombre_car.slice(1)} :</strong
+											>{ caracteristica.caracteristica ? 
+											caracteristica.caracteristica.nombre_car.charAt(0).toUpperCase() +
+												caracteristica.caracteristica.nombre_car.slice(1) : "N/A" } :</strong
 										>
 										{caracteristica.valor_cm}
 										{caracteristica.unidad_medida_cm}

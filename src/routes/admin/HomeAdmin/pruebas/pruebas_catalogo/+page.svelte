@@ -40,7 +40,7 @@
 	// Función para editar un registro
 	async function editarRegistro(tipo_pruebas: Tipo_prueba) {
 		/*try {
-			const res = await fetch(`http://localhost:4000/aeronave/${tipo_pruebas.id_tipo_prueba}`, {//configurar la ruta
+			const res = await fetch(`/aeronave/${tipo_pruebas.id_tipo_prueba}`, {//configurar la ruta
 				method: 'PUT',
 				body: JSON.stringify(tipo_pruebas),
 				headers: { 'Content-Type': 'application/json' }
@@ -59,7 +59,7 @@
 	}
 	) {
 		try {
-			const res = await fetch(`http://localhost:4000/mineral/${aeronaves.id_avi}`, {//configurar la ruta
+			const res = await fetch(`/mineral/${aeronaves.id_avi}`, {//configurar la ruta
 				method: 'PUT',
 				body: JSON.stringify(aeronaves),
 				headers: { 'Content-Type': 'application/json' }
@@ -79,7 +79,7 @@
 
 	// Función para eliminar un registro
 	async function eliminarRegistro(tipo_pruebas: Tipo_prueba) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/pruebas/pruebas_catalogo`, {
+		await fetch(`/admin/HomeAdmin/pruebas/pruebas_catalogo`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(tipo_pruebas.codigo_tp)

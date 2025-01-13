@@ -38,7 +38,7 @@
 	// Función para editar un registro
 	async function editarRegistro(roles: Rol) {
 		/*try {
-			const res = await fetch(`http://localhost:4000/mineral/${roles.id}`, {
+			const res = await fetch(`/mineral/${roles.id}`, {
 				method: 'PUT',
 				body: JSON.stringify(roles),
 				headers: { 'Content-Type': 'application/json' }
@@ -59,7 +59,7 @@
 	// Función para eliminar un registro
 
 	async function eliminarRegistro(rol: Rol) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/roles`, {
+		await fetch(`/admin/HomeAdmin/roles`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(rol.codigo_rol)

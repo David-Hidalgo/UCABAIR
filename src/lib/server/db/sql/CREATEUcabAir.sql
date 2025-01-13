@@ -257,7 +257,7 @@ CREATE TABLE modelo_avion (
     fk_modelo_avion  INTEGER
 );
 CREATE TABLE modo_pago (
-    codigo_mp INTEGER NOT NULL,
+    codigo_mp SERIAL NOT NULL,
     tipo_mp VARCHAR(100) NOT NULL,
     numero_tarjeta_tar    INTEGER,
     banco_tar             VARCHAR(255),
@@ -823,6 +823,22 @@ CREATE OR REPLACE PROCEDURE insertar_tipo_pieza(
 END;
 $$;
 
+CREATE OR REPLACE PROCEDURE editar_pieza( nombre_tp2 VARCHAR(255),
+ descripcion_tp2 VARCHAR(255),
+    fk_tipo_pieza2 INTEGER,
+    precio_unidad_tp2 REAL,
+    codigo_viejo INTEGER)
+    LANGUAGE plpgsql AS $$ BEGIN
+    UPDATE tipo_pieza
+SET 
+    nombre_tp = nombre_tp2,
+    descripcion_tp = descripcion_tp2,
+    fk_tipo_pieza=fk_tipo_pieza2,
+    precio_unidad_tp = precio_unidad_tp2
+WHERE codigo_tp = codigo_viejo;
+END;
+$$;
+
 CREATE OR REPLACE PROCEDURE eliminar_tipo_pieza(
     codigo INTEGER
     ) 
@@ -1091,3 +1107,34 @@ BEGIN
     where codigo_compra=fk_compra;
 END;
 $$;
+
+CREATE OR REPLACE PROCEDURE insertar_modo_pago(
+    tipo_mp2 VARCHAR(100),
+    numero_tarjeta_tar2    INTEGER,
+    banco_tar2             VARCHAR(255),
+    cvv_tar2               NUMERIC(3),
+    fecha_vencimiento_tar2 DATE,
+    nombre_tar2            VARCHAR(100),
+    fecha_emision_tar2     DATE,
+    numero_transferencia_tran2 INTEGER,
+    fecha_emision_tran2        DATE,
+    numero_cuenta_tran2        INTEGER,
+    numero_cheque_che2 INTEGER,
+    banco_che2         VARCHAR(255),
+    fecha_emision_che2 DATE,
+    beneficiario_che2  VARCHAR(255),
+    denominacion_efe2 VARCHAR(255)
+)
+LANGUAGE plpgsql AS $$
+BEGIN 
+    INSERT INTO modo_pago (tipo_mp,numero_tarjeta_tar,banco_tar,cvv_tar,fecha_vencimiento_tar,
+                            nombre_tar,fecha_emision_tar,numero_transferencia_tran,fecha_emision_tran,
+                            numero_cuenta_tran,numero_cheque_che,banco_che,fecha_emision_che,
+                            beneficiario_che,denominacion_efe) 
+                VALUES (tipo_mp2,numero_tarjeta_tar2,banco_tar2,cvv_tar2,fecha_vencimiento_tar2,
+                        nombre_tar2,fecha_emision_tar2,numero_transferencia_tran2,fecha_emision_tran2,
+                        numero_cuenta_tran2,numero_cheque_che2,banco_che2,fecha_emision_che2,beneficiario_che2,
+                        denominacion_efe2);
+END;
+$$;
+

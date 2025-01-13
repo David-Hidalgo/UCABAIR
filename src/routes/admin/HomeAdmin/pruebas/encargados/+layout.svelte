@@ -98,7 +98,7 @@
 
 	async function mostrarDatos() {
 		/*
-		const response = await fetch('http://localhost:4000/aeronave');
+		const response = await fetch('/aeronave');
 		const data: Aeronave[] = await response.json();
 		aeronaves = data;*/
 	}
@@ -108,7 +108,7 @@
 	// Función para editar un registro
 	async function editarRegistro(pruebas: Prueba) {
 		/*try {
-			const res = await fetch(`http://localhost:4000/mineral/${aeronaves.id_avi}`, {//configurar la ruta
+			const res = await fetch(`/mineral/${aeronaves.id_avi}`, {//configurar la ruta
 				method: 'PUT',
 				body: JSON.stringify(aeronaves),
 				headers: { 'Content-Type': 'application/json' }
@@ -128,7 +128,7 @@
 
 	// Función para eliminar un registro
 	async function eliminarRegistro(pruebas: Prueba) {
-		/*await fetch(`http://localhost:4000/mineral/${aeronaves.id_avi}`, {
+		/*await fetch(`/mineral/${aeronaves.id_avi}`, {
 			method: 'DELETE'
 		});*/
 	}

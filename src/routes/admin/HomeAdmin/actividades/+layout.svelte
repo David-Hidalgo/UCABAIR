@@ -31,7 +31,7 @@
 	export let actividades: Actividad[] = [];
 
 	async function mostrarDatos() {
-		const response = await fetch('http://localhost:4000/actividades');
+		const response = await fetch('/actividades');
 		const data: Actividad[] = await response.json();
 		actividades = data;
 	}

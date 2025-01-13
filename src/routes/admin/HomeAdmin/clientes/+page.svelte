@@ -166,7 +166,7 @@
 	}
 
 	async function eliminarRegistro(persona: Persona) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/clientes`, {
+		await fetch(`/admin/HomeAdmin/clientes`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(persona.codigo_com)

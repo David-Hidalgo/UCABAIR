@@ -35,7 +35,7 @@
 
 	// Función para manejar el envío del formulario
 	async function registrarSolicitud() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/solicitud`, {
+		const res = await fetch(`/admin/HomeAdmin/registrar/solicitud`, {
 			method: 'POST',
 			body: JSON.stringify(compra),
 			headers: { 'Content-Type': 'application/json' }

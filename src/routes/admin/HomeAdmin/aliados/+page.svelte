@@ -74,7 +74,7 @@
 
 	async function editarRegistro(proveedores: Proveedor) {
 		/*try {
-			const res = await fetch(`http://localhost:4000/mineral/${roles.id}`, {
+			const res = await fetch(`/mineral/${roles.id}`, {
 				method: 'PUT',
 				body: JSON.stringify(roles),
 				headers: { 'Content-Type': 'application/json' }
@@ -93,7 +93,7 @@
 	}
 
 	async function eliminarRegistro(proveedor: Proveedor) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/aliados`, {
+		await fetch(`/admin/HomeAdmin/aliados`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(proveedor.codigo_com)

@@ -53,7 +53,7 @@
 	}
 
 	async function mostrarDatos() {
-		const response = await fetch('http://localhost:4000/minerales');
+		const response = await fetch('/minerales');
 		const data: Solicitud_Mineral[] = await response.json();
 		solicitudes = data;
 	}

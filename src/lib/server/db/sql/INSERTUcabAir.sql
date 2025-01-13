@@ -1979,44 +1979,44 @@ INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (20, 
 INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (21, 'Zona Oeste', 'Embalaje y despacho', 5);
 INSERT INTO zona (codigo_zon, nombre_zon, descripcion_zon, fk_sede) VALUES (22, 'Zona Este', 'Pruebas de piezas', 5);
 
-INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
-(1, 'cheque', 12345678, 'Banco de Venezuela', '2024-01-01', 'Juan Pérez', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO modo_pago (tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
+('cheque', 12345678, 'Banco de Venezuela', '2024-01-01', 'Juan Pérez', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 
-INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
-(2, 'transferencia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11223344, '2024-01-02', 99887766, NULL);
+INSERT INTO modo_pago (tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
+('transferencia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 11223344, '2024-01-02', 99887766, NULL);
 
 
-INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
-(3, 'tarjeta', NULL, NULL, NULL, NULL, 56789012, 'Banco Provincial', 123, '2024-12-31', 'Carlos Méndez', '2024-01-03', NULL, NULL, NULL, NULL);
+INSERT INTO modo_pago (tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
+( 'tarjeta', NULL, NULL, NULL, NULL, 56789012, 'Banco Provincial', 123, '2024-12-31', 'Carlos Méndez', '2024-01-03', NULL, NULL, NULL, NULL);
 
 
-INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
-(4, 'efectivo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Bolívares');
+INSERT INTO modo_pago (tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
+('efectivo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Bolívares');
 
 
-INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
-(5, 'cheque', 87654321, 'Banco Mercantil', '2024-01-04', 'Ana García', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO modo_pago (tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
+( 'cheque', 87654321, 'Banco Mercantil', '2024-01-04', 'Ana García', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 
-INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
-(6, 'transferencia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 55667788, '2024-01-05', 22334455, NULL);
+INSERT INTO modo_pago ( tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
+( 'transferencia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 55667788, '2024-01-05', 22334455, NULL);
 
 
-INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
-(7, 'tarjeta', NULL, NULL, NULL, NULL, 23456789, 'Banco Bicentenario', 456, '2024-11-30', 'Laura Pérez', '2024-01-06', NULL, NULL, NULL, NULL);
+INSERT INTO modo_pago ( tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
+('tarjeta', NULL, NULL, NULL, NULL, 23456789, 'Banco Bicentenario', 456, '2024-11-30', 'Laura Pérez', '2024-01-06', NULL, NULL, NULL, NULL);
 
 
-INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
-(8, 'efectivo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dólares');
+INSERT INTO modo_pago (tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
+( 'efectivo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Dólares');
 
 
-INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
-(9, 'cheque', 34567890, 'Banco Plaza', '2024-01-07', 'Diego Ramírez', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO modo_pago (tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
+('cheque', 34567890, 'Banco Plaza', '2024-01-07', 'Diego Ramírez', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 
-INSERT INTO modo_pago (codigo_mp, tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
-(10, 'transferencia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 99887766, '2024-01-08', 44556677, NULL);
+INSERT INTO modo_pago ( tipo_mp, numero_cheque_che, banco_che, fecha_emision_che, beneficiario_che, numero_tarjeta_tar, banco_tar, cvv_tar, fecha_vencimiento_tar, nombre_tar, fecha_emision_tar, numero_transferencia_tran, fecha_emision_tran, numero_cuenta_tran, denominacion_efe) VALUES 
+('transferencia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 99887766, '2024-01-08', 44556677, NULL);
 
 
 INSERT INTO rol values(1,'admin','rol de administrador');

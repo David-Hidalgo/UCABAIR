@@ -26,7 +26,7 @@
 	}
 
 	async function actualizarMateriaPrima() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/materia_prima`, {
+		const res = await fetch(`/admin/HomeAdmin/editar/materia_prima`, {
 			method: 'PUT',
 			body: JSON.stringify({ materia_prima: materia_prima, codigo_viejo: codigo_viejo }),
 			headers: { 'Content-Type': 'application/json' }
@@ -38,7 +38,7 @@
 
 	// Función para manejar el envío del formulario
 	async function registrarMateriaPrima() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/materia_prima`, {
+		const res = await fetch(`/admin/HomeAdmin/registrar/materia_prima`, {
 			method: 'POST',
 			body: JSON.stringify(materia_prima),
 			headers: { 'Content-Type': 'application/json' }

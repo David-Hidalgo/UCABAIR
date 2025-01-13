@@ -27,7 +27,7 @@
 	}
 	// Función para manejar el envío del formulario
 	async function actualizarRol() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/rol`, {
+		const res = await fetch(`/admin/HomeAdmin/editar/rol`, {
 			method: 'PUT',
 			body: JSON.stringify({ rol: rol, codigo_viejo: codigo_viejo, privSelected: privSelected }),
 			headers: { 'Content-Type': 'application/json' }
@@ -37,7 +37,7 @@
 		goto('/admin/HomeAdmin/roles');
 	}
 	async function registrarRol() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/rol`, {
+		const res = await fetch(`/admin/HomeAdmin/registrar/rol`, {
 			method: 'POST',
 			body: JSON.stringify(rol),
 			headers: { 'Content-Type': 'application/json' }

@@ -43,7 +43,7 @@
 	// Función para manejar el envío del formulario
 	async function registrarDato() {
 		console.log(proyecto);
-		/*const res = await fetch(`http://localhost:4000/proyecto`, {
+		/*const res = await fetch(`/proyecto`, {
 			method: 'POST',
 			body: JSON.stringify(proyecto),
 			headers: { 'Content-Type': 'application/json' }

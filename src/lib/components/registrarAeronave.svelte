@@ -96,7 +96,7 @@
 		console.log('caracteristicas_modelo:');
 		console.log(caracteristicas_modelo);
 
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/aeronave`, {
+		const res = await fetch(`/admin/HomeAdmin/editar/aeronave`, {
 			method: 'PUT',
 			body: JSON.stringify({
 				aeronave: aeronave,
@@ -114,14 +114,14 @@
 	async function registrarAeronave() {
 		for (let pru of pruebas) {
 			console.log(pru);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/prueba`, {
+			await fetch(`/admin/HomeAdmin/registrar/prueba`, {
 				method: 'POST',
 				body: JSON.stringify(pru),
 				headers: { 'Content-Type': 'application/json' }
 			});
 		}
 		
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave`, {
+		const res = await fetch(`/admin/HomeAdmin/registrar/aeronave`, {
 			method: 'POST',
 			body: JSON.stringify(aeronave),
 			headers: { 'Content-Type': 'application/json' }
@@ -132,7 +132,7 @@
 		
 		for (let pie of piezas) {
 			console.log(pie);
-			const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/pieza`, {
+			const res = await fetch(`/admin/HomeAdmin/registrar/pieza`, {
 				method: 'POST',
 				body: JSON.stringify(pie),
 				headers: { 'Content-Type': 'application/json' }
@@ -140,7 +140,7 @@
 			pie.codigo_tp=(await res.json()).respuesta.salida
 			console.log("aquí la pieza \n");
 			console.log(pie);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aeronave`, {
+			await fetch(`/admin/HomeAdmin/registrar/aeronave`, {
 				method: 'PUT',
 				body: JSON.stringify({aeronave, pie}),
 				headers: { 'Content-Type': 'application/json' }
@@ -149,8 +149,7 @@
 
 		for (let car of caracteristicas) {
 			console.log(car);
-			const res = await fetch(
-				`http://localhost:5173/admin/HomeAdmin/registrar/aeronave/caracteristica`,
+			const res = await fetch(`/admin/HomeAdmin/registrar/aeronave/caracteristica`,
 				{
 					method: 'POST',
 					body: JSON.stringify(car),
@@ -163,8 +162,7 @@
 		}
 		for (let cm of caracteristicas_modelo) {
 			cm.fk_modelo_avion = aeronave.codigo_ma;
-			await fetch(
-				`http://localhost:5173/admin/HomeAdmin/registrar/aeronave/caracteristica_modelo`,
+			await fetch(`/admin/HomeAdmin/registrar/aeronave/caracteristica_modelo`,
 				{
 					method: 'POST',
 					body: JSON.stringify(cm),

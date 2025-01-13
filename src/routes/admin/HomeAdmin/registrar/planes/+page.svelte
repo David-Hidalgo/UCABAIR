@@ -98,7 +98,7 @@
 			{/each}
 		</select>
 	</label>
-	<button type="submit" onclick={async () => await goto('/admin/HomeAdmin/inventario/aeronaves')}>Enviar</button>
+	<button type="submit" onclick={async () =>  goto('/admin/HomeAdmin/inventario/aeronaves')}>Enviar</button>
 
 <script lang="ts">
 	function handleButtonClick() {

@@ -3,7 +3,6 @@
 	import MostrarPresupuesto from '$lib/components/mostrarPresupuesto.svelte';
 	import type { Modelo_avion, Plan_ensamblaje, Profesion, Caracteristica, Caracteristica_modelo } from '$lib/server/db/schema';
 	let { data }: { data: PageData } = $props();
-	console.log(data);
 	const modelo_avion: Modelo_avion = {
 		codigo_ma: data.modelo_avion.codigo_ma,
 		nombre_ma: data.modelo_avion.nombre_ma,
@@ -12,7 +11,6 @@
 		precio_unidad_ma: data.modelo_avion.precio_unidad_ma
 	};
 
-	console.log(modelo_avion);
 	const planes_ensamblaje: Plan_ensamblaje[] = data.resultado.map((plan: any) => {
 		return {
 			codigo_pe: plan.codigo_pe,

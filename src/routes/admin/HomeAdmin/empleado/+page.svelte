@@ -144,7 +144,7 @@
 
 	async function editarRegistro(empleados: Empleado) {
 		/*try {
-			const res = await fetch(`http://localhost:4000/mineral/${roles.id}`, {
+			const res = await fetch(`/mineral/${roles.id}`, {
 				method: 'PUT',
 				body: JSON.stringify(roles),
 				headers: { 'Content-Type': 'application/json' }
@@ -163,7 +163,7 @@
 	}
 
 	async function eliminarRegistro(empleado: Empleado) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/empleado`, {
+		await fetch(`/admin/HomeAdmin/empleado`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(empleado.codigo_empleado_per)

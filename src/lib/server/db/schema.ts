@@ -81,8 +81,8 @@ export interface Modo_pago {
 	numero_tarjeta_tar: number | undefined;
 	banco_tar: string;
 	cvv_tar: number | undefined;
-	mes_vencimiento_tar: Date | undefined;
-	ano_vencimiento_tar: Date | undefined;
+	mes_vencimiento_tar: number | undefined;
+	ano_vencimiento_tar: number | undefined;
 	nombre_tar: string;
 	fecha_emision_tar: Date | undefined;
 	numero_transferencia_tran: number | undefined;

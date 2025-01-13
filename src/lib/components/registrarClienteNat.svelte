@@ -64,7 +64,7 @@
 	}
 
 	async function actualizarCliente() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/cliente`, {
+		const res = await fetch(`/admin/HomeAdmin/editar/cliente`, {
 			method: 'PUT',
 			body: JSON.stringify({
 				direccion: cliente_nat.direccion_com,
@@ -95,7 +95,7 @@
 
 		for (let tel of telefonos) {
 			console.log(tel);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+			await fetch(`/admin/HomeAdmin/registrar/telefono`, {
 				method: 'POST',
 				body: JSON.stringify(tel),
 				headers: { 'Content-Type': 'application/json' }
@@ -104,7 +104,7 @@
 
 		for (let cor of correos) {
 			console.log(cor);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+			await fetch(`/admin/HomeAdmin/registrar/correo`, {
 				method: 'POST',
 				body: JSON.stringify(cor),
 				headers: { 'Content-Type': 'application/json' }
@@ -117,7 +117,7 @@
 
 	// Función para manejar el envío del formulario
 	async function registrarCliente() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/cliente`, {
+		const res = await fetch(`/admin/HomeAdmin/registrar/cliente`, {
 			method: 'POST',
 			body: JSON.stringify(cliente_nat),
 			headers: { 'Content-Type': 'application/json' }
@@ -141,7 +141,7 @@
 
 		for (let tel of telefonos) {
 			console.log(tel);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+			await fetch(`/admin/HomeAdmin/registrar/telefono`, {
 				method: 'POST',
 				body: JSON.stringify(tel),
 				headers: { 'Content-Type': 'application/json' }
@@ -150,7 +150,7 @@
 
 		for (let cor of correos) {
 			console.log(cor);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+			await fetch(`/admin/HomeAdmin/registrar/correo`, {
 				method: 'POST',
 				body: JSON.stringify(cor),
 				headers: { 'Content-Type': 'application/json' }

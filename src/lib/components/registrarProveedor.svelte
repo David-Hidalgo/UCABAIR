@@ -64,7 +64,7 @@
 		console.log('he aquí el proveedor: \n');
 		console.log(proveedor);
 		console.log('he aquí el codigo Viejo: ' + codigo_viejo);
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/aliado`, {
+		const res = await fetch(`/admin/HomeAdmin/editar/aliado`, {
 			method: 'PUT',
 			body: JSON.stringify({
 				direccion: proveedor.direccion_com,
@@ -89,7 +89,7 @@
 	async function registrarProveedor() {
 		console.log('he aquí el proveedor: \n');
 		console.log(proveedor);
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/aliado`, {
+		const res = await fetch(`/admin/HomeAdmin/registrar/aliado`, {
 			method: 'POST',
 			body: JSON.stringify(proveedor),
 			headers: { 'Content-Type': 'application/json' }
@@ -109,7 +109,7 @@
 		});
 		//
 		for (let tel of telefonos) {
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/telefono`, {
+			await fetch(`/admin/HomeAdmin/registrar/telefono`, {
 				method: 'POST',
 				body: JSON.stringify(tel),
 				headers: { 'Content-Type': 'application/json' }
@@ -117,7 +117,7 @@
 		}
 		for (let cor of correos) {
 			console.log(cor);
-			await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/correo`, {
+			await fetch(`/admin/HomeAdmin/registrar/correo`, {
 				method: 'POST',
 				body: JSON.stringify(cor),
 				headers: { 'Content-Type': 'application/json' }

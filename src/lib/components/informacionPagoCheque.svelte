@@ -1,21 +1,20 @@
 <script lang="ts">
 	import type { Modo_pago } from '$lib/server/db/schema';
-	// export let modo_pago: Modo_pago;
-
-	let modo_pago: Modo_pago;
+	export let modo_pago:Modo_pago;
+	import { goto } from '$app/navigation';
 	modo_pago = {
-		codigo_mp: undefined,
-		tipo_mp: '',
-		numero_tarjeta_tar: undefined,
+		codigo_mp: 0,
+		tipo_mp: 'cheque',
+		numero_tarjeta_tar: 0,
 		banco_tar: '',
-		cvv_tar: undefined,
-		mes_vencimiento_tar: undefined,
-		ano_vencimiento_tar: undefined,
+		cvv_tar: 0,
+		mes_vencimiento_tar: 0,
+		ano_vencimiento_tar: 0,
 		nombre_tar: '',
-		fecha_emision_tar: undefined,
-		numero_transferencia_tran: undefined,
-		fecha_emision_tran: undefined,
-		numero_cuenta_tran: undefined,
+		fecha_emision_tar: new Date(),
+		numero_transferencia_tran: 0,
+		fecha_emision_tran: new Date(),
+		numero_cuenta_tran: 0,
 		numero_cheque_che: undefined,
 		banco_che: '',
 		fecha_emision_che: new Date(),
@@ -25,13 +24,19 @@
 
 	let componenteActual = 'A';
 
-	function registrarDato() {
-		
+	async function registrarMetodoPago() {
+		 const res = await fetch(`/cliente/pago`, {
+		 	method: 'POST',
+			body: JSON.stringify(modo_pago),
+		 	headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await res.json();
+
 	}
 </script>
 
 <h2>Cheque</h2>
-<form on:submit|preventDefault={registrarDato}>
+<form on:submit|preventDefault={registrarMetodoPago}>
 	<div class="form-group">
 		<label for="banco">Banco</label>
 		<input type="text" id="banco" bind:value={modo_pago.banco_che} />

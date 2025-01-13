@@ -90,7 +90,7 @@
 
 	async function actualizarEstatus(fk_compra: number | undefined) {
 		console.log(fk_compra);
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/solicitudes`, {
+		const res = await fetch(`/admin/HomeAdmin/solicitudes`, {
 			method: 'PUT',
 			body: JSON.stringify(fk_compra),
 			headers: { 'Content-Type': 'application/json' }
@@ -105,7 +105,7 @@
 	// Función para editar un registro
 	async function editarRegistro(compra: Compra) {
 		/*try {
-			const res = await fetch(`http://localhost:4000/mineral/${roles.id}`, {
+			const res = await fetch(`/mineral/${roles.id}`, {
 				method: 'PUT',
 				body: JSON.stringify(roles),
 				headers: { 'Content-Type': 'application/json' }
@@ -126,7 +126,7 @@
 	// Función para eliminar un registro
 
 	async function eliminarRegistro(compra: Compra) {
-		/*await fetch(`http://localhost:5173/admin/HomeAdmin/roles`, {
+		/*await fetch(`/admin/HomeAdmin/roles`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(compra.codigo_compra_com)

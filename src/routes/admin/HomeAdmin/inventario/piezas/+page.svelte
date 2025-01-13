@@ -49,7 +49,7 @@
 	// Función para eliminar un registro
 
 	async function eliminarRegistro(pieza: Tipo_pieza) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/inventario/piezas`, {
+		await fetch(`/admin/HomeAdmin/inventario/piezas`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(pieza.codigo_tp)

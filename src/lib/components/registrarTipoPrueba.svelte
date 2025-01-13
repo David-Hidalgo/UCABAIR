@@ -26,7 +26,7 @@
 	// Función para manejar el envío del formulario
 	async function actualizarTipoPrueba() {
 		console.log(tipo_prueba);
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/editar/prueba`, {
+		const res = await fetch(`/admin/HomeAdmin/editar/prueba`, {
 			method: 'PUT',
 			body: JSON.stringify({ tipo_prueba: tipo_prueba, codigo_viejo: codigo_viejo }),
 			headers: { 'Content-Type': 'application/json' }
@@ -35,7 +35,7 @@
 		goto('/admin/HomeAdmin/pruebas/pruebas_catalogo');
 	}
 	async function registrarTipoPrueba() {
-		const res = await fetch(`http://localhost:5173/admin/HomeAdmin/registrar/prueba`, {
+		const res = await fetch(`/admin/HomeAdmin/registrar/prueba`, {
 			method: 'POST',
 			body: JSON.stringify(tipo_prueba),
 			headers: { 'Content-Type': 'application/json' }

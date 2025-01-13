@@ -38,8 +38,8 @@ export const actions = {
 		const cod_ma = Number(p.get('cod_ma') ?? 0);
 		const cod_sede = Number(p.get('fk_sede') ?? 0);
 		const fk_plan_embalaje = Number(p.get('fk_plan_embalaje') ?? 0);
-		const cod_transporte = Number(p.get('fk_plan_transporte') ?? 0);
-		const cod_tipo_prueba = Number(p.get('fk_plan_prueba') ?? 0);
+		const fk_plan_transporte = Number(p.get('fk_plan_transporte') ?? 0);
+		const fk_tipo_prueba = Number(p.get('fk_plan_prueba') ?? 0);
 
 		const fk_profesional_prueba = p.getAll('fk_profesional_prueba');
 		const fk_profesional_embalaje = p.getAll('fk_profesional_embalaje');
@@ -53,8 +53,8 @@ export const actions = {
 		console.log(cod_ma);
 		console.log(cod_sede);
 		console.log(fk_plan_embalaje);
-		console.log(cod_transporte);
-		console.log(cod_tipo_prueba);
+		console.log(fk_plan_transporte);
+		console.log(fk_tipo_prueba);
 		
 		console.log(listaPiezas);
 		console.log(listaProfesionalPrueba);
@@ -62,7 +62,7 @@ export const actions = {
 		console.log(listaProfesionalTransporte);
 		
 		const respuesta = await dbPostgre`call insertar_configuracion_completa(
-		 2,${listaPiezas},${cod_ma},${cod_sede},${fk_plan_embalaje},1,${listaProfesionalEmbalaje},${listaProfesionalPrueba},${listaProfesionalTransporte})`;
+		 2,${listaPiezas},${cod_ma},${cod_sede},${fk_plan_embalaje},${fk_plan_transporte},${fk_tipo_prueba},1,${listaProfesionalEmbalaje},${listaProfesionalPrueba},${listaProfesionalTransporte})`;
 
 		if (!p){
 			return fail(400, {p, incorrect: true})

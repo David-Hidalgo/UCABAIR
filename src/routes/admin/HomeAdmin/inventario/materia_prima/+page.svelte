@@ -50,7 +50,7 @@
 	// Función para eliminar un registro
 
 	async function eliminarRegistro(materia_prima: Tipo_materia_prima) {
-		await fetch(`http://localhost:5173/admin/HomeAdmin/inventario/materia_prima`, {
+		await fetch(`/admin/HomeAdmin/inventario/materia_prima`, {
 			method: 'DELETE',
 
 			body: JSON.stringify(materia_prima.codigo_tmp)
