@@ -3,7 +3,7 @@
 	// import { createEventDispatcher } from 'svelte';
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
-	import type {ActionData, PageData } from './$types';
+	import type { ActionData, PageData } from './$types';
 	import type {
 		Modelo_avion,
 		Caracteristica,
@@ -191,9 +191,10 @@
 								<tr>
 									<td style="margin: 0; padding: 0; text-align: left;"
 										><strong
-											>{ caracteristica.caracteristica ? 
-											caracteristica.caracteristica.nombre_car.charAt(0).toUpperCase() +
-												caracteristica.caracteristica.nombre_car.slice(1) : "N/A" } :</strong
+											>{caracteristica.caracteristica
+												? caracteristica.caracteristica.nombre_car.charAt(0).toUpperCase() +
+													caracteristica.caracteristica.nombre_car.slice(1)
+												: 'N/A'} :</strong
 										>
 										{caracteristica.valor_cm}
 										{caracteristica.unidad_medida_cm}

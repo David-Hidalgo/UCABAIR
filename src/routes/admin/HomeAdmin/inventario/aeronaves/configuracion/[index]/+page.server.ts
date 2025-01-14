@@ -27,8 +27,8 @@ export const load: PageServerLoad = async ({ params }) => {
 	const n = Number.parseInt(index);
 
 	if (Number.isInteger(n)) {
-		const p_table = await dbPostgre
-		`SELECT tp.precio_unidad_tp,ca.cantidad_pieza_ca,tp.precio_unidad_tp*ca.cantidad_pieza_ca as precio_total,tp.nombre_tp FROM tipo_pieza tp inner join configuracion_avion ca on tp.codigo_tp=ca.fk_tipo_pieza
+		const p_table =
+			await dbPostgre`SELECT tp.precio_unidad_tp,ca.cantidad_pieza_ca,tp.precio_unidad_tp*ca.cantidad_pieza_ca as precio_total,tp.nombre_tp FROM tipo_pieza tp inner join configuracion_avion ca on tp.codigo_tp=ca.fk_tipo_pieza
 		where ca.fk_modelo_avion=${n}`;
 
 		const resultado = await dbPostgre<
@@ -54,11 +54,11 @@ export const load: PageServerLoad = async ({ params }) => {
 
 		const profesion_table =
 			await dbPostgre`SELECT * FROM profesion pro inner join estimacion_profesion_empleado epp on epp.fk_profesion=pro.codigo_pro
-														 where epp.fk_tipo_prueba in (select fk_tipo_prueba from configuracion_prueba_avion where fk_modelo_avion=${n})
-														 or epp.fk_embalaje_plan in (select fk_embalaje_plan from embalaje_configuracion_avion where fk_modelo_avion=${n})
-														 or epp.fk_plan_ensamblaje in (select fk_plan_ensamblaje from configuracion_ensamblaje_pieza where fk_tipo_pieza in (select fk_tipo_pieza 
-														 																													 from configuracion_avion where fk_modelo_avion=${n}))
-														 or epp.fk_plan_transporte in (select fk_plan_transporte from transporte_configuracion_avion where fk_modelo_avion=${n});`;
+							where epp.fk_tipo_prueba in (select fk_tipo_prueba from configuracion_prueba_avion where fk_modelo_avion=${n})
+							or epp.fk_embalaje_plan in (select fk_embalaje_plan from embalaje_configuracion_avion where fk_modelo_avion=${n})
+							or epp.fk_plan_ensamblaje in (select fk_plan_ensamblaje from configuracion_ensamblaje_pieza where fk_tipo_pieza in (select fk_tipo_pieza 
+							from configuracion_avion where fk_modelo_avion=${n}))
+							or epp.fk_plan_transporte in (select fk_plan_transporte from transporte_configuracion_avion where fk_modelo_avion=${n});`;
 		return {
 			resultado,
 			ma_table,
