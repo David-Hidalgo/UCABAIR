@@ -1,8 +1,15 @@
 <script lang="ts">
-	import type { Modo_pago } from '$lib/server/db/schema';
+	import type { Modo_pago, Moneda } from '$lib/server/db/schema';
 	import { date } from 'drizzle-orm/mysql-core';
 	import { goto } from '$app/navigation';
-	export let modo_pago:Modo_pago;
+	let { modo_pago = $bindable(), moneda }: { modo_pago: Modo_pago; moneda: Moneda } = $props();
+	moneda = {
+		codigo_mon: undefined,
+		nombre_mon: '',
+		tasa_cambio_mon: 0,
+		fecha_inicio_mon: new Date(),
+		fecha_fin_mon: new Date()
+	};
 	modo_pago = {
 		codigo_mp: 0,
 		tipo_mp: 'transferencia',
@@ -26,18 +33,17 @@
 	let componenteActual = 'A';
 
 	async function registrarMetodoPago() {
-		 const res = await fetch(`/cliente/pago`, {
-		 	method: 'POST',
+		const res = await fetch(`/cliente/pago`, {
+			method: 'POST',
 			body: JSON.stringify(modo_pago),
-		 	headers: { 'Content-Type': 'application/json' }
+			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-
 	}
 </script>
 
 <h2>Transferencia</h2>
-<form on:submit|preventDefault={registrarMetodoPago}>
+<form onsubmit={registrarMetodoPago}>
 	<div class="form-group">
 		<label for="banco">Banco</label>
 		<input type="text" id="banco" bind:value={modo_pago.banco_tar} />

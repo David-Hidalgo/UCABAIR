@@ -99,7 +99,7 @@ export interface Modelo_avion {
 	codigo_ma: number | undefined;
 	nombre_ma: string;
 	descripcion_ma: string;
-	precio_unidad_ma: number | undefined;
+	precio_unidad_ma: number;
 	fk_modelo_avion: number | undefined;
 }
 
@@ -288,4 +288,12 @@ export interface Historial_estatus_compra {
     fk_compra :	number |undefined,
     fk_estatus : number | undefined,
     fecha_hec :Date
+};
+
+export interface Moneda {
+	codigo_mon: number | undefined,
+	nombre_mon: string,
+	tasa_cambio_mon: number,
+	fecha_inicio_mon: Date,
+	fecha_fin_mon: Date
 };

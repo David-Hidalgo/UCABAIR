@@ -25,6 +25,7 @@ DROP PROCEDURE IF EXISTS insertar_tipo_materia_prima;
 DROP PROCEDURE IF EXISTS editar_tipo_materia_prima;
 DROP PROCEDURE IF EXISTS editar_aeronave;
 DROP PROCEDURE IF EXISTS insertar_modo_pago;
+DROP PROCEDURE IF EXISTS insertar_pago_venta;
 DROP TRIGGER IF EXISTS trigger_reponer_materia_prima_150 ON lote_materia_prima;
 DROP FUNCTION IF EXISTS reponer_materia_prima_150;
 DROP TRIGGER IF EXISTS trigger_insertar_en_lote_materia_prima ON historial_estatus_compra;

@@ -3445,7 +3445,7 @@ INSERT INTO estatus (codigo_est, nombre_est) VALUES
 (20,'En Espera de Aprobación');
 
 INSERT INTO moneda (codigo_mon, nombre_mon, tasa_cambio_mon, fecha_inicio_mon, fecha_fin_mon) VALUES 
-(1, 'Dólar Estadounidense', 1.00, '2024-01-01', NULL),
+(1, 'Dólar Estadounidense', 55.00, '2024-01-01', NULL),
 (2, 'Euro', 0.85, '2024-01-01', NULL),
 (3, 'Libra Esterlina', 0.75, '2024-01-01', NULL),
 (4, 'Yen Japonés', 110.00, '2024-01-01', NULL),
@@ -3454,7 +3454,8 @@ INSERT INTO moneda (codigo_mon, nombre_mon, tasa_cambio_mon, fecha_inicio_mon, f
 (7, 'Dólar Australiano', 1.35, '2024-01-01', NULL),
 (8, 'Yuan Chino', 6.50, '2024-01-01', NULL),
 (9, 'Peso Mexicano', 20.00, '2024-01-01', NULL),
-(10, 'Real Brasileño', 5.00, '2024-01-01', NULL);
+(10, 'Real Brasileño', 5.00, '2024-01-01', NULL),   
+(11, 'Bolívar', 1.00, '2024-01-01', NULL);
 
 INSERT INTO configuracion_ensamblaje_pieza (fk_plan_ensamblaje, fk_tipo_pieza, fk_sede) VALUES
 (1, 1, 2),
@@ -3636,17 +3637,17 @@ INSERT INTO ensamblaje (codigo_ens, fecha_inicio_ens, fecha_fin_ens, fk_plan_ens
 (7, '2024-11-27', '2024-12-28', 4, NULL, 10, 8, 4),
 (9, '2024-11-29', '2024-12-30', 5, NULL, 5, 10, 13);
 
-INSERT INTO venta (codigo_venta_ven, numero_factura_ven, fecha_hora_ven, monto_total_ven, impuesto_total_ven) VALUES
-(1, 1001, '2024-02-01 10:00:00', 100500.75, 10050.08),
-(2, 1002, '2024-04-02 11:30:00', 1001200.50, 100120.05),
-(3, 1003, '2024-07-03 14:45:00', 100300.00, 10030.00),
-(4, 1004, '2024-10-04 09:15:00', 100750.25, 10075.03),
-(5, 1005, '2024-12-05 16:00:00', 1001500.00, 100150.00),
-(6, 1006, '2023-11-06 13:20:00', 100850.60, 10085.06),
-(7, 1007, '2023-08-07 08:45:00', 100400.10, 10040.01),
-(8, 1008, '2023-05-08 17:00:00', 100950.90, 10095.09),
-(9, 1009, '2023-02-09 12:30:00', 100670.40, 10067.04),
-(10, 1010, '2023-01-10 15:00:00', 1001100.80, 100110.08);
+INSERT INTO venta (fecha_hora_ven, monto_total_ven, impuesto_total_ven) VALUES
+( '2024-02-01 10:00:00', 100500.75, 10050.08),
+( '2024-04-02 11:30:00', 1001200.50, 100120.05),
+( '2024-07-03 14:45:00', 100300.00, 10030.00),
+( '2024-10-04 09:15:00', 100750.25, 10075.03),
+( '2024-12-05 16:00:00', 1001500.00, 100150.00),
+( '2023-11-06 13:20:00', 100850.60, 10085.06),
+( '2023-08-07 08:45:00', 100400.10, 10040.01),
+( '2023-05-08 17:00:00', 100950.90, 10095.09),
+( '2023-02-09 12:30:00', 100670.40, 10067.04),
+( '2023-01-10 15:00:00', 1001100.80, 100110.08);
 
 INSERT INTO pieza (codigo_pie, fk_pieza, fk_configuracion_avion, fk_configuracion_avion2, fk_almacen, fk_almacen2, fk_avion, fk_ensamblaje) VALUES
 (2, NULL, 2, 1, 2, 2, NULL, 2),
@@ -4401,29 +4402,31 @@ INSERT INTO historial_inventario (codigo_hi, fecha_entrada_hi, fecha_salida_hi, 
 (9, '2024-12-17 09:15:00', '2024-12-18 18:15:00', 9, 4, NULL, 9, NULL),
 (10, '2024-12-19 07:45:00', '2024-12-20 16:45:00', 10, 5, NULL, NULL, 10);
 
-INSERT INTO detalle_venta (cantidad_dv, precio_unitario_dv, fk_venta, codigo_dv, fk_persona) VALUES
-(1, 100500.75, 1, 1, 45),
-(1, 1001200.50, 2, 2, 18),
-(1, 100300.00, 3, 3, 32),
-(1, 100750.25, 4, 4, 27),
-(2, 500750, 5, 5, 60),
-(1, 100850.60, 6, 6, 3),
-(1, 100400.10, 7, 7, 22),
-(1, 100950.90, 8, 8, 14),
-(1, 100670.40, 9, 9, 78),
-(2, 500550, 10, 10, 35);
+INSERT INTO
+    detalle_venta (cantidad_dv,precio_unitario_dv,fk_venta,fk_persona)
+VALUES
+    (1, 100500.75, 1, 45),
+    (1, 1001200.50, 2, 18),
+    (1, 100300.00, 3, 32),
+    (1, 100750.25, 4, 27),
+    (2, 500750, 5, 60),
+    (1, 100850.60, 6, 3),
+    (1, 100400.10, 7, 22),
+    (1, 100950.90, 8, 14),
+    (1, 100670.40, 9, 78),
+    (2, 500550, 10, 35);
 
-INSERT INTO pago_venta (codigo_pago_pv, fecha_pago_pv, fk_venta, fk_modo_pago) VALUES
-(1, '2024-12-01', 1, 1),
-(2, '2024-12-02', 2, 2),
-(3, '2024-12-03', 3, 3),
-(4, '2024-12-04', 4, 4),
-(5, '2024-12-05', 5, 5),
-(6, '2024-12-06', 6, 6),
-(7, '2024-12-07', 7, 7),
-(8, '2024-12-08', 8, 8),
-(9, '2024-12-09', 9, 9),
-(10, '2024-12-10', 10, 10);
+INSERT INTO pago_venta (fecha_pago_pv, fk_venta, fk_modo_pago) VALUES
+('2024-12-01', 1, 1),
+('2024-12-02', 2, 2),
+('2024-12-03', 3, 3),
+('2024-12-04', 4, 4),
+('2024-12-05', 5, 5),
+('2024-12-06', 6, 6),
+('2024-12-07', 7, 7),
+('2024-12-08', 8, 8),
+('2024-12-09', 9, 9),
+( '2024-12-10', 10, 10);
 
 
 INSERT INTO pago_compra (fecha_pago_pc, fk_modo_pago, fk_compra) VALUES
@@ -4481,17 +4484,17 @@ INSERT INTO pago_compra ( fecha_pago_pc, fk_modo_pago, fk_compra) VALUES
 ('2025-01-20', 10, 50);
 
 
-INSERT INTO pago_moneda (fk_pago_venta, fk_moneda, fk_pago_compra, cantidad_dinero_pm, codigo_pm) VALUES 
-(1, 1, NULL, 100.00, 1),
-(NULL, 2, 2, 200.00, 2),
-(3, 3, NULL, 300.00, 3),
-(NULL, 4, 4, 400.00, 4),
-(5, 5, NULL, 500.00, 5),
-(NULL, 6, 6, 600.00, 6),
-(7, 7, NULL, 700.00, 7),
-(NULL, 8, 8, 800.00, 8),
-(9, 9, NULL, 900.00, 9),
-(NULL, 10, 10, 1000.00, 10);
+INSERT INTO pago_moneda (fk_pago_venta, fk_moneda, fk_pago_compra, cantidad_dinero_pm) VALUES 
+(1, 1, NULL, 100.00),
+(NULL, 2, 2, 200.00),
+(3, 3, NULL, 300.00),
+(NULL, 4, 4, 400.00),
+(5, 5, NULL, 500.00),
+(NULL, 6, 6, 600.00),
+(7, 7, NULL, 700.00),
+(NULL, 8, 8, 800.00),
+(9, 9, NULL, 900.00),
+(NULL, 10, 10, 1000.00);
 
 INSERT INTO pago_empleado (codigo_pp, fecha_pago_pp, monto_pago_sueldo_pp, monto_pago_extra_pp, fk_empleado, fk_modo_pago) VALUES 
 (1, '2024-01-01', 1000.00, 100.00, 1, 1),

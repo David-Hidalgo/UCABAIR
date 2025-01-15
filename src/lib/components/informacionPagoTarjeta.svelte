@@ -1,7 +1,18 @@
 <script lang="ts">
-	import type { Modo_pago } from '$lib/server/db/schema';
-	export let modo_pago: Modo_pago;
-	import { goto } from '$app/navigation';
+	// import { goto } from '$app/navigation';
+	import type { Modo_pago, Moneda } from '$lib/server/db/schema';
+	let {
+		modo_pago = $bindable(),
+		moneda,
+		modopago
+	}: { modo_pago: Modo_pago; moneda: Moneda; modopago: any } = $props();
+	moneda = {
+		codigo_mon: undefined,
+		nombre_mon: '',
+		tasa_cambio_mon: 0,
+		fecha_inicio_mon: new Date(),
+		fecha_fin_mon: new Date()
+	};
 	modo_pago = {
 		codigo_mp: 0,
 		tipo_mp: 'tarjeta',
@@ -25,24 +36,34 @@
 	let componenteActual = 'A';
 
 	async function registrarMetodoPago() {
-		 const res = await fetch(`/cliente/pago`, {
-		 	method: 'POST',
-			body: JSON.stringify(modo_pago),
-		 	headers: { 'Content-Type': 'application/json' }
+		const res = await fetch(`/cliente/pago`, {
+			method: 'POST',
+			body: JSON.stringify(modo_pago),	
+			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
-
+		console.log(data);
+		modo_pago.codigo_mp = data.ret;
+		modopago('metodopago');
 	}
 </script>
 
 <h2>Tarjeta</h2>
-<form on:submit|preventDefault={registrarMetodoPago}>
+<form onsubmit={registrarMetodoPago}>
 	<div class="form-group">
 		<label for="tipo">Tipo de Tarjeta</label>
 		<select id="tipo" bind:value={modo_pago.tipo_mp}>
 			<option value="credito">Crédito</option>
 			<option value="debito">Débito</option>
 		</select>
+	</div>
+	<div class="form-group">
+		<strong>Moneda seleccionada:</strong>
+		{#if moneda.codigo_mon}
+			{moneda.nombre_mon}
+		{:else}
+			No se ha seleccionado una moneda
+		{/if}
 	</div>
 	<div class="form-group">
 		<label for="banco">Banco</label>
@@ -71,7 +92,7 @@
 			<label for="cvv">CVV</label>
 			<input type="text" id="cvv" bind:value={modo_pago.cvv_tar} />
 		</div>
-		<button type="submit">Confirmar Pago</button>
+		<button type="submit" >Confirmar Pago</button>
 	</div>
 </form>
 
