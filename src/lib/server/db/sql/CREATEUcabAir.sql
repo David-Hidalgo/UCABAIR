@@ -1076,7 +1076,8 @@ OR REPLACE PROCEDURE insertar_pago_venta (
     cantidad_dinero_pmI REAL,
     fk_modo_pagoI INTEGER,
     fk_monedaI INTEGER,
-    fk_personaI INTEGER
+    fk_personaI INTEGER,
+    cantidad INTEGER
 ) LANGUAGE plpgsql
 AS $$
 DECLARE
@@ -1085,7 +1086,7 @@ BEGIN
 INSERT INTO
     venta (monto_total_ven, impuesto_total_ven)
 VALUES
-    (monto_total_venI, impuestoI) RETURNING codigo_venta_ven INTO codigo_venta_venI;
+    (monto_total_venI*cantidad, impuestoI*cantidad) RETURNING codigo_venta_ven INTO codigo_venta_venI;
 
 INSERT INTO
     pago_venta (fk_venta, fk_modo_pago)
@@ -1100,7 +1101,7 @@ VALUES
 INSERT INTO 
     detalle_venta (fk_venta,fk_persona,cantidad_dv,precio_unitario_dv)
 VALUES
-    (codigo_venta_venI,1,1,1);
+    (codigo_venta_venI,fk_personaI,cantidad,monto_total_venI);
 
 INSERT INTO
     historial_estatus_venta (fecha_hev, fk_venta, fk_estatus)

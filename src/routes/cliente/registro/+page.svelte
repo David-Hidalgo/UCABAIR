@@ -34,12 +34,11 @@
 </div>
 
 {#if selectedComponent}
-	<svelte:component
-		this={selectedComponent}
-		id_editar={undefined}
-		codigo_com={true}
-		fk_usuario={codigo_usu}
-	/>
+	{#if selectedComponent === RegistroNat}
+		<RegistroNat id_editar={undefined} codigo_com={true} fk_usuario={codigo_usu} />
+	{:else if selectedComponent === RegistroJur}
+		<RegistroJur id_editar={undefined} codigo_com={true} fk_usuario={codigo_usu} />
+	{/if}
 {/if}
 
 <style>

@@ -1,7 +1,10 @@
 <script lang="ts">
 	import type { Modo_pago, Moneda } from '$lib/server/db/schema';
-	let { modo_pago = $bindable(), moneda }: { modo_pago: Modo_pago; moneda: Moneda } = $props();
-	import { goto } from '$app/navigation';
+	let {
+		modo_pago = $bindable(),
+		moneda,
+		modopago
+	}: { modo_pago: Modo_pago; moneda: Moneda; modopago: any } = $props();	import { goto } from '$app/navigation';
 	moneda = {
 		codigo_mon: undefined,
 		nombre_mon: '',
@@ -34,10 +37,13 @@
 	async function registrarMetodoPago() {
 		const res = await fetch(`/cliente/pago`, {
 			method: 'POST',
-			body: JSON.stringify(modo_pago),
+			body: JSON.stringify(modo_pago),	
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
+		console.log(data);
+		modo_pago.codigo_mp = data.ret;
+		modopago('metodopago');
 	}
 </script>
 

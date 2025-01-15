@@ -1,10 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import type { Persona, Telefono, Correo_electronico } from '$lib/server/db/schema';
-	// import { redirect } from '@sveltejs/kit';
-	// import * as Bun  from 'bun';
 	export let codigo_com: boolean | undefined, fk_usuario, id_editar: Persona | undefined;
-	// let editar = $state(false);
 	let cliente_nat: Persona;
 	let codigo_viejo: number;
 	if (id_editar != undefined) {
@@ -117,6 +114,10 @@
 
 	// Función para manejar el envío del formulario
 	async function registrarCliente() {
+		if (codigo_com){
+			cliente_nat.fecha_inicio_operacion_com = new Date();
+			cliente_nat.monto_acreditado_com = 0;
+		}
 		const res = await fetch(`/admin/HomeAdmin/registrar/cliente`, {
 			method: 'POST',
 			body: JSON.stringify(cliente_nat),
@@ -241,13 +242,13 @@
 
 	<label for="nacionalidad">Nacionalidad</label>
 	<input id="nacionalidad" bind:value={cliente_nat.nacionalidad_com} />
+	{#if !codigo_com}
+		<label for="monto">Monto acreditado</label>
+		<input id="monto" bind:value={cliente_nat.monto_acreditado_com} />
 
-	<label for="monto">Monto acreditado</label>
-	<input id="monto" bind:value={cliente_nat.monto_acreditado_com} />
-
-	<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
-	<input id="fechaInicio" type="date" bind:value={cliente_nat.fecha_inicio_operacion_com} />
-
+		<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
+		<input id="fechaInicio" type="date" bind:value={cliente_nat.fecha_inicio_operacion_com} />		
+	{/if}
 	<button type="submit">Registrar Cliente</button>
 </form>
 

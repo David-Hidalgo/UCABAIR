@@ -2,7 +2,11 @@
 	import type { Modo_pago, Moneda } from '$lib/server/db/schema';
 	import { date } from 'drizzle-orm/mysql-core';
 	import { goto } from '$app/navigation';
-	let { modo_pago = $bindable(), moneda }: { modo_pago: Modo_pago; moneda: Moneda } = $props();
+	let {
+		modo_pago = $bindable(),
+		moneda,
+		modopago
+	}: { modo_pago: Modo_pago; moneda: Moneda; modopago: any } = $props();
 	moneda = {
 		codigo_mon: undefined,
 		nombre_mon: '',
@@ -39,6 +43,9 @@
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
+		console.log(data);
+		modo_pago.codigo_mp = data.ret;
+		modopago('metodopago');
 	}
 </script>
 

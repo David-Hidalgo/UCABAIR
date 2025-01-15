@@ -2,6 +2,7 @@
 import { hash, verify } from '@node-rs/argon2';
 import { encodeBase32LowerCase } from '@oslojs/encoding';
 import { fail, redirect } from '@sveltejs/kit';
+import { regExpPassword } from "$lib/index"
 // import postgres from 'postgres';
 //por cambiar
 // import { eq } from 'drizzle-orm';
@@ -27,7 +28,7 @@ export const actions: Actions = {
 		if (!validateUsername(username)) {
 			return fail(400, { message: 'Invalid username' });
 		}
-		if (!validatePassword(password)) {
+		if (!validatePasswordLog(password)) {
 			return fail(400, { message: 'Invalid password' });
 		}
 
@@ -164,10 +165,15 @@ function validateUsername(username: unknown): username is string {
 		typeof username === 'string' &&
 		username.length >= 3 &&
 		username.length <= 31 &&
-		/^[a-z0-9_-]+$/.test(username)
+		/^[a-z0-9_-]+$/i.test(username)
 	);
 }
 
+function validatePasswordLog(password: unknown): password is string {
+	return typeof password === 'string' && password.length >= 6 && password.length <= 255 ;
+
+}
 function validatePassword(password: unknown): password is string {
-	return typeof password === 'string' && password.length >= 6 && password.length <= 255;
+	return typeof password === 'string' && password.length >= 6 && password.length <= 255 && regExpPassword.test(password);
+
 }
