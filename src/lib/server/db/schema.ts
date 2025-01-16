@@ -4,6 +4,17 @@ export interface Rol {
 	descripcion_rol: string;
 }
 
+export interface Avion {
+	codigo_avi: number | undefined;
+	color_avi: string;
+	nombre_avi: string;
+	matricula_avi: number | undefined;
+	fk_modelo_avion: number | undefined;
+	fk_venta: number | undefined;
+	fk_almacen: number | undefined;
+	fk_almacen2: number | undefined;
+	fk_ensamblaje: number | undefined;
+}
 export interface Privilegio {
 	codigo_pri: number;
 	nombre_pri: string;

@@ -1,13 +1,8 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import MostrarPresupuesto from '$lib/components/mostrarPresupuesto.svelte';
-	import type {
-		Modelo_avion,
-		Plan_ensamblaje,
-		Profesion,
-		Caracteristica,
-		Caracteristica_modelo
-	} from '$lib/server/db/schema';
+	import type {Modelo_avion,Plan_ensamblaje,Profesion,Caracteristica,Caracteristica_modelo,
+				Avion} from '$lib/server/db/schema';
 	let { data }: { data: PageData } = $props();
 	const modelo_avion: Modelo_avion = {
 		codigo_ma: data.modelo_avion.codigo_ma,
@@ -34,12 +29,41 @@
 	function togglePresupuesto() {
 		mostrarPresupuesto.update((value) => !value);
 	}
+
+	let avion: Avion ={
+		codigo_avi:0,
+		color_avi:"",
+		nombre_avi:"",
+		matricula_avi:0,
+		fk_modelo_avion:0,
+		fk_venta:0,
+		fk_almacen:0,
+		fk_ensamblaje:0,
+		fk_almacen2:0
+	}
 </script>
 
 <div class="avion-details">
 	<h1><strong>{modelo_avion.nombre_ma}</strong></h1>
 	<p><strong>Descripción:</strong> {modelo_avion.descripcion_ma}</p>
 	<p><strong>Modelo:</strong> {modelo_avion.fk_modelo_avion}</p>
+	<p><strong>Nombre:</strong> {avion.nombre_avi}</p>
+	<p><strong>Color:</strong></p>
+	<select bind:value={avion.color_avi}>
+		<option value="" disabled selected>Seleccione un color</option>
+		<option value="Rojo">Rojo</option>
+		<option value="Azul">Azul</option>
+		<option value="Verde">Verde</option>
+		<option value="Amarillo">Amarillo</option>
+		<option value="Negro">Negro</option>
+		<option value="Blanco">Blanco</option>
+		<option value="Gris">Gris</option>
+		<option value="Naranja">Naranja</option>
+		<option value="Rosa">Rosa</option>
+		<option value="Morado">Morado</option>
+		<option value="Marrón">Marrón</option>
+	</select>
+
 	<p><strong>Precio por Unidad:</strong> {modelo_avion.precio_unidad_ma}</p>
 	<h2><strong>Especificaciones:</strong></h2>
 	<table>
@@ -61,7 +85,7 @@
 						</tr>
 					{/if}
 				{/each}
-			{/each}
+			{/each} <!--Hola -->
 		</tbody>
 	</table>
 </div>
