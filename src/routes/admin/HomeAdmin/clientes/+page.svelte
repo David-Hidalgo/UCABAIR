@@ -267,7 +267,6 @@
 								<span>🗑️</span>
 								<!-- Icono de papelera -->
 							</button>
-							
 						</div>
 					</td>
 				</tr>

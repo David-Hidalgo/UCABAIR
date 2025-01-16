@@ -2,15 +2,15 @@ import { dbPostgre } from '$lib/server/db';
 import type { Actions, PageServerLoad } from './$types';
 
 export interface Estatus {
-    codigo_est: number | undefined,
-    nombre_est: string
-};
+	codigo_est: number | undefined;
+	nombre_est: string;
+}
 
 export interface Historial_estatus_compra {
-    fk_compra :	number |undefined,
-    fk_estatus : number | undefined,
-    fecha_hec :Date
-};
+	fk_compra: number | undefined;
+	fk_estatus: number | undefined;
+	fecha_hec: Date;
+}
 
 export interface Lote_materia_prima {
 	codigo_lmp: number | undefined;
@@ -30,7 +30,7 @@ export interface Compra {
 	impuesto_total_com: number;
 }
 
-export interface Tipo_materia_prima{
+export interface Tipo_materia_prima {
 	codigo_tmp: number | undefined;
 	nombre_tmp: string;
 	descripcion_tmp: string;
@@ -65,7 +65,9 @@ export const load: PageServerLoad = async ({ params }) => {
 	const comtable = await dbPostgre<Compra[]>`SELECT * FROM Compra;`;
 	const lmp = await dbPostgre<Lote_materia_prima[]>`SELECT * FROM lote_materia_prima;`;
 	const tmp = await dbPostgre<Tipo_materia_prima[]>`SELECT * FROM tipo_materia_prima;`;
-	const est_table	= await dbPostgre<Estatus[]>`SELECT * FROM estatus;`;
-	const hec_table = await dbPostgre<Historial_estatus_compra[]>`SELECT * FROM historial_estatus_compra;`;
-	return {comtable, lmp, tmp, est_table, hec_table};
+	const est_table = await dbPostgre<Estatus[]>`SELECT * FROM estatus;`;
+	const hec_table = await dbPostgre<
+		Historial_estatus_compra[]
+	>`SELECT * FROM historial_estatus_compra;`;
+	return { comtable, lmp, tmp, est_table, hec_table };
 };

@@ -1,9 +1,9 @@
-<script lang='ts'>
-		import { enhance } from '$app/forms';
+<script lang="ts">
+	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
 	import type { PageData } from './$types';
-	import type { Modelo_avion} from './+page.server.ts';
+	import type { Modelo_avion } from './+page.server.ts';
 	import { writable } from 'svelte/store';
 	// const dispatch = createEventDispatcher();
 
@@ -27,21 +27,25 @@
 		modelos_avion.push(modelo_avion);
 	}
 
-
 	// Supongamos que tienes un arreglo de objetos llamado `aviones`
 	let modeloSel = '';
 
 	function filtrarPorModelo() {
-	if (!searchTerm) {
-		return modelos_avion;
+		if (!searchTerm) {
+			return modelos_avion;
+		}
+		return modelos_avion.filter((avion) =>
+			avion.nombre_ma.toLowerCase().includes($searchTerm.toLowerCase())
+		);
 	}
-	return modelos_avion.filter((avion) =>
-		avion.nombre_ma.toLowerCase().includes($searchTerm.toLowerCase())
-	);
-}
 </script>
 
-	<input type="text" placeholder="Buscar por modelo" bind:value={$searchTerm} oninput={filtrarPorModelo}/>
+<input
+	type="text"
+	placeholder="Buscar por modelo"
+	bind:value={$searchTerm}
+	oninput={filtrarPorModelo}
+/>
 
 {#each filtrarPorModelo() as avion}
 	<div class="avion-box">

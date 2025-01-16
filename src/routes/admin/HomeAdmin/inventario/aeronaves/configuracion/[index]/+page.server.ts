@@ -31,8 +31,8 @@ export const load: PageServerLoad = async ({ params }) => {
 			await dbPostgre`SELECT tp.precio_unidad_tp,ca.cantidad_pieza_ca,tp.precio_unidad_tp*ca.cantidad_pieza_ca as precio_total,
 							tp.nombre_tp FROM tipo_pieza tp inner join configuracion_avion ca on tp.codigo_tp=ca.fk_tipo_pieza
 							where ca.fk_modelo_avion=${n}`;
-			console.log('Tipo piezas');
-			console.log(p_table);
+		console.log('Tipo piezas');
+		console.log(p_table);
 
 		const resultado = await dbPostgre<
 			Configuracion_def[]

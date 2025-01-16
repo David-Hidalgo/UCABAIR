@@ -36,7 +36,7 @@ export const actions: Actions = {
 			await dbPostgre`call insertar_configuracion_avion( 2,${listaPiezas},${cod_ma}, ${sede})`;
 		} catch (error) {
 			console.error(error);
-			fail(400, { error,incorrect: true });
+			fail(400, { error, incorrect: true });
 		}
 	},
 
@@ -49,11 +49,12 @@ export const actions: Actions = {
 		// Procesar datos de PlanEmbalaje
 		try {
 			await dbPostgre`delete from embalaje_configuracion_avion where fk_modelo_avion = ${cod_ma}`;
-			await dbPostgre`call insertar_configuracion_embalaje(${cod_ma}, ${sede},${fk_plan_embalaje}, ${(fk_profesional_embalaje
-				.map((profesional) => Number(profesional)))},1)`;
+			await dbPostgre`call insertar_configuracion_embalaje(${cod_ma}, ${sede},${fk_plan_embalaje}, ${fk_profesional_embalaje.map(
+				(profesional) => Number(profesional)
+			)},1)`;
 		} catch (error) {
 			console.error(error);
-			fail(400, {incorrect: true });
+			fail(400, { incorrect: true });
 		}
 	},
 
@@ -66,9 +67,10 @@ export const actions: Actions = {
 		// Procesar datos de PlanTransporte
 		try {
 			await dbPostgre`delete from transporte_configuracion_avion where fk_modelo_avion = ${cod_ma}`;
-			await dbPostgre`call insertar_configuracion_transporte(${cod_ma}, ${sede},${fk_plan_transporte}, ${fk_profesional_transporte
-				.map((profesional) => Number(profesional))},1)`;
-			} catch (error) {
+			await dbPostgre`call insertar_configuracion_transporte(${cod_ma}, ${sede},${fk_plan_transporte}, ${fk_profesional_transporte.map(
+				(profesional) => Number(profesional)
+			)},1)`;
+		} catch (error) {
 			console.error(error);
 			fail(400, { error, incorrect: true });
 		}
@@ -83,11 +85,12 @@ export const actions: Actions = {
 		// Procesar datos de PlanPrueba
 		try {
 			await dbPostgre`delete from configuracion_prueba_avion where fk_modelo_avion = ${cod_ma}`;
-			await dbPostgre`call insertar_configuracion_prueba(${cod_ma}, ${sede},${fk_tipo_prueba}, ${fk_profesional_prueba
-			.map((profesional) => Number(profesional))},1)`;
+			await dbPostgre`call insertar_configuracion_prueba(${cod_ma}, ${sede},${fk_tipo_prueba}, ${fk_profesional_prueba.map(
+				(profesional) => Number(profesional)
+			)},1)`;
 		} catch (error) {
 			console.error(error);
-			fail(400, { error,incorrect: true });
+			fail(400, { error, incorrect: true });
 		}
 	}
 } satisfies Actions;

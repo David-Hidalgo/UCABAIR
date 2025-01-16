@@ -160,5 +160,4 @@
 		cursor: pointer;
 		font-size: 16px;
 	}
-
 </style>

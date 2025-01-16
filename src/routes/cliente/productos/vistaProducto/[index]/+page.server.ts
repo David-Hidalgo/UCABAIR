@@ -9,24 +9,34 @@ import type {
 	Configuracion_prueba_avion,
 	Profesion,
 	Estimacion_profesion_empleado,
-	Configuracion_def, Caracteristica, Caracteristica_modelo
+	Configuracion_def,
+	Caracteristica,
+	Caracteristica_modelo
 } from '$lib/server/db/schema';
 
 export const load: PageServerLoad = async ({ params }) => {
 	const index = params.index;
 	const ca_table = await dbPostgre<Configuracion_avion[]>`SELECT * FROM configuracion_avion;`;
 	const tp_table = await dbPostgre<Tipo_prueba[]>`SELECT * FROM tipo_prueba;`;
-	const cpa_table = await dbPostgre<Configuracion_prueba_avion[]>`SELECT * FROM configuracion_prueba_avion;`;
-	const epe_table = await dbPostgre<Estimacion_profesion_empleado[]>`SELECT * FROM estimacion_profesion_empleado;`;
+	const cpa_table = await dbPostgre<
+		Configuracion_prueba_avion[]
+	>`SELECT * FROM configuracion_prueba_avion;`;
+	const epe_table = await dbPostgre<
+		Estimacion_profesion_empleado[]
+	>`SELECT * FROM estimacion_profesion_empleado;`;
 	const caracteristica_table = await dbPostgre<Caracteristica[]>`SELECT * FROM caracteristica;`;
-	const caracteristica_modelo_table = await dbPostgre<Caracteristica_modelo[]>`SELECT * FROM caracteristica_modelo;`;
+	const caracteristica_modelo_table = await dbPostgre<
+		Caracteristica_modelo[]
+	>`SELECT * FROM caracteristica_modelo;`;
 	if (!index) error(404);
 	const n = Number.parseInt(index);
 
 	if (Number.isInteger(n)) {
-		const [modelo_avion] = await dbPostgre<Modelo_avion[]>`SELECT * FROM modelo_avion where codigo_ma=${n};`;
-		const p_table = await dbPostgre
-		`SELECT tp.precio_unidad_tp,ca.cantidad_pieza_ca,tp.precio_unidad_tp*ca.cantidad_pieza_ca as precio_total,tp.nombre_tp FROM tipo_pieza tp inner join configuracion_avion ca on tp.codigo_tp=ca.fk_tipo_pieza
+		const [modelo_avion] = await dbPostgre<
+			Modelo_avion[]
+		>`SELECT * FROM modelo_avion where codigo_ma=${n};`;
+		const p_table =
+			await dbPostgre`SELECT tp.precio_unidad_tp,ca.cantidad_pieza_ca,tp.precio_unidad_tp*ca.cantidad_pieza_ca as precio_total,tp.nombre_tp FROM tipo_pieza tp inner join configuracion_avion ca on tp.codigo_tp=ca.fk_tipo_pieza
 		where ca.fk_modelo_avion=${n}`;
 
 		const resultado = await dbPostgre<

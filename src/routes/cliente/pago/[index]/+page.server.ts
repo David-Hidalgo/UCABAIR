@@ -2,7 +2,12 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { dbPostgre } from '$lib/server/db/index';
 import type {
-	Usuario,Modelo_avion,Persona,Telefono,Correo_electronico,Moneda
+	Usuario,
+	Modelo_avion,
+	Persona,
+	Telefono,
+	Correo_electronico,
+	Moneda
 } from '$lib/server/db/schema';
 
 export const load: PageServerLoad = async (event) => {
@@ -19,10 +24,11 @@ export const load: PageServerLoad = async (event) => {
 	}
 	const [persona] = await dbPostgre<Persona[]>`select * from persona where fk_usuario=${local.id}`;
 	if (Number.isInteger(n)) {
-		const [avion] = await dbPostgre<Modelo_avion[]>`select * from modelo_avion ma where codigo_ma=${n}`;
-		return { avion ,persona,tel_table,email_table,mon_table};
+		const [avion] = await dbPostgre<
+			Modelo_avion[]
+		>`select * from modelo_avion ma where codigo_ma=${n}`;
+		return { avion, persona, tel_table, email_table, mon_table };
 	}
-	
 
 	error(400);
 };

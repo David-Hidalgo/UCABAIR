@@ -1,7 +1,13 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import MostrarPresupuesto from '$lib/components/mostrarPresupuesto.svelte';
-	import type { Modelo_avion, Plan_ensamblaje, Profesion, Caracteristica, Caracteristica_modelo } from '$lib/server/db/schema';
+	import type {
+		Modelo_avion,
+		Plan_ensamblaje,
+		Profesion,
+		Caracteristica,
+		Caracteristica_modelo
+	} from '$lib/server/db/schema';
 	let { data }: { data: PageData } = $props();
 	const modelo_avion: Modelo_avion = {
 		codigo_ma: data.modelo_avion.codigo_ma,
@@ -25,10 +31,11 @@
 	import { writable } from 'svelte/store';
 	const mostrarPresupuesto = writable(false);
 
-function togglePresupuesto() {
-	mostrarPresupuesto.update(value => !value);
-}
+	function togglePresupuesto() {
+		mostrarPresupuesto.update((value) => !value);
+	}
 </script>
+
 <div class="avion-details">
 	<h1><strong>{modelo_avion.nombre_ma}</strong></h1>
 	<p><strong>Descripción:</strong> {modelo_avion.descripcion_ma}</p>
@@ -46,8 +53,7 @@ function togglePresupuesto() {
 		<tbody>
 			{#each caracteristicas_modelo as caracteristica_modelo}
 				{#each caracteristicas as caracteristica}
-					{#if (caracteristica.codigo_car == caracteristica_modelo.fk_caracteristica) && 
-							(caracteristica_modelo.fk_modelo_avion == modelo_avion.codigo_ma)}
+					{#if caracteristica.codigo_car == caracteristica_modelo.fk_caracteristica && caracteristica_modelo.fk_modelo_avion == modelo_avion.codigo_ma}
 						<tr>
 							<td>{caracteristica.nombre_car}</td>
 							<td>{caracteristica_modelo.valor_cm}</td>
@@ -118,5 +124,5 @@ function togglePresupuesto() {
 
 	.Presupuesto {
 		margin: 0 170px 0 170px;
-	}	
+	}
 </style>

@@ -9,12 +9,12 @@ export const POST: RequestHandler = async ({ request }) => {
 	if (fk_modelo_avion == 0) {
 		const [respuesta] = await dbPostgre`CALL insertar_aeronave(${nombre_ma}, 
 									${descripcion_ma}, ${precio_unidad_ma}, NULL, 1)`;
-		
+
 		return json({ respuesta }, { status: 201 });
 	} else {
 		const [respuesta] = await dbPostgre`CALL insertar_aeronave(${nombre_ma}, 
 									${descripcion_ma}, ${precio_unidad_ma}, ${fk_modelo_avion}, 1)`;
-		
+
 		return json({ respuesta }, { status: 201 });
 	}
 };

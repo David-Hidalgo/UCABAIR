@@ -87,7 +87,6 @@
 		font-weight: bold;
 	}
 
-	
 	input {
 		width: 40%;
 		padding: 10px;

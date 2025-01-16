@@ -30,7 +30,7 @@
 			fk_usuario: fk_usuario
 		};
 	}
-	
+
 	let telefono: Telefono = {
 		codigo_tel: 0,
 		numero_telefono_tel: '',
@@ -103,7 +103,7 @@
 		});
 
 		telefonos.forEach((tel) => {
-			tel.fk_empleado= empleado.codigo_empleado_per;
+			tel.fk_empleado = empleado.codigo_empleado_per;
 		});
 		correos.forEach((cor) => {
 			cor.fk_empleado = empleado.codigo_empleado_per;

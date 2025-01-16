@@ -2,7 +2,7 @@
 import { hash, verify } from '@node-rs/argon2';
 import { encodeBase32LowerCase } from '@oslojs/encoding';
 import { fail, redirect } from '@sveltejs/kit';
-import { regExpPassword } from "$lib/index"
+import { regExpPassword } from '$lib/index';
 // import postgres from 'postgres';
 //por cambiar
 // import { eq } from 'drizzle-orm';
@@ -170,10 +170,13 @@ function validateUsername(username: unknown): username is string {
 }
 
 function validatePasswordLog(password: unknown): password is string {
-	return typeof password === 'string' && password.length >= 6 && password.length <= 255 ;
-
+	return typeof password === 'string' && password.length >= 6 && password.length <= 255;
 }
 function validatePassword(password: unknown): password is string {
-	return typeof password === 'string' && password.length >= 6 && password.length <= 255 && regExpPassword.test(password);
-
+	return (
+		typeof password === 'string' &&
+		password.length >= 6 &&
+		password.length <= 255 &&
+		regExpPassword.test(password)
+	);
 }

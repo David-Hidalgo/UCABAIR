@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import type { Ensamblaje_avion } from '$lib/server/db/schema';
-	import type { PageData  } from './$types';
+	import type { PageData } from './$types';
 	let searchTerm = '';
 	const fecha = new Date();
 	const fecha_fin_ens = new Date();

@@ -5,16 +5,21 @@
 	import { goto } from '$app/navigation';
 	import type { ActionData } from './$types';
 	import type { PageData } from './$types';
-	import type { Tipo_materia_prima, Lote_materia_prima, Compra, Historial_estatus_compra, Estatus } from './+page.server.ts';
+	import type {
+		Tipo_materia_prima,
+		Lote_materia_prima,
+		Compra,
+		Historial_estatus_compra,
+		Estatus
+	} from './+page.server.ts';
 	// const dispatch = createEventDispatcher();
 	let { data }: { data: PageData } = $props();
-
 
 	let estatuses: Estatus[] = new Array();
 	for (let i = 0; i < data.est_table.length; i++) {
 		let estatus: Estatus = {
 			codigo_est: 0,
-			nombre_est: '',
+			nombre_est: ''
 		};
 		estatus.codigo_est = data.est_table[i].codigo_est;
 		estatus.nombre_est = data.est_table[i].nombre_est;
@@ -97,7 +102,6 @@
 		});
 		const data = await res.json();
 		location.reload();
-		
 	}
 
 	//mostrarDatos();
@@ -149,7 +153,8 @@
 		{#each compras as compra}
 			<tr>
 				<td>{compra.numero_factura_com}</td>
-				<td>{#each lotes_materia_prima as lote}
+				<td
+					>{#each lotes_materia_prima as lote}
 						{#if lote.fk_compra == compra.codigo_compra_com}
 							{#each tipo_materias_prima as tmp}
 								{#if lote.fk_configuracion_pieza == tmp.codigo_tmp}
@@ -162,19 +167,20 @@
 				<td>{compra.fecha_hora_com}</td>
 				<td>{compra.monto_total_com}</td>
 				<td>
-						{#each historiales_estatus_compra as hec}
-							{#if hec.fk_compra == compra.codigo_compra_com}
-								{#each estatuses as est}
-									{#if hec.fk_estatus == est.codigo_est}
-										<option>{est.nombre_est}</option>
-										{#if est.codigo_est==11}
-											<button onclick={() => actualizarEstatus(hec.fk_compra)}>Pagar</button>
-										{/if}
+					{#each historiales_estatus_compra as hec}
+						{#if hec.fk_compra == compra.codigo_compra_com}
+							{#each estatuses as est}
+								{#if hec.fk_estatus == est.codigo_est}
+									<option>{est.nombre_est}</option>
+									{#if est.codigo_est == 11}
+										<button onclick={() => actualizarEstatus(hec.fk_compra)}>Pagar</button>
 									{/if}
-								{/each}
-							{/if}
-						{/each}
-			</tr>
+								{/if}
+							{/each}
+						{/if}
+					{/each}
+				</td></tr
+			>
 		{/each}
 	</tbody>
 </table>

@@ -1,14 +1,19 @@
 <script lang="ts">
-	import type { Tipo_materia_prima, Compra, Lote_materia_prima, Proveedor2 } from '$lib/server/db/schema';
+	import type {
+		Tipo_materia_prima,
+		Compra,
+		Lote_materia_prima,
+		Proveedor2
+	} from '$lib/server/db/schema';
 	export let datos_solicitud: Lote_materia_prima[];
 	export let materia_prima: Tipo_materia_prima[];
 	export let proveedores: Proveedor2[];
 	import { goto } from '$app/navigation';
 	let provselected: Proveedor2;
-	let proveedoresArray: { codigo_com: number | undefined, denominacion_comercial: string }[] = [];
-	
+	let proveedoresArray: { codigo_com: number | undefined; denominacion_comercial: string }[] = [];
+
 	for (let i = 0; i < proveedores.length; i++) {
-		let proveedor: {codigo_com :number| undefined, denominacion_comercial:string} = {
+		let proveedor: { codigo_com: number | undefined; denominacion_comercial: string } = {
 			codigo_com: proveedores[i].codigo_com,
 			denominacion_comercial: proveedores[i].denominacion_comercial
 		};
@@ -18,8 +23,8 @@
 		codigo_compra_com: 0,
 		numero_factura_com: 0,
 		fecha_hora_com: new Date(),
-		monto_total_com: Math.floor(Math.random() * 10000)+5000,
-		impuesto_total_com: Math.floor(Math.random() * 99)+1,
+		monto_total_com: Math.floor(Math.random() * 10000) + 5000,
+		impuesto_total_com: Math.floor(Math.random() * 99) + 1
 	};
 
 	let lote_materia_prima: Lote_materia_prima = {
@@ -31,7 +36,6 @@
 		fk_almacen2: undefined,
 		cantidad_lmp: 0
 	};
-
 
 	// Función para manejar el envío del formulario
 	async function registrarSolicitud() {
@@ -56,10 +60,10 @@
 		<p>Unidad de medida:{materia_prima[0].unidad_medida_tmp}</p>
 
 		<label for="proveedores">Proveedores que venden dicho material:</label>
-			<select id="proveedores" bind:value={provselected} on:change={() => console.log(provselected)}
-	>			{#each proveedoresArray as proveedor}
-					<option value={proveedor.codigo_com}>{proveedor.denominacion_comercial}</option>
-				{/each}
+		<select id="proveedores" bind:value={provselected} on:change={() => console.log(provselected)}>
+			{#each proveedoresArray as proveedor}
+				<option value={proveedor.codigo_com}>{proveedor.denominacion_comercial}</option>
+			{/each}
 		</select>
 
 		<h1>Datos del solicitante</h1>
@@ -115,8 +119,8 @@
 	}
 
 	select {
-		background-color:white;
-		color:black;
+		background-color: white;
+		color: black;
 		border: none;
 		border-radius: 3px;
 		border: solid black 1px;

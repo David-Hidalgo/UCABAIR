@@ -79,7 +79,9 @@ export const load: PageServerLoad = async ({ params }) => {
 	const p_table = await dbPostgre<Tipo_pieza[]>`SELECT * FROM tipo_pieza;`;
 	const ca_table = await dbPostgre<Configuracion_avion[]>`SELECT * FROM configuracion_avion;`;
 	const tp_table = await dbPostgre<Tipo_prueba[]>`SELECT * FROM tipo_prueba;`;
-	const cpa_table = await dbPostgre<Configuracion_prueba_avion[]>`SELECT * FROM configuracion_prueba_avion;`;
+	const cpa_table = await dbPostgre<
+		Configuracion_prueba_avion[]
+	>`SELECT * FROM configuracion_prueba_avion;`;
 
 	return { ma_table, car_table, cm_table, p_table, ca_table, tp_table, cpa_table };
 };

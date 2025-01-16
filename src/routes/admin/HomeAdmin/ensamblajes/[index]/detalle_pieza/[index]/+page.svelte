@@ -1,7 +1,7 @@
- <script lang="ts">
+<script lang="ts">
 	import { goto } from '$app/navigation';
 	import type { Ensamblaje_avion } from '$lib/server/db/schema';
-	import type { PageData  } from './$types';
+	import type { PageData } from './$types';
 	let searchTerm = '';
 	const fecha = new Date();
 	const fecha_fin_ens = new Date();
@@ -14,7 +14,7 @@
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 
 	// Ahora declara 'datos' con el tipo explícito 'Dato[]'
-	let { data }: { data: PageData  } = $props();
+	let { data }: { data: PageData } = $props();
 	let detalles_piezas = data.detalles_piezas;
 
 	function editarRegistro(index: number) {

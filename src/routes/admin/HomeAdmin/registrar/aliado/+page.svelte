@@ -53,7 +53,6 @@
 <style>
 	/* Estilos generales para el formulario */
 
-
 	form {
 		max-width: 100%;
 		margin: 0 auto;

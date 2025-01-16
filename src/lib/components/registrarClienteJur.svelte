@@ -113,7 +113,7 @@
 
 	// Función para manejar el envío del formulario
 	async function registrarCliente() {
-		if (codigo_com){
+		if (codigo_com) {
 			cliente_jur.fecha_inicio_operacion_com = new Date();
 			cliente_jur.monto_acreditado_com = 0;
 		}
@@ -233,11 +233,11 @@
 	<label for="nacionalidad">Nacionalidad</label>
 	<input id="nacionalidad" bind:value={cliente_jur.nacionalidad_com} />
 	{#if !codigo_com}
-	<label for="monto">Monto acreditado</label>
-	<input id="monto" bind:value={cliente_jur.monto_acreditado_com} />
+		<label for="monto">Monto acreditado</label>
+		<input id="monto" bind:value={cliente_jur.monto_acreditado_com} />
 
-	<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
-	<input id="fechaInicio" type="date" bind:value={cliente_jur.fecha_inicio_operacion_com} />
+		<label for="fechaInicio">Fecha de Inicio de Operaciones</label>
+		<input id="fechaInicio" type="date" bind:value={cliente_jur.fecha_inicio_operacion_com} />
 	{/if}
 	<button type="submit">Registrar Cliente</button>
 </form>

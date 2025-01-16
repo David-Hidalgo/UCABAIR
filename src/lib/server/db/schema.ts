@@ -238,7 +238,7 @@ export interface Profesion {
 }
 
 export interface Configuracion_def {
-	codigo_ma: number ;
+	codigo_ma: number;
 	nombre_ma: string;
 	descripcion_ma: string;
 	precio_unidad_ma: number | undefined;
@@ -280,31 +280,31 @@ export interface Lote_materia_prima {
 }
 
 export interface Estatus {
-    codigo_est: number | undefined,
-    nombre_est: string
-};
+	codigo_est: number | undefined;
+	nombre_est: string;
+}
 
 export interface Historial_estatus_compra {
-    fk_compra :	number |undefined,
-    fk_estatus : number | undefined,
-    fecha_hec :Date
-};
+	fk_compra: number | undefined;
+	fk_estatus: number | undefined;
+	fecha_hec: Date;
+}
 
 export interface Moneda {
-	codigo_mon: number | undefined,
-	nombre_mon: string,
-	tasa_cambio_mon: number,
-	fecha_inicio_mon: Date,
-	fecha_fin_mon: Date
-};
+	codigo_mon: number | undefined;
+	nombre_mon: string;
+	tasa_cambio_mon: number;
+	fecha_inicio_mon: Date;
+	fecha_fin_mon: Date;
+}
 
 export interface Ensamblaje_avion {
-	codigo_avi: number ;
+	codigo_avi: number;
 	codigo_ens: number | undefined;
 	nombre_ma: string;
 	nombre_o_denominacion: string; //se puede obtener de otra tabla
-	apellido_o_razon_social: string
+	apellido_o_razon_social: string;
 	fecha_inicio_ens: Date;
 	fecha_fin_ens: Date;
 	nombre_est: string;
-};
+}

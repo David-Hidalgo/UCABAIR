@@ -3,7 +3,7 @@
 	// import { createEventDispatcher } from 'svelte';
 	import { enhance } from '$app/forms';
 	import { goto } from '$app/navigation';
-	import type { PageData,ActionData } from './$types';
+	import type { PageData, ActionData } from './$types';
 	import type { Tipo_pieza, Sede } from './+page.server.ts';
 	// const dispatch = createEventDispatcher();
 

@@ -193,5 +193,4 @@
 	thead {
 		background-color: white;
 	}
-
 </style>

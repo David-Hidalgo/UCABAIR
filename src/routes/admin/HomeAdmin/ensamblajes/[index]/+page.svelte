@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import type { Ensamblaje_avion } from '$lib/server/db/schema';
-	import type { PageData  } from './$types';
+	import type { PageData } from './$types';
 	let searchTerm = '';
 	const fecha = new Date();
 	const fecha_fin_ens = new Date();
@@ -14,7 +14,7 @@
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 
 	// Ahora declara 'datos' con el tipo explícito 'Dato[]'
-	let { data }: { data: PageData  } = $props();
+	let { data }: { data: PageData } = $props();
 	let ensamblajes_piezas = data.ensamblajes_piezas;
 
 	function editarRegistro(index: number) {
@@ -30,7 +30,10 @@
 	}
 </script>
 
-<h2>Ensamblaje de piezas para: {ensamblajes_piezas[0].nombre_ma}{' '}{ensamblajes_piezas[0].nombre_avi}</h2>
+<h2>
+	Ensamblaje de piezas para: {ensamblajes_piezas[0].nombre_ma}{' '}{ensamblajes_piezas[0]
+		.nombre_avi}
+</h2>
 <table>
 	<thead>
 		<tr>
@@ -49,7 +52,9 @@
 				<td>{ensamblaje.nombre_est}</td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/ensamblajes/{ensamblaje.codigo_avi}/detalle_pieza/{ensamblaje.codigo_pie}">
+						<a
+							href="/admin/HomeAdmin/ensamblajes/{ensamblaje.codigo_avi}/detalle_pieza/{ensamblaje.codigo_pie}"
+						>
 							<button>Ver Detalles</button>
 						</a>
 					</div>

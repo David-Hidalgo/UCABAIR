@@ -65,7 +65,7 @@
 	<table>
 		<thead>
 			<tr>
-				<th>Personal Requerido</th> 
+				<th>Personal Requerido</th>
 				<th>Cantidad de personal</th>
 			</tr>
 		</thead>
@@ -76,10 +76,9 @@
 					<td> {profesionales.cantidad_empleado_epp}</td>
 				</tr>
 			{/each}
-			
 		</tbody>
 	</table>
-	
+
 	<h2>Costos de elaboracion de piezas</h2>
 	<table>
 		<thead>
@@ -88,7 +87,6 @@
 				<th>Precio unitario</th>
 				<th>Cantidad de piezas</th>
 				<th>Costo total de pieza</th>
-				
 			</tr>
 		</thead>
 		<tbody>
@@ -106,7 +104,7 @@
 				<td>Total</td>
 				<td></td>
 				<td></td>
-				
+
 				<td>{tipo_pieza.reduce((acc, curr) => acc + curr.precio_total, 0)}</td>
 			</tr>
 		</tfoot>

@@ -5,5 +5,9 @@
 </script>
 
 <div class="EditarMateriaPrima">
-	<RegistrarSolicitud datos_solicitud={data.datos_solicitud} materia_prima={data.materia_prima} proveedores={data.proveedor}/>
+	<RegistrarSolicitud
+		datos_solicitud={data.datos_solicitud}
+		materia_prima={data.materia_prima}
+		proveedores={data.proveedor}
+	/>
 </div>

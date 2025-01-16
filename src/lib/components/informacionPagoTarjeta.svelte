@@ -38,7 +38,7 @@
 	async function registrarMetodoPago() {
 		const res = await fetch(`/cliente/pago`, {
 			method: 'POST',
-			body: JSON.stringify(modo_pago),	
+			body: JSON.stringify(modo_pago),
 			headers: { 'Content-Type': 'application/json' }
 		});
 		const data = await res.json();
@@ -92,7 +92,7 @@
 			<label for="cvv">CVV</label>
 			<input type="text" id="cvv" bind:value={modo_pago.cvv_tar} />
 		</div>
-		<button type="submit" >Confirmar Pago</button>
+		<button type="submit">Confirmar Pago</button>
 	</div>
 </form>
 

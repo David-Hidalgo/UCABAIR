@@ -3,7 +3,7 @@ import { json } from '@sveltejs/kit';
 import { dbPostgre } from '$lib/server/db';
 import type { RequestHandler } from './$types';
 
-export const POST: RequestHandler = async ({request}) => {
+export const POST: RequestHandler = async ({ request }) => {
 	const { codigo_tp, nombre_tp, descripcion_tp, precio_unidad_tp, fk_tipo_pieza } =
 		await request.json();
 
@@ -17,4 +17,4 @@ export const POST: RequestHandler = async ({request}) => {
 									 ${descripcion_tp}, ${fk_tipo_pieza}, ${precio_unidad_tp},1`;
 		return json({ respuesta }, { status: 201 });
 	}
-}
+};

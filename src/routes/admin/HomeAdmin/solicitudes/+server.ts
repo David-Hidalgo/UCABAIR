@@ -4,7 +4,7 @@ import { dbPostgre } from '$lib/server/db';
 //import type { RequestHandler } from './$types';
 
 export async function PUT({ request }) {
-	const fk_compra= await request.json();
+	const fk_compra = await request.json();
 
 	const respuesta = await dbPostgre`CALL cambiar_estatus_compra(${fk_compra})`;
 
