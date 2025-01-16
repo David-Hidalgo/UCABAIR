@@ -1079,7 +1079,8 @@ OR REPLACE PROCEDURE insertar_pago_venta (
     fk_modo_pagoI INTEGER,
     fk_monedaI INTEGER,
     fk_personaI INTEGER,
-    cantidad INTEGER
+    cantidad INTEGER,
+    codigo_modelo INTEGER
 ) LANGUAGE plpgsql
 AS $$
 DECLARE
@@ -1118,7 +1119,7 @@ VALUES
 INSERT INTO 
     avion(color_avi, fk_modelo_avion,fk_venta,fk_almacen,fk_almacen2,fk_ensamblaje,nombre_avi,matricula_avi)
 VALUES
-    ('Negro',1,codigo_venta_venI,1,1,max_fk_ensamblaje+1,'BrincaNubes',200538);
+    ('Negro',codigo_modelo,codigo_venta_venI,1,1,max_fk_ensamblaje+1,'BrincaNubes',200538);
 
 INSERT INTO 
     estatus_historial_ensamblaje (fecha_ehe, fk_estatus, fk_ensamblaje)

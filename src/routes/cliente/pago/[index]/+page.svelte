@@ -51,7 +51,8 @@
 				moneda: $selectedMoneda,
 				precioAvion: avion_a_pagar.precio_unidad_ma,
 				codigo_com: persona.codigo_com,
-				cantidad
+				cantidad: cantidad,
+				codigo_ma:data.avion.codigo_ma
 			}),
 			headers: { 'Content-Type': 'application/json' }
 		}).then((res) => {
