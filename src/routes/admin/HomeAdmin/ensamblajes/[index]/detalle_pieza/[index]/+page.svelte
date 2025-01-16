@@ -30,26 +30,23 @@
 	}
 </script>
 
-<h2>Detalle de pieza para: {detalles_piezas[0].nombre_ma}</h2>
+<h2>Detalle de pieza para: {detalles_piezas[0].nombre_tp}</h2>
 <table>
 	<thead>
 		<tr>
-			<th>Codigo Pieza</th>
-			<th>Nombre Pieza</th>
-			<th>Lugar de Ensamblaje</th>
+			<th>Codigo Lote Materia Prima</th>
+			<th>Nombre Materia Prima</th>
+			<th>Cantidad</th>
 			<th>Estatus</th>
 		</tr>
 	</thead>
 	<tbody>
 		{#each detalles_piezas as detalle, i}
 			<tr>
-				<td>{detalle.codigo_pie}</td>
-				<td>{detalle.nombre_tp}</td>
-				<td>{detalle.nombre_sed}</td>
+				<td>{detalle.codigo_lmp}</td>
+				<td>{detalle.nombre_tmp}</td>
+				<td>{detalle.cantidad_materia_prima_cp}{' '}{detalle.unidad_medida_tmp}</td>
 				<td>{detalle.nombre_est}</td>
-				<td>
-					
-				</td>
 			</tr>
 		{/each}
 	</tbody>

@@ -28,8 +28,11 @@ export const load: PageServerLoad = async ({ params }) => {
 
 	if (Number.isInteger(n)) {
 		const p_table =
-			await dbPostgre`SELECT tp.precio_unidad_tp,ca.cantidad_pieza_ca,tp.precio_unidad_tp*ca.cantidad_pieza_ca as precio_total,tp.nombre_tp FROM tipo_pieza tp inner join configuracion_avion ca on tp.codigo_tp=ca.fk_tipo_pieza
-		where ca.fk_modelo_avion=${n}`;
+			await dbPostgre`SELECT tp.precio_unidad_tp,ca.cantidad_pieza_ca,tp.precio_unidad_tp*ca.cantidad_pieza_ca as precio_total,
+							tp.nombre_tp FROM tipo_pieza tp inner join configuracion_avion ca on tp.codigo_tp=ca.fk_tipo_pieza
+							where ca.fk_modelo_avion=${n}`;
+			console.log('Tipo piezas');
+			console.log(p_table);
 
 		const resultado = await dbPostgre<
 			Configuracion_def[]
@@ -37,20 +40,21 @@ export const load: PageServerLoad = async ({ params }) => {
 		configuracion_prueba_avion cpa, embalaje_configuracion_avion eca, transporte_configuracion_avion tca,
 		tipo_prueba tp, estimacion_profesion_empleado epe, profesion pro,
 		embalaje_plan ep,plan_transporte pt 
-		where
-		cpa.fk_modelo_avion=ma.codigo_ma and
-		tp.codigo_tp=cpa.fk_tipo_prueba and 
-		tp.codigo_tp=epe.fk_tipo_prueba and
-		pro.codigo_pro=epe.fk_profesion and
-		pt.codigo_pt=epe.fk_plan_transporte and
-		ep.codigo_ep=epe.fk_embalaje_plan and
-		pt.codigo_pt=tca.fk_plan_transporte and
-		ep.codigo_ep=eca.fk_embalaje_plan and
-		ma.codigo_ma=ca.fk_modelo_avion and
-		ca.fk_tipo_pieza=tip.codigo_tp and
-		pe.codigo_pe=cep.fk_plan_ensamblaje and
-		tip.codigo_tp=cep.fk_tipo_pieza and
-		codigo_ma=${n}`;
+		where 		cpa.fk_modelo_avion=ma.codigo_ma and
+					tp.codigo_tp=cpa.fk_tipo_prueba and 
+					tp.codigo_tp=epe.fk_tipo_prueba and
+					pro.codigo_pro=epe.fk_profesion and
+					pt.codigo_pt=epe.fk_plan_transporte and
+					ep.codigo_ep=epe.fk_embalaje_plan and
+					pt.codigo_pt=tca.fk_plan_transporte and
+					ep.codigo_ep=eca.fk_embalaje_plan and
+					ma.codigo_ma=ca.fk_modelo_avion and
+					ca.fk_tipo_pieza=tip.codigo_tp and
+					pe.codigo_pe=cep.fk_plan_ensamblaje and
+					tip.codigo_tp=cep.fk_tipo_pieza and
+					codigo_ma=${n}`;
+		console.log('Configuracion def');
+		console.log(resultado);
 
 		const profesion_table =
 			await dbPostgre`SELECT * FROM profesion pro inner join estimacion_profesion_empleado epp on epp.fk_profesion=pro.codigo_pro

@@ -2,7 +2,6 @@ import { dbPostgre } from '$lib/server/db/index';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
-	console.log(params.index);
     const detalles_piezas = await dbPostgre`select *
 											from lote_materia_prima lmp inner join configuracion_pieza cp
 											on lmp.fk_configuracion_pieza=cp.fk_tipo_pieza and lmp.fk_configuracion_pieza2=cp.fk_tipo_materia_prima

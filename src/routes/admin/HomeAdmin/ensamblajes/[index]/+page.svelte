@@ -30,7 +30,7 @@
 	}
 </script>
 
-<h2>Ensamblaje de piezas para: {ensamblajes_piezas[0].nombre_ma}</h2>
+<h2>Ensamblaje de piezas para: {ensamblajes_piezas[0].nombre_ma}{' '}{ensamblajes_piezas[0].nombre_avi}</h2>
 <table>
 	<thead>
 		<tr>

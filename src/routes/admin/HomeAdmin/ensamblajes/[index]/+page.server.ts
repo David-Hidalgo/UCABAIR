@@ -9,7 +9,9 @@ export const load: PageServerLoad = async ({ params }) => {
 											inner join tipo_pieza tp on tp.codigo_tp=ca.fk_tipo_pieza
 											inner join ensamblaje ens on ens.codigo_ens=pi.fk_ensamblaje
 											inner join avion avi on avi.codigo_avi=pi.fk_avion
+											inner join modelo_avion mo on mo.codigo_ma=ca.fk_modelo_avion
 											where avi.codigo_avi=${params.index};`
+
 
     return { ensamblajes_piezas };
 };
