@@ -159,7 +159,7 @@ ALTER TABLE pago_moneda ADD CONSTRAINT arco_pm CHECK (
     )
 );
 
-ALTER TABLE pago_moneda ADD CONSTRAINT pago_moneda_pk PRIMARY KEY (fk_moneda);
+ALTER TABLE pago_moneda ADD CONSTRAINT pago_moneda_pk PRIMARY KEY (codigo_pm);
 
 ALTER TABLE pago_empleado ADD CONSTRAINT pago_empleado_pk PRIMARY KEY (codigo_pp);
 

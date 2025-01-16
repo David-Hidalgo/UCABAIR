@@ -14,8 +14,8 @@
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 
 	// Ahora declara 'datos' con el tipo explícito 'Dato[]'
-	let { data }: { data: PageData } = $props();
-	let ensamblajes: Ensamblaje_avion[] = data.ensamblajes;
+	let { data }: { data: PageData  } = $props();
+	let ensamblajes_piezas = data.ensamblajes_piezas;
 
 	function editarRegistro(index: number) {
 		// Lógica para editar el registro en 'datos'
@@ -30,29 +30,27 @@
 	}
 </script>
 
-<h2>Ensamblajes</h2>
+<h2>Ensamblaje de piezas para: {ensamblajes_piezas[0].nombre_ma}</h2>
 <table>
 	<thead>
 		<tr>
-			<th>Modelo de avion a ensamblar</th>
-			<th>Cliente</th>
-			<th>Fecha Inicio</th>
-			<th>Fecha Fin (Estimada)</th>
+			<th>Codigo Pieza</th>
+			<th>Nombre Pieza</th>
+			<th>Lugar de Ensamblaje</th>
 			<th>Estatus</th>
 		</tr>
 	</thead>
 	<tbody>
-		{#each ensamblajes as ensamblaje, i}
+		{#each ensamblajes_piezas as ensamblaje, i}
 			<tr>
-				<td>{ensamblaje.nombre_ma}</td>
-				<td>{ensamblaje.nombre_o_denominacion}</td>
-				<td>{ensamblaje.fecha_inicio_ens}</td>
-				<td>{ensamblaje.fecha_fin_ens}</td>
+				<td>{ensamblaje.codigo_pie}</td>
+				<td>{ensamblaje.nombre_tp}</td>
+				<td>{ensamblaje.nombre_sed}</td>
 				<td>{ensamblaje.nombre_est}</td>
 				<td>
 					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/ensamblajes/{ensamblaje.codigo_avi}">
-							<button>Ver Piezas</button>
+						<a href="/admin/HomeAdmin/ensamblajes/{ensamblaje.codigo_avi}/detalle_pieza/{ensamblaje.codigo_pie}">
+							<button>Ver Detalles</button>
 						</a>
 					</div>
 				</td>

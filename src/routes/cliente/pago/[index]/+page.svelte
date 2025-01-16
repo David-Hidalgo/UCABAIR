@@ -38,11 +38,18 @@
 	let cantidad:number = $state(0);
 	let pagoExitosoPopover: HTMLDivElement;
 	const pagar = (string1:string) => {
+			console.log("lo llamé");
 			console.log(modo_pago.codigo_mp);
+			console.log($selectedMoneda);
+			console.log(avion_a_pagar.precio_unidad_ma);
+			console.log(persona.codigo_com);
+			console.log(cantidad);
 			fetch(`/cliente/pago/registrarVenta`, {
 				method: 'POST',
 				body: JSON.stringify({modo_pago:modo_pago.codigo_mp, moneda:$selectedMoneda,precioAvion:avion_a_pagar.precio_unidad_ma, codigo_com:persona.codigo_com, cantidad}),
 				headers: { 'Content-Type': 'application/json' }
+			}).then((res) => {
+				console.log(res);
 			});
 			console.log(string1);
 			pagoExitosoPopover.showPopover();
@@ -202,7 +209,7 @@
 		</select>
 		<h3>Monto en Moneda Extranjera:</h3>
 		<p>{(avion_a_pagar.precio_unidad_ma / $selectedMoneda.tasa_cambio_mon).toFixed(2)}{$selectedMoneda.nombre_mon}</p>
-		{#if $selectedMoneda.nombre_mon !== 'Bolívares'}			
+		{#if $selectedMoneda.nombre_mon !== 'Bolívar'}			
 			<h3 style="color: red;">Al pagar en monedas extranjeras se debe cancelar el 3% sobre el total en dicha moneda</h3>
 			<p>{(((avion_a_pagar.precio_unidad_ma / $selectedMoneda.tasa_cambio_mon) * 0.03) + (avion_a_pagar.precio_unidad_ma / $selectedMoneda.tasa_cambio_mon)).toFixed(2)} {$selectedMoneda.nombre_mon}</p>
 		{/if}

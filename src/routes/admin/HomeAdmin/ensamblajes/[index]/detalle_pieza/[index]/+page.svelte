@@ -1,4 +1,4 @@
-<script lang="ts">
+ <script lang="ts">
 	import { goto } from '$app/navigation';
 	import type { Ensamblaje_avion } from '$lib/server/db/schema';
 	import type { PageData  } from './$types';
@@ -14,8 +14,8 @@
 	// Define una interfaz para el tipo de datos que contiene 'datos'
 
 	// Ahora declara 'datos' con el tipo explícito 'Dato[]'
-	let { data }: { data: PageData } = $props();
-	let ensamblajes: Ensamblaje_avion[] = data.ensamblajes;
+	let { data }: { data: PageData  } = $props();
+	let detalles_piezas = data.detalles_piezas;
 
 	function editarRegistro(index: number) {
 		// Lógica para editar el registro en 'datos'
@@ -30,39 +30,30 @@
 	}
 </script>
 
-<h2>Ensamblajes</h2>
+<h2>Detalle de pieza para: {detalles_piezas[0].nombre_ma}</h2>
 <table>
 	<thead>
 		<tr>
-			<th>Modelo de avion a ensamblar</th>
-			<th>Cliente</th>
-			<th>Fecha Inicio</th>
-			<th>Fecha Fin (Estimada)</th>
+			<th>Codigo Pieza</th>
+			<th>Nombre Pieza</th>
+			<th>Lugar de Ensamblaje</th>
 			<th>Estatus</th>
 		</tr>
 	</thead>
 	<tbody>
-		{#each ensamblajes as ensamblaje, i}
+		{#each detalles_piezas as detalle, i}
 			<tr>
-				<td>{ensamblaje.nombre_ma}</td>
-				<td>{ensamblaje.nombre_o_denominacion}</td>
-				<td>{ensamblaje.fecha_inicio_ens}</td>
-				<td>{ensamblaje.fecha_fin_ens}</td>
-				<td>{ensamblaje.nombre_est}</td>
+				<td>{detalle.codigo_pie}</td>
+				<td>{detalle.nombre_tp}</td>
+				<td>{detalle.nombre_sed}</td>
+				<td>{detalle.nombre_est}</td>
 				<td>
-					<div class="botonesUD">
-						<a href="/admin/HomeAdmin/ensamblajes/{ensamblaje.codigo_avi}">
-							<button>Ver Piezas</button>
-						</a>
-					</div>
+					
 				</td>
 			</tr>
 		{/each}
 	</tbody>
 </table>
-<a href="/admin/HomeAdmin/registrar/proyecto">
-	<button>Iniciar Nuevo Ensamblaje</button>
-</a>
 
 <style>
 	.botonesUD {

@@ -16,13 +16,13 @@ CREATE TABLE
 
 CREATE TABLE
     avion (
-        codigo_avi INTEGER NOT NULL,
+        codigo_avi SERIAL NOT NULL,
         color_avi VARCHAR(255) NOT NULL,
         fk_modelo_avion INTEGER NOT NULL,
         fk_venta INTEGER NOT NULL,
         fk_almacen INTEGER NOT NULL,
         fk_almacen2 INTEGER NOT NULL,
-        fk_ensamblaje INTEGER NOT NULL,
+        fk_ensamblaje INTEGER,
         nombre_avi VARCHAR(255) NOT NULL,
         matricula_avi VARCHAR(255) NOT NULL
     );
@@ -135,7 +135,7 @@ CREATE TABLE
 
 CREATE TABLE
     embalaje (
-        codigo_emb INTEGER NOT NULL,
+        codigo_emb SERIAL NOT NULL,
         fecha_hora_inicio_emb TIMESTAMP NOT NULL,
         fecha_hora_fin_emb TIMESTAMP,
         fk_embalaje_plan INTEGER NOT NULL,
@@ -170,7 +170,7 @@ CREATE TABLE
 CREATE TABLE
     embalaje_plan (
         codigo_ep INTEGER NOT NULL,
-        duracion_estimada_ep VARCHAR(255) NOT NULL
+        duracion_estimada_ep INTEGER NOT NULL
     );
 
 CREATE TABLE
@@ -183,7 +183,7 @@ CREATE TABLE
 
 CREATE TABLE
     ensamblaje (
-        codigo_ens INTEGER NOT NULL,
+        codigo_ens SERIAL NOT NULL,
         fecha_inicio_ens DATE NOT NULL,
         fecha_fin_ens DATE,
         fk_plan_ensamblaje INTEGER NOT NULL,
@@ -209,7 +209,7 @@ CREATE TABLE
 
 CREATE TABLE
     equipo (
-        codigo_equ INTEGER NOT NULL,
+        codigo_equ SERIAL NOT NULL,
         descripcion_equ VARCHAR NOT NULL,
         fk_labor INTEGER NOT NULL,
         fk_zona INTEGER NOT NULL,
@@ -225,7 +225,7 @@ CREATE TABLE
 
 CREATE TABLE
     estatus (
-        codigo_est INTEGER NOT NULL,
+        codigo_est SERIAL NOT NULL,
         nombre_est VARCHAR(255) NOT NULL
     );
 
@@ -284,7 +284,7 @@ CREATE TABLE
 
 CREATE TABLE
     historial_estatus_venta (
-        fecha_hev DATE NOT NULL,
+        fecha_hev DATE NOT NULL DEFAULT CURRENT_DATE,
         fk_venta INTEGER NOT NULL,
         fk_estatus INTEGER NOT NULL
     );
@@ -334,16 +334,16 @@ CREATE TABLE
     modo_pago (
         codigo_mp SERIAL NOT NULL,
         tipo_mp VARCHAR(100) NOT NULL,
-        numero_tarjeta_tar BIGINT,
+        numero_tarjeta_tar INTEGER,
         banco_tar VARCHAR(255),
         cvv_tar NUMERIC(3),
         fecha_vencimiento_tar DATE,
         nombre_tar VARCHAR(100),
         fecha_emision_tar DATE,
-        numero_transferencia_tran BIGINT,
+        numero_transferencia_tran INTEGER,
         fecha_emision_tran DATE,
-        numero_cuenta_tran BIGINT,
-        numero_cheque_che BIGINT,
+        numero_cuenta_tran INTEGER,
+        numero_cheque_che INTEGER,
         banco_che VARCHAR(255),
         fecha_emision_che DATE,
         beneficiario_che VARCHAR(255),
@@ -411,7 +411,7 @@ CREATE TABLE
 
 CREATE TABLE
     pieza (
-        codigo_pie INTEGER NOT NULL,
+        codigo_pie SERIAL NOT NULL,
         fk_pieza INTEGER,
         fk_configuracion_avion INTEGER NOT NULL,
         fk_configuracion_avion2 INTEGER NOT NULL,
@@ -423,15 +423,15 @@ CREATE TABLE
 
 CREATE TABLE
     plan_ensamblaje (
-        codigo_pe INTEGER NOT NULL,
+        codigo_pe SERIAL NOT NULL,
         descripcion_pe VARCHAR(255) NOT NULL,
-        duracion_estimada_pe VARCHAR(255) NOT NULL
+        duracion_estimada_pe INTEGER NOT NULL
     );
 
 CREATE TABLE
     plan_transporte (
         codigo_pt INTEGER NOT NULL,
-        duracion_estimada_pt VARCHAR(255) NOT NULL,
+        duracion_estimada_pt INTEGER NOT NULL,
         descripcion_pt VARCHAR(255) NOT NULL
     );
 
@@ -553,7 +553,7 @@ CREATE TABLE
         codigo_tp SERIAL NOT NULL,
         nombre_tp VARCHAR(255) NOT NULL,
         descripcion_tp VARCHAR(512) NOT NULL,
-        duracion_estimada_tp VARCHAR(255) NOT NULL
+        duracion_estimada_tp INTEGER NOT NULL
     );
 
 CREATE TABLE
@@ -622,7 +622,7 @@ CREATE TABLE
 CREATE TABLE
     venta (
         codigo_venta_ven SERIAL NOT NULL,
-        numero_factura_ven SERIAL NOT NULL ,
+        numero_factura_ven SERIAL NOT NULL,
         fecha_hora_ven TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         monto_total_ven REAL NOT NULL,
         impuesto_total_ven REAL NOT NULL
@@ -647,15 +647,17 @@ CREATE TABLE
 
 CREATE TABLE
     historial_inventario (
-        codigo_hi INTEGER NOT NULL,
+        codigo_hi SERIAL NOT NULL,
         fecha_entrada_hi TIMESTAMP NOT NULL,
-        fecha_salida_hi TIMESTAMP NOT NULL,
+        fecha_salida_hi TIMESTAMP,
         fk_almacen INTEGER NOT NULL,
         fk_almacen2 INTEGER NOT NULL,
         fk_avion INTEGER,
         fk_pieza INTEGER,
         fk_lote_materia_prima INTEGER
     );
+
+
 CREATE OR REPLACE PROCEDURE insertar_usuario(nombre_usu VARCHAR(255), contraseña_usu VARCHAR(255)) LANGUAGE plpgsql AS $$ BEGIN
 INSERT INTO usuario (nombre_usu,contraseña_usu) VALUES (nombre_usu,contraseña_usu);
 END;

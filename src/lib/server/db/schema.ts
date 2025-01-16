@@ -297,3 +297,14 @@ export interface Moneda {
 	fecha_inicio_mon: Date,
 	fecha_fin_mon: Date
 };
+
+export interface Ensamblaje_avion {
+	codigo_avi: number ;
+	codigo_ens: number | undefined;
+	nombre_ma: string;
+	nombre_o_denominacion: string; //se puede obtener de otra tabla
+	apellido_o_razon_social: string
+	fecha_inicio_ens: Date;
+	fecha_fin_ens: Date;
+	nombre_est: string;
+};
