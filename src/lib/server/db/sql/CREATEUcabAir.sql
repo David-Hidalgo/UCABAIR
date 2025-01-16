@@ -1110,36 +1110,8 @@ INSERT INTO
 VALUES
     (CURRENT_DATE, codigo_venta_venI, 12);
 
-
+INSERT INTO 
+    avion(color_avi, fk_modelo_avion,fk_venta,fk_almacen,fk_almacen2,fk_ensamblaje,nombre_avi,matricula_avi)
+VALUES
+    ('Negro',1,codigo_venta_venI,1,1,50,'BrincaNubes',200538);
 END;$$;
-
-
-CREATE OR REPLACE FUNCTION insertar_en_avion() RETURNS TRIGGER AS $$
-DECLARE
-    nuevo_codigo_avi INTEGER;
-BEGIN
-
-        INSERT INTO avion (color_avi,fk_modelo_avion,fk_venta,
-        fk_almacen INTEGER NOT NULL,
-        fk_almacen2 INTEGER NOT NULL,
-        fk_ensamblaje INTEGER,
-        nombre_avi VARCHAR(255) NOT NULL,
-        matricula_avi VARCHAR(255) NOT NULL)
-        VALUES (
-            nuevo_codigo_lmp,
-            2,
-            5,
-            NEW.fk_compra,
-            8,
-            3,
-            170
-        );
-    END IF;
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-
-CREATE TRIGGER trigger_insertar_en_lote_materia_prima AFTER
-INSERT ON historial_estatus_compra
-FOR EACH ROW EXECUTE FUNCTION insertar_en_lote_materia_prima();
